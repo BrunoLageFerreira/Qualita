@@ -1,0 +1,34 @@
+{
+    "totvsLanguageServer.welcomePage": false,
+    "advpl.projectActive": "ProjetoVSCode",
+    "totvsLanguageServer.askCompileResult": true,
+    "advpl.environments": [
+        {
+            "environment": "COMPILA_Q",
+            "name": "COMPILA_Q",
+            "server": "192.168.1.101",
+            "port": "1236",
+            "serverVersion": "210324P",
+            "passwordCipher": "WVQvWDI2VjIwUUhyQUFLSmV3TDFCWDk1ZmsyUmlkZ3VKVENhUHBWZ2Q3OVFVSFhJdDZESHR5NC9rYVB6S1A1Yyt4R2RYQjZweWt4cTBDMzYzNFU0Qi9Cc1NYTTNnYVdrZlA3T0tjVDNuMmNpeTMrOVdBUlE3c05pbGp3VXpLcjk=",
+            "includeList": "d:\\TOTVS 12\\Microsiga\\Protheus\\include\\",
+            "user": "Admin",
+            "smartClientPath": "d:\\TOTVS 12\\Microsiga\\Protheus\\bin\\smartclient_LG_QUALITA",
+            "enable": true
+        },
+        {
+            "environment": "COMPILA_I",
+            "name": "COMPILA_I",
+            "server": "192.168.1.101",
+            "port": "1236",
+            "serverVersion": "210324P",
+            "passwordCipher": "WHFyVTM4Qm5pMjNZc0h1RThHS0tZSHNIbDJXVFI1dTFVNFlSSzhLaDYxbzRIUGhRczZXNG9vN1gxTVEyMHVORTVOaVhYUDB1UU04Q1lXNEhYbEVBWStZbFVtYkR1bzd2b1ZXWG5ndEMwVlkyU2RVc0hKamtaZitadldhZzZPZys=",
+            "includeList": "d:\\TOTVS 12\\Microsiga\\Protheus\\include\\",
+            "user": "Admin",
+            "smartClientPath": "d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\05_ESTOQUE",
+            "enable": true
+        }
+    ],
+    "advpl.selectedEnvironment": "COMPILA_Q",
+    "advpl.foldersProject": [],
+    "search.useGlobalIgnoreFiles": true
+}

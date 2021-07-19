@@ -1,0 +1,12 @@
+//-------------------------------------------------------------------
+/*/ { Protheus.doc } PROFORMAINVOICE
+Relatorio Proforma Invoice - Pedido de Venda
+
+@author Diego Muniz Cerqueira
+@since 21/11/2016
+@version 1.0
+/*/
+//-------------------------------------------------------------------
+User Function proformaInvoice(lWeb)
+
+Return U_GROR002(.F.)

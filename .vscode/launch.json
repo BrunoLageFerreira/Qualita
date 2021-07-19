@@ -1,0 +1,35 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "totvs_language_debug",
+			"request": "launch",
+			"name": "Depuração do idioma TOTVS",
+			"program": "SIGAMDI",
+			"cwb": "${workspaceFolder}",
+			"smartclientBin": "D:\\TOTVS 12\\Microsiga\\Protheus\\bin\\smartclient_LG_QUALITA\\smartclient.exe",
+			"isMultiSession": true,
+			"enableTableSync": true,
+			"programArguments": [],
+			"enableMultiThread": false,
+			"enableProfile": false,
+			"isAccessibilityMode": false,
+			"doNotShowSplash": false,
+			"openglMode": false,
+			"dpiMode": false,
+			"language": "1",
+			"ignoreFiles": true
+		}
+	],
+	"lastPrograms": [
+		{
+			"label": "SIGAMDI",
+			"description": "SIGAMDI"
+		},
+		{
+			"label": "sigafin",
+			"description": "<nil>"
+		}
+	],
+	"lastProgramExecuted": "sigamdi"
+}

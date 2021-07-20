@@ -4,7 +4,6 @@ User Function IMPNFE()
 
 	Local aAreaSE1:=SE1->(GetArea())
 
-
 	Local lRet := .F.
 	Private dDtCusto := CtoD('')                
 

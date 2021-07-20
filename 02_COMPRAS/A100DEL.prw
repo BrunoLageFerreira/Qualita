@@ -16,6 +16,7 @@ User Function A100DEL()
 * /*Alerta de msg para exclusão da NF-e.*/
 *
 *****
+
 Local lRet := .T.
 
 IF dDatabase <> SF1->F1_DTDIGIT

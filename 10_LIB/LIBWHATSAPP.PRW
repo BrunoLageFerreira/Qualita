@@ -913,40 +913,230 @@ dbCloseArea()
 Verificação de erro 
 CAVALETES DIFRENTE DO PEDIDO DE VENDA
 */
-cQuery   := " SELECT C6_NUM ,C6_ITEM,B8_PRODUTO,B8_LOTECTL,C6_NUMLOTE,C6_YCAVALE,B8_YCAVALE,C6_QTDVEN , B8_SALDO
-cQuery   += "   FROM SC6010 SC6 INNER JOIN SB8010 SB8
-cQuery   += "     ON (B8_PRODUTO = C6_PRODUTO AND B8_LOTECTL = C6_LOTECTL AND C6_NUMLOTE = B8_NUMLOTE)
-cQuery   += " WHERE SC6.D_E_L_E_T_ = ''
-cQuery   += " AND SB8.D_E_L_E_T_ = ''
-cQuery   += " AND SC6.C6_NOTA = ''
-cQuery   += " AND SB8.B8_ORIGLAN = 'BD'
-cQuery   += " AND B8_LOCAL = C6_LOCAL
-cQuery   += " AND C6_QTDVEN <> B8_SALDO
-cQuery   += " ORDER BY B8_YCAVALE,C6_NUM,C6_ITEM
-   
+cQuery   := " SELECT 	'P' TIPO,
+cQuery   += " 			C6_NUM,
+cQuery   += " 			B8_YCAVALE
+cQuery   += "   FROM (
+cQuery   += "          SELECT C6_NUM ,C6_ITEM,B8_PRODUTO,B8_LOTECTL,C6_NUMLOTE,C6_YCAVALE,B8_YCAVALE,ROUND(C6_QTDVEN,4,0) C6_QTDVEN , ROUND(B8_SALDO,4,0) B8_SALDO,
+cQuery   += "                         ( SELECT 
+cQuery   += "                             ROUND(SUM(SB.B8_YTOTLIQ),4,0) 
+cQuery   += "                                 FROM SB8010 SB 
+cQuery   += "                             WHERE   SB.D_E_L_E_T_='' 
+cQuery   += "                                 AND SB.B8_PRODUTO = SC6.C6_PRODUTO 
+cQuery   += "                                 AND SC6.C6_LOTECTL = RTRIM(LTRIM(SB.B8_LOTECTL))+RTRIM(LTRIM(SB.B8_YCLASSI)) 
+cQuery   += "                                 AND SC6.C6_NUMLOTE<>SB.B8_NUMLOTE 
+cQuery   += "                                 AND SC6.C6_NUMLOTE=SB.B8_YCAVALE
+cQuery   += "                          ) SALDO_CHAPA
+cQuery   += "                FROM SC6010 SC6 INNER JOIN SB8010 SB8
+cQuery   += "                  ON (B8_PRODUTO = C6_PRODUTO AND B8_LOTECTL = C6_LOTECTL AND C6_NUMLOTE = B8_NUMLOTE)
+cQuery   += "              WHERE SC6.D_E_L_E_T_ = ''
+cQuery   += "                AND SB8.D_E_L_E_T_ = ''
+cQuery   += "                AND SC6.C6_NOTA = ''
+cQuery   += "                AND SB8.B8_ORIGLAN = 'BD'
+cQuery   += "                AND B8_LOCAL = C6_LOCAL
+cQuery   += "          ) TB
+cQuery   += " WHERE
+cQuery   += "      (TB.C6_QTDVEN <> TB.B8_SALDO 
+cQuery   += "      OR 
+cQuery   += "      TB.SALDO_CHAPA<>TB.C6_QTDVEN)
+
+cQuery   += "  UNION ALL
+
+cQuery   += " SELECT 	'E' TIPO,
+cQuery   += " 			'' C6_NUM,
+cQuery   += " 			IIF(B8_YCAVALE='', B8_NUMLOTE,B8_YCAVALE) B8_YCAVALE 
+cQuery   += "     FROM (
+cQuery   += "             SELECT 
+cQuery   += "                 ISNULL(( SELECT 
+cQuery   += "                     ROUND(SUM(SB.B8_YTOTLIQ),4,0) 
+cQuery   += "                         FROM SB8010 SB 
+cQuery   += "                     WHERE   SB.D_E_L_E_T_='' 
+cQuery   += "                         AND SB.B8_PRODUTO = SB8.B8_PRODUTO 
+cQuery   += "                         AND SB8.B8_LOTECTL = RTRIM(LTRIM(SB.B8_LOTECTL))+RTRIM(LTRIM(SB.B8_YCLASSI)) 
+cQuery   += "                         AND SB8.B8_NUMLOTE<>SB.B8_NUMLOTE 
+cQuery   += "                         AND SB8.B8_NUMLOTE=SB.B8_YCAVALE
+cQuery   += "                  ),0) SALDO_CHAPA,
+cQuery   += "                  ROUND(SB8.B8_SALDO,4,0) SALDO_BUNDLE,
+cQuery   += "                  * 
+cQuery   += "             FROM SB8010 SB8 
+cQuery   += "                     WHERE SB8.B8_FILIAL='010101' 
+cQuery   += "                       AND CAST(SB8.B8_NUMLOTE AS INT) BETWEEN 100 AND 999999 
+cQuery   += "                       AND SB8.B8_SALDO>0 
+cQuery   += "                       AND SB8.D_E_L_E_T_=''
+cQuery   += "         )TB
+cQuery   += "     WHERE SALDO_BUNDLE<>SALDO_CHAPA
+
+cQuery   += "  UNION ALL 
+
+cQuery   += "  SELECT 'F' TIPO,
+cQuery   += "  	   D2_NUMLOTE B8_YCAVALE,
+cQuery   += "  	   CHAVE_DOC C6_NUM
+cQuery   += "    FROM (
+cQuery   += "  		SELECT *,
+cQuery   += "  			   (SELECT ROUND(SUM(B8_YQTDBD),0,0) FROM SB8010  WHERE D_E_L_E_T_ = '' AND D2_COD = B8_PRODUTO AND (RTRIM(LTRIM(B8_LOTECTL))+LTRIM(RTRIM(B8_YCLASSI)))=D2_LOTECTL  AND D2_NUMLOTE = B8_YCAVALE AND D2_FILIAL = B8_FILIAL  AND D2_NUMLOTE <> B8_NUMLOTE) QTD_SB8_ORI
+cQuery   += "  		  FROM (
+cQuery   += "  				SELECT  D2_FILIAL+D2_DOC+D2_SERIE CHAVE_DOC,
+cQuery   += "  						CAST(D2_EMISSAO AS DATE) EMISSAO,
+cQuery   += "  						D2_COD,
+cQuery   += "  						D2_NUMLOTE ,
+cQuery   += "  						D2_LOTECTL,						
+cQuery   += "  						D2_FILIAL,
+cQuery   += "  						ROUND(SUM(D2_QUANT),0,0) QTD_FAT
+cQuery   += "  					FROM SD2010 
+cQuery   += "  					WHERE D_E_L_E_T_ = '' 
+cQuery   += "  					  AND D2_COD LIKE 'CH%'
+cQuery   += "  				GROUP BY D2_FILIAL+D2_DOC+D2_SERIE,
+cQuery   += "  							D2_NUMLOTE,
+cQuery   += "  							D2_LOTECTL,
+cQuery   += "  							D2_PEDIDO,
+cQuery   += "  							D2_ITEMPV,
+cQuery   += "  							D2_FILIAL,
+cQuery   += "  							CAST(D2_EMISSAO AS DATE),
+cQuery   += "  							D2_COD
+cQuery   += "  				)TAB_BASE
+cQuery   += "  		)TAB_2
+cQuery   += "  WHERE  ROUND(QTD_FAT,0,0) <> ROUND(QTD_SB8_ORI,0,0)
+cQuery   += "    AND CHAVE_DOC NOT IN (
+cQuery   += "  						'0101010000064491',  
+cQuery   += "  						'0101010000067471',  
+cQuery   += "  						'0101010000070511',
+cQuery   += "  						'0101010000071041',  
+cQuery   += "  						'0101010000072551',  
+cQuery   += "  						'0101010000077821',  
+cQuery   += "  						'0101010000077821',  
+cQuery   += "  						'0101010000083191',  
+cQuery   += "  						'0101010000085411'  
+cQuery   += "  						)
+
+cQuery   += "  ORDER BY B8_YCAVALE,C6_NUM
+
+
+/*
+QUERY USADA PARA ACHAR OS VALORES SB8 <> DO FATURADO
+
+SELECT 'F' TIPO,
+	   D2_NUMLOTE B8_YCAVALE,
+	   CHAVE_DOC C6_NUM
+	   , *
+	   ,'http://192.168.1.101:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003&FILIAL='+D2_FILIAL+'&NUMPED='+D2_PEDIDO+'&rs:Format=pdf' as LINK
+  FROM (
+		SELECT *,
+			   (SELECT RTRIM(LTRIM(B1_DESC))  FROM SB1010 WHERE D_E_L_E_T_ = ''  AND B1_COD = D2_COD) DESCRICAO,
+			   (SELECT C6_PRCVEN  FROM SC6010 WHERE D_E_L_E_T_ = '' AND C6_NUM = D2_PEDIDO AND C6_ITEM = D2_ITEMPV AND D2_FILIAL = C6_FILIAL AND C6_LOTECTL = D2_LOTECTL) PRC_VEN,
+			   (SELECT C6_QTDVEN  FROM SC6010 WHERE D_E_L_E_T_ = '' AND C6_NUM = D2_PEDIDO AND C6_ITEM = D2_ITEMPV AND D2_FILIAL = C6_FILIAL AND C6_LOTECTL = D2_LOTECTL) QTD_PV_NOR,
+			   (SELECT ROUND(C6_QTDVEN,0,0)  FROM SC6010 WHERE D_E_L_E_T_ = '' AND C6_NUM = D2_PEDIDO AND C6_ITEM = D2_ITEMPV AND D2_FILIAL = C6_FILIAL AND C6_LOTECTL = D2_LOTECTL) QTD_PV,
+			   (SELECT C6_YCLASSI  FROM SC6010 WHERE D_E_L_E_T_ = '' AND C6_NUM = D2_PEDIDO AND C6_ITEM = D2_ITEMPV AND D2_FILIAL = C6_FILIAL AND C6_LOTECTL = D2_LOTECTL) CLASSIF,
+			   (SELECT C6_YCAVALE FROM SC6010 WHERE D_E_L_E_T_ = '' AND C6_NUM = D2_PEDIDO AND C6_ITEM = D2_ITEMPV AND D2_FILIAL = C6_FILIAL AND C6_LOTECTL = D2_LOTECTL) CAVALETE,
+			   (SELECT SUM(B8_YQTDBD) FROM SB8010  WHERE D_E_L_E_T_ = '' AND D2_COD = B8_PRODUTO AND (RTRIM(LTRIM(B8_LOTECTL))+LTRIM(RTRIM(B8_YCLASSI)))=D2_LOTECTL  AND D2_NUMLOTE = B8_YCAVALE AND D2_FILIAL = B8_FILIAL  AND D2_NUMLOTE <> B8_NUMLOTE) QTD_SB8_ORI_NOR,
+			   (SELECT ROUND(SUM(B8_YQTDBD),0,0) FROM SB8010  WHERE D_E_L_E_T_ = '' AND D2_COD = B8_PRODUTO AND (RTRIM(LTRIM(B8_LOTECTL))+LTRIM(RTRIM(B8_YCLASSI)))=D2_LOTECTL  AND D2_NUMLOTE = B8_YCAVALE AND D2_FILIAL = B8_FILIAL  AND D2_NUMLOTE <> B8_NUMLOTE) QTD_SB8_ORI
+		  FROM (
+				SELECT  D2_FILIAL+D2_DOC+D2_SERIE CHAVE_DOC,
+						CAST(D2_EMISSAO AS DATE) EMISSAO,
+						D2_COD,
+						D2_NUMLOTE ,
+						D2_LOTECTL,						
+						D2_PEDIDO,
+						D2_ITEMPV,
+						D2_FILIAL,
+						ROUND(SUM(D2_QUANT),0,0) QTD_FAT
+					FROM SD2010 
+					WHERE D_E_L_E_T_ = '' 
+					 -- AND D2_DOC = '000009057' 
+					  AND D2_COD LIKE 'CH%'
+				GROUP BY D2_FILIAL+D2_DOC+D2_SERIE,
+							D2_NUMLOTE,
+							D2_LOTECTL,
+							D2_PEDIDO,
+							D2_ITEMPV,
+							D2_FILIAL,
+							CAST(D2_EMISSAO AS DATE),
+							D2_COD
+				)TAB_BASE
+		)TAB_2
+WHERE  ROUND(QTD_FAT,0,0) <> ROUND(QTD_SB8_ORI,0,0)
+  AND CHAVE_DOC NOT IN (
+						'0101010000064491',  
+						'0101010000067471',  
+						'0101010000070511',
+						'0101010000071041',  
+						'0101010000072551',  
+						'0101010000077821',  
+						'0101010000077821',  
+						'0101010000083191',  
+						'0101010000085411'  
+						)
+ORDER BY EMISSAO, CHAVE_DOC
+
+*/
+
 dbUseArea(.T., "TOPCONN", TCGenQry(,,cQuery), "TRBERRO", .F., .T.)
 dbSelectArea("TRBERRO")
 dbgotop()
 Do While !EOF()
 
-	/*
-	AVISO PARA BRUNO
-	*/
-	U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
+	IF TRBERRO->TIPO == 'P'
+		/*
+		AVISO PARA BRUNO
+		*/
+		U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
+		
+		sleep(300)
+		
+		/*
+		AVISO PARA ARLINDO
+		*/
+		U_SWENV("5527999999365", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
+		
+		sleep(300)
+		
+		/*
+		EMAIL
+		*/
+		TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;comercial.es@grupoqualita.com.br",'ERRO URGENTE ! PV:' + TRBERRO->C6_NUM , "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE ,'')
+	ENDIF
+
+	IF TRBERRO->TIPO == 'E'
+		/*
+		AVISO PARA BRUNO
+		*/
+		U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) CAVALETE -  BUNDLE:" + AllTrim(TRBERRO->B8_YCAVALE)    )
+		
+		sleep(300)
+		
+		/*
+		AVISO PARA ARLINDO
+		*/
+		U_SWENV("5527999999365", "ERRO URGENTE (DIF. DE SALDO) CAVALETE - BUNDLE:" + AllTrim(TRBERRO->B8_YCAVALE)     )
+		
+		sleep(300)
+		
+		/*
+		EMAIL
+		*/
+		TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;comercial.es@grupoqualita.com.br","ERRO URGENTE ! CAVALETE:" + TRBERRO->B8_YCAVALE ,'')
+	ENDIF
+
 	
-	sleep(300)
-	
-	/*
-	AVISO PARA ARLINDO
-	*/
-	U_SWENV("5527999999365", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
-	
-	sleep(300)
-	
-	/*
-	EMAIL
-	*/
-	TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;comercial.es@grupoqualita.com.br",'ERRO URGENTE ! PV:' + TRBERRO->C6_NUM , "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE ,'')
+	IF TRBERRO->TIPO == 'F'
+		/*
+		AVISO PARA BRUNO
+		*/
+		U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + AllTrim(TRBERRO->C6_NUM)    )
+		
+		sleep(300)
+		
+		/*
+		AVISO PARA ARLINDO
+		*/
+		U_SWENV("5527999999365", "ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + AllTrim(TRBERRO->C6_NUM)     )
+		
+		sleep(300)
+		
+		/*
+		EMAIL
+		*/
+		TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;comercial.es@grupoqualita.com.br","ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + TRBERRO->C6_NUM ,'')
+	ENDIF
 
 	dbSelectArea("TRBERRO")
 	dbSkip()

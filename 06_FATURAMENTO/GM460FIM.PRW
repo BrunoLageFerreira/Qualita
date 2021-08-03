@@ -218,9 +218,9 @@ If dbSeek(xFilial("SE1")+SE1->E1_PREFIXO+SF2->F2_DOC+SE1->E1_PARCELA+SE1->E1_TIP
 		    
 		If aTPadv[nQtdRe][2] <> SE1->E1_VALOR 
 				RecLock( "SE1",.F. )
-				 Replace SE1->E1_VALOR   With aTPadv[nQtdRe][2]
-				 Replace SE1->E1_SALDO   With aTPadv[nQtdRe][2]
-				 Replace SE1->E1_XINVOIC With TMPABFIN->C5_YINVOIC
+					Replace SE1->E1_VALOR   With aTPadv[nQtdRe][2]
+					Replace SE1->E1_SALDO   With aTPadv[nQtdRe][2]
+					Replace SE1->E1_XINVOIC With TMPABFIN->C5_YINVOIC
 				MsUnLock()
 		EndIf
 				

@@ -932,11 +932,11 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	aDadosGrv := FCalImp(@oProcess)
 	
 	If LEN(aDadosGrv)>0
-		M->C5_XVALEXT := AllTrim(Extenso(aDadosGrv[3],.f.,M->C5_MOEDA,,"3",.t.,.f.))
-		M->C5_XTOTAL  := aDadosGrv[1] -  M->C5_DESCONT
-		M->C5_XDESCON := aDadosGrv[2] +  M->C5_DESCONT
-		M->C5_XVLRFIN := aDadosGrv[3] -  M->C5_DESCONT
-		//M->C5_XDESPES := aDadosGrv[4]
+		M->C5_XVALEXT := AllTrim(Extenso((aDadosGrv[4] + aDadosGrv[3]) ,.f.,M->C5_MOEDA,,"3",.t.,.f.))
+		M->C5_XTOTAL  := (aDadosGrv[4] + aDadosGrv[3]) -  M->C5_DESCONT 
+		M->C5_XDESCON := aDadosGrv[2]  + M->C5_DESCONT 
+		M->C5_XVLRFIN := (aDadosGrv[4] + aDadosGrv[3]) -  M->C5_DESCONT 
+		M->C5_XDESPES := aDadosGrv[4]
 		//M->C5_XSEGURO := aDadosGrv[5]
 	EndIf 
 	
@@ -1276,8 +1276,8 @@ Local nItem:= 0
 	 aAdd(_aTotalNF,MaFisRet(,"NF_TOTAL"))
 	 aAdd(_aTotalNF,nValDesc)
 	 aAdd(_aTotalNF,MaFisRet(,"NF_BASEDUP"))
-// 	 aAdd(_aTotalNF,MaFisRet(,"NF_DESPESA"))
-//	 aAdd(_aTotalNF,MaFisRet(,"NF_SEGURO"))  
+ 	 aAdd(_aTotalNF,M->C5_DESPESA)
+	 //aAdd(_aTotalNF,MaFisRet(,"NF_SEGURO"))  
 	
 	 MaFisEnd() 	// Encerra rotina de calculo de impostos 
 

@@ -139,9 +139,10 @@ If SubString(CNUMEMP,1,2) == "01"
 			@ u_MGETTELA(021),u_MGETTELA(165) MsGet oEdit3 Var cEdit3 when(.f.) Size u_MGETTELA(087),u_MGETTELA(009) picture("@E 999,999.99")  COLOR CLR_BLACK PIXEL OF _oDlg
 			
 			
-			@ u_MGETTELA(180),u_MGETTELA(50)  Button "(+) INCLUIR"  Size u_MGETTELA(037),u_MGETTELA(012) ACTION(FEditInf()) PIXEL OF _oDlg
+			@ u_MGETTELA(180),u_MGETTELA(050)  Button "(+) INCLUIR"  Size u_MGETTELA(037),u_MGETTELA(012) ACTION(FEditInf()) PIXEL OF _oDlg
 			@ u_MGETTELA(180),u_MGETTELA(100) Button "(-) DELETAR"  Size u_MGETTELA(037),u_MGETTELA(012) ACTION(fDelete())  PIXEL OF _oDlg
-			
+			@ u_MGETTELA(180),u_MGETTELA(150) Button "REL. SALDOS"  Size u_MGETTELA(037),u_MGETTELA(012) ACTION(u_relinweb("RQ0068","Relatório de Saldo",'u_fParR68()' ) )  PIXEL OF _oDlg
+
 			@ u_MGETTELA(180),u_MGETTELA(200) Button "Ok"           Size u_MGETTELA(037),u_MGETTELA(012) ACTION(FTotais(),lCloseDlg := .T. ,close(_oDlg))  PIXEL OF _oDlg
 			
 			@ u_MGETTELA(035),u_MGETTELA(006) ListBox oListBoxFin Fields ;
@@ -171,6 +172,19 @@ If SubString(CNUMEMP,1,2) == "01"
 EndIf
 
 Return Nil
+
+User Function fParR68()
+/*********************************************************************************************************************
+*  
+* 
+*
+***/
+Local cRet := ""
+
+cRet := "&FILIAL=" + SE1->E1_FILIAL + "&NUMTITULO=" + SE1->E1_NUM
+
+Return(cRet)
+
 
 Static Function fClickMark(nLinha)
 /*********************************************************************************************************************

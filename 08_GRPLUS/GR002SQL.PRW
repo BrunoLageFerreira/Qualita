@@ -60,6 +60,8 @@ dbCloseArea()
 
 If !Empty(cCavMob)
 	SetMVValue("GR002SQLSW","MV_PAR01",cCavMob) 
+else
+	SetMVValue("GR002SQLSW","MV_PAR01",space(99)) 
 EndIf
 
 If ! Pergunte(cPerg,.T.)

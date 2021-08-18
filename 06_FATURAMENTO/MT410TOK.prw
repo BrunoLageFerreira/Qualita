@@ -7,6 +7,7 @@ Programa ...: MT410TOK.Prw
 Uso ........: Validação do pedido de vendas
 Data .......: 26/04/2019
 Feito por ..: Bruno Lage Ferreira 
+
 MV_NDESCTP - DESCONTO NO PREÇO DE LISTA E UNITARIO
 */
 
@@ -86,6 +87,7 @@ Local lLibBlq  := .F.
 Local lCalcPeso:= .F.
 Local cQuery   := ""
 Local cGPExec  := GetMv("MV_XGPEXE")
+lOCAL nX       := 0
 
 If SubString(CNUMEMP,1,2) == "01"  .AND. (FUNNAME() <> "GROA001")
 	For nX := 1 To Len(aCols)
@@ -1839,7 +1841,6 @@ DEFINE MSDIALOG _oDlgVlr TITLE " ITEM " + cNumItem   FROM u_MGETTELA(223),u_MGET
 	
 	@ u_MGETTELA(047),u_MGETTELA(131) Button "Ok" 		Size u_MGETTELA(037),u_MGETTELA(012)  ACTION( lNExec := .T. , Close(_oDlgVlr))  PIXEL OF _oDlgVlr
 	//@ u_MGETTELA(047),u_MGETTELA(085) Button "Deletar" 	Size u_MGETTELA(037),u_MGETTELA(012)  ACTION( lNDele := .T. , Close(_oDlgVlr))  PIXEL OF _oDlgVlr
-	
 	//@ u_MGETTELA(050),u_MGETTELA(007) Say "O valor irá subistituir todas as chapas do cavalete! "  Size u_MGETTELA(113),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlgVlr
 
 ACTIVATE MSDIALOG _oDlgVlr CENTERED

@@ -182,10 +182,10 @@ If MsgYesNo("Deseja alterar os dados de endereçamento ?" )
 		
 			/*
 			Limpa o local atual caso exita
-			*/
+			
 			cQuery:=" UPDATE SB8010
 			cQuery+="   SET B8_XDTMOVE ='',B8_XENDERE='',B8_XPUSUAR=''
-			cQuery+="  	FROM SB8010 SB8 
+			cQuery+="  	FROM SB8010 SB8 WITH ( NOLOCK )
 			cQuery+=" WHERE SB8.D_E_L_E_T_ = ''
 			cQuery+="   AND B8_PRODUTO = '"+ TRB->PRODUTO  +"'
 			cQuery+="   AND B8_LOTECTL = '"+ TRB->LOTE     +"'
@@ -194,13 +194,15 @@ If MsgYesNo("Deseja alterar os dados de endereçamento ?" )
 			//cQuery+="   AND B8_SALDO <> 0
 		
 			TcSQLExec(cQuery)
-			
+			*/
 			/*
 			Atualiza o novo endereço 
+
+			PLSQuery
 			*/
 			cQuery:=" UPDATE SB8010
 			cQuery+="   SET B8_XDTMOVE ='"+dToS(dDataBase)+"',B8_XENDERE='"+Alltrim(mv_par01)+"',B8_XPUSUAR='"+SUBSTR(CUSUARIO,7,15)+"'
-			cQuery+="  	FROM SB8010 SB8 
+			cQuery+="  	FROM SB8010 SB8 WITH ( NOLOCK )
 			cQuery+=" WHERE SB8.D_E_L_E_T_ = ''
 			cQuery+="   AND B8_PRODUTO = '"+ TRB->PRODUTO  +"'
 			cQuery+="   AND B8_LOTECTL = '"+ TRB->LOTE     +"'
@@ -212,21 +214,21 @@ If MsgYesNo("Deseja alterar os dados de endereçamento ?" )
 			
 			/*
 			limpa a informção no cavalete
-			*/
+			
 			cQuery:=" UPDATE ZG3010
 			cQuery+="    SET ZG3_XDTMOV ='',ZG3_XENDER='',ZG3_XPUSUA=''
-			cQuery+="   FROM ZG3010 ZG3 
+			cQuery+="   FROM ZG3010 ZG3 WITH ( NOLOCK )
 			cQuery+="  WHERE ZG3.D_E_L_E_T_ = ''
 			cQuery+="    AND ZG3_CODIGO = '"+ TRB->CAVALETE +"'
 		
 			TcSQLExec(cQuery)
-		
+			*/
 			/*
 			Grava o novo endereço no cavalete
 			*/
-			cQuery:=" UPDATE ZG3010
+			cQuery:=" UPDATE ZG3010 
 			cQuery+="    SET ZG3_XDTMOV ='"+dToS(dDataBase)+"',ZG3_XENDER='"+Alltrim(mv_par01)+"',ZG3_XPUSUA='"+SUBSTR(CUSUARIO,7,15)+"'
-			cQuery+="   FROM ZG3010 ZG3 
+			cQuery+="   FROM ZG3010 ZG3 WITH ( NOLOCK )
 			cQuery+="  WHERE ZG3.D_E_L_E_T_ = ''
 			cQuery+="    AND ZG3_CODIGO = '"+ TRB->CAVALETE +"'
 		

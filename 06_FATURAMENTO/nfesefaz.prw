@@ -11247,7 +11247,7 @@ Default aDupl	    := {}
 	Else	
 		If Empty(cForma)
 			If Len(aDupl) == 0
-				cForma := "99"  //outros
+				cForma := "90"  //sem pagamento
 			ElseIf Len(aDupl) > 0
 				cForma := "15"  //15=Boleto Bancário 
 			Endif

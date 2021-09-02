@@ -674,8 +674,12 @@ ABERTURA E DISTRIBUIÇÃO
 cQuery   := " SELECT  ISNULL((SELECT USR_ID     FROM DADOSADV_Q..SYS_USR WHERE USR_MSBLQL <> 1 AND USR_CARGO = WAM_TELL),'') ID_USUARIO,
 cQuery   += " 	  	  ISNULL((SELECT USR_CODIGO FROM DADOSADV_Q..SYS_USR WHERE USR_MSBLQL <> 1 AND USR_CARGO = WAM_TELL),'') USUARIO,
 cQuery   += " 	  	  R_E_C_N_O_ RECNO,
-cQuery   += " 		  UPPER(RTRIM(LTRIM(SUBSTRING(dbo.FnWhatRetMSG(WAM_ID),IIF(CHARINDEX(',',UPPER(dbo.FnWhatRetMSG(WAM_ID)))=0,0,CHARINDEX(',',UPPER(dbo.FnWhatRetMSG(WAM_ID)))+1),LEN(dbo.FnWhatRetMSG(WAM_ID))  ))) ) 	  MSG,*
+cQuery   += " 		  UPPER(RTRIM(LTRIM(SUBSTRING(RETORNO,IIF(CHARINDEX(',',UPPER(RETORNO))=0,0,CHARINDEX(',',UPPER(RETORNO))+1),LEN(RETORNO)  ))) ) 	  MSG,*
 cQuery   += "   FROM DADOSADV_Q..WAM010
+cQuery   += "	CROSS APPLY
+cQuery   += "	(
+cQuery   += "	SELECT RETORNO = dbo.FnWhatRetMSG(WAM_ID)
+cQuery   += "	) x
 cQuery   += "  WHERE D_E_L_E_T_ = ''
 cQuery   += "    AND WAM_EXEC = 'MNT'
 cQuery   += "    AND WAM_PERG = 'N'
@@ -839,16 +843,20 @@ MNT
 */
 Private aRespDist := {}
 
-cQuery   := " SELECT UPPER(dbo.FnWhatRetMSG(WAM_ID)) DIST,
+cQuery   := " SELECT UPPER(RETORNO) DIST,
 cQuery   += "        CAST(GETDATE() AS DATE)         DATA,
 cQuery   += " 	     FORMAT(GETDATE(),'hh:mm')       HORA,
 cQuery   += " 	     R_E_C_N_O_         			 RECNO,
 cQuery   += " 		 *
 cQuery   += "   FROM DADOSADV_Q..WAM010
+cQuery   += "	CROSS APPLY
+cQuery   += "	(
+cQuery   += "	SELECT RETORNO = dbo.FnWhatRetMSG(WAM_ID)
+cQuery   += "	) x
 cQuery   += "  WHERE D_E_L_E_T_ = ''
 cQuery   += "    AND WAM_EXEC = 'MNT-DIST'
 cQuery   += "    AND WAM_PERG = 'S'
-cQuery   += "    AND UPPER(dbo.FnWhatRetMSG(WAM_ID)) <> ''
+cQuery   += "    AND UPPER(RETORNO) <> ''
 cQuery   += "    AND CAST(GETDATE()-3 AS DATE) <= CAST(WAM_DATA AS DATE)
 
 dbUseArea(.T., "TOPCONN", TCGenQry(,,cQuery), "TRBMNT", .F., .T.)
@@ -973,7 +981,7 @@ cQuery   += "  	   D2_NUMLOTE B8_YCAVALE,
 cQuery   += "  	   CHAVE_DOC C6_NUM
 cQuery   += "    FROM (
 cQuery   += "  		SELECT *,
-cQuery   += "  			   (SELECT ROUND(SUM(B8_YQTDBD),0,0) FROM SB8010  WHERE D_E_L_E_T_ = '' AND D2_COD = B8_PRODUTO AND (RTRIM(LTRIM(B8_LOTECTL))+LTRIM(RTRIM(B8_YCLASSI)))=D2_LOTECTL  AND D2_NUMLOTE = B8_YCAVALE AND D2_FILIAL = B8_FILIAL  AND D2_NUMLOTE <> B8_NUMLOTE) QTD_SB8_ORI
+cQuery   += "  			   (SELECT ROUND(SUM(B8_YQTDBD),5,0) FROM SB8010  WHERE D_E_L_E_T_ = '' AND D2_COD = B8_PRODUTO AND (RTRIM(LTRIM(B8_LOTECTL))+LTRIM(RTRIM(B8_YCLASSI)))=D2_LOTECTL  AND D2_NUMLOTE = B8_YCAVALE AND D2_FILIAL = B8_FILIAL  AND D2_NUMLOTE <> B8_NUMLOTE) QTD_SB8_ORI
 cQuery   += "  		  FROM (
 cQuery   += "  				SELECT  D2_FILIAL+D2_DOC+D2_SERIE CHAVE_DOC,
 cQuery   += "  						CAST(D2_EMISSAO AS DATE) EMISSAO,
@@ -981,7 +989,7 @@ cQuery   += "  						D2_COD,
 cQuery   += "  						D2_NUMLOTE ,
 cQuery   += "  						D2_LOTECTL,						
 cQuery   += "  						D2_FILIAL,
-cQuery   += "  						ROUND(SUM(D2_QUANT),0,0) QTD_FAT
+cQuery   += "  						ROUND(SUM(D2_QUANT),5,0) QTD_FAT
 cQuery   += "  					FROM SD2010 
 cQuery   += "  					WHERE D_E_L_E_T_ = '' 
 cQuery   += "  					  AND D2_COD LIKE 'CH%'
@@ -1085,7 +1093,7 @@ Do While !EOF()
 		/*
 		AVISO PARA ARLINDO
 		*/
-		U_SWENV("5527999999365", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
+		U_SWENV("5527981187553", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
 		
 		sleep(300)
 		
@@ -1106,7 +1114,7 @@ Do While !EOF()
 		/*
 		AVISO PARA ARLINDO
 		*/
-		U_SWENV("5527999999365", "ERRO URGENTE (DIF. DE SALDO) CAVALETE - BUNDLE:" + AllTrim(TRBERRO->B8_YCAVALE)     )
+		U_SWENV("5527981187553", "ERRO URGENTE (DIF. DE SALDO) CAVALETE - BUNDLE:" + AllTrim(TRBERRO->B8_YCAVALE)     )
 		
 		sleep(300)
 		
@@ -1128,7 +1136,7 @@ Do While !EOF()
 		/*
 		AVISO PARA ARLINDO
 		*/
-		U_SWENV("5527999999365", "ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + AllTrim(TRBERRO->C6_NUM)     )
+		U_SWENV("5527981187553", "ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + AllTrim(TRBERRO->C6_NUM)     )
 		
 		sleep(300)
 		

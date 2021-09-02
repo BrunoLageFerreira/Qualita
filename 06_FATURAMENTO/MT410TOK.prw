@@ -733,7 +733,6 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	
 	oProcess:IncRegua1("[2-7] - Teste de cavales completos,apagados e sem saldo!")
 	
-	
 	/*
 	SOMENTE SE O PEDIDO NAO ESTIVER FATURADO 
 	*/
@@ -1155,6 +1154,40 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 
 		EndIf
 	EndIf
+
+	/*
+	Envio de aviso de alteração de pedidos 
+	*/
+	IF        AllTrim(C5_XSHOWFO) = 'S';
+		.AND. AllTrim(C5_XPENDEN) $ 'COM/LOG';
+		.AND. AllTrim(C5_XFOLLST) = 'BOOKING SOLICITADO'
+
+		/*
+		EMAIL
+		*/
+		If SC5->C5_YTIPO == "ME"
+			WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://192.168.1.101:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
+		Else
+			WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://192.168.1.101:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003_P&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
+		EndIf
+		
+		ConOut("Gerando relatório! Ped. Venda:" + AllTrim(SC5->C5_NUM) )
+		sleep(300)
+		ConOut("Gerando e-mail! Ped. Venda:" + AllTrim(SC5->C5_NUM) )
+		
+		TCSPExec("SP_SENDMAIL",'ITINGA',"backoffice.es@qualitagroup.com;bruno.lage@grupoqualita.com.br",'Pedido BOOKING SOLICITADO ! Código:' + SC5->C5_NUM ,'PEDIDO BOOKING SOLICITADO!'+ "<br>" +'CÓDIGO:' + SC5->C5_NUM + "<br>" ,'D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF')
+		//TCSPExec("SP_SENDMAIL",'ITINGA',"bruno.lage@grupoqualita.com.br",'Pedido BOOKING SOLICITADO ! Código:' + SC5->C5_NUM ,'PEDIDO BOOKING SOLICITADO!'+ "<br>" +'CÓDIGO:' + SC5->C5_NUM + "<br>" ,'D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF')
+
+		sleep(500)
+
+		/*
+		WHATSAPP
+		*/
+		U_SWENARWAP("5527981188913", "PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM),"PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM)   ,"RQ0003a"           ,"PDF","\RELINWEB\RQ0003a.PDF")
+		sleep(500)
+		U_SWENARWAP("5533984022125", "PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM),"PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM)   ,"RQ0003a"           ,"PDF","\RELINWEB\RQ0003a.PDF")
+
+	End
 	
 	ConOut("******************************************" )
 	ConOut("Final P.E = MT410TOK Qualitá" )
@@ -1309,7 +1342,6 @@ IF FunName() == Alltrim("GROA014")
 	//"Imprime Commercial Invoice" 
 	//aRotina[19][2] := "u_RelInWeb('RQ0004','Imprime Invoice (CH/AM)[RQ0004]','u_fParAut(4)')"
 	aRotina[17][2][4][2] := "u_RelInWeb('RQ0004','Imprime Invoice (CH/AM)[RQ0004]','u_fParAut(4)')"
-	
 	
 	//"Imprime Proforma Invoice"
 	//aRotina[18][2] := "u_RelInWeb('RQ0003','Imprime Proforma Invoice [RQ0003]','u_fParAut(2)')"	 

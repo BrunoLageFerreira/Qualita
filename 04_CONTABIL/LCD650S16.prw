@@ -18,16 +18,16 @@ CD 	= Historio do Lancamento
 S16 = Sequencia 001
 */     
 
-User Function LCD650S16()
+User Function LCD650S16(cTipo)
 *************************************************************************************************
-*
+* /*C=CONTA  OU N NATUREZA*/
 *
 ***     
 Local LCD65  := GetArea()                                         
 Local cRet   := ""        
 Local cQuery := ""                 
           
-	cQuery := " SELECT TOP 1 ED_CONTA FROM "+ RetSqlName("SE2") +" SE2, "+ RetSqlName("SED") +" SED   
+	cQuery := " SELECT TOP 1 ED_CONTA,ED_CODIGO FROM "+ RetSqlName("SE2") +" SE2, "+ RetSqlName("SED") +" SED   
 	cQuery += "  WHERE SE2.D_E_L_E_T_ <> '*'
 	cQuery += "    AND SED.D_E_L_E_T_ <> '*'
 	cQuery += "    AND SE2.E2_NATUREZ = SED.ED_CODIGO
@@ -39,7 +39,12 @@ Local cQuery := ""
 	TCQUERY cQuery NEW ALIAS "TRBLCD"  
 
 	dbSelectArea("TRBLCD")
-	cRet   := AllTrim(TRBLCD->ED_CONTA) 
+
+	IF UPPER(cTipo) = "C"
+		cRet   := AllTrim(TRBLCD->ED_CONTA) 
+	Else
+		cRet   := AllTrim(TRBLCD->ED_CODIGO) 
+	EndIF
 
 	dbSelectArea("TRBLCD")
 	dbCloseArea("TRBLCD")            

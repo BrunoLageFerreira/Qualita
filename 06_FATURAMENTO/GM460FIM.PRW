@@ -14,12 +14,12 @@ User Function GM460FIM()
 *
 ****
 Local aM460FIM := GetArea()
-Local cQuery   := ""         
+Local cQuery   := ""
 Local aPeso    := {}
-Local nResult  := 0     
+Local nResult  := 0 
 Local cBoleto  := ""
-Local cMsgNota := ""                             
-Local cNotas   := ""
+Local cMsgNota := ""
+Local cNotas   := "" 
 
 /*
 Autor.....: Bruno Lage Ferreira

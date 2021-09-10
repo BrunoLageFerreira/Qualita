@@ -1175,7 +1175,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		sleep(300)
 		ConOut("Gerando e-mail! Ped. Venda:" + AllTrim(SC5->C5_NUM) )
 		
-		TCSPExec("SP_SENDMAIL",'ITINGA',"backoffice.es@qualitagroup.com;bruno.lage@grupoqualita.com.br",'Pedido BOOKING SOLICITADO ! Código:' + SC5->C5_NUM ,'PEDIDO BOOKING SOLICITADO!'+ "<br>" +'CÓDIGO:' + SC5->C5_NUM + "<br>" ,'D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF')
+		TCSPExec("SP_SENDMAIL",'ITINGA',"backoffice.es@qualitagroup.com;bruno.lage@grupoqualita.com.br;arlindo.pelissari@grupoqualita.com.br",'Pedido BOOKING SOLICITADO ! Código:' + SC5->C5_NUM ,'PEDIDO BOOKING SOLICITADO!'+ "<br>" +'CÓDIGO:' + SC5->C5_NUM + "<br>" ,'D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF')
 		//TCSPExec("SP_SENDMAIL",'ITINGA',"bruno.lage@grupoqualita.com.br",'Pedido BOOKING SOLICITADO ! Código:' + SC5->C5_NUM ,'PEDIDO BOOKING SOLICITADO!'+ "<br>" +'CÓDIGO:' + SC5->C5_NUM + "<br>" ,'D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF')
 
 		sleep(500)

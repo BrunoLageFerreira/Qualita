@@ -47,7 +47,7 @@ Local cQuery := ""
 	EndIF
 
 	dbSelectArea("TRBLCD")
-	dbCloseArea("TRBLCD")            
+	dbCloseArea("TRBLCD")
 	RestArea(LCD65)
 
 Return(cRet)

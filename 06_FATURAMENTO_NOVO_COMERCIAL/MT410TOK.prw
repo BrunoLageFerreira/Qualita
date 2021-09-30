@@ -9,7 +9,7 @@ Data .......: 26/04/2019
 Feito por ..: Bruno Lage Ferreira 
 
 MV_NDESCTP - DESCONTO NO PREÇO DE LISTA E UNITARIO
-OFICIAL
+NOVO
 */
 
 User Function MT410TOK()

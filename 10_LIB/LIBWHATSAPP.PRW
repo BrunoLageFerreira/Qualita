@@ -993,6 +993,7 @@ cQuery   += "  						ROUND(SUM(D2_QUANT),5,0) QTD_FAT
 cQuery   += "  					FROM SD2010 
 cQuery   += "  					WHERE D_E_L_E_T_ = '' 
 cQuery   += "  					  AND D2_COD LIKE 'CH%'
+cQuery   += "  					  AND D2_QTDEDEV = 0
 cQuery   += "  				GROUP BY D2_FILIAL+D2_DOC+D2_SERIE,
 cQuery   += "  							D2_NUMLOTE,
 cQuery   += "  							D2_LOTECTL,

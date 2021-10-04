@@ -31,5 +31,5 @@
     "advpl.selectedEnvironment": "COMPILA_Q",
     "advpl.foldersProject": [],
     "search.useGlobalIgnoreFiles": true,
-    "advpl.debug_multiThread": true
+    "advpl.debug_multiThread": false
 }

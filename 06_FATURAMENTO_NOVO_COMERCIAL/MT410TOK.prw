@@ -21,7 +21,6 @@ Local   lRet      := .T.
 Local   oProcess
 Default lEnd      := .F.
 
-
 If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND. (FUNNAME() <> "GROA001")
 
 	a410Recalc()
@@ -473,8 +472,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		dbSetOrder(1)
 		dbSeek(xFilial("SB1")+ AllTrim(GdFieldGet("C6_PRODUTO",nX)) )
 				
-		IF AllTrim(SB1->B1_GRUPO) $ cGPExec		
-	
+		IF AllTrim(SB1->B1_GRUPO) $ cGPExec			
 			If Empty(SA1->A1_TABELA)
 
 				If Empty(GdFieldGet("C6_YCLASSI",nX))
@@ -514,7 +512,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 					M->C5_BLQ  := '1'
 				EndIf
 				
-				If GdFieldGet("C6_PRCVEN",nX) <  ((TRB->DA1_PRCVEN * TRB->DA0_DESGER)) .and. !GDDeleted(nX)
+				If GdFieldGet("C6_PRCVEN",nX) <  ((TRB->DA1_PRCVEN - TRB->DA0_DESGER)) .and. !GDDeleted(nX)
 					//aAdd(aMsgPrc,"[C6_PRCVEN] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX))+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI))  
 					aAdd(aMsgPrc,"Cavalete:"+GdFieldGet("C6_YCAVALE",nX)+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI) )
 					//lRet := .F.
@@ -564,7 +562,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 					//TABELA PADRÃO DE AMOSTRAS
 					cQuery  += "  WHERE DA1_CODPRO = '"+AllTrim(GdFieldGet("C6_PRODUTO",nX))+"'
 					cQuery  += "    AND DA0_CODTAB IN ('000')
-				EndIf
+				EndIf-
 		
 				cQuery  += "    AND DA0.D_E_L_E_T_ = ''
 				cQuery  += "    AND DA1.D_E_L_E_T_ = ''
@@ -581,7 +579,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 					M->C5_BLQ  := '1'
 				EndIf
 				
-			    If GdFieldGet("C6_PRCVEN",nX) <  ((TRB->DA1_PRCVEN * TRB->DA0_DESGER)) .and. !GDDeleted(nX)
+			    If GdFieldGet("C6_PRCVEN",nX) <  ((TRB->DA1_PRCVEN - TRB->DA0_DESGER)) .and. !GDDeleted(nX)
 					aAdd(aMsgPrc,"Cavalete:"+GdFieldGet("C6_YCAVALE",nX)+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI) ) 
 					//lRet := .F.
 					ConOut("******************************************" )

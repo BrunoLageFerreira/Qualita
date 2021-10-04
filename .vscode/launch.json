@@ -5,7 +5,7 @@
 			"type": "totvs_language_debug",
 			"request": "launch",
 			"name": "Depuração do idioma TOTVS",
-			"program": "xxxx",
+			"program": "SIGAMDI",
 			"cwb": "${workspaceFolder}",
 			"smartclientBin": "D:\\TOTVS 12\\Microsiga\\Protheus\\bin\\smartclient_LG_QUALITA\\smartclient.exe",
 			"isMultiSession": true,

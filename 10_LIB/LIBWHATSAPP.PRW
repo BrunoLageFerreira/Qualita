@@ -99,7 +99,7 @@ Do While !EOF()
 		oJson := JSonObject():New()
 		cErr  := oJSon:fromJson(U_SWREMGWAP(AllTrim(TRBRA->WAM_ID)))
 		
-		sleep(100)
+		sleep(400)
 		
 		ConOut(oJson:GetJSonObject('quote_message'))
 		
@@ -793,7 +793,8 @@ Do While !EOF()
 				/*
 				Telefone fixo com a pessoa que vai distibuir 
 				*/ 
-				cNumDist := "27981188776"
+				cNumDist := "27997857938"
+				                
 
 				cProt := U_SWENARWAP(AllTrim(cNumDist),"Distribuir:" + cCodigoSS,"SS_"+cCodigoSS,"SS_"+cCodigoSS,"TXT",cArquivo)
 
@@ -884,7 +885,7 @@ Do While !EOF()
 				dbSeek(xFilial("TQB")+AllTrim(TRBMNT->WAM_INDEX) )
 				If  RecLock("TQB",.F.)
 					Replace TQB_CDSERV  With aRespDist[1]
-					Replace TQB_CDEXEC  With "FELIPE FERREIRA"
+					Replace TQB_CDEXEC  With "LUAN SANTOS"
 					Replace TQB_PRIORI  With aRespDist[2]
 					MsUnLock()
 				EndIf

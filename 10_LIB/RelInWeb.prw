@@ -25,7 +25,6 @@ User Function RelInWEB(cPrograma,cDescri,cParam,cTipo)
 	Private cLinkInt   := ""
 	Private aInfoGeral := {}
 	
-
 	Private oDlg1, oTIBrw
 
 	Private aSize	   := MsAdvSize()
@@ -51,8 +50,8 @@ User Function RelInWEB(cPrograma,cDescri,cParam,cTipo)
 	
 	//If GetEnvServer() == "PRODUCAO"
 	
-	cLink		:= "http://administrador:xpacD99label@189.50.0.33:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma //+"&rs:Command=Render"+ cParam
-	cLinkInt	:= "http://administrador:xpacD99label@189.50.0.33:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
+	cLink		:= "http://189.50.0.33:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma //+"&rs:Command=Render"+ cParam
+	cLinkInt	:= "http://189.50.0.33:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
 	
 	cLinkIe   	:= "http://189.50.0.33:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
 
@@ -63,7 +62,7 @@ User Function RelInWEB(cPrograma,cDescri,cParam,cTipo)
 	//Alert(GetEnvServer())
 
 	If "COMPI" $ upper(GetEnvServer())  	
-		cLink		:= "http://administrador:xpacD99label@192.168.1.101:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
+		cLink		:= "http://192.168.1.101:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
 		cLinkIe   	:= "http://192.168.1.101:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
 	EndIf
 	

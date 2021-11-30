@@ -90,7 +90,6 @@ Local nAux      := 0
 
 Private lMsErroAuto := .F.
 
-
 ConOut("[Importaçao de Clientes] INICIO!")
 
 cQuery := " SELECT 
@@ -131,8 +130,9 @@ dbSelectArea("TRB_CLI")
 dbGoTop()
 Do While !EOF()
 	
-	cNumCli  := GetSxeNum("SA1","A1_COD")
-	RollBackSxE()
+	cNumCli  := U_MCONTNUM("SA1","01")
+
+	aCli := {}
 
 	CCH->(DbSetOrder(1))
 	CCH->( DbSeek( Alltrim(XFilial("CCH")) + AvKey(TRB_CLI->ZSE_CODMUN,"CCH_CODIGO") ) )
@@ -178,7 +178,10 @@ Do While !EOF()
 		
 		Else
 			aLogAuto  := GetAutoGRLog()
-	
+
+			cDescErro :="**********************"+ CRLF 
+			cDescErro += DtoC(dDatabase)+" - "+TIME()+CRLF
+			cDescErro +="**********************"+ CRLF 
 			For nAux := 1 To Len(aLogAuto)
 				cDescErro += aLogAuto[nAux] + CRLF
 			Next

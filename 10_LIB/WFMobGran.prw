@@ -25,8 +25,7 @@ User Function WFMOBGRAN()
 *
 * /* Programa Princial*/
 ***
-Local cAssunto     := "[Importaçao de Pedido MobGran]"
-Local cCodProcesso := "WFMOBGRAN"
+
 Local cNRotina     := ProcName()
 
 Private _aCabecalho := {}
@@ -50,6 +49,7 @@ EndIf
 
 Return()
 
+
 Static Function MTRotina(cNomeRotina)
 ************************************************************************************************
 *
@@ -58,6 +58,7 @@ Static Function MTRotina(cNomeRotina)
 Local   aInfo    := GetUserInfoArray()
 Local   lRet     := .T.
 Local   nCNPross := 0
+Local   nI       := 0
 
 For nI := 1 to len(aInfo)
 	If upper(AllTrim(cNomeRotina)) $ upper(AllTrim(aInfo[nI][11]))
@@ -70,6 +71,154 @@ If nCNPross > 1
 EndIf
 
 Return(lRet)
+
+User Function MFQueryC()
+************************************************************************************************
+*
+* /* Importação de Clientes */
+***
+Local aCli  := {}
+
+//Local nOpcAuto  := MODEL_OPERATION_INSERT
+Local lRet      := .T.
+Local cQuery    := ""
+Local cNumCli   := ""
+
+Local aLogAuto  := {}
+Local cDescErro := ""
+Local nAux      := 0
+
+Private lMsErroAuto := .F.
+
+
+ConOut("[Importaçao de Clientes] INICIO!")
+
+cQuery := " SELECT 
+cQuery += "		ZSE_FILIAL,
+cQuery += "		ZSE_COD,
+cQuery += "		ZSE_LOJA,
+cQuery += "		ZSE_PESSOA,
+cQuery += "		ZSE_CGC,
+cQuery += "		ZSE_NOME,
+cQuery += "		ZSE_ENDER,
+cQuery += "		ZSE_TIPO,
+cQuery += "		ZSE_EST,
+cQuery += "		ZSE_CODMUN,
+cQuery += "		ZSE_MUNIC,
+cQuery += "		ZSE_BAIRRO,
+cQuery += "		ZSE_PAIS,
+cQuery += "		ZSE_INSCRI,
+cQuery += "		ZSE_VEND1,
+cQuery += "		ZSE_CDPAIS,
+cQuery += "		ZSE_LAT,
+cQuery += "		ZSE_LONG,
+cQuery += "		ZSE_MOEDA,
+cQuery += "		ZSE_STATUS,
+cQuery += "		ZSE_DDD,
+cQuery += "		ZSE_DDI,
+cQuery += "		ZSE_TELL,
+cQuery += "		ZSE_EMAIL,
+cQuery += "		ZSE_CEP,
+cQuery += "		ZSE_ERRO,
+cQuery += "		R_E_C_N_O_ RECNO
+cQuery += "	   FROM ZSE010 
+cQuery += "	  WHERE D_E_L_E_T_ = ''
+cQuery += "	    AND ZSE_STATUS = 'P'
+
+TCQUERY cQuery ALIAS "TRB_CLI" NEW
+
+dbSelectArea("TRB_CLI")
+dbGoTop()
+Do While !EOF()
+	
+	cNumCli  := GetSxeNum("SA1","A1_COD")
+	RollBackSxE()
+
+	CCH->(DbSetOrder(1))
+	CCH->( DbSeek( Alltrim(XFilial("CCH")) + AvKey(TRB_CLI->ZSE_CODMUN,"CCH_CODIGO") ) )
+
+	aAdd(aCli, {"A1_FILIAL"  , xFilial("SA1")          	, Nil})
+	aAdd(aCli, {"A1_COD"     , cNumCli                 	, Nil})
+	aAdd(aCli, {"A1_LOJA"    , TRB_CLI->ZSE_LOJA    	, Nil})
+	aAdd(aCli, {"A1_PESSOA"  , TRB_CLI->ZSE_PESSOA	    , Nil})
+	aAdd(aCli, {"A1_NOME"    , TRB_CLI->ZSE_NOME        , Nil})
+	aAdd(aCli, {"A1_NREDUZ"  , TRB_CLI->ZSE_NOME        , Nil})
+	aAdd(aCli, {"A1_END"     , TRB_CLI->ZSE_ENDER       , Nil})
+	aAdd(aCli, {"A1_TIPO"    , TRB_CLI->ZSE_TIPO        , NIL})
+	aAdd(aCli, {"A1_EST"     , TRB_CLI->ZSE_EST         , Nil})
+	aAdd(aCli, {"A1_COD_MUN" , TRB_CLI->ZSE_CODMUN      , Nil})
+	aAdd(aCli, {"A1_MUN"     , IIF(TRB_CLI->ZSE_CODMUN=="99999","MUNICIPIOEXTERIOR",CCH->CCH_CODIGO)       , Nil})
+	aAdd(aCli, {"A1_BAIRRO"  , TRB_CLI->ZSE_BAIRRO      , Nil})
+	aAdd(aCli, {"A1_CGC"     , TRB_CLI->ZSE_CGC         , Nil})
+	aAdd(aCli, {"A1_INSCR"   , TRB_CLI->ZSE_INSCRI      , Nil})
+
+	aAdd(aCli, {"A1_CODPAIS" , TRB_CLI->ZSE_CDPAIS      , Nil})  
+	aAdd(aCli, {"A1_PAIS"    , TRB_CLI->ZSE_PAIS        , Nil})                                             
+	
+	aAdd(aCli, {"A1_VEND"    , TRB_CLI->ZSE_VEND1       , Nil})
+	aAdd(aCli, {"A1_NATUREZ" , "1.1.02.01"              , Nil})    
+
+	aAdd(aCli, {"A1_XLAT"    , TRB_CLI->ZSE_LAT         , Nil})    
+	aAdd(aCli, {"A1_XLONG"   , TRB_CLI->ZSE_LONG        , Nil})   
+	aAdd(aCli, {"A1_YMOEDA"  , TRB_CLI->ZSE_MOEDA       , Nil})  
+
+	aAdd(aCli, {"A1_DDD"    , TRB_CLI->ZSE_DDD          , Nil})    
+	aAdd(aCli, {"A1_DDI"    , TRB_CLI->ZSE_DDI          , Nil})    
+	aAdd(aCli, {"A1_TELL"   , TRB_CLI->ZSE_TELL         , Nil})    
+	aAdd(aCli, {"A1_EMAIL"  , TRB_CLI->ZSE_EMAIL        , Nil})    
+	aAdd(aCli, {"A1_CEP"    , TRB_CLI->ZSE_CEP          , Nil})   
+
+
+	lMsErroAuto := .F.
+	MsExecAuto({|x,y| MATA030(x,y)}, aCli, 3)
+	
+	If lMsErroAuto
+		If !IsBlind() 
+			cDescErro := MostraErro()
+		
+		Else
+			aLogAuto  := GetAutoGRLog()
+	
+			For nAux := 1 To Len(aLogAuto)
+				cDescErro += aLogAuto[nAux] + CRLF
+			Next
+			
+		EndIf
+		lRet := .f.
+		
+		ConOut(cDescErro)
+
+		dbSelectArea('ZSE')
+		dbGoTo(TRB_CLI->RECNO)
+		RecLock( 'ZSE', .F. )	
+			Replace ZSE->ZSE_STATUS  With "M"
+			Replace ZSE->ZSE_ERRO    With cDescErro
+		MsUnLock()   
+
+	else
+		Conout("Cliente incluído com sucesso!")
+
+		dbSelectArea('ZSE')
+		dbGoTo(TRB_CLI->RECNO)
+		RecLock( 'ZSE', .F. )	
+			Replace ZSE->ZSE_STATUS  With "X"
+		MsUnLock()   
+	EndIf
+		
+	dbSelectArea("TRB_CLI")
+	dbSkip()
+EndDo
+
+/*
+Fecha arquivo temporario de SQL cabeçalhos
+*/
+dbSelectArea("TRB_CLI")
+dbCloseArea()
+
+ConOut("[Importaçao de Clientes] Finalização!")
+
+Return lRet
+
 
 Static Function MfEnvir(cEmp01,nFil00,cFil01)
 ************************************************************************************************
@@ -95,12 +244,21 @@ EndIf
 /*
 Funcao princial de chamadas de rotinas
 */
+u_MFQueryC()
+
+/*
+Funcao princial de chamadas de rotinas
+*/
+u_MFQueryL()
+
+/*
+Funcao princial de chamadas de rotinas
+*/
 u_MFQueryP( "010101" , "001" )
 
 /*
 Controle de limpesa dos ambientes
 */
-
 If lAuto
 	RpcClearEnv()
 	Conout(DtoC(dDatabase)+" - "+TIME()+" FIM do JOB [Importaçao de Pedidos MobGran] .")
@@ -116,6 +274,45 @@ RESET ENVIRONMENT
 
 Return()
 
+
+User Function MFQueryL()
+************************************************************************************************
+*
+*	//Funcao especifica para geracao das SQL de Trabalho
+*
+***
+Local cQuery := ""
+
+Conout(DtoC(dDatabase)+" - "+TIME()+" JOB [Atualização do limites de créditos Qualitá] .")
+
+cQuery := " UPDATE SA1010  
+cQuery += "    SET A1_LC = ZSD_NVALOR
+cQuery += "   FROM ZSD010 ZSD INNER JOIN SA1010 SA1 ON (A1_COD = ZSD_CLIENT AND A1_LOJA = ZSD_LOJA)
+cQuery += "  WHERE ZSD.D_E_L_E_T_ = ''
+cQuery += "    AND SA1.D_E_L_E_T_ = ''
+cQuery += "    AND ZSD_STATUS     = 'P'
+
+/*
+Execucao background do código sql
+*/
+TcSqlExec(cQuery)
+
+cQuery := " UPDATE ZSD010  
+cQuery += "    SET ZSD_STATUS = 'X'
+cQuery += "   FROM ZSD010 ZSD INNER JOIN SA1010 SA1 ON (A1_COD = ZSD_CLIENT AND A1_LOJA = ZSD_LOJA)
+cQuery += "  WHERE ZSD.D_E_L_E_T_ = ''
+cQuery += "    AND SA1.D_E_L_E_T_ = ''
+cQuery += "    AND ZSD_STATUS     = 'P'
+
+/*
+Execucao background do código sql
+*/
+TcSqlExec(cQuery)
+
+Conout(DtoC(dDatabase)+" - "+TIME()+" FIM DO JOB [Atualização do limites de créditos Qualitá] .")
+
+Return()
+
 User Function MFQueryP(cPara01,cPara02)
 ************************************************************************************************
 *
@@ -126,9 +323,7 @@ Local cQuery 	:= ""
 Local nCodItem 	:= 0
 Local cCodTab   := ""
 Local cCodTabP  := ""
-Local cPerg     := "MFQueryP"
-Local aPerg     := {}
-Local lExecManu := .F.
+
 
 
 Private aTabTES 	:= {}
@@ -145,73 +340,87 @@ cCodTabP := ""
 /*
 MobGran_pedcab
 */
-cQuery := " SELECT  	tipo_venda															AS C5_TIPO		,
-cQuery += " 			LEFT(codigo_cliente,6)												AS C5_CLIENTE	,
-cQuery += " 			RIGHT(codigo_cliente,2) 											AS C5_LOJACLI	,
-cQuery += " 			LEFT(codigo_cliente,6)												AS C5_CLIENT	,
-cQuery += " 			RIGHT(codigo_cliente,2) 											AS C5_LOJAENT	,
-
-cQuery += " 			REPLACE(CONVERT(VARCHAR(10),getdate(),112),'-','') 					AS C5_EMISSAO	,
-
-cQuery += " 			codigo_planopagamento					   							AS C5_CONDPAG	,
-cQuery += "   			'000001'															AS C5_TRANSP	,
-cQuery += " 			codigo_vendedor														AS C5_VEND1		,
-cQuery += " 			0																	AS C5_DESC1		,
-cQuery += " 			0																	AS C5_DESC2		,
-cQuery += " 			0																	AS C5_DESC3		,
-cQuery += " 			0																	AS C5_DESC4		,
-cQuery += " 			codigo_tabela														AS C5_TABELA	,
-cQuery += " 			codigo_pedido														AS C5_COTACAO	,
-cQuery += " 			''																	AS C5_TPFRETE	,
-cQuery += " 			upper(observacao)													AS C5_MENNOTA	,
-cQuery += " 			desconto_petalao												   	AS C5_DESCONT   ,
-cQuery += " 			codigo_pedido														AS C5_NUM   	,
-cQuery += " 			CONVERT(VARCHAR(5),CONVERT(smalldatetime,getdate(),110),8)	    	AS C5_HORA   	,
-cQuery += " 			codigo_cobranca														AS C5_XFORMA
-cQuery += "   FROM POLIBRAS..polibras_pedcab" + cCodTab
-cQuery += "  WHERE importado  in (1,0)
-cQuery += "    AND tipo_venda In ('" + cPara02 + "')
-cQuery += "    AND orgvenda   = '" + cPara01 + "'
-
+cQuery := " SELECT DISTINCT  
+cQuery += " 	   '010101'															    AS C5_FILIAL ,
+cQuery += "        'N'																	AS C5_TIPO   ,
+cQuery += " 	   'N'																	AS C5_XSHOWFO,
+cQuery += " 	   ZSA_IDMOBP															AS IDMOB     ,
+cQuery += " 	   ZSA_CPAG																AS C5_CONDPAG,
+cQuery += " 	   REPLACE(CONVERT(VARCHAR(10),getdate(),112),'-','') 					AS C5_EMISSAO,
+cQuery += " 	   ''															        AS C5_TRANSP ,
+cQuery += " 	   LEFT(ZSA_CLIENT ,6)													AS C5_CLIENTE,
+cQuery += "        RIGHT(ZSA_CLIENT,2)													AS C5_LOJA   ,
+cQuery += " 	   'ME' 																AS C5_YTIPO  ,
+cQuery += " 	   C5_NUM																AS C5_NUM
+cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+cQuery += "  WHERE ZSA_IDPEND in ('P')
+//cQuery += "    AND ISNULL(SC5.C5_NUM,'') = ''
+cQuery += "    AND ZSA_STATUS = 'ATIVA'
+cQuery += "    AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
+//cQuery += "    AND ZSA_IDMOBP = '2c530446-d6ee-4bba-9201-cae904bfd7c7'
+cQuery += "    ORDER BY IDMOB
 /*
 Geraçao do arquivo de Temporario de cabecalho
 */
 TCQUERY cQuery ALIAS "TRB_CAB" NEW
-//dbUseArea(.T.,"TOPCONN",cQuery,"TRB_CAB",.F.,.T.)
-//dbUseArea( .T., "TOPCONN", TcGenQry(,,cQuery), "TRB_CAB", .T., .F. )
 
 /*
 MobGran_pedcorp
 */
-cQuery := " SELECT		RTRIM(LTRIM(codigo_produto))									    AS C6_PRODUTO	,
-cQuery += " 			quantidade															AS C6_QTDVEN	,
-cQuery += " 			preco_venda															AS C6_PRUNIT	,
-cQuery += " 			100 - ROUND( preco_venda / preco_base ,4 ) * 100 					AS C6_DESCONT	,
-cQuery += " 			preco_base															AS C6_PRCVEN	,
+cQuery := " SELECT 'I' ACAO,
+cQuery += "	   '010101' FILIAL,
+cQuery += "	   '00' ITEM,
+cQuery += "	   ZSA_IDMOBP IDMOB,
+cQuery += "	   ZSA_NUMCAV CAVALETE,
+cQuery += "	   ZSA_PROD,
+cQuery += "	   ZSA_LOTE,
+cQuery += "	   ZSA_CLASSI,
+cQuery += "	   ZSA_PRCDES,
+cQuery += "	   ZSA_LOCAL,
+cQuery += "	   ZSA_QTDVEN, 
+cQuery += "	   ZSA_IDPEND,
+cQuery += "	   ZSA_PRCUNT,
+cQuery += "	   ZSA_PRCTAB,
+cQuery += "	   SC5.C5_NUM AS C5_NUM
+cQuery += "  FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+cQuery += " WHERE ZSA_IDPEND in ('P')
+cQuery += "   AND ZSA_STATUS = 'ATIVA'
+cQuery += "   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
 
-cQuery += " 			REPLACE(CONVERT(VARCHAR(10),getdate(),112),'-','') 					AS C6_ENTREG	,
+cQuery += " UNION ALL 
 
-cQuery += " 			SB1.B1_TS															AS C6_TES		,
-cQuery += " 			'   '																AS C6_TESA		,
-cQuery += " 			SB1.B1_LOCPAD														AS C6_LOCAL		,
-cQuery += " 			PED.codigo_pedido													AS C6_PEDCLI
-cQuery += "     FROM POLIBRAS..polibras_pedcorp" + cCodTab +" PED,DADOSADV"+ cCodTabP +"..SB1010 SB1,POLIBRAS..polibras_pedcab" + cCodTab + " PEDCAB
-cQuery += "    WHERE (PED.importado is null)
-cQuery += "      AND RTRIM(LTRIM(SB1.B1_COD)) = RTRIM(LTRIM(codigo_produto))
-cQuery += "      AND D_E_L_E_T_ <> '*'
-cQuery += "      AND PEDCAB.codigo_pedido = PED.codigo_pedido
-cQuery += "      AND orgvenda = '" + cPara01 + "'
-cQuery += "      AND tipo_venda In ('" + cPara02 + "')
-cQuery += "      AND PED.importado is null
+cQuery += " SELECT  'R' ACAO, 
+cQuery += "		C6_FILIAL,
+cQuery += "		C6_ITEM ITEM,
+cQuery += "		C5_XIDMOB IDMOB,
+cQuery += "		C6_YCAVALE,
+cQuery += "		C6_PRODUTO,
+cQuery += "		C6_LOTECTL,
+cQuery += "		C6_YCLASSI,
+cQuery += "		0,
+cQuery += "		C6_LOCAL,
+cQuery += "		C6_QTDVEN,
+cQuery += "		'P',
+cQuery += "		C6_PRUNIT,
+cQuery += "		C6_PRCVEN,
+cQuery += "		C6_NUM C5_NUM
+cQuery += "  FROM SC6010 SC6 INNER JOIN SC5010 SC5 ON(C5_FILIAL = C6_FILIAL  AND C6_NUM=C5_NUM)
+cQuery += " WHERE SC6.D_E_L_E_T_ = ''
+cQuery += "   AND SC5.D_E_L_E_T_ = ''
+cQuery += "   AND C6_FILIAL + C6_NUM IN(
+cQuery += "							 SELECT DISTINCT '010101'+ SC5.C5_NUM AS C5_NUM
+cQuery += "							  FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+cQuery += "							 WHERE ZSA_IDPEND in ('P')
+cQuery += "							   AND ZSA_STATUS = 'ATIVA'
+cQuery += "							   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
+cQuery += "							  )
 
-cQuery += "   ORDER BY PED.codigo_pedido,SB1.B1_GRUPO
+cQuery += " ORDER BY IDMOB,C5_NUM, ACAO DESC,ITEM
 
 /*
 Geraçao do arquivo temporario de Itens
 */
 TCQUERY cQuery ALIAS "TRB_ITEM" NEW
-//dbUseArea(.T.,"TOPCONN",cQuery,"TRB_ITEM",.F.,.T.)
-//dbUseArea( .T., "TOPCONN", TcGenQry(,,cQuery), "TRB_ITEM", .T., .F. )
 
 /*
 Limpa os vendedores adicionados anteriomente
@@ -222,13 +431,14 @@ aIdVend := {}
 dbSelectArea("TRB_CAB")
 dbGoTop()
 Do While !EOF()
-	
+
+
 	/*
 	Posiciona nos cadastro
 	*/
 	dbSelectArea("SA1")
 	dbsetorder(1)
-	dbseek(xfilial("SA1")+TRB_CAB->C5_CLIENTE+TRB_CAB->C5_LOJACLI,.f.)
+	dbseek(xfilial("SA1")+TRB_CAB->C5_CLIENTE+TRB_CAB->C5_LOJA,.f.)
 	
 	/*
 	Limpa todos os valores antigos
@@ -238,23 +448,28 @@ Do While !EOF()
 	/*
 	Preenchimento dos Array do cabeçalho
 	*/
-	aAdd(_aCabecalho,"N" 							)  // C5_TIPO     1
-	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_CLIENTE) 	)  // C5_CLIENTE  2
-	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_LOJACLI) 	)  // C5_LOJACLI  3
-	aAdd(_aCabecalho,AllTrim(SA1->A1_PESSOA) 		)  // C5_TIPOCLI  4
-	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_CONDPAG)	)  // C5_CONDPAG  5
-	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_TABELA)	)  // C5_TABELA   6
-	aAdd(_aCabecalho,"S"							)  // C5_LIBEROK  7
-	aAdd(_aCabecalho,1                     			)  // C5_MOEDA    8
-	aAdd(_aCabecalho,"1"                   			)  // C5_TIPLIB   9
-	aAdd(_aCabecalho,"N"        					)  // C5_BOLETO   10
-	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_VEND1)		)  // C5_VEND1    11
-	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_MENNOTA)	)  // C5_MENNOTA  12
-	aAdd(_aCabecalho,TRB_CAB->C5_NUM				)  // C5_COTACAO  13
-	aAdd(_aCabecalho,STOD(TRB_CAB->C5_EMISSAO)   	)  // C5_EMISSAO  14
-	aAdd(_aCabecalho,TRB_CAB->C5_HORA				)  // C5_HORA     15
-	aAdd(_aCabecalho,TRB_CAB->C5_DESCONT			)  // C5_DESCONT  16
-	aAdd(_aCabecalho,TRB_CAB->C5_XFORMA 			)  // C5_XFORMA   17
+	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_FILIAL)	)  // C5_FILIAL   1
+	aAdd(_aCabecalho,"N" 							)  // C5_TIPO     2
+	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_CLIENTE) 	)  // C5_CLIENTE  3
+	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_LOJA  ) 	)  // C5_LOJACLI  4
+	aAdd(_aCabecalho,AllTrim(TRB_CAB->IDMOB) 		)  // C5_IDMOB    5
+	aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_CONDPAG)	)  // C5_CONDPAG  6
+	aAdd(_aCabecalho,STOD(AllTrim(TRB_CAB->C5_EMISSAO)))  // C5_EMISSAO  7
+	aAdd(_aCabecalho,TRB_CAB->C5_XSHOWFO       	    )     // C5_XSHOWFO  8
+	aAdd(_aCabecalho,"ME"				       	    )     // C5_YTIPO    9
+	aAdd(_aCabecalho,TRB_CAB->C5_NUM				)     // C5_COTACAO  10
+	
+	//aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_TABELA)	)  // C5_TABELA   6
+	//aAdd(_aCabecalho,"S"							)  // C5_LIBEROK  7
+	//aAdd(_aCabecalho,1                     		)  // C5_MOEDA    8
+	//aAdd(_aCabecalho,"1"                   		)  // C5_TIPLIB   9
+	//aAdd(_aCabecalho,"N"        					)  // C5_BOLETO   10
+	//aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_VEND1)	)  // C5_VEND1    11
+	//aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_MENNOTA)	)  // C5_MENNOTA  12
+	
+	//aAdd(_aCabecalho,TRB_CAB->C5_HORA				)  // C5_HORA     15
+	//aAdd(_aCabecalho,TRB_CAB->C5_DESCONT			)  // C5_DESCONT  16
+	//aAdd(_aCabecalho,TRB_CAB->C5_XFORMA 			)  // C5_XFORMA   17
 	
 	/*
 	Na inclusao dos itens a cada loop ele zera o valor inicial
@@ -263,52 +478,70 @@ Do While !EOF()
 	_aItens	 := {}
 	
 	dbSelectArea("TRB_ITEM")
-	dbGoTop("TRB_ITEM")
+	dbGoTop()
 	Do While !EOF()
 		
-		If TRB_CAB->C5_NUM  == TRB_ITEM->C6_PEDCLI
+		If AllTrim(TRB_CAB->IDMOB)  == AllTrim(TRB_ITEM->IDMOB)
 			
 			/*
 			Posiciona no cadastro
 			*/
 			dbSelectArea("SB1")
 			dbsetorder(1)
-			dbseek(xfilial("SB1")+AllTrim(TRB_ITEM->C6_PRODUTO) ,.f.)
+			dbseek(xfilial("SB1")+AllTrim(TRB_ITEM->ZSA_PROD) ,.f.)
 			
 			/*
 			Posiciona no cadastro
 			*/
 			dbSelectArea("SF4")
 			dbsetorder(1)
-			dbseek(xfilial("SF4")+AllTrim(TRB_ITEM->C6_TES) ,.f.)
+			dbseek(xfilial("SF4")+AllTrim(SB1->B1_TS) ,.f.)
 			
 			/*
 			Soma dos itens
 			*/
-			nCodItem := nCodItem + 1
-			
+			IF TRB_ITEM->ACAO = "I"
+				nCodItem := nCodItem + 1
+			EndIf
 			/*
 			Variais para geracao das linhas de itens do
 			Pedido
 			*/
-			cC01 := xFilial("SC6")         			// C6_FILIAL
-			cC02 := AllTrim(Str(nCodItem) ) 		// C6_ITEM
-			cC03 := AllTrim(TRB_ITEM->C6_PRODUTO)  	// C6_PRODUTO
-			cC04 := SB1->B1_UM  					// C6_UM
-			cC05 := TRB_ITEM->C6_QTDVEN  			// C6_QTDVEN
-			cC06 := TRB_ITEM->C6_PRUNIT     		// C6_PRUNIT
-			cC07 := TRB_ITEM->C6_PRCVEN  			// C6_PRCVEN
-			cC08 := 0
-			cC09 := SA1->A1_XTES 					// C6_TES
-			cC10 := SB1->B1_ORIGEM+SF4->F4_SITTRIB  // C6_SITTRIB
-			cC11 := TRB_ITEM->C6_LOCAL  			// C6_LOCAL
-			cC12 := dDataBase  						// C6_ENTREG
-			cC13 := TRB_ITEM->C6_DESCONT  			// C6_DESCONT
+			cC01 := AllTrim(TRB_ITEM->FILIAL)       		// FILIAL
+			cC02 := iif(TRB_ITEM->ACAO = "I", AllTrim(Str(nCodItem) ),TRB_ITEM->ITEM) 				// C6_ITEM
+			cC03 := AllTrim(TRB_ITEM->ZSA_PROD)  	    	// C6_PRODUTO
+			cC04 := IIF(TRB_ITEM->ZSA_PRCDES=0,'N','S')  	// C6_XOFERTA
+			cC05 := AllTrim(TRB_ITEM->CAVALETE)				// C6_YCAVALE
+			cC06 := AllTrim(TRB_ITEM->ZSA_CLASSI)		  	// C6_YCLASSI
+			cC07 := SB1->B1_UM  							// C6_UM
+			cC08 := AllTrim(TRB_ITEM->ZSA_LOTE)			    // C6_LOTECTL
+			cC09 := AllTrim(TRB_ITEM->CAVALETE)			    // C6_NUMLOTE
+			cC10 := AllTrim(TRB_ITEM->ZSA_LOCAL)	        // C6_LOCAL
+			cC11 := TRB_ITEM->ZSA_QTDVEN  					// C6_QTDVEN
+						
+			cC12 := IIF(TRB_ITEM->ZSA_PRCDES=0,TRB_ITEM->ZSA_PRCUNT,TRB_ITEM->ZSA_PRCDES)  					// C6_PRCVEN PRC VENDA
+			cC13 := TRB_ITEM->ZSA_PRCTAB    				// C6_PRUNIT PRC TABELA
+
+			If AllTrim(TRB_ITEM->ZSA_CLASSI) $ 'A' .OR. SubStr(AllTrim(TRB_ITEM->ZSA_PROD) ,1,2) == 'AM'
+				cC14 :=  "525"  							// C6_TES
+			else
+				If _aCabecalho[9]=="ME"
+					cC14 :=  "511"		 						// C6_TES
+				else
+					cC14 :=  "511"		 						// C6_TES
+				EndIf
+		    EndIf
+
+			cC15 := SB1->B1_ORIGEM + SF4->F4_SITTRIB  		// C6_SITTRIB
+			cC16 := dDataBase  								// C6_ENTREG
+			cC17 := TRB_ITEM->ACAO							// AÇÃO 
+			
+			//cC13 := TRB_ITEM->C6_DESCONT  				// C6_DESCONT
 			
 			/*
 			Criaçao da Linha de itens dos Pedidos
 			*/
-			aAdd( _aItens , {cC01,cC02,cC03,cC04,cC05,cC06,cC07,cC08,cC09,cC10,cC11,cC12,cC13} )
+			aAdd( _aItens , {cC01,cC02,cC03,cC04,cC05,cC06,cC07,cC08,cC09,cC10,cC11,cC12,cC13,cC14,cC15,cC16,cC17} )
 			
 		EndIf
 		
@@ -330,7 +563,7 @@ Do While !EOF()
 		
 		MfPedI( _aCabecalho, _aItens)
 		
-		If Ascan(aIdVend,AllTrim(TRB_CAB->C5_VEND1)) == 0
+		/*If Ascan(aIdVend,AllTrim(TRB_CAB->C5_VEND1)) == 0
 			
 			COnOut("*********************************************")
 			COnOut(" Prg [addVendArry]        (SIGAWISE)         ")
@@ -338,7 +571,7 @@ Do While !EOF()
 			
 			aAdd(aIdVend,AllTrim(TRB_CAB->C5_VEND1))
 			
-		EndIf
+		EndIf*/
 		
 	EndIf
 	
@@ -379,11 +612,15 @@ Local _aAutoSC6 	:= {}
 Local _aLinha		:= {}
 Local _aErroSC6     := {}
 Local i 			:= 0
-Local _cErro    	:= "00"
+
 Local _aRetorno		:= {}
 Local cCodTab   	:= ""
 Local cCodTabP  	:= ""
 Local cDescErro     := ""
+
+Local nAux          := 0 
+Local aLogAuto      := {}
+
 
 cPedido  := ""
 cCodTab  := ""
@@ -399,19 +636,29 @@ lMsErroAuto := .f.
 
 If !Empty(_aCabecalho)
 	
-	/*
-	Recebe o proximo numero de pedidos do Protheus
-	*/
-	cPedido  := GetSxeNum(_cTabela,"C5_NUM")
-	
-	RollBackSxE()
-	
+	If Empty(_aCabecalho[10]) 
+		/*
+		Recebe o proximo numero de pedidos do Protheus
+		*/
+		cPedido  := GetSxeNum(_cTabela,"C5_NUM")
+		
+		RollBackSxE()
+	else	
+		cPedido  := _aCabecalho[10]
+
+		dbSelectArea("SC5")
+		dbSetOrder(1)
+		If !dbSeek("010101" + cPedido  )
+			ConOut("Pedido de Venda não econtrado!")
+		EndIf
+	EndIf
+
 	/*
 	Posiciona no cadastro
 	*/
 	dbSelectArea("SA1")
 	dbSetOrder(1)
-	If !dbSeek(xFilial("SA1") + _aCabecalho[2] + _aCabecalho[3] )
+	If !dbSeek(xFilial("SA1") + _aCabecalho[3] + _aCabecalho[4] )
 		ConOut("Cliente não econtrado!")
 	EndIf
 	
@@ -420,7 +667,7 @@ If !Empty(_aCabecalho)
 	*/
 	dbSelectArea("SA3")
 	dbSetOrder(1)
-	If !dbSeek(xFilial("SA3") + _aCabecalho[11] )
+	If !dbSeek(xFilial("SA3") + SA1->A1_VEND )
 		ConOut("Vendedor não econtrado!")
 	EndIf
 	
@@ -428,42 +675,26 @@ If !Empty(_aCabecalho)
 	Criaçao do Array especifio da inclusao do pedido de venda
 	Rotina de Cabeçalho
 	*/
-	
-	_aAutoSC5:={{"C5_NUM"    ,cPedido           			,Nil},; // Numero do pedido
-	{"C5_POLIB"  ,"S"         	    			,Nil},; // POLIBRAS =S
-	{"C5_TIPO"   ,"N"         	    			,Nil},; // Tipo de pedido
-	{"C5_CLIENTE",_aCabecalho[2]       			,Nil},; // Codigo do cliente
-	{"C5_LOJAENT",_aCabecalho[3]      			,Nil},; // Loja para entrada
-	{"C5_LOJACLI",_aCabecalho[3]      			,Nil},; // Loja do cliente
-	{"C5_EMISSAO",_aCabecalho[14]   	    	,Nil},; // Data de emissao
-	{"C5_DTINC"  ,_aCabecalho[14]   	    	,Nil},; // Data de emissao
-	{"C5_HRINC"  ,_aCabecalho[15]    			,Nil},; // Hora de inclusao
-	{"C5_CONDPAG",_aCabecalho[5]       			,Nil},; // Codigo da condicao de pagamento
-	{"C5_DESC1"  ,_aCabecalho[16]           	,Nil},; // Percentual de Desconto
-	{"C5_INCISS" ,"N"         	    			,Nil},; // ISS Incluso
-	{"C5_MOEDA"  ,1                 			,Nil},; // Moeda
-	{"C5_TIPOCLI",SA1->A1_TIPO	    			,Nil},; // Tipo Cliente
-	{"C5_TIPLIB" ,"1"         	    			,Nil},; // Tipo de Liberacao
-	{"C5_LIBEROK","S"         	    			,Nil},; // Liberacao Total
-	{"C5_BOLETO" , _aCabecalho[10]				,Nil},; // Boleto
-	{"C5_VOLUME1",0								,Nil},; // Volume
-	{"C5_VEND1"  ,_aCabecalho[11]          		,Nil},; // Vendedor
-	{"C5_NOMEVEN",AllTrim(SA3->A3_NOME)         ,Nil},; // Nome Vendedor
-	{"C5_TPCARGA","1" 			         		,Nil},; // Tipo de carga  - 21/08/2013
-	{"C5_TRANSP" ,"000001"                      ,Nil},; // Transportadora
-	{"C5_TABELA" ,_aCabecalho[6]                ,Nil},; // Codigo da Tabela de Preco
-	{"C5_MENNOTA",AllTrim(_aCabecalho[12])      ,Nil},; // MSG
-	{"C5_XFORMA" ,AllTrim(_aCabecalho[17])      ,Nil},; // Forma de pagamento
-	{"C5_COTACAO",AllTrim(str(_aCabecalho[13])) ,Nil}}  // C5_NUM OU C5_COTACAO
-	
-	
-	//
-	
+	_aAutoSC5:={{"C5_NUM"    ,cPedido           								,Nil},; // Numero do pedido
+				{"C5_TIPO"   ,"N"         	    								,Nil},; // Tipo de pedido
+				{"C5_XIDMOB" ,_aCabecalho[5]    								,Nil},; // Hora de inclusao
+				{"C5_CLIENTE",_aCabecalho[3]       								,Nil},; // Codigo do cliente
+				{"C5_LOJAENT",_aCabecalho[4]      								,Nil},; // Loja para entrada
+				{"C5_LOJACLI",_aCabecalho[4]      								,Nil},; // Loja do cliente
+				{"C5_EMISSAO",_aCabecalho[7]   	        						,Nil},; // Data de emissao
+				{"C5_DTINC"  ,_aCabecalho[7] 	  	    						,Nil},; // Data de emissao
+				{"C5_CONDPAG",_aCabecalho[6]       								,Nil},; // Codigo da condicao de pagamento
+				{"C5_YTIPO"  ,_aCabecalho[9]             					   	,Nil},; // Percentual de Desconto
+				{"C5_TIPOCLI",SA1->A1_TIPO	    			 				   	,Nil},; // Tipo Cliente
+				{"C5_VEND1"  ,SA1->A1_VEND          						   	,Nil},; // Vendedor
+				{"C5_XSHOWFO", IIF(Empty(_aCabecalho[10]),"N",SC5->C5_XSHOWFO) 	,Nil},; // FollowUp   
+				{"C5_COTACAO",cPedido 											,Nil}}  // C5_NUM OU C5_COTACAO
+		
 	/*
 	Erro dos itens do pedidos
 	*/
 	_aErroSC6 := {}
-	
+
 	/*
 	Loop dos Itens do cadastro de produtos da Polibras
 	*/
@@ -486,23 +717,38 @@ If !Empty(_aCabecalho)
 			Rotina de Itens
 			*/
 			aadd(_aLinha,{"C6_NUM"    ,cPedido                     			      	,Nil}) // Numero do Pedido
-			aadd(_aLinha,{"C6_ITEM"   ,Iif(i < 100, StrZero(i,2),AllTrim(Str(i))) 	,Nil}) // Numero do Item no Pedido
+
+			if _aItens[i,17] == "I"
+				aadd(_aLinha,{"C6_ITEM"   ,Iif(i < 100, StrZero(i,2),AllTrim(Str(i))) 	,Nil}) // Numero do Item no Pedido
+			else
+				aadd(_aLinha,{"LINPOS",     "C6_ITEM",     _aItens[i,02]})
+      			aadd(_aLinha,{"AUTDELETA",  "S",           Nil})
+			EndIf
+
 			aadd(_aLinha,{"C6_PRODUTO",_aItens[i,3]                					,Nil}) // Codigo do Produto
 			aadd(_aLinha,{"C6_DESCRI" ,SB1->B1_DESC                					,Nil}) // Descricao produto
-			aadd(_aLinha,{"C6_QTDVEN" ,_aItens[i,5]                					,Nil}) // Quantidade Vendida
-			aadd(_aLinha,{"C6_PRCVEN" ,_aItens[i,6]              				    ,Nil}) // Preco de Lista
-			aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,7]                 				,Nil}) // Preco Unitario Liquido
-			aadd(_aLinha,{"C6_VALOR"  ,_aItens[i,5] * _aItens[i,6]                 	,Nil}) // Preco Total
+			aadd(_aLinha,{"C6_LOCAL"  ,_aItens[i,10]              					,Nil}) // Armazem
+			
+			aadd(_aLinha,{"C6_YCAVALE",_aItens[i,5]                					,Nil}) // cavalete
+			aadd(_aLinha,{"C6_YCLASSI",_aItens[i,6]                					,Nil}) // Cassificação
+			aadd(_aLinha,{"C6_LOTECTL",_aItens[i,8]                					,Nil}) // Lote 
+			aadd(_aLinha,{"C6_NUMLOTE",_aItens[i,9]                					,Nil}) // Lote 
+			
+			aadd(_aLinha,{"C6_QTDVEN" ,_aItens[i,11]               					,Nil}) // Quantidade Vendida
+			aadd(_aLinha,{"C6_PRCVEN" ,_aItens[i,12]              				    ,Nil}) // Preco de Lista
+			aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,12]                 				,Nil}) // Preco Unitario Liquido
+			
+			aadd(_aLinha,{"C6_VALOR"  ,Round(_aItens[i,11] * _aItens[i,12],2)      	,Nil}) // Preco Total
 			aadd(_aLinha,{"C6_ENTREG" ,dDatabase          							,Nil}) // Data da Entrega
-			aadd(_aLinha,{"C6_UM"     ,_aItens[i,4]                 				,Nil}) // Unidade de Medida Primar.
-			aadd(_aLinha,{"C6_TES"    ,_aItens[i,9]                 				,Nil}) // Tipo de Entrada/Saida do Item
-			aadd(_aLinha,{"C6_CLASFIS",StrZero(VAL(_aItens[i,10]),3)				,Nil,.T.}) // Tipo de Entrada/Saida do Item
-			aadd(_aLinha,{"C6_LOCAL"  ,_aItens[i,11]              					,Nil}) // Armazem
-			aadd(_aLinha,{"C6_DESCONT",_aItens[i,13]           						,Nil}) // Percentual de Desconto
-			aadd(_aLinha,{"C6_COMIS1" ,3                           					,Nil}) // Comissao Vendedor
-			aadd(_aLinha,{"C6_CLI"    ,_aCabecalho[2]               				,Nil}) // Cliente
-			aadd(_aLinha,{"C6_LOJA"   ,_aCabecalho[3]              					,Nil}) // Loja do Cliente
-			aadd(_aLinha,{"C6_QTDLIB" ,_aItens[i,5]                 				,Nil}) // Quantidade Liberada
+			aadd(_aLinha,{"C6_UM"     ,_aItens[i,7]                 				,Nil}) // Unidade de Medida Primar.
+			aadd(_aLinha,{"C6_TES"    ,_aItens[i,14]                 				,Nil}) // Tipo de Entrada/Saida do Item
+			
+			//aadd(_aLinha,{"C6_DESCONT",_aItens[i,13]           					,Nil}) // Percentual de Desconto
+			//aadd(_aLinha,{"C6_COMIS1" ,3                           				,Nil}) // Comissao Vendedor
+			aadd(_aLinha,{"C6_CLI"    ,_aCabecalho[3]               				,Nil}) // Cliente
+			aadd(_aLinha,{"C6_LOJA"   ,_aCabecalho[4]              					,Nil}) // Loja do Cliente
+			
+			aadd(_aLinha,{"C6_XOFERTA",_aItens[i,4]                					,Nil}) // Oferta
 			
 			/*
 			Clone da Linha de Produtos
@@ -510,9 +756,7 @@ If !Empty(_aCabecalho)
 			AAdd( _aAutoSC6, AClone( _aLinha ) )
 			
 		Else
-			
 			aAdd(_aErroSC6 , {cPedido, StrZero(i,4), _aItens[i,3],"Produto Bloqueado" } )
-			
 		EndIf
 		
 	Next
@@ -523,18 +767,41 @@ If !Empty(_aCabecalho)
 	lMsErroAuto := .F.
 	
 	/*
-	Execauto para geracao dos pedidos com validacacoes
+	Execauto para geracao dos pedidos com validacações
 	*/
-	MSExecAuto({|x,y,Z| Mata410(x,y,Z)},_aAutoSC5,_aAutoSC6,3)
-	
+	If Empty(_aCabecalho[10]) 
+		MSExecAuto({|x,y,Z| Mata410(x,y,Z)},_aAutoSC5,_aAutoSC6,3)
+	Else
+		MSExecAuto({|x,y,Z| Mata410(x,y,Z)},_aAutoSC5,_aAutoSC6,4)
+	EndIf
+
 	/*
 	Variavel complementar de apoio de erros
 	*/
 	cDescErro     := ""
 	
 	If lMsErroAuto
-		cDescErro :=	MostraErro()
+		If !IsBlind() 
+			cDescErro := MostraErro()
+		Else
+			aLogAuto  := GetAutoGRLog()
+	
+			For nAux := 1 To Len(aLogAuto)
+				cDescErro += aLogAuto[nAux] + CRLF
+			Next
+		EndIf
 		
+		cQuery := " UPDATE "+RetSqlName("ZSA")
+		cQuery += "    SET ZSA_IDPEND = 'M',ZSA_MSGINT= CONVERT(VARBINARY(MAX), '"+UPPER(cDescErro)+"') 
+		cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+		cQuery += "  WHERE ZSA_IDMOBP = '"+ _aCabecalho[5] +"'
+		cQeery += "    AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') =''
+
+		/*
+		Execucao background do codigo sql
+		*/
+		TcSqlExec(cQuery)
+
 		DisarmTransaction()
 		RollBackSxE()
 	Else
@@ -548,20 +815,7 @@ If !Empty(_aCabecalho)
 
 			Do While !SC6->(Eof()) .And. SC5->(C5_FILIAL+C5_NUM) == SC6->(C6_FILIAL+C6_NUM)
 				
-				dbSelectArea("SB1")
-				dbsetorder(1)
-				dbseek(xfilial("SB1")+AllTrim(SC6->C6_PRODUTO) ,.f.)
-				
-				/*
-				Posiciona no cadastro
-				*/
-				dbSelectArea("SF4")
-				dbsetorder(1)
-				dbseek(xfilial("SF4")+AllTrim(SC6->C6_TES) ,.f.)
-				
-				RecLock("SC6")
-				SC6->C6_CLASFIS := SB1->B1_ORIGEM+SF4->F4_SITTRIB
-				MsUnLock()
+			
 				
 				SC6->(DbSkip())
 			EndDo
@@ -570,8 +824,7 @@ If !Empty(_aCabecalho)
 		
 	EndIf
 	
-	
-	
+
 	/*
 	Verica se o Pedido foi Inserido
 	*/
@@ -579,101 +832,44 @@ If !Empty(_aCabecalho)
 	dbSetOrder(1)
 	If Empty(cDescErro) .AND. dbSeek(xFilial(_cTabela)+cPedido)
 		
+		cQuery := " UPDATE "+RetSqlName("ZSA")
+		cQuery += "    SET ZSA_IDPEND = 'M',ZSA_PEDVEN='"+AllTrim(cPedido) +"'
+		cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+		cQuery += "  WHERE ZSA_IDMOBP = '"+ AllTrim(SC5->C5_XIDMOB) +"'
 		
-		cQuery := " UPDATE "+RetSqlName("SC9")
-		cQuery += "   SET C9_TPCARGA = '1'
-		cQuery += "  WHERE D_E_L_E_T_ <> '*'
-		cQuery += "    AND C9_TPCARGA = '3'
-		cQuery += "    AND C9_PEDIDO  = '"+ cPedido +"'"
-		cQuery += "    AND C9_FILIAL  = '"+ xFilial(_cTabela) +"'"
-		cQuery += "    AND C9_DATALIB >= '"+ dtos(ddatabase-10) +"'"
 		/*
 		Execucao background do codigo sql
 		*/
 		TcSqlExec(cQuery)
-		
-		cQuery := " UPDATE POLIBRAS..polibras_pedcab" + cCodTab
-		cQuery += "    SET importado = 2 , situacao_retorno = 5 , retorno = 2 , cod_ped_gestao = '"+ cPedido +"'"
-		cQuery += "  WHERE codigo_pedido = "+ AllTrim(str(_aCabecalho[13]))
-		/*
+
+		cQuery := " UPDATE "+RetSqlName("ZSC")
+		cQuery += "    SET ZSC_TIPO = 'B'
+		cQuery += "  WHERE ZSC_IDMOBP = '"+ AllTrim(SC5->C5_XIDMOB) +"'
+
+	  	/*
 		Execucao background do codigo sql
 		*/
 		TcSqlExec(cQuery)
-		
-		cQuery := " UPDATE POLIBRAS..polibras_pedcorp" + cCodTab
-		cQuery += "    SET importado = 2,cod_ped_gestao = '"+ cPedido +"'"
-		cQuery += "  WHERE codigo_pedido = "+ AllTrim(str(_aCabecalho[13]))
-		/*
-		Execucao background do codigo sql
-		*/
-		TcSqlExec(cQuery)
-		
-		/*
-		Atualizando no banco da polibras os intes que nao foram importados
-		*/
-		If !Empty(_aErroSC6)
-			For nX:=1 to Len(_aErroSC6)
-				
-				cQuery := " UPDATE POLIBRAS..polibras_pedcorp" + cCodTab
-				cQuery += "    SET importado = 3,cod_ped_gestao = '"+ cPedido +"', observacao = '" + _aErroSC6[nX][4] + "'"
-				cQuery += "  WHERE codigo_pedido = "+ AllTrim(str(_aCabecalho[13]))
-				cQuery += "    AND codigo_produto ='" + AllTrim(_aErroSC6[nX][3]) + "'"
-				
-				/*
-				Execucao background do codigo sql
-				*/
-				TcSqlExec(cQuery)
-				//ConOut(cQuery)
-				
-			Next nX
-		EndIf
+    
+		If  RecLock("ZSC",.T.)
+				Replace ZSC_FILIAL With xFilial(_cTabela)
+				Replace ZSC_CODIGO With AllTrim(cPedido)
+				Replace ZSC_TIPO   With "L"
+				Replace ZSC_MSGRET With SC5->C5_XMOTBLQ
+				Replace ZSC_IDMOBP With AllTrim(SC5->C5_XIDMOB)
+				Replace ZSC_SITUAC With ""
+		   	MsUnLock()
+		EndIf 
 		
 	Else
-		
-		cQuery := " UPDATE POLIBRAS..polibras_pedcab" + cCodTab
-		cQuery += "    SET importado = 3, situacao_retorno=5 , retorno = 2 ,observacao_gestao = '" + cDescErro + "'"
-		cQuery += "  WHERE codigo_pedido = "+ AllTrim(str(_aCabecalho[13]))
-		/*
-		Execucao background do codigo sql
-		*/
-		TcSqlExec(cQuery)
-		
-		cQuery := " UPDATE POLIBRAS..polibras_pedcorp" + cCodTab
-		cQuery += "    SET importado = 3 "
-		cQuery += "  WHERE codigo_pedido = "+ AllTrim(str(_aCabecalho[13]))
-		/*
-		Execucao background do codigo sql
-		*/
-		TcSqlExec(cQuery)
-		
-		/*
-		Atualizando no banco da polibras os intes que nao foram importados
-		*/
-		If !Empty(_aErroSC6)
-			For nX:=1 to Len(_aErroSC6)
-				
-				cQuery := " UPDATE POLIBRAS..polibras_pedcorp" + cCodTab
-				cQuery += "    SET importado = 3, observacao = '" + _aErroSC6[nX][4] + "'"
-				cQuery += "  WHERE codigo_pedido = "+ AllTrim(str(_aCabecalho[13]))
-				cQuery += "    AND codigo_produto ='" + AllTrim(_aErroSC6[nX][3])    + "'"
-				/*
-				Execucao background do codigo sql
-				*/
-				TcSqlExec(cQuery)
-				
-				//ConOut(cQuery)
-			Next nX
-		EndIf
-		
-		_cErro   := "02"
-		cPedido  := Space(06)
+
 	EndIf
 	
 Else
-	_cErro 		:= "03"
+
 EndIf
 
-_aRetorno := {cPedido,_cErro}
+//_aRetorno := {cPedido,_cErro}
 RestArea(aAreasPed)
 
 Return(_aRetorno)

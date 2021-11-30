@@ -398,6 +398,9 @@ Local cGPExec  := GetMv("MV_XGPEXE")
 
 Local aMsgPrc  := {}
 
+Local nX       := 0 
+
+
 oProcess:SetRegua1(7)
 
 /*
@@ -1179,15 +1182,16 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		TCSPExec("SP_SENDMAIL",'ITINGA',"backoffice.es@qualitagroup.com;bruno.lage@grupoqualita.com.br;arlindo.pelissari@grupoqualita.com.br",'Pedido BOOKING SOLICITADO ! Código:' + SC5->C5_NUM ,'PEDIDO BOOKING SOLICITADO!'+ "<br>" +'CÓDIGO:' + SC5->C5_NUM + "<br>" ,'D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF')
 		//TCSPExec("SP_SENDMAIL",'ITINGA',"bruno.lage@grupoqualita.com.br",'Pedido BOOKING SOLICITADO ! Código:' + SC5->C5_NUM ,'PEDIDO BOOKING SOLICITADO!'+ "<br>" +'CÓDIGO:' + SC5->C5_NUM + "<br>" ,'D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF')
 
-		sleep(500)
+		/*sleep(500)*/
 
 		/*
 		WHATSAPP
 		*/
+		/*
 		U_SWENARWAP("5527981188913", "PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM),"PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM)   ,"RQ0003a"           ,"PDF","\RELINWEB\RQ0003a.PDF")
 		sleep(500)
 		U_SWENARWAP("5533984022125", "PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM),"PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM)   ,"RQ0003a"           ,"PDF","\RELINWEB\RQ0003a.PDF")
-
+		*/
 	End
 	
 	ConOut("******************************************" )

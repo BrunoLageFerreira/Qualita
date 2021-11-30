@@ -11,7 +11,7 @@
 			"isMultiSession": true,
 			"enableTableSync": true,
 			"programArguments": [],
-			"enableMultiThread": true,
+			"enableMultiThread": false,
 			"enableProfile": false,
 			"isAccessibilityMode": false,
 			"doNotShowSplash": false,

@@ -24,9 +24,10 @@ Local nPosPun := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_PRUNIT" }) //Preço de 
 Local nPosPro := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_PRODUTO"}) //Preço de venda
 Local nPosCla := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_YCLASSI"}) //Preço de tabela
 Local nPosTes := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_TES"    }) //TES
+Local nPosCav := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_YCAVALE"}) //Cavalete
 
-Local nPosSUBL := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_NUMLOTE"}) //Lote
-Local nPosLOTE := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_LOTECTL"}) //SubLote
+Local nPosSUBL := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_NUMLOTE"}) //SubLote
+Local nPosLOTE := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_LOTECTL"}) //Lote
 
 Local cQuery  := ""
 
@@ -70,10 +71,10 @@ For nX := 1 To Len(aCols)
 			tcQuery cQuery alias TRB new
 			dbSelectArea("TRB")
 			dbgotop()
-			
+
 		    aCols[nX][nPosPrc] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN) 
-		    aCols[nX][nPosPun] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN) // BRUNO TESTE TB_PREÇO 23/09/2019
-		    
+		    aCols[nX][nPosPun] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN) 
+
 		    /*
 		    Classificação Amostra
 		    */
@@ -90,6 +91,27 @@ For nX := 1 To Len(aCols)
 			
 			dbSelectArea("TRB") 
 			dbCloseArea()
+
+			cQuery  := " SELECT ZSA_PRCDES FROM ZSA010
+			cQuery  += "  WHERE D_E_L_E_T_ = ''
+			cQuery  += "    AND ZSA_PRCDES <> 0
+			cQuery  += "    AND ZSA_STATUS = 'ATIVA'
+			cQuery  += "    AND ZSA_IDMOBP = '"+ AllTrim(M->C5_XIDMOB) +"'
+			cQuery  += "    AND ZSA_NUMCAV = '"+ aCols[nX][nPosCav]    +"'
+			cQuery  += "    AND ZSA_PROD   = '"+ aCols[nX][nPosPro]    +"'
+			cQuery  += "    AND ZSA_CLASSI = '"+ aCols[nX][nPosCla]    +"'
+			cQuery  += "    AND ZSA_LOTE   = '"+ aCols[nX][nPosLOTE]   +"'
+
+			tcQuery cQuery alias TRB new
+			dbSelectArea("TRB")
+			dbgotop()
+
+			aCols[nX][nPosPrc] :=  IIF(EMPTY(TRB->ZSA_PRCDES),aCols[nX][nPosPrc],TRB->ZSA_PRCDES)
+		    aCols[nX][nPosPun] :=  IIF(EMPTY(TRB->ZSA_PRCDES),aCols[nX][nPosPun],TRB->ZSA_PRCDES)
+
+			dbSelectArea("TRB") 
+			dbCloseArea()
+			
 		Else
 		
 			If Empty(aCols[nX][nPosCla])
@@ -118,7 +140,7 @@ For nX := 1 To Len(aCols)
 			dbgotop()
 			
 		    aCols[nX][nPosPrc] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN) 
-		    aCols[nX][nPosPun] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN) //BRUNO TESTE TB_PREÇO 23/09/2019
+		    aCols[nX][nPosPun] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN) 
 			
 			/*
 		    Classificação Amostra
@@ -156,14 +178,13 @@ For nX := 1 To Len(aCols)
 		
 		aCols[nX][nPosPrc] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN) 
 		//aCols[nX][nPosRef] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN)
-		aCols[nX][nPosPun] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN) ////BRUNO TESTE TB_PREÇO 23/09/2019
+		aCols[nX][nPosPun] := IIF(EMPTY(TRB->DA1_PRCVEN),0,TRB->DA1_PRCVEN) 
 		aCols[nX][nPosTes] := GETMV("GR_TSREMES")
 		
 		dbSelectArea("TRB") 
 		dbCloseArea()
 	
 	EndIf
-
 
 Next nX
 

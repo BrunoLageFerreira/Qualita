@@ -28,6 +28,8 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	oProcess := MsNewProcess():New({|lEnd| lRet := MValidPedV(@oProcess, @lEnd,@lRet) },"Validando dados..","Lendo Registros do Pedido de Vendas",.T.) 
 	If !IsBlind()     
 		oProcess:Activate()
+	else
+		lRet := MValidPedV(nil, @lEnd,@lRet)
 	EndIf
 EndIf
 
@@ -38,7 +40,9 @@ User Function M410LIOK()
 *    Libera ou bloquea linha do pedido de venda 
 *
 ****
-Local lRet := .T.
+Local lRet   := .T.
+Local cQuery := ""
+
 /*
 LinhaOk
 */
@@ -54,6 +58,32 @@ If SubString(CNUMEMP,1,2) == "01"
 		lRet := .F.
 	EndIf
 EndIf
+
+
+/*
+Valida mobGran
+*/
+cQuery  := " SELECT ZSA_PRCDES FROM ZSA010
+cQuery  += "  WHERE D_E_L_E_T_ = ''
+cQuery  += "  AND ZSA_PRCDES <> 0
+//cQuery  += "  AND ZSA_STATUS = 'ATIVA'
+cQuery  += "  AND ZSA_IDMOBP = '"+ AllTrim(M->C5_XIDMOB)                    +"'
+cQuery  += "  AND ZSA_NUMCAV = '"+ AllTrim(GdFieldGet("C6_YCAVALE",n))      +"'
+cQuery  += "  AND ZSA_PROD   = '"+ AllTrim(GdFieldGet("C6_PRODUTO",n))      +"'
+cQuery  += "  AND ZSA_CLASSI = '"+ AllTrim(GdFieldGet("C6_YCLASSI",n))      +"'
+cQuery  += "  AND ZSA_LOTE   = '"+ AllTrim(GdFieldGet("C6_LOTECTL",n))      +"'
+
+tcQuery cQuery alias TRB new
+dbSelectArea("TRB")
+dbgotop()
+
+If !EMPTY(TRB->ZSA_PRCDES)
+	GdFieldPut("C6_XOFERTA",'S')
+EndIf
+
+dbSelectArea("TRB") 
+dbCloseArea()
+
 
 Return(lRet)
 
@@ -91,7 +121,7 @@ lOCAL nX       := 0
 
 If SubString(CNUMEMP,1,2) == "01"  .AND. (FUNNAME() <> "GROA001")
 	For nX := 1 To Len(aCols)
-		If !Empty(GdFieldGet("C6_XMOTBLQ",nX))
+		If !Empty(GdFieldGet("C6_XMOTBLQ",nX)) .OR. !Empty(M->C5_XMOTBLQ)
 			lLibBlq   := .T.
 		EndIf
 		
@@ -386,18 +416,20 @@ Static Function MValidPedV(oProcess, lEnd,lRet)
 *   /* Programa para validar o pedido de venda tabela de preço de chapas - Qualitá */
 *
 ****
-
 Local cQuery := ""
 
 Local nPosCava := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_YCAVALE"}) //Cavalete
 Local nPosLOTE := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_LOTECTL"}) //SubLote
 Local nPosSUBL := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_NUMLOTE"}) //Lote
-Local nPosLOCA := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_LOCAL"})    //Lote
+Local nPosLOCA := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_LOCAL"  }) //Lote
 Local cGPExec  := GetMv("MV_XGPEXE")
 
 Local aMsgPrc  := {}
+Loca  nX       := 0
 
-oProcess:SetRegua1(7)
+If !IsBlind()     
+	oProcess:SetRegua1(8)
+EndIf
 
 /*
 Somente para Qualitá
@@ -405,6 +437,8 @@ Somente para Qualitá
 ConOut(FUNNAME())
 If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND. (FUNNAME() <> "GROA001")
 
+
+	M->C5_XMOTBLQ := ""
 
 	/*
 	Somente para Mercado Externo
@@ -429,16 +463,18 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	ElseIf M->C5_MOEDA == 3
 		cDesMoed := "3 - (€)    E U R O"
 	EndIf
-
-	DEFINE MSDIALOG _oDlgMoeda TITLE "Moeda" FROM u_MGETTELA(178),u_MGETTELA(181) TO u_MGETTELA(342),u_MGETTELA(577) PIXEL
-		// Cria as Groups do Sistema
-		@ u_MGETTELA(001),u_MGETTELA(003) TO u_MGETTELA(062),u_MGETTELA(195) LABEL "" PIXEL OF _oDlgMoeda
 	
-		// Cria Componentes Padroes do Sistema
-		@ u_MGETTELA(009),u_MGETTELA(010) Say "Pedido sendo salvo na moeda:" Size u_MGETTELA(075),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlgMoeda
-		@ u_MGETTELA(033),u_MGETTELA(078) Say cDesMoed 						 Size u_MGETTELA(090),u_MGETTELA(080) COLOR CLR_HMAGENTA FONT oFont PIXEL OF _oDlgMoeda
-		@ u_MGETTELA(064),u_MGETTELA(156) Button "OK" ACTION(Close(_oDlgMoeda)) Size u_MGETTELA(037),u_MGETTELA(012) PIXEL OF _oDlgMoeda
-	ACTIVATE MSDIALOG _oDlgMoeda CENTERED 
+	If !IsBlind()     
+		DEFINE MSDIALOG _oDlgMoeda TITLE "Moeda" FROM u_MGETTELA(178),u_MGETTELA(181) TO u_MGETTELA(342),u_MGETTELA(577) PIXEL
+			// Cria as Groups do Sistema
+			@ u_MGETTELA(001),u_MGETTELA(003) TO u_MGETTELA(062),u_MGETTELA(195) LABEL "" PIXEL OF _oDlgMoeda
+		
+			// Cria Componentes Padroes do Sistema
+			@ u_MGETTELA(009),u_MGETTELA(010) Say "Pedido sendo salvo na moeda:" Size u_MGETTELA(075),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlgMoeda
+			@ u_MGETTELA(033),u_MGETTELA(078) Say cDesMoed 						 Size u_MGETTELA(090),u_MGETTELA(080) COLOR CLR_HMAGENTA FONT oFont PIXEL OF _oDlgMoeda
+			@ u_MGETTELA(064),u_MGETTELA(156) Button "OK" ACTION(Close(_oDlgMoeda)) Size u_MGETTELA(037),u_MGETTELA(012) PIXEL OF _oDlgMoeda
+		ACTIVATE MSDIALOG _oDlgMoeda CENTERED 
+	EndIf
 
 	ConOut("******************************************" )
 	ConOut("Inicio P.E = MT410TOK Qualitá" )
@@ -456,12 +492,14 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		Alert("Aviso! Este cliente possui um desconto padrão! Verifique sempre pela tela [F5].")
 	EndIf
 	
-	oProcess:IncRegua1("[1-7] - Conferência da tabela de preço com o desconto cadastrado!")  
-	
-	IF M->C5_TIPO $ "D/B"
+	IF M->C5_TIPO $ "D"
 		Return(.T.)
 	EndIf
 	
+	If !IsBlind()     
+		oProcess:IncRegua1("[1-8] - Conferência da tabela de preço com o desconto cadastrado!")  
+	EndIf
+
 	For nX := 1 To Len(aCols)
 		/*
 		Regra geral de tabela de preços 
@@ -480,135 +518,125 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 				Else
 					cClassif := AllTrim(GdFieldGet("C6_YCLASSI",nX))
 				EndIf
-						
-				cQuery  := " SELECT DA1_CODTAB,DA0_DESCRI,DA0_DESGER ,DA1_PRCVEN , CASE WHEN DA1_PERDES=0  THEN 1 WHEN DA1_PERDES<>0 THEN DA1_PERDES END  DA1_PERDES 
-				cQuery  += "   FROM DA0010 DA0 
-				cQuery  += "        INNER JOIN DA1010 DA1 
-				cQuery  += " ON (DA0_CODTAB = DA1_CODTAB)
-				
-				If SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",nX))) ,1,2) <> 'AM'
-					cQuery  += "  WHERE DA0_YCLASS IN ('"+ cClassif +"')
-					cQuery  += "    AND DA1_CODPRO = '" + AllTrim(GdFieldGet("C6_PRODUTO",nX))+"'"		
-				Else
-					cQuery  += "  WHERE DA1_CODPRO = '" + AllTrim(GdFieldGet("C6_PRODUTO",nX))+"'"	
+
+				If GdFieldGet("C6_XOFERTA",nX) == 'N'
+
+					cQuery  := " SELECT DA1_CODTAB,DA0_DESCRI,DA0_DESGER ,DA1_PRCVEN , CASE WHEN DA1_PERDES=0  THEN 1 WHEN DA1_PERDES<>0 THEN DA1_PERDES END  DA1_PERDES 
+					cQuery  += "   FROM DA0010 DA0 
+					cQuery  += "        INNER JOIN DA1010 DA1 
+					cQuery  += " ON (DA0_CODTAB = DA1_CODTAB)
+					
+					If SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",nX))) ,1,2) <> 'AM'
+						cQuery  += "  WHERE DA0_YCLASS IN ('"+ cClassif +"')
+						cQuery  += "    AND DA1_CODPRO = '" + AllTrim(GdFieldGet("C6_PRODUTO",nX))+"'"		
+					Else
+						cQuery  += "  WHERE DA1_CODPRO = '" + AllTrim(GdFieldGet("C6_PRODUTO",nX))+"'"	
+					EndIf
+							
+					IF !EMPTY(SA1->A1_MULTTAB)
+						cQuery  += "    AND DA0_CODTAB IN ("+AllTrim(SA1->A1_MULTTAB)+")"
+					ELSE
+						cQuery  += "    AND DA0_CODTAB IN ('000','001','002','003')
+					EndIf
+					cQuery  += "    AND DA0.D_E_L_E_T_ = ''
+					cQuery  += "    AND DA1.D_E_L_E_T_ = ''
+					
+					tcQuery cQuery alias TRB new
+					dbSelectArea("TRB")
+					dbgotop()
+					
+					If Empty(TRB->DA1_PRCVEN) .and. !GDDeleted(nX) 
+						Alert("[C6_PRCVEN] - Tabela de preço não encontrada! Linha:(" + Alltrim(str(nX)) +") Confira a classif. do produto ou Mult.Tabelas preços no Cad. Cliente." )
+						lRet := .F. 
+						//sleep(300)	
+						M->C5_BLQ  := '1'
+					EndIf
+					
+					//If GdFieldGet("C6_PRCVEN",nX) <  IIF(cClassif=="P",((TRB->DA1_PRCVEN - TRB->DA0_DESGER)),((TRB->DA1_PRCVEN * TRB->DA0_DESGER))) .and. !GDDeleted(nX)
+					If GdFieldGet("C6_PRCVEN",nX) <  IIF(cClassif=="P",((TRB->DA1_PRCVEN - TRB->DA0_DESGER)),((TRB->DA1_PRCVEN))) .and. !GDDeleted(nX)
+						//aAdd(aMsgPrc,"[C6_PRCVEN] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX))+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI))  
+						aAdd(aMsgPrc,"Cavalete:"+GdFieldGet("C6_YCAVALE",nX)+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI) )
+						//lRet := .F.
+						ConOut("******************************************")
+						ConOut("[C6_PRCVEN] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX)))
+						ConOut("******************************************")
+						//sleep(300)
+						M->C5_BLQ  := '1'	
+						GdFieldPut("C6_XMOTBLQ","PREÇO MENOR QUE A TABELA DE PREÇO:"+ AllTrim(TRB->DA1_CODTAB),nX)	
+					ELSE
+						GdFieldPut("C6_XMOTBLQ","",nX)
+					EndIf
+
+					GdFieldPut("C6_PRCREF",TRB->DA1_PRCVEN,nX)
+					
+					dbSelectArea("TRB") 
+					dbCloseArea()
+				else
+					M->C5_BLQ  := ''
+					GdFieldPut("C6_XMOTBLQ","",nX)
 				EndIf
-						
-				IF !EMPTY(SA1->A1_MULTTAB)
-					cQuery  += "    AND DA0_CODTAB IN ("+AllTrim(SA1->A1_MULTTAB)+")"
-				ELSE
-					cQuery  += "    AND DA0_CODTAB IN ('000','001','002','003')
-				EndIf
-				cQuery  += "    AND DA0.D_E_L_E_T_ = ''
-				cQuery  += "    AND DA1.D_E_L_E_T_ = ''
-				
-				tcQuery cQuery alias TRB new
-				dbSelectArea("TRB")
-				dbgotop()
-				
-				If Empty(TRB->DA1_PRCVEN) .and. !GDDeleted(nX) 
-					Alert("[C6_PRCVEN] - Tabela de preço não encontrada! Linha:(" + Alltrim(str(nX)) +") Confira a classif. do produto ou Mult.Tabelas preços no Cad. Cliente." )
-					lRet := .F.
-					//sleep(300)	
-					M->C5_BLQ  := '1'
-				EndIf
-				
-				If GdFieldGet("C6_PRCVEN",nX) <  ((TRB->DA1_PRCVEN - TRB->DA0_DESGER)) .and. !GDDeleted(nX)
-					//aAdd(aMsgPrc,"[C6_PRCVEN] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX))+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI))  
-					aAdd(aMsgPrc,"Cavalete:"+GdFieldGet("C6_YCAVALE",nX)+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI) )
-					//lRet := .F.
-					ConOut("******************************************")
-					ConOut("[C6_PRCVEN] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX)))
-					ConOut("******************************************")
-					//sleep(300)
-					M->C5_BLQ  := '1'	
-					GdFieldPut("C6_XMOTBLQ","PREÇO MENOR QUE A TABELA DE PREÇO:"+ AllTrim(TRB->DA1_CODTAB),nX)	
-				ELSE
-				  	GdFieldPut("C6_XMOTBLQ","",nX)
-				EndIf
-				/*
-				If GdFieldGet("C6_PRUNIT",nX) <  ((TRB->DA1_PRCVEN * TRB->DA0_DESGER)) .and. !GDDeleted(nX)
-					Alert("[C6_PRUNIT] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX))+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI) ) 
-					lRet := .F.
-					ConOut("******************************************" )
-					ConOut("[C6_PRUNIT] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX)))
-					ConOut("******************************************" )
-					sleep(300)	
-				EndIf	
-				*/
-				//GdFieldPut("C6_PRUNIT",0,nX)
-				//GdFieldPut("C6_PRUNIT",0,nX) // 23/09/2019
-				GdFieldPut("C6_PRCREF",TRB->DA1_PRCVEN,nX)
-				
-				dbSelectArea("TRB") 
-				dbCloseArea()
-				
-				IF lRet == .F.
-					Return(lRet)
+
+				IF lRet == .F. .And. !IsBlind()  
+					Return(lRet) 
 				EndIf
 			Else
 				/*
 				Usado para definir uma tabela de preço especifica para o cliente
 				*/
-	
-				cQuery  := " SELECT DA1_CODTAB,DA0_DESCRI,DA0_DESGER,DA1_PRCVEN , CASE WHEN DA1_PERDES=0  THEN 1 WHEN DA1_PERDES<>0 THEN DA1_PERDES END  DA1_PERDES
-				cQuery  += "   FROM DA0010 DA0 
-				cQuery  += "        INNER JOIN DA1010 DA1 
-				cQuery  += " ON (DA0_CODTAB = DA1_CODTAB)
+				If GdFieldGet("C6_XOFERTA",nX) == 'N'
 				
-				If SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",nX))) ,1,2) <> 'AM'
-					cQuery  += "  WHERE DA1_CODTAB IN ('"+ M->C5_TABELA +"')
-					cQuery  += "    AND DA1_CODPRO = '"+AllTrim(GdFieldGet("C6_PRODUTO",nX))+"'
+					cQuery  := " SELECT DA1_CODTAB,DA0_DESCRI,DA0_DESGER,DA1_PRCVEN , CASE WHEN DA1_PERDES=0  THEN 1 WHEN DA1_PERDES<>0 THEN DA1_PERDES END  DA1_PERDES
+					cQuery  += "   FROM DA0010 DA0 
+					cQuery  += "        INNER JOIN DA1010 DA1 
+					cQuery  += " ON (DA0_CODTAB = DA1_CODTAB)
+					
+					If SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",nX))) ,1,2) <> 'AM'
+						cQuery  += "  WHERE DA1_CODTAB IN ('"+ M->C5_TABELA +"')
+						cQuery  += "    AND DA1_CODPRO = '"+AllTrim(GdFieldGet("C6_PRODUTO",nX))+"'
+					Else
+						//TABELA PADRÃO DE AMOSTRAS
+						cQuery  += "  WHERE DA1_CODPRO = '"+AllTrim(GdFieldGet("C6_PRODUTO",nX))+"'
+						cQuery  += "    AND DA0_CODTAB IN ('000')
+					EndIf-
+			
+					cQuery  += "    AND DA0.D_E_L_E_T_ = ''
+					cQuery  += "    AND DA1.D_E_L_E_T_ = ''
+									
+					tcQuery cQuery alias TRB new
+					dbSelectArea("TRB")
+					dbgotop()
+					
+					If Empty(TRB->DA1_PRCVEN) .and. !GDDeleted(nX)
+						Alert("[C6_PRCVEN] - Tabela de preço não encontrada! Linha:(" + Alltrim(str(nX)) +") Confira a classif. do produto ou Mult.Tabelas preços no Cad. Cliente." )
+						lRet := .F.
+						//sleep(300)
+						M->C5_BLQ  := '1'
+					EndIf
+					
+					If GdFieldGet("C6_PRCVEN",nX) <  TRB->DA1_PRCVEN .and. !GDDeleted(nX)
+						aAdd(aMsgPrc,"Cavalete:"+GdFieldGet("C6_YCAVALE",nX)+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI) ) 
+						//lRet := .F.
+						ConOut("******************************************" )
+						ConOut("[C6_PRCVEN] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX)))
+						ConOut("******************************************" )
+						//sleep(300)	
+						M->C5_BLQ  := '1'
+						GdFieldPut("C6_XMOTBLQ","Preço menor que a tabela:"+ AllTrim(TRB->DA1_CODTAB),nX)	
+					ELSE
+						GdFieldPut("C6_XMOTBLQ","",nX)
+					EndIf
+
+					GdFieldPut("C6_PRCREF",TRB->DA1_PRCVEN,nX)
+					
+					dbSelectArea("TRB") 
+					dbCloseArea()
 				Else
-					//TABELA PADRÃO DE AMOSTRAS
-					cQuery  += "  WHERE DA1_CODPRO = '"+AllTrim(GdFieldGet("C6_PRODUTO",nX))+"'
-					cQuery  += "    AND DA0_CODTAB IN ('000')
-				EndIf-
-		
-				cQuery  += "    AND DA0.D_E_L_E_T_ = ''
-				cQuery  += "    AND DA1.D_E_L_E_T_ = ''
-				
-				
-				tcQuery cQuery alias TRB new
-				dbSelectArea("TRB")
-				dbgotop()
-				
-				If Empty(TRB->DA1_PRCVEN) .and. !GDDeleted(nX)
-					Alert("[C6_PRCVEN] - Tabela de preço não encontrada! Linha:(" + Alltrim(str(nX)) +") Confira a classif. do produto ou Mult.Tabelas preços no Cad. Cliente." )
-					lRet := .F.
-					//sleep(300)
-					M->C5_BLQ  := '1'
+					M->C5_BLQ  := ''
+					GdFieldPut("C6_XMOTBLQ","",nX)
 				EndIf
-				
-			    If GdFieldGet("C6_PRCVEN",nX) <  ((TRB->DA1_PRCVEN - TRB->DA0_DESGER)) .and. !GDDeleted(nX)
-					aAdd(aMsgPrc,"Cavalete:"+GdFieldGet("C6_YCAVALE",nX)+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI) ) 
-					//lRet := .F.
-					ConOut("******************************************" )
-					ConOut("[C6_PRCVEN] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX)))
-					ConOut("******************************************" )
-					//sleep(300)	
-					M->C5_BLQ  := '1'
-					GdFieldPut("C6_XMOTBLQ","Preço menor que a tabela:"+ AllTrim(TRB->DA1_CODTAB),nX)	
-				ELSE
-				  	GdFieldPut("C6_XMOTBLQ","",nX)
-				EndIf
-				/*
-				If GdFieldGet("C6_PRUNIT",nX) <  ((TRB->DA1_PRCVEN * TRB->DA0_DESGER)) .and. !GDDeleted(nX)
-					Alert("[C6_PRUNIT] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX))+" Tabela de Preço:" + AllTrim(TRB->DA1_CODTAB) + "-"+ AllTrim(TRB->DA0_DESCRI) ) 
-					lRet := .F.
-					ConOut("******************************************" )
-					ConOut("[C6_PRUNIT] - Preço menor que o permitido para esse produto. Linha:" + Alltrim(str(nX)))
-					ConOut("******************************************" )
-					sleep(300) 
-				EndIf	
-				*/
-				//GdFieldPut("C6_PRUNIT",0,nX) //23/09/2019
-				GdFieldPut("C6_PRCREF",TRB->DA1_PRCVEN,nX)
-				
-				dbSelectArea("TRB") 
-				dbCloseArea()
-				
-				IF lRet == .F.
-					Return(lRet)
+
+				IF lRet == .F. .and. !IsBlind()  
+					Return(lRet) 
 				EndIf
 			
 			EndIf
@@ -627,7 +655,8 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	
 	
 	If !Empty(cMSG)
-		Alert(cMSG) 
+		Alert(cMSG)  
+		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
 	EndIf
 	
 	
@@ -672,6 +701,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
     aLSPvLoca   := {}	
     aCavZero    := {}
     aNumCavPro  := {}
+	aCavBenef   := {}
     
 	For nX := 1 To Len(aCols)
 	
@@ -716,10 +746,12 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	
 	If !Empty(cMSG)
 		Alert(cMSG)
+		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
 		lRet := .F.
-		//sleep(300)	
-		Return(lRet)
-		//sleep(300) 
+		
+		IF lRet == .F. .and. !IsBlind()  
+			Return(lRet) 
+		EndIf
 	EndIf
 	
 	/*
@@ -729,9 +761,10 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	A mesma rotina confere se existe produtos sem saldo.
 	****************************************************************
 	*/
-	
-	oProcess:IncRegua1("[2-7] - Teste de cavales completos,apagados e sem saldo!")
-	
+	If !IsBlind()     
+		oProcess:IncRegua1("[2-8] - Teste de cavales completos,apagados e sem saldo!")
+	EndIf
+
 	/*
 	SOMENTE SE O PEDIDO NAO ESTIVER FATURADO 
 	*/
@@ -805,17 +838,38 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 					EndIf
 					
 				EndIf
-				
+
 				dbSelectArea("TRB") 
 				dbCloseArea()
 			EndIf
+
+
+			/*
+			Cavalete em beneficiamento não pode 
+			Proibe
+			*/
+			If aScan(aCols,{|x|x[nPosCava] == aNumCavPro[nX][1] }) <> 0 .AND. M->C5_TIPO = 'B'
+				aAdd(aCavBenef,{ aNumCavPro[nX][1] , aCols[aScan(aCols,{|x|x[nPosCava] == aNumCavPro[nX][1] })][3] , aCols[aScan(aCols,{|x|x[nPosCava] == aNumCavPro[nX][1] })][5] , aCols[aScan(aCols,{|x|x[nPosCava] == aNumCavPro[nX][1] })][10] , aCols[aScan(aCols,{|x|x[nPosCava] == aNumCavPro[nX][1] })][36] , aCols[aScan(aCols,{|x|x[nPosCava] == aNumCavPro[nX][1] })][24]} )
+			EndIf
 			
 		Next nX
-		
+
+
+		cMSG := ""
+
+		/*
+		Beneficiamento
+		*/		
+		For nX:=1 to Len(aCavBenef)
+			If Empty(cMSG)
+				cMSG := "Pedido de Beneficiamento com cavaletes:" + chr(13)+chr(10) 
+			EndIf			
+			cMSG +=     "  ->" + AllTrim(aCavBenef[nX][2]) + " Cav.[" + Alltrim(aCavBenef[nX][3]) + "] Lote[" + Alltrim(aCavBenef[nX][4]) + "] SubLote[" + Alltrim(aCavBenef[nX][5]) + "] Local ["+ Alltrim(aCavBenef[nX][6]) +"]."+ chr(13)+chr(10)   
+		Next nX
+
 		/*
 		Incompletos/Apagado
 		*/
-		cMSG := ""
 		For nX:=1 to Len(aTodCav)
 			If Empty(cMSG)
 				cMSG := "Cavaletes incompletos/Apagado:" + chr(13)+chr(10) 
@@ -826,9 +880,12 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		If !Empty(cMSG)
 			Alert(cMSG)
 			//AVISO("Cavaletes incompletos:", cMSG , { "Fechar" }, 3)
+			M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
 			lRet := .F.
-			//sleep(300)	
-			Return(lRet) 
+
+			IF lRet == .F. .and. !IsBlind()  
+				Return(lRet)
+			EndIf 
 		EndIf
 	
 		/*
@@ -845,12 +902,16 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		If !Empty(cMSG)
 			IF (!Empty(C5_NOTA).Or.C5_LIBEROK=='E' .And. Empty(C5_BLQ))
 				Alert(cMSG)
+				M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
 			ELse 
 				Alert(cMSG)
-				//AVISO("Cavaletes incompletos:", cMSG , { "Fechar" }, 3)
+				M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
+				
 				lRet := .F.
-				//sleep(300)	
-				Return(lRet) 
+
+				IF lRet == .F. .and. !IsBlind()  
+					Return(lRet)
+				EndIf 
 			EndIf
 		EndIf
 		
@@ -861,9 +922,10 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	Conferencia se existe estes Lote/SubLotes em um PVenda salvo
 	****************************************************************
 	*/
-	
-	oProcess:IncRegua1("[3-7] - Conferência se existe  Lote/SubLotes em um P.Venda salvo!")
-	
+	If !IsBlind()     
+		oProcess:IncRegua1("[3-8] - Conferência se existe  Lote/SubLotes em um P.Venda salvo!")
+	ENDIF
+
 	For nX := 1 To Len(aGriLSPv)
 		 	
 		//EXECUTAR SOMENTE PARA ESTES GRUPOS 
@@ -917,8 +979,13 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		Alert(cMSG)
 		//AVISO("Itens encontrados em outro P.Venda:", cMSG , { "Fechar" }, 3)
 		//sleep(300)	
+		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
+		
 		lRet := .F.
-		Return(lRet) 
+
+		IF lRet == .F. .and. !IsBlind()  
+			Return(lRet)
+		EndIf 
 	EndIf
 	
 	/*
@@ -926,8 +993,9 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	Validação Valores fiscais e descontos e totais
 	*******************************************
 	*/
-
-	oProcess:IncRegua1("[4-7] - Conferência fiscal, descontos e valores!")
+	If !IsBlind()     
+		oProcess:IncRegua1("[4-8] - Conferência fiscal, descontos e valores!")
+	ENDIF
 
 	aDadosGrv := FCalImp(@oProcess)
 	
@@ -946,8 +1014,10 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	Validação do peso para Amostras 
 	*******************************************
 	*/
-	oProcess:IncRegua1("[5-7] - Validação do peso para Amostras!")
-	
+	If !IsBlind()  
+		oProcess:IncRegua1("[5-8] - Validação do peso para Amostras!")
+	EndIf
+
 	cMSG := ""
 	
 	For nX := 1 To Len(aCols)
@@ -969,31 +1039,33 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 								
 			EndIf
 			
-			
 			If !GDDeleted(nX) .and. (SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",nX))) ,1,2) == 'AM' .Or. AllTrim(GdFieldGet("C6_YCLASSI",nX)) == "A")
 				M->C5_BLQ  := '1'
 				GdFieldPut("C6_XMOTBLQ","Produto Amostra! Requer aprovação." ,nX)
-			EndIf
-			
-			If M->C5_DESCONT  <> 0
-				M->C5_BLQ  := '1'
-				GdFieldPut("C6_XMOTBLQ", GdFieldGet("C6_XMOTBLQ",nX) + "// Ped. Venda com desconto de indenização." ,nX)
+				M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim("Produto Amostra! Requer aprovação.") + chr(13)+chr(10)
+				cMSG := AllTrim(cMSG) + AllTrim("Produto Amostra! Requer aprovação.") + chr(13)+chr(10)
 			EndIf
 			
 		EndIf
 	Next nX
 	
 	If M->C5_DESCONT  <> 0
-		cMSG += (chr(13)+chr(10)) + (chr(13)+chr(10)) + "O Campo de desconto de indenização foi preenchido. Ped. Venda requer aprovação." + chr(13)+chr(10)
+		M->C5_BLQ  := '1'
+		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim("O Campo de desconto de indenização foi preenchido. Ped. Venda requer aprovação." + chr(13)+chr(10))
+		cMSG := AllTrim(cMSG) + "O Campo de desconto de indenização foi preenchido. Ped. Venda requer aprovação." + chr(13)+chr(10)
 	EndIf
 	
 	IF !EMPTY(cMSG)
+
+		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
+		
 		If MsgYesNo(cMSG + chr(13)+chr(10)+ "Deseja continuar?" )
 			lRet := .t.
 		Else
 			lRet := .F.
-			//sleep(300)	
-			Return(lRet)
+			IF lRet == .F. .and. !IsBlind()  
+				Return(lRet)
+			EndIf 
 		EndIf
 	EndIf
 	
@@ -1002,15 +1074,17 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	Validação para não permitir salvar o pedido com chapas sem cavaletes 
 	*******************************************
 	*/
-	oProcess:IncRegua1("[6-7] - Chapas sem cavaletes!")
-	
+	If !IsBlind()
+		oProcess:IncRegua1("[6-8] - Chapas sem cavaletes!")
+	EndIf
+
 	cMSG := ""
 	
 	/*
 	Não validar para filial de SP 
 	não validar para Pedidos de Transferencia
 	*/
-	IF M->C5_YTIPO <> "TF" .AND. SubString(CNUMEMP,1,8) == "01010101" 
+	IF M->C5_YTIPO <> "TF" .AND. SubString(CNUMEMP,1,8) == "01010101" .and. M->C5_TIPO <> 'B'
 
 		For nX := 1 To Len(aCols)
 		
@@ -1035,8 +1109,13 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		
 		If !Empty(cMSG)
 			Alert(cMSG)
+			M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)  
+			
 			lRet := .F.
-			Return(lRet) 
+
+			IF lRet == .F. .and. !IsBlind()  
+				Return(lRet)
+			EndIf 
 		EndIf
 
 	EndIf
@@ -1046,10 +1125,12 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	Validação para não permitir salvar o pedido fora dos almoxarificados ou locais determinados 
 	*******************************************
 	*/
-	oProcess:IncRegua1("[7-7] - Almoxarifado não permitido !")
-	
+	If !IsBlind()
+		oProcess:IncRegua1("[7-8] - Almoxarifado não permitido !")
+	ENDIF
+
 	cMSG := ""
-	
+
 	For nX := 1 To Len(aCols)
 	
 		//EXECUTAR SOMENTE PARA ESTES GRUPOS 
@@ -1073,17 +1154,46 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	
 	If !Empty(cMSG)
 		Alert(cMSG)
+		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
+		
 		lRet := .F.
-		Return(lRet) 
+
+		IF lRet == .F. .and. !IsBlind()  
+			Return(lRet)
+		EndIf 
+	EndIf
+
+
+    /*
+	*******************************************
+	Validação dos dados de condição de pagamento
+	*******************************************
+	*/
+	If !IsBlind()
+		oProcess:IncRegua1("[8-8] - Validação dos dados de condição de pagamento!")
+	EndIf
+
+	If ! M->C5_TIPO $ "D/B"
+		dbSelectArea("SA1")
+		dbSetOrder(1)
+		If dbSeek(xFilial("SA1")+M->C5_CLIENTE+M->C5_LOJACLI)
+			If ! AllTrim(M->C5_CONDPAG) $ AllTrim(SA1->A1_XCONDPG)
+
+				If Empty(cMSG)
+					cMSG := "Pedido bloqueado! Condição de pagamento não permitida. Cond. Pag:["+ M->C5_CONDPAG +"]." + chr(13)+chr(10) 
+				EndIf
+
+			EndIf
+		EndIf 
+
+	EndIf
+
+	If !Empty(cMSG)
+		Alert(cMSG)
+		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
+		M->C5_BLQ      := "1"
 	EndIf
 	
-	/*
-	Valor de indenização
-	IF M->C5_DESCONT <> 0
-		Alert("Este pedido possui desconto indenizatório de valor. O pedido será bloqueado!")
-		M->C5_BLQ  := '1'
-	EndIf
-	*/
 	/*
 	VALIDAÇÃO DO MOBGRAN
 	*/
@@ -1149,8 +1259,6 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 			
 			dbSelectArea("TRB") 
 			dbCloseArea()	
-			
-
 		EndIf
 	EndIf
 
@@ -1177,15 +1285,16 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		TCSPExec("SP_SENDMAIL",'ITINGA',"backoffice.es@qualitagroup.com;bruno.lage@grupoqualita.com.br;arlindo.pelissari@grupoqualita.com.br",'Pedido BOOKING SOLICITADO ! Código:' + SC5->C5_NUM ,'PEDIDO BOOKING SOLICITADO!'+ "<br>" +'CÓDIGO:' + SC5->C5_NUM + "<br>" ,'D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF')
 		//TCSPExec("SP_SENDMAIL",'ITINGA',"bruno.lage@grupoqualita.com.br",'Pedido BOOKING SOLICITADO ! Código:' + SC5->C5_NUM ,'PEDIDO BOOKING SOLICITADO!'+ "<br>" +'CÓDIGO:' + SC5->C5_NUM + "<br>" ,'D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF')
 
-		sleep(500)
+		//sleep(500)
 
 		/*
 		WHATSAPP
 		*/
+		/*
 		U_SWENARWAP("5527981188913", "PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM),"PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM)   ,"RQ0003a"           ,"PDF","\RELINWEB\RQ0003a.PDF")
 		sleep(500)
 		U_SWENARWAP("5533984022125", "PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM),"PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM)   ,"RQ0003a"           ,"PDF","\RELINWEB\RQ0003a.PDF")
-
+		*/
 	End
 	
 	ConOut("******************************************" )
@@ -1196,25 +1305,33 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	SetKey(VK_F6,)
 EndIf
 
+IF lRet == .F. .and. IsBlind()  
+	lRet := .T.
+EndIf 
+
 Return(lRet)
 
-User Function ClintToMob()
+User Function ClintToMob(cTipo)
 ****************************************************************************************************************
 * /*Gatilho C5_XIDMOB*/    
 *
 ****
-Local aArea   := GetArea() 
-Local cQuery  := " SELECT * FROM ZSA010 WHERE D_E_L_E_T_ = '' AND ZSA_IDMOBP = '"+AllTrim(M->C5_XIDMOB)+" ' AND ZSA_STATUS ='ATIVA'
-Local cClient := "" 
+Local aArea     := GetArea() 
+Local cQuery    := " SELECT * FROM ZSA010 WHERE D_E_L_E_T_ = '' AND ZSA_IDMOBP = '"+AllTrim(M->C5_XIDMOB)+" ' AND ZSA_STATUS ='ATIVA'
+Local cDadosRet := "" 
 
 tcQuery cQuery alias TRBidMob new
 dbSelectArea("TRBidMob")
 dbgotop()
 
 If !EOF()
-	cClient := AllTrim(TRBidMob->ZSA_CLIENT)
+	If cTipo == "PG"
+		cDadosRet  := AllTrim(TRBidMob->ZSA_CPAG)
+	Else
+		cDadosRet  := AllTrim(TRBidMob->ZSA_CLIENT)
+	EndIf
 Else
-	cClient := M->C5_CLIENT
+	cDadosRet := M->C5_CLIENT
 EndIf
 
 dbSelectArea("TRBidMob") 
@@ -1222,8 +1339,9 @@ dbCloseArea()
 
 RestArea(aArea)
 
-Return(cClient)
+Return(cDadosRet)
 
+                                                                       
 Static Function FCalImp(oProcess) 
 ****************************************************************************************************************
 *    
@@ -1234,7 +1352,7 @@ Static Function FCalImp(oProcess)
 ************************************** 
 Local aArea     := GetArea() 
 Local nX        := 0 
-Local nPrcTot   := 0
+//Local nPrcTot   := 0
 Local _aTotalNF := {} 
 Local nValDesc  := 0
 Local nItem:= 0                             
@@ -1264,7 +1382,9 @@ Local nItem:= 0
 			   ConOut("MaFisAdd")                                  
 			   ConOut("************************************") 
 			   
-			   oProcess:SetRegua2(len(aCols))
+			   If !IsBlind()
+					oProcess:SetRegua2(len(aCols))
+			   ENDIF
 			   
                For nX := 1 to len(aCols) 
                     If !GDDeleted(nX)							//Validar se o registro nao esta deletado 
@@ -1290,9 +1410,11 @@ Local nItem:= 0
                                    0)
                                
                          nValDesc := nValDesc + Round(GdFieldGet("C6_VALDESC",nX),2)
-                      
-                         oProcess:IncRegua2("Cavalete ["+GdFieldGet("C6_YCAVALE",nX)+"] Lote-Chapa: "+AllTrim(GdFieldGet("C6_LOTECTL",nX))+"-"+GdFieldGet("C6_NUMLOTE",nX)  )
-                         
+						 
+						 If !IsBlind()  
+                         	oProcess:IncRegua2("Cavalete ["+GdFieldGet("C6_YCAVALE",nX)+"] Lote-Chapa: "+AllTrim(GdFieldGet("C6_LOTECTL",nX))+"-"+GdFieldGet("C6_NUMLOTE",nX)  )
+                         ENDIF
+
                          //ConOut(nValDesc)
                          //ConOut(nItem)
                     EndIf 
@@ -1432,7 +1554,7 @@ User Function WAppAprov()
 *
 ****
 Local cProt   := ""
-Local cProt2  := ""
+//Local cProt2  := ""
 Local cMotiv  := ""
 Local cQuery  := "SELECT DISTINCT UPPER(RTRIM(LTRIM(C6_XMOTBLQ))) C6_XMOTBLQ FROM SC6010 WHERE D_E_L_E_T_ ='' AND C6_FILIAL+C6_NUM = '" + SC5->C5_FILIAL + SC5->C5_NUM + "' AND UPPER(RTRIM(LTRIM(C6_XMOTBLQ))) <> ''
 
@@ -1711,15 +1833,16 @@ User Function GERAMSGPAD()
 *
 ****
 Local cQuery   := ""         
-Local aPeso    := {}
-Local nResult  := 0     
-Local cBoleto  := ""
+//Local aPeso    := {}
+//Local nResult  := 0     
+//Local cBoleto  := ""
 Local cMsgNota := ""    
-Local cMsgNota2:= ""                         
+//Local cMsgNota2:= ""                         
 Local cNotas   := ""
 Local aGriCavDW:= {}
 Local cGPExec  := GetMv("MV_XGPEXE")
 Local cInCavDw := ""
+Local nX       := 0
 
 /*
 Mensagem foi retirada de uso conforme chamado numero 1109
@@ -1826,8 +1949,6 @@ EndIf
 
 Return
 
-
-
 Static Function MAltVlrAut(cNumItem,cNumChapa) 
 ****************************************************************************************************************
 *    
@@ -1842,11 +1963,13 @@ Local oEdit2
 Local nEdit3	 := SA1->A1_INFDESC
 Local oEdit3
 
-Local nEdit4	 := 0
-Local oEdit4
+//Local nEdit4	 := 0
+//Local oEdit4
 
 Local lNExec     := .F.
 Local lNDele     := .F.
+
+Local nX         := 0
 
 // Variaveis Private da Funcao
 Private _oDlgVlr				// Dialog Principal
@@ -1962,7 +2085,7 @@ User Function MCONSUTDET()
 *    
 *
 ****
-// Variaveis Locais da Funcao
+// Variaveis Locais da Função
 Local cEdit1	 := Space(100)
 Local cEdit2	 := Space(100)
 Local cEdit3	 := Space(100)
@@ -1970,17 +2093,22 @@ Local oEdit1
 Local oEdit2
 Local oEdit3
 
-// Variaveis Private da Funcao
-Private _oDlg				// Dialog Principal
+Local nX         := 0
+
+// Variaveis Private da Funcão
+Private _oDlg	  // Dialog Principal
+
 // Variaveis que definem a Acao do Formulario
 Private VISUAL := .F.                        
 Private INCLUI := .F.                        
 Private ALTERA := .F.                        
-Private DELETA := .F.                        
+Private DELETA := .F.        
+
 // Privates das ListBoxes
 Private aListBox1 := {}
 Private oListBox1
 Private aFlist   := {}
+
 /*
 Inicializando Variaveis 
 */
@@ -2011,12 +2139,10 @@ iF TYPE("aCols") == "A"
 		Size u_MGETTELA(247),u_MGETTELA(140) Of _oDlg Pixel;
 		ColSizes 05,80,50,50,50,20
 
-		oListBox1:bLDblClick := {||  MAltVlrAut(aFlist[oListBox1:nAT,01],aFlist[oListBox1:nAT,04]) }
+		oListBox1:bLDblClick := {||  iif(fLibFunc(aFlist[oListBox1:nAT,01])==.t., MAltVlrAut(aFlist[oListBox1:nAT,01],aFlist[oListBox1:nAT,04]) , Alert("Produto oferta não pode ser alterado!") )  }
 
 	// Chamadas das ListBox do Sistema
 	fListBox1()
-	
-	
 	
 	For nX := 1 To Len(aFlist)
 		If AllTrim(aFlist[nX][1]) == AllTrim(GdFieldGet("C6_ITEM",n))
@@ -2025,8 +2151,6 @@ iF TYPE("aCols") == "A"
 			oListBox1:nAt := Nx
 		EndIf
 	Next Nx
-	
-	
 	
 	ACTIVATE MSDIALOG _oDlg CENTERED 
 
@@ -2039,20 +2163,37 @@ EndIf
 
 Return(.T.)
 
+Static Function fLibFunc(cNumItem)
+****************************************************************************************************************
+*    
+*
+****
+Local nX   := 0
+Local lRet := .T.
+
+For nX := 1 To Len(aCols)
+	If AllTrim(GdFieldGet("C6_ITEM",nX)) == AllTrim(cNumItem)	
+		IF GdFieldGet("C6_XOFERTA",nX) == "S"	
+			lRet := .F.
+		EndIf
+	EndIf
+Next nX
+
+Return(lRet)
 
 Static Function fListBox1()
 ****************************************************************************************************************
 *    
 *
 ****
-Local nPos     := 0
+//Local nPos   := 0
 Local nTotBr   := 0
 Local nTotLQ   := 0
 Local nTotCh   := 0
-Local nTotDF   := 0
+//Local nTotDF := 0
 Local nTotAM   := 0
 Local cGPExec  := GetMv("MV_XGPEXE")
-
+Local nx       := 0
 
 oListBox1:SetArray(aFlist)
 
@@ -2237,6 +2378,7 @@ Static Function fSaveDtBl()
 ****
 Local lGravou  := .F.
 Local cCodTitu := ""
+Local nX       := 0
 
 For nX:=1 to Len(aListBoxFin)
 	If !Empty(aListBoxFin[nX][12])
@@ -2267,7 +2409,7 @@ Static Function fListFin1(dSetDate,cSetCodPG)
 * 
 ****
 Local cQuery  := ""
-Local aTPAVA  := {}
+//Local aTPAVA  := {}
 Local aRetAva := ""
 
 dbSelectArea("SF2")

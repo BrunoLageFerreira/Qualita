@@ -14,9 +14,9 @@ ESTE E PARA ITINGA
 
 User Function MT103FIM()
 
-Local nOpcao    := PARAM[1]   // Opção Escolhida pelo usuario no aRotina
+Local nOpcao    := PARAMIXB[1]   // Opção Escolhida pelo usuario no aRotina
 Local nConfirma := PARAMIXB[2]   // Se o usuario confirmou a operação de gravação da NFE
-Local Usuario
+Local Usuario   := ""
 
 
 U_GTPE002()

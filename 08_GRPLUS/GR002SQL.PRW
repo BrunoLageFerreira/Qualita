@@ -22,6 +22,7 @@ Local aCodi   := {}
 Local aLote   := {}
 Local aDesc   := {}
 Local cCavMob := ""
+Local nX      := 0
 
 Aadd(aPerg,{cPerg,"Cavaletes [,]?","C",99,00,"G","","","","","","","",""})      
 Aadd(aPerg,{cPerg,"Código    [,]?","C",99,00,"G","","","","","","","",""})
@@ -37,7 +38,7 @@ INTEGRAÇÃO MOBGRAN
 /*
 Apaga o Profile do usuário
 */
-cQuery  := " SELECT * FROM ZSA010 WHERE D_E_L_E_T_ = '' AND ZSA_IDMOBP = '"+AllTrim(M->C5_XIDMOB)+" ' AND ZSA_STATUS ='ATIVA'
+cQuery  := " SELECT DISTINCT ZSA_NUMCAV  FROM ZSA010 WHERE D_E_L_E_T_ = '' AND ZSA_IDMOBP = '"+AllTrim(M->C5_XIDMOB)+" ' AND ZSA_STATUS ='ATIVA'
 		
 tcQuery cQuery alias TRB new
 

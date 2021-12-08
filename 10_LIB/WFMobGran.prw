@@ -33,9 +33,8 @@ Private _aItens		:= {}
 Private lMsHelpAuto := .T.
 Private lMsErroAuto := .F.
 
-
 COnOut("*********************************************")
-COnOut(" Prg [WFMOBGRAN]         (SIGAWISE)            ")
+COnOut(" Prg [WFMOBGRAN]         (SIGAWISE)          ")
 COnOut("*********************************************")
 
 /*
@@ -83,6 +82,7 @@ Local aCli  := {}
 Local lRet      := .T.
 Local cQuery    := ""
 Local cNumCli   := ""
+Local cCodMun   := ""
 
 Local aLogAuto  := {}
 Local cDescErro := ""
@@ -134,8 +134,14 @@ Do While !EOF()
 
 	aCli := {}
 
-	CCH->(DbSetOrder(1))
-	CCH->( DbSeek( Alltrim(XFilial("CCH")) + AvKey(TRB_CLI->ZSE_CODMUN,"CCH_CODIGO") ) )
+	cQuery := "select CC2_MUN FROM CC2010 WHERE D_E_L_E_T_ = '' AND CC2_CODMUN = '"+TRB_CLI->ZSE_CODMUN+"' AND CC2_EST = '"+TRB_CLI->ZSE_EST+"'"
+	TCQUERY cQuery ALIAS "TRB_MUN" NEW
+
+	dbSelectArea("TRB_MUN")
+	dbGoTop()
+	cCodMun := TRB_MUN->CC2_MUN
+	dbSelectArea("TRB_MUN")
+	dbCloseArea()
 
 	aAdd(aCli, {"A1_FILIAL"  , xFilial("SA1")          	, Nil})
 	aAdd(aCli, {"A1_COD"     , cNumCli                 	, Nil})
@@ -147,48 +153,38 @@ Do While !EOF()
 	aAdd(aCli, {"A1_TIPO"    , TRB_CLI->ZSE_TIPO        , NIL})
 	aAdd(aCli, {"A1_EST"     , TRB_CLI->ZSE_EST         , Nil})
 	aAdd(aCli, {"A1_COD_MUN" , TRB_CLI->ZSE_CODMUN      , Nil})
-	aAdd(aCli, {"A1_MUN"     , IIF(TRB_CLI->ZSE_CODMUN=="99999","MUNICIPIOEXTERIOR",CCH->CCH_CODIGO)       , Nil})
+	aAdd(aCli, {"A1_MUN"     , cCodMun			        , Nil})
 	aAdd(aCli, {"A1_BAIRRO"  , TRB_CLI->ZSE_BAIRRO      , Nil})
 	aAdd(aCli, {"A1_CGC"     , TRB_CLI->ZSE_CGC         , Nil})
 	aAdd(aCli, {"A1_INSCR"   , TRB_CLI->ZSE_INSCRI      , Nil})
 
-	aAdd(aCli, {"A1_CODPAIS" , TRB_CLI->ZSE_CDPAIS      , Nil})  
-	aAdd(aCli, {"A1_PAIS"    , TRB_CLI->ZSE_PAIS        , Nil})                                             
+	aAdd(aCli, {"A1_CODPAIS" , TRB_CLI->ZSE_CDPAIS      , Nil})
+	aAdd(aCli, {"A1_PAIS"    , TRB_CLI->ZSE_PAIS        , Nil})
 	
 	aAdd(aCli, {"A1_VEND"    , TRB_CLI->ZSE_VEND1       , Nil})
-	aAdd(aCli, {"A1_NATUREZ" , "1.1.02.01"              , Nil})    
+	aAdd(aCli, {"A1_NATUREZ" , "1.1.02.01"              , Nil})
 
-	aAdd(aCli, {"A1_XLAT"    , TRB_CLI->ZSE_LAT         , Nil})    
-	aAdd(aCli, {"A1_XLONG"   , TRB_CLI->ZSE_LONG        , Nil})   
-	aAdd(aCli, {"A1_YMOEDA"  , TRB_CLI->ZSE_MOEDA       , Nil})  
+	aAdd(aCli, {"A1_XLAT"    , TRB_CLI->ZSE_LAT         , Nil})
+	aAdd(aCli, {"A1_XLONG"   , TRB_CLI->ZSE_LONG        , Nil})
+	aAdd(aCli, {"A1_YMOEDA"  , TRB_CLI->ZSE_MOEDA       , Nil})
 
-	aAdd(aCli, {"A1_DDD"    , TRB_CLI->ZSE_DDD          , Nil})    
-	aAdd(aCli, {"A1_DDI"    , TRB_CLI->ZSE_DDI          , Nil})    
-	aAdd(aCli, {"A1_TELL"   , TRB_CLI->ZSE_TELL         , Nil})    
-	aAdd(aCli, {"A1_EMAIL"  , TRB_CLI->ZSE_EMAIL        , Nil})    
-	aAdd(aCli, {"A1_CEP"    , TRB_CLI->ZSE_CEP          , Nil})   
+	aAdd(aCli, {"A1_DDD"    , TRB_CLI->ZSE_DDD          , Nil})
+	aAdd(aCli, {"A1_DDI"    , TRB_CLI->ZSE_DDI          , Nil})
+	aAdd(aCli, {"A1_TELL"   , TRB_CLI->ZSE_TELL         , Nil})
+	aAdd(aCli, {"A1_EMAIL"  , TRB_CLI->ZSE_EMAIL        , Nil})
+	aAdd(aCli, {"A1_CEP"    , TRB_CLI->ZSE_CEP          , Nil})
 
 
 	lMsErroAuto := .F.
 	MsExecAuto({|x,y| MATA030(x,y)}, aCli, 3)
 	
 	If lMsErroAuto
-		If !IsBlind() 
-			cDescErro := MostraErro()
-		
-		Else
-			aLogAuto  := GetAutoGRLog()
 
-			cDescErro :="**********************"+ CRLF 
-			cDescErro += DtoC(dDatabase)+" - "+TIME()+CRLF
-			cDescErro +="**********************"+ CRLF 
-			For nAux := 1 To Len(aLogAuto)
-				cDescErro += aLogAuto[nAux] + CRLF
-			Next
-			
-		EndIf
-		lRet := .f.
-		
+		cDescErro :="**********************"+ CRLF 
+		cDescErro += DtoC(dDatabase)+"-"+TIME()+CRLF
+		cDescErro +="**********************"+ CRLF 
+		cDescErro += Mostraerro("D:\TOTVS 12\Microsiga\protheus_data\_LOGINTMOB\", Replace(Replace(DtoC(dDatabase)+"_"+TIME(),":","_"),"/","_") + "_ErroCliente.log")
+
 		ConOut(cDescErro)
 
 		dbSelectArea('ZSE')
@@ -197,14 +193,15 @@ Do While !EOF()
 			Replace ZSE->ZSE_STATUS  With "M"
 			Replace ZSE->ZSE_ERRO    With cDescErro
 		MsUnLock()   
-
 	else
 		Conout("Cliente incluído com sucesso!")
 
 		dbSelectArea('ZSE')
 		dbGoTo(TRB_CLI->RECNO)
 		RecLock( 'ZSE', .F. )	
+			Replace ZSE->ZSE_COD     With cNumCli 
 			Replace ZSE->ZSE_STATUS  With "X"
+			Replace ZSE->ZSE_ERRO    With ""
 		MsUnLock()   
 	EndIf
 		
@@ -221,6 +218,65 @@ dbCloseArea()
 ConOut("[Importaçao de Clientes] Finalização!")
 
 Return lRet
+
+
+User Function MlibPV()
+************************************************************************************************
+*
+*/* Liberação P.Venda*/
+***
+Local cQuery := ""
+
+ConOut("[Liberação de Pedidos de Venda] Início!")
+
+cQuery := " SELECT	C5_FILIAL+C5_NUM CHAVE,
+cQuery += " 		SC5.R_E_C_N_O_ REC_SC5,
+cQuery += " 		ZSC.R_E_C_N_O_ REC_ZSC,
+cQuery += " 		ZSC_TIPO TIPO,
+cQuery += " 		ZSC_SITUAC SIT, 
+cQuery += " 		CASE
+cQuery += "             WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' THEN 'UPDATE SC5010 SET C5_BLQ='''+'2'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(SC5.R_E_C_N_O_))
+cQuery += " 			WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='2' THEN 'UPDATE SC5010 SET C5_BLQ='' '''       + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(SC5.R_E_C_N_O_))
+cQuery += " 		END UPDSC5,
+cQuery += " 		CASE
+cQuery += "             WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' THEN 'UPDATE ZSC010 SET ZSC_SITUAC='''+'X'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(ZSC.R_E_C_N_O_))
+cQuery += " 			WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='2' THEN 'UPDATE ZSC010 SET ZSC_SITUAC='''+'X'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(ZSC.R_E_C_N_O_))
+cQuery += " 		END UPDZSC
+cQuery += "   FROM SC5010 SC5 INNER JOIN ZSC010 ZSC ON (C5_FILIAL+C5_NUM = ZSC_FILIAL+ZSC_CODIGO) 
+cQuery += "  WHERE C5_BLQ     <> '' 
+cQuery += "    AND ZSC_TIPO   <> 'B' 
+cQuery += "    AND ZSC_SITUAC <> 'X'
+cQuery += "    AND SC5.D_E_L_E_T_ = '' 
+cQuery += "    AND ZSC.D_E_L_E_T_ = ''
+cQuery += "    AND ZSC_TIPO   < 3
+
+TCQUERY cQuery ALIAS "TRB_LPV" NEW
+
+dbSelectArea("TRB_LPV")
+dbGoTop()
+Do While !EOF()
+
+	If TRB_LPV->SIT = 'L'
+		cQuery := TRB_LPV->UPDSC5
+		TcSqlExec(cQuery)
+		
+		cQuery := TRB_LPV->UPDZSC
+		TcSqlExec(cQuery)
+	EndIf
+
+	dbSelectArea("TRB_LPV")
+	dbSkip()
+EndDo
+
+/*
+Fecha arquivo temporario de SQL cabeçalhos
+*/
+dbSelectArea("TRB_LPV")
+dbCloseArea()
+
+ConOut("[Liberação de Pedidos de Venda] Finalização!")
+
+Return()
 
 
 Static Function MfEnvir(cEmp01,nFil00,cFil01)
@@ -258,6 +314,11 @@ u_MFQueryL()
 Funcao princial de chamadas de rotinas
 */
 u_MFQueryP( "010101" , "001" )
+
+/*
+Funcao princial de Liberação de Pedidos de Venda
+*/
+U_MlibPV()
 
 /*
 Controle de limpesa dos ambientes
@@ -327,15 +388,12 @@ Local nCodItem 	:= 0
 Local cCodTab   := ""
 Local cCodTabP  := ""
 
-
-
 Private aTabTES 	:= {}
 Private cNumPedPol  := ""
 
 COnOut("*********************************************")
 COnOut(" Prg u_MFQueryP(["+cPara01+"],["+cPara02+"])     (SIGAWISE)")
 COnOut("*********************************************")
-
 
 cCodTab  := ""
 cCodTabP := ""
@@ -354,7 +412,7 @@ cQuery += " 	   ''															        AS C5_TRANSP ,
 cQuery += " 	   LEFT(ZSA_CLIENT ,6)													AS C5_CLIENTE,
 cQuery += "        RIGHT(ZSA_CLIENT,2)													AS C5_LOJA   ,
 cQuery += " 	   'ME' 																AS C5_YTIPO  ,
-cQuery += " 	   C5_NUM																AS C5_NUM
+cQuery += " 	   (SELECT MIN(C5_NUM) FROM SC5010 WHERE C5_XIDMOB = ZSA_IDMOBP)		AS C5_NUM
 cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
 cQuery += "  WHERE ZSA_IDPEND in ('P')
 //cQuery += "    AND ISNULL(SC5.C5_NUM,'') = ''
@@ -384,6 +442,8 @@ cQuery += "	   ZSA_QTDVEN,
 cQuery += "	   ZSA_IDPEND,
 cQuery += "	   ZSA_PRCUNT,
 cQuery += "	   ZSA_PRCTAB,
+cQuery += "	   ZSA_DESCON,
+cQuery += "	   ZSA_VALDES,
 cQuery += "	   SC5.C5_NUM AS C5_NUM
 cQuery += "  FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
 cQuery += " WHERE ZSA_IDPEND in ('P')
@@ -392,7 +452,7 @@ cQuery += "   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX
 
 cQuery += " UNION ALL 
 
-cQuery += " SELECT  'R' ACAO, 
+cQuery += " SELECT 'R' ACAO, 
 cQuery += "		C6_FILIAL,
 cQuery += "		C6_ITEM ITEM,
 cQuery += "		C5_XIDMOB IDMOB,
@@ -406,6 +466,8 @@ cQuery += "		C6_QTDVEN,
 cQuery += "		'P',
 cQuery += "		C6_PRUNIT,
 cQuery += "		C6_PRCVEN,
+cQuery += "	   ZSA_DESCON,
+cQuery += "	   ZSA_VALDES,
 cQuery += "		C6_NUM C5_NUM
 cQuery += "  FROM SC6010 SC6 INNER JOIN SC5010 SC5 ON(C5_FILIAL = C6_FILIAL  AND C6_NUM=C5_NUM)
 cQuery += " WHERE SC6.D_E_L_E_T_ = ''
@@ -430,12 +492,9 @@ Limpa os vendedores adicionados anteriomente
 */
 aIdVend := {}
 
-
 dbSelectArea("TRB_CAB")
 dbGoTop()
 Do While !EOF()
-
-
 	/*
 	Posiciona nos cadastro
 	*/
@@ -538,13 +597,16 @@ Do While !EOF()
 			cC15 := SB1->B1_ORIGEM + SF4->F4_SITTRIB  		// C6_SITTRIB
 			cC16 := dDataBase  								// C6_ENTREG
 			cC17 := TRB_ITEM->ACAO							// AÇÃO 
-			
+
+			cC18 := TRB_ITEM->ZSA_DESCON
+			cC19 := TRB_ITEM->ZSA_VALDES
+
 			//cC13 := TRB_ITEM->C6_DESCONT  				// C6_DESCONT
 			
 			/*
 			Criaçao da Linha de itens dos Pedidos
 			*/
-			aAdd( _aItens , {cC01,cC02,cC03,cC04,cC05,cC06,cC07,cC08,cC09,cC10,cC11,cC12,cC13,cC14,cC15,cC16,cC17} )
+			aAdd( _aItens , {cC01,cC02,cC03,cC04,cC05,cC06,cC07,cC08,cC09,cC10,cC11,cC12,cC13,cC14,cC15,cC16,cC17,cC18,cC19} )
 			
 		EndIf
 		
@@ -566,15 +628,15 @@ Do While !EOF()
 		
 		MfPedI( _aCabecalho, _aItens)
 		
-		/*If Ascan(aIdVend,AllTrim(TRB_CAB->C5_VEND1)) == 0
-			
+		/*
+		If Ascan(aIdVend,AllTrim(TRB_CAB->C5_VEND1)) == 0
 			COnOut("*********************************************")
 			COnOut(" Prg [addVendArry]        (SIGAWISE)         ")
 			COnOut("*********************************************")
 			
 			aAdd(aIdVend,AllTrim(TRB_CAB->C5_VEND1))
-			
-		EndIf*/
+		EndIf
+		*/
 		
 	EndIf
 	
@@ -609,7 +671,7 @@ Static Function MfPedI( _aCabecalho , _aItens )
 *
 *
 ***
-Local aAreasPed := GetArea()
+Local aAreasPed     := GetArea()
 Local _aAutoSC5 	:= {}
 Local _aAutoSC6 	:= {}
 Local _aLinha		:= {}
@@ -719,10 +781,10 @@ If !Empty(_aCabecalho)
 			Criaçao do Array especifio da inclusao do pedido de venda
 			Rotina de Itens
 			*/
-			aadd(_aLinha,{"C6_NUM"    ,cPedido                     			      	,Nil}) // Numero do Pedido
+			aadd(_aLinha,{"C6_NUM"    ,cPedido                     			      	  ,Nil}) // Numero do Pedido
 
 			if _aItens[i,17] == "I"
-				aadd(_aLinha,{"C6_ITEM"   ,Iif(i < 100, StrZero(i,2),AllTrim(Str(i))) 	,Nil}) // Numero do Item no Pedido
+				aadd(_aLinha,{"C6_ITEM"   ,Iif(i < 100, StrZero(i,2),AllTrim(Str(i))) ,Nil}) // Numero do Item no Pedido
 			else
 				aadd(_aLinha,{"LINPOS",     "C6_ITEM",     _aItens[i,02]})
       			aadd(_aLinha,{"AUTDELETA",  "S",           Nil})
@@ -738,16 +800,17 @@ If !Empty(_aCabecalho)
 			aadd(_aLinha,{"C6_NUMLOTE",_aItens[i,9]                					,Nil}) // Lote 
 			
 			aadd(_aLinha,{"C6_QTDVEN" ,_aItens[i,11]               					,Nil}) // Quantidade Vendida
-			aadd(_aLinha,{"C6_PRCVEN" ,_aItens[i,12]              				    ,Nil}) // Preco de Lista
-			aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,12]                 				,Nil}) // Preco Unitario Liquido
-			
+
+			aadd(_aLinha,{"C6_DESCONT",_aItens[i,18]              				    ,Nil}) // Percentual de desconto
+			aadd(_aLinha,{"C6_VALDESC",_aItens[i,19]              				    ,Nil}) // valor do desconto
+			aadd(_aLinha,{"C6_PRCVEN" ,_aItens[i,12]              				    ,Nil}) // Preco Unitario Liquido
+			aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,13]                 				,Nil}) // Preco de Lista
 			aadd(_aLinha,{"C6_VALOR"  ,Round(_aItens[i,11] * _aItens[i,12],2)      	,Nil}) // Preco Total
+
 			aadd(_aLinha,{"C6_ENTREG" ,dDatabase          							,Nil}) // Data da Entrega
 			aadd(_aLinha,{"C6_UM"     ,_aItens[i,7]                 				,Nil}) // Unidade de Medida Primar.
 			aadd(_aLinha,{"C6_TES"    ,_aItens[i,14]                 				,Nil}) // Tipo de Entrada/Saida do Item
 			
-			//aadd(_aLinha,{"C6_DESCONT",_aItens[i,13]           					,Nil}) // Percentual de Desconto
-			//aadd(_aLinha,{"C6_COMIS1" ,3                           				,Nil}) // Comissao Vendedor
 			aadd(_aLinha,{"C6_CLI"    ,_aCabecalho[3]               				,Nil}) // Cliente
 			aadd(_aLinha,{"C6_LOJA"   ,_aCabecalho[4]              					,Nil}) // Loja do Cliente
 			
@@ -772,11 +835,14 @@ If !Empty(_aCabecalho)
 	/*
 	Execauto para geracao dos pedidos com validacações
 	*/
-	If Empty(_aCabecalho[10]) 
-		MSExecAuto({|x,y,Z| Mata410(x,y,Z)},_aAutoSC5,_aAutoSC6,3)
+	dbSelectArea("SC5")
+	dbSetOrder(1)
+	If !dbSeek("010101" + cPedido  )
+		MSExecAuto({|x,y,Z| Mata410(x,y,Z)},_aAutoSC5,_aAutoSC6,3) //INCLUSÃO
 	Else
-		MSExecAuto({|x,y,Z| Mata410(x,y,Z)},_aAutoSC5,_aAutoSC6,4)
+		MSExecAuto({|x,y,Z| Mata410(x,y,Z)},_aAutoSC5,_aAutoSC6,4) //ALTERAÇÃO
 	EndIf
+
 
 	/*
 	Variavel complementar de apoio de erros
@@ -784,21 +850,18 @@ If !Empty(_aCabecalho)
 	cDescErro     := ""
 	
 	If lMsErroAuto
-		If !IsBlind() 
-			cDescErro := MostraErro()
-		Else
-			aLogAuto  := GetAutoGRLog()
-	
-			For nAux := 1 To Len(aLogAuto)
-				cDescErro += aLogAuto[nAux] + CRLF
-			Next
-		EndIf
+		cDescErro :="**********************"+ CRLF 
+		cDescErro += DtoC(dDatabase)+"-"+TIME()+CRLF
+		cDescErro +="**********************"+ CRLF 
+		cDescErro += Mostraerro("D:\TOTVS 12\Microsiga\protheus_data\_LOGINTMOB\", Replace(Replace(DtoC(dDatabase)+"_"+TIME(),":","_"),"/","_") + "_ErroPedido.log")
+
+		ConOut(cDescErro)
 		
 		cQuery := " UPDATE "+RetSqlName("ZSA")
 		cQuery += "    SET ZSA_IDPEND = 'M',ZSA_MSGINT= CONVERT(VARBINARY(MAX), '"+UPPER(cDescErro)+"') 
 		cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
-		cQuery += "  WHERE ZSA_IDMOBP = '"+ _aCabecalho[5] +"'
-		cQeery += "    AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') =''
+		cQuery += "  WHERE ZSA_IDMOBP = '"+ AllTrim(_aCabecalho[5]) +"'
+		//cQeery += "    AND ISNULL(CAST(ZSA_MSGINT AS VARCHAR(MAX)), '') = ''
 
 		/*
 		Execucao background do codigo sql
@@ -834,36 +897,7 @@ If !Empty(_aCabecalho)
 	dbSelectArea(_cTabela)
 	dbSetOrder(1)
 	If Empty(cDescErro) .AND. dbSeek(xFilial(_cTabela)+cPedido)
-		
-		cQuery := " UPDATE "+RetSqlName("ZSA")
-		cQuery += "    SET ZSA_IDPEND = 'M',ZSA_PEDVEN='"+AllTrim(cPedido) +"'
-		cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
-		cQuery += "  WHERE ZSA_IDMOBP = '"+ AllTrim(SC5->C5_XIDMOB) +"'
-		
-		/*
-		Execucao background do codigo sql
-		*/
-		TcSqlExec(cQuery)
-
-		cQuery := " UPDATE "+RetSqlName("ZSC")
-		cQuery += "    SET ZSC_TIPO = 'B'
-		cQuery += "  WHERE ZSC_IDMOBP = '"+ AllTrim(SC5->C5_XIDMOB) +"'
-
-	  	/*
-		Execucao background do codigo sql
-		*/
-		TcSqlExec(cQuery)
-    
-		If  RecLock("ZSC",.T.)
-				Replace ZSC_FILIAL With xFilial(_cTabela)
-				Replace ZSC_CODIGO With AllTrim(cPedido)
-				Replace ZSC_TIPO   With "L"
-				Replace ZSC_MSGRET With SC5->C5_XMOTBLQ
-				Replace ZSC_IDMOBP With AllTrim(SC5->C5_XIDMOB)
-				Replace ZSC_SITUAC With ""
-		   	MsUnLock()
-		EndIf 
-		
+		//u_MIntMGLib(cPedido,SC5->C5_XIDMOB,"SC5", SC5->C5_XMOTBLQ)		
 	Else
 
 	EndIf

@@ -29,7 +29,7 @@ User Function LIBWHATSAPP()
 *
 *
 *
-**************
+***
 Local cQuery   := ""
 Local lAutoZAP := .F.
 
@@ -236,8 +236,6 @@ Do While !EOF()
 		
 		EndIf
 		
-		
-		
 		/*
 		***************************************************
 		NIVEL 2
@@ -281,7 +279,6 @@ Do While !EOF()
 						cQuery += "  WHERE D_E_L_E_T_ <> '*'
 						cQuery += "    AND C8_NUM = '"+SC8->C8_NUM+"'
 						
-				
 						TcSQLExec(cQuery)
 					
 						WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://192.168.1.101:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0025_V&cCotacao=' + SC8->C8_NUM +'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\MC-'+ SC8->C8_NUM +'.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
@@ -1102,7 +1099,7 @@ Do While !EOF()
 		/*
 		EMAIL
 		*/
-		TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;comercial.es@grupoqualita.com.br",'ERRO URGENTE ! PV:' + TRBERRO->C6_NUM , "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE ,'')
+		TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;sales.es@qualitagroup.com",'ERRO URGENTE ! PV:' + TRBERRO->C6_NUM , "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE ,'')
 	ENDIF
 
 	IF TRBERRO->TIPO == 'E'
@@ -1123,7 +1120,7 @@ Do While !EOF()
 		/*
 		EMAIL
 		*/
-		TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;comercial.es@grupoqualita.com.br","ERRO URGENTE ! CAVALETE:" + TRBERRO->B8_YCAVALE ,'')
+		TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;sales.es@qualitagroup.com","ERRO URGENTE ! CAVALETE:" + TRBERRO->B8_YCAVALE ,'')
 	ENDIF
 
 	
@@ -1145,7 +1142,7 @@ Do While !EOF()
 		/*
 		EMAIL
 		*/
-		TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;comercial.es@grupoqualita.com.br","ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + TRBERRO->C6_NUM ,'')
+		TCSPExec("SP_SENDMAIL",'ITINGA',"logistica.es@qualitagroup.com;sales.es@qualitagroup.com","ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + TRBERRO->C6_NUM ,'')
 	ENDIF
 
 	dbSelectArea("TRBERRO")

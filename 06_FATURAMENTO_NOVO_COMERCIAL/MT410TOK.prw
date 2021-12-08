@@ -19,14 +19,37 @@ User Function MT410TOK()
 ****
 Local   lRet      := .T.
 Local   oProcess
+Local   nOpc      := PARAMIXB[1]
+Local   cQuery    := ""
 Default lEnd      := .F.
 
-If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND. (FUNNAME() <> "GROA001")
+
+If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. nOpc == 1 .OR. ALTERA == .T.) .AND. (FUNNAME() <> "GROA001")
 
 	a410Recalc()
 
 	oProcess := MsNewProcess():New({|lEnd| lRet := MValidPedV(@oProcess, @lEnd,@lRet) },"Validando dados..","Lendo Registros do Pedido de Vendas",.T.) 
 	If !IsBlind()     
+		If nOpc == 1 
+			If !Empty(M->C5_XIDMOB)
+				
+				cQuery := "SELECT MAX(ZSA_IDMOB) ID FROM ZSA010 WHERE D_E_L_E_T_ =	'' AND  ZSA_IDMOBP = '"+AllTrim(M->C5_XIDMOB)+"'"
+				tcQuery cQuery alias TRB_EMOB new
+				dbSelectArea("TRB_EMOB")
+				dbgotop()
+
+				If !EMPTY(TRB_EMOB->ID)
+					Alert("Este P.Venda deve ser excluído pelo MogGran!")
+					dbSelectArea("TRB_EMOB") 
+					dbCloseArea()
+					Return(.f.)
+				EndIf
+
+				dbSelectArea("TRB_EMOB") 
+				dbCloseArea()
+
+			EndIF
+		EndIf
 		oProcess:Activate()
 	else
 		lRet := MValidPedV(nil, @lEnd,@lRet)
@@ -423,6 +446,8 @@ Local nPosLOTE := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_LOTECTL"}) //SubLote
 Local nPosSUBL := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_NUMLOTE"}) //Lote
 Local nPosLOCA := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_LOCAL"  }) //Lote
 Local cGPExec  := GetMv("MV_XGPEXE")
+
+Local fTPBLQ   := .F.
 
 Local aMsgPrc  := {}
 Loca  nX       := 0
@@ -869,14 +894,14 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 
 		/*
 		Incompletos/Apagado
-		*/
+		
 		For nX:=1 to Len(aTodCav)
 			If Empty(cMSG)
 				cMSG := "Cavaletes incompletos/Apagado:" + chr(13)+chr(10) 
 			EndIf			
 			cMSG +=     "  ->" + AllTrim(aTodCav[nX][2]) + " Cav.[" + Alltrim(aTodCav[nX][3]) + "] Lote[" + Alltrim(aTodCav[nX][4]) + "] SubLote[" + Alltrim(aTodCav[nX][5]) + "] Local ["+ Alltrim(aTodCav[nX][6]) +"]."+ chr(13)+chr(10)   
 		Next nX
-		
+		*/
 		If !Empty(cMSG)
 			Alert(cMSG)
 			//AVISO("Cavaletes incompletos:", cMSG , { "Fechar" }, 3)
@@ -1059,14 +1084,17 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 
 		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
 		
-		If MsgYesNo(cMSG + chr(13)+chr(10)+ "Deseja continuar?" )
-			lRet := .t.
-		Else
-			lRet := .F.
-			IF lRet == .F. .and. !IsBlind()  
-				Return(lRet)
-			EndIf 
+		If !IsBlind()  
+			If MsgYesNo(cMSG + chr(13)+chr(10)+ "Deseja continuar?" )
+				lRet := .t.
+			Else
+				lRet := .F.
+				IF lRet == .F. .and. !IsBlind()  
+					Return(lRet)
+				EndIf 
+			EndIf
 		EndIf
+
 	EndIf
 	
 	/*
@@ -1173,6 +1201,8 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		oProcess:IncRegua1("[8-8] - Validação dos dados de condição de pagamento!")
 	EndIf
 
+	M->C5_CONDPAG := u_ClintToMob("PG")
+
 	If ! M->C5_TIPO $ "D/B"
 		dbSelectArea("SA1")
 		dbSetOrder(1)
@@ -1191,7 +1221,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	If !Empty(cMSG)
 		Alert(cMSG)
 		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
-		M->C5_BLQ      := "1"
+		M->C5_BLQ     := "1"
 	EndIf
 	
 	/*
@@ -1296,7 +1326,21 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		U_SWENARWAP("5533984022125", "PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM),"PEDIDO BOOKING SOLICITADO:" +AllTrim(SC5->C5_NUM)   ,"RQ0003a"           ,"PDF","\RELINWEB\RQ0003a.PDF")
 		*/
 	End
-	
+
+	/*
+	Integração liberação Pedido de venda Com o Mobgran por tabela
+	TABELA - ZSC
+	*/
+	If Empty(M->C5_XMOTBLQ) 
+		M->C5_XMOTBLQ := "06 = Aguardando liberação do vendedor!" + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
+		M->C5_BLQ     := "1"
+		fTPBLQ        := .T.
+	ENDIF
+
+	IF !Empty(M->C5_XIDMOB) .Or. M->C5_XIDMOB <> '-'
+		u_MIntMGLib(M->C5_NUM , M->C5_XIDMOB , "SC5" , M->C5_XMOTBLQ , M->C5_FILIAL , M->C5_XTOTAL , fTPBLQ )
+	EndIf
+
 	ConOut("******************************************" )
 	ConOut("Final P.E = MT410TOK Qualitá" )
 	ConOut("******************************************" )
@@ -1311,6 +1355,153 @@ EndIf
 
 Return(lRet)
 
+
+User Function MIntMGLib(cPedido,XIdMobP,_cTabela, xMotBlq, cMobFilial , nXtotal , fTPBLQ)
+********************************************************************************************************************
+* /* User Integração com MobGran Liberação de pedidos por tabela ZSA ZSC */
+* /**/
+* //
+***
+
+Local oJson     := JsonObject():New()
+Local cCliente  := ""
+Local cLoja     := ""
+Local nValor    := ""
+Local cCondPg   := ""
+Local lSemFin   := .F.
+
+		cQuery := " UPDATE "+RetSqlName("ZSA")
+		cQuery += "    SET ZSA_IDPEND = 'M',ZSA_PEDVEN='"+AllTrim(cPedido) +"'
+		cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+		cQuery += "  WHERE ZSA_IDMOBP = '"+ AllTrim(XIdMobP) +"'
+		
+		/*
+		Execucao background do codigo sql
+		*/
+		TcSqlExec(cQuery)
+
+		cQuery := " SELECT  CAST(ZSC_RJSON AS VARCHAR(8000)) RJSON from "+ RetSqlName("ZSC")+ " WHERE ZSC_IDMOBP = '3fb37b72-32be-40db-80ac-c7852286a23c' AND ZSC_TIPO <> 'B' AND ZSC_TIPO = '2' AND ZSC_RJSON IS NOT NULL"
+	
+		tcQuery cQuery alias TRB_JSON new
+		dbSelectArea("TRB_JSON")
+		dbgotop()
+
+		oJSon:fromJson(TRB_JSON->RJSON)
+	
+		cCliente  := iif(empty(oJson:GetJSonObject('cliente')),"",oJson:GetJSonObject('cliente'))
+		cLoja     := iif(empty(oJson:GetJSonObject('loja'))   ,"",oJson:GetJSonObject('loja'))
+
+		if !Empty(oJson:GetJSonObject('cliente'))
+			nValor    := round(val(oJson:GetJSonObject('valorTotal')),2) 
+		Else
+			nValor    := 0
+		EndIf
+
+		cCondPg   := iif(empty(oJson:GetJSonObject('condicaoPagamento')),"",oJson:GetJSonObject('condicaoPagamento'))
+
+		dbSelectArea("TRB_JSON") 
+		dbCloseArea()	
+		If !Empty(oJson:GetJSonObject('cliente'))
+			If 	cCliente+cLoja       == m->C5_CLIENTE+m->C5_LOJACLI .AND.;
+				AllTrim(Str(nValor)) >= AllTrim(Str(nXTotal))    	.AND.;
+				cCondPg              == m->C5_CONDPAG
+
+				cQuery := " UPDATE "+RetSqlName("ZSC")
+				cQuery += "    SET ZSC_TIPO = 'B'
+				cQuery += "  WHERE ZSC_IDMOBP  ='"+ AllTrim(XIdMobP) +"'
+				cQuery += "    AND ZSC_TIPO <> '2'
+				
+				lSemFin:= .F.
+			else
+				cQuery := " UPDATE "+RetSqlName("ZSC")
+				cQuery += "    SET ZSC_TIPO = 'B'
+				cQuery += "  WHERE ZSC_IDMOBP  ='"+ AllTrim(XIdMobP) +"'
+
+				lSemFin:= .T.
+			EndIf 
+		Else
+				cQuery := " UPDATE "+RetSqlName("ZSC")
+				cQuery += "    SET ZSC_TIPO = 'B'
+				cQuery += "  WHERE ZSC_IDMOBP  ='"+ AllTrim(XIdMobP) +"'
+
+				lSemFin:= .T.	
+		EndIf	
+		/*
+		Execucao background do codigo sql
+		*/
+		TcSqlExec(cQuery)
+
+		//regras
+		If  RecLock("ZSC",.T.)
+				Replace ZSC_FILIAL With xFilial(_cTabela)
+				Replace ZSC_CODIGO With AllTrim(cPedido)
+				Replace ZSC_TIPO   With "1"
+				Replace ZSC_MSGRET With IIF(fTPBLQ == .F. ,xMotBlq,"" )
+				Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+				Replace ZSC_SITUAC With IIF(fTPBLQ == .F. ,""    ,"X" )
+				Replace ZSC_FLUXOM With IIF(fTPBLQ == .F. ,"S"    ,"" )
+		   	MsUnLock()
+		EndIf 
+
+		//financeiro
+		If lSemFin 
+			If  RecLock("ZSC",.T.)
+					Replace ZSC_FILIAL With xFilial(_cTabela)
+					Replace ZSC_CODIGO With AllTrim(cPedido)
+					Replace ZSC_TIPO   With "2"
+					Replace ZSC_MSGRET With ""
+					Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+					Replace ZSC_SITUAC With ""
+				MsUnLock()
+			EndIf 
+		EndIf
+
+		If  RecLock("ZSC",.T.)
+				Replace ZSC_FILIAL With xFilial(_cTabela)
+				Replace ZSC_CODIGO With AllTrim(cPedido)
+				Replace ZSC_TIPO   With "3"
+				Replace ZSC_MSGRET With ""
+				Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+				Replace ZSC_SITUAC With ""
+		   	MsUnLock()
+		EndIf 
+
+		If  RecLock("ZSC",.T.)
+				Replace ZSC_FILIAL With xFilial(_cTabela)
+				Replace ZSC_CODIGO With AllTrim(cPedido)
+				Replace ZSC_TIPO   With "4"
+				Replace ZSC_MSGRET With ""
+				Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+				Replace ZSC_SITUAC With ""
+		   	MsUnLock()
+		EndIf 
+
+		If  RecLock("ZSC",.T.)
+				Replace ZSC_FILIAL With xFilial(_cTabela)
+				Replace ZSC_CODIGO With AllTrim(cPedido)
+				Replace ZSC_TIPO   With "5"
+				Replace ZSC_MSGRET With ""
+				Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+				Replace ZSC_SITUAC With ""
+		   	MsUnLock()
+		EndIf 
+
+		/*
+		Pendencia Vendedor
+		*/ 
+		If  RecLock("ZSC",.T.)
+				Replace ZSC_FILIAL With xFilial(_cTabela)
+				Replace ZSC_CODIGO With AllTrim(cPedido)
+				Replace ZSC_TIPO   With "6"
+				Replace ZSC_MSGRET With IIF(fTPBLQ == .t. ,xMotBlq,"")
+				Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+				Replace ZSC_SITUAC With ""
+				Replace ZSC_FLUXOM With IIF(fTPBLQ == .t. ,"S"    ,"")
+		   	MsUnLock()
+		EndIf 
+Return()
+
+
 User Function ClintToMob(cTipo)
 ****************************************************************************************************************
 * /*Gatilho C5_XIDMOB*/    
@@ -1324,6 +1515,8 @@ tcQuery cQuery alias TRBidMob new
 dbSelectArea("TRBidMob")
 dbgotop()
 
+ConOut("****PRINCIPAL**ClintToMob*************")
+
 If !EOF()
 	If cTipo == "PG"
 		cDadosRet  := AllTrim(TRBidMob->ZSA_CPAG)
@@ -1331,7 +1524,7 @@ If !EOF()
 		cDadosRet  := AllTrim(TRBidMob->ZSA_CLIENT)
 	EndIf
 Else
-	cDadosRet := M->C5_CLIENT
+	cDadosRet := M->C5_CONDPAG
 EndIf
 
 dbSelectArea("TRBidMob") 
@@ -2028,7 +2221,7 @@ If lNExec
 						GdFieldPut("C6_PRCVEN"  ,IIF(nEdit2==0,nEdit1,GdFieldGet("C6_PRCVEN",nX) - (iif(Empty(nEdit1),GdFieldGet("C6_PRCVEN",nX) ,nEdit1) * nEdit2) /100 )  ,nX)
 						//GdFieldPut("C6_PRUNIT"  ,IIF(nEdit2==0,nEdit1,GdFieldGet("C6_PRCVEN",nX) - (iif(Empty(nEdit1),GdFieldGet("C6_PRCVEN",nX) ,nEdit1) * nEdit2) /100 )  ,nX) //C6_PRUNIT 23/09/2019
 						GdFieldPut("C6_VALOR"   ,Round(GdFieldGet("C6_PRCVEN",nX) * GdFieldGet("C6_QTDVEN",nX),2),nX)
-				EndIf			
+				EndIf
 			EndIf
 		Next nX
 	EndIf

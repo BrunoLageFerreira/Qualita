@@ -229,26 +229,29 @@ Local cQuery := ""
 
 ConOut("[Liberação de Pedidos de Venda] Início!")
 
-cQuery := " SELECT	C5_FILIAL+C5_NUM CHAVE,
-cQuery += " 		SC5.R_E_C_N_O_ REC_SC5,
-cQuery += " 		ZSC.R_E_C_N_O_ REC_ZSC,
-cQuery += " 		ZSC_TIPO TIPO,
-cQuery += " 		ZSC_SITUAC SIT, 
+cQuery := "  SELECT	C5_FILIAL+C5_NUM CHAVE,
+cQuery += "  		SC5.R_E_C_N_O_ REC_SC5,
+cQuery += "  		ZSC.R_E_C_N_O_ REC_ZSC,
+cQuery += "  		ZSC_TIPO TIPO,
+cQuery += "  		ZSC_SITUAC SIT, 
+cQuery += "  		CASE
+cQuery += "              WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' THEN 'UPDATE SC5010 SET C5_BLQ='''+'2'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(SC5.R_E_C_N_O_))
+cQuery += "  			 WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='2' THEN 'UPDATE SC5010 SET C5_BLQ='' '''       + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(SC5.R_E_C_N_O_))
+cQuery += "  		END UPDSC5,
+cQuery += "  		CASE
+cQuery += "              WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' THEN 'UPDATE ZSC010 SET ZSC_SITUAC='''+'X'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(ZSC.R_E_C_N_O_))
+cQuery += "  		 	 WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='2' THEN 'UPDATE ZSC010 SET ZSC_SITUAC='''+'X'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(ZSC.R_E_C_N_O_))
+cQuery += "  		END UPDZSC,
 cQuery += " 		CASE
-cQuery += "             WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' THEN 'UPDATE SC5010 SET C5_BLQ='''+'2'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(SC5.R_E_C_N_O_))
-cQuery += " 			WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='2' THEN 'UPDATE SC5010 SET C5_BLQ='' '''       + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(SC5.R_E_C_N_O_))
-cQuery += " 		END UPDSC5,
-cQuery += " 		CASE
-cQuery += "             WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' THEN 'UPDATE ZSC010 SET ZSC_SITUAC='''+'X'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(ZSC.R_E_C_N_O_))
-cQuery += " 			WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='2' THEN 'UPDATE ZSC010 SET ZSC_SITUAC='''+'X'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(ZSC.R_E_C_N_O_))
-cQuery += " 		END UPDZSC
-cQuery += "   FROM SC5010 SC5 INNER JOIN ZSC010 ZSC ON (C5_FILIAL+C5_NUM = ZSC_FILIAL+ZSC_CODIGO) 
-cQuery += "  WHERE C5_BLQ     <> '' 
-cQuery += "    AND ZSC_TIPO   <> 'B' 
-cQuery += "    AND ZSC_SITUAC <> 'X'
-cQuery += "    AND SC5.D_E_L_E_T_ = '' 
-cQuery += "    AND ZSC.D_E_L_E_T_ = ''
-cQuery += "    AND ZSC_TIPO   < 3
+cQuery += " 			WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' AND (SELECT ZSC_DATA FROM ZSC010 WHERE	D_E_L_E_T_ = '' AND ZSC_CODIGO = '003940' AND ZSC_TIPO <> 'B' AND ZSC_TIPO = '2')<>''   THEN 'UPDATE SC5010 SET C5_BLQ='''+''+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(SC5.R_E_C_N_O_))
+cQuery += " 		END UPDSC5_LIBFIN
+cQuery += "    FROM SC5010 SC5 INNER JOIN ZSC010 ZSC ON (C5_FILIAL+C5_NUM = ZSC_FILIAL+ZSC_CODIGO) 
+cQuery += "   WHERE C5_BLQ     <> '' 
+cQuery += "     AND ZSC_TIPO   <> 'B' 
+cQuery += "     AND ZSC_SITUAC <> 'X'
+cQuery += "     AND SC5.D_E_L_E_T_ = '' 
+cQuery += "     AND ZSC.D_E_L_E_T_ = ''
+cQuery += "     AND ZSC_TIPO   < 3
 
 TCQUERY cQuery ALIAS "TRB_LPV" NEW
 
@@ -261,6 +264,9 @@ Do While !EOF()
 		TcSqlExec(cQuery)
 		
 		cQuery := TRB_LPV->UPDZSC
+		TcSqlExec(cQuery)
+
+		cQuery := TRB_LPV->UPDSC5_LIBFIN
 		TcSqlExec(cQuery)
 	EndIf
 
@@ -414,77 +420,93 @@ cQuery += "        RIGHT(ZSA_CLIENT,2)													AS C5_LOJA   ,
 cQuery += " 	   'ME' 																AS C5_YTIPO  ,
 cQuery += " 	   (SELECT MIN(C5_NUM) FROM SC5010 WHERE C5_XIDMOB = ZSA_IDMOBP)		AS C5_NUM
 cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
-cQuery += "  WHERE ZSA_IDPEND in ('P')
-//cQuery += "    AND ISNULL(SC5.C5_NUM,'') = ''
+cQuery += "  WHERE (ZSA_IDPEND in ('P') )
+//cQuery += "  WHERE (ZSA_IDPEND in ('P') OR SC5.C5_NUM ='003953')
 cQuery += "    AND ZSA_STATUS = 'ATIVA'
-cQuery += "    AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
-//cQuery += "    AND ZSA_IDMOBP = '2c530446-d6ee-4bba-9201-cae904bfd7c7'
+cQuery += "    AND (ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = '' )
+//cQuery += "    AND (ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = '' OR  SC5.C5_NUM ='003953')
 cQuery += "    ORDER BY IDMOB
 /*
 Geraçao do arquivo de Temporario de cabecalho
 */
+//MemoWrite("D:\TOTVS 12\Microsiga\protheus_data\_LOGINTMOB\CABEC_INT_MOG.TXT",cQuery)
+
 TCQUERY cQuery ALIAS "TRB_CAB" NEW
 
 /*
 MobGran_pedcorp
 */
-cQuery := " SELECT 'I' ACAO,
-cQuery += "	   '010101' FILIAL,
-cQuery += "	   '00' ITEM,
-cQuery += "	   ZSA_IDMOBP IDMOB,
-cQuery += "	   ZSA_NUMCAV CAVALETE,
-cQuery += "	   ZSA_PROD,
-cQuery += "	   ZSA_LOTE,
-cQuery += "	   ZSA_CLASSI,
-cQuery += "	   ZSA_PRCDES,
-cQuery += "	   ZSA_LOCAL,
-cQuery += "	   ZSA_QTDVEN, 
-cQuery += "	   ZSA_IDPEND,
-cQuery += "	   ZSA_PRCUNT,
-cQuery += "	   ZSA_PRCTAB,
-cQuery += "	   ZSA_DESCON,
-cQuery += "	   ZSA_VALDES,
+cQuery := " SELECT 'I'    ACAO     ,
+cQuery += "	   '010101'   FILIAL   ,
+cQuery += "	   '00'       ITEM     , 
+cQuery += "	   ZSA_IDMOBP IDMOB    ,
+cQuery += "	   ZSA_NUMCAV CAVALETE ,
+cQuery += "	   ZSA_PROD            ,
+cQuery += "	   ZSA_LOTE            ,
+cQuery += "	   ZSA_CLASSI          , 
+cQuery += "	   ZSA_PRCDES          ,
+cQuery += "	   ZSA_LOCAL           ,
+cQuery += "	   ZSA_QTDVEN          , 
+cQuery += "	   ZSA_IDPEND          ,
+cQuery += "	   ZSA_PRCUNT          ,
+//cQuery += "	   IIF(SC5.C5_NUM='003953',ROUND(((ZSA_QTDVEN * 100) * ZSA_DESCON)/100,2) ,ZSA_PRCTAB  ) AS ZSA_PRCTAB,
+cQuery += "	   ROUND(((ZSA_QTDVEN*ZSA_PRCUNT)+ZSA_VALDES)/ZSA_QTDVEN,2)  AS ZSA_PRCTAB,
+cQuery += "	   ZSA_DESCON          ,
+cQuery += "	   ZSA_VALDES          ,
 cQuery += "	   SC5.C5_NUM AS C5_NUM
-cQuery += "  FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+
+/*
+cQuery += "  WHERE (ZSA_IDPEND in ('P') OR SC5.C5_NUM ='003953')
+cQuery += "    AND ZSA_STATUS = 'ATIVA'
+cQuery += "    AND (ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = '' OR  SC5.C5_NUM ='003953')
+*/
+
 cQuery += " WHERE ZSA_IDPEND in ('P')
 cQuery += "   AND ZSA_STATUS = 'ATIVA'
 cQuery += "   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
 
 cQuery += " UNION ALL 
 
-cQuery += " SELECT 'R' ACAO, 
-cQuery += "		C6_FILIAL,
-cQuery += "		C6_ITEM ITEM,
+cQuery += " SELECT 'R' ACAO    ,
+cQuery += "		C6_FILIAL      ,
+cQuery += "		C6_ITEM ITEM   ,
 cQuery += "		C5_XIDMOB IDMOB,
-cQuery += "		C6_YCAVALE,
-cQuery += "		C6_PRODUTO,
-cQuery += "		C6_LOTECTL,
-cQuery += "		C6_YCLASSI,
-cQuery += "		0,
-cQuery += "		C6_LOCAL,
-cQuery += "		C6_QTDVEN,
-cQuery += "		'P',
-cQuery += "		C6_PRUNIT,
-cQuery += "		C6_PRCVEN,
-cQuery += "	   ZSA_DESCON,
-cQuery += "	   ZSA_VALDES,
+cQuery += "		C6_YCAVALE     ,
+cQuery += "		C6_PRODUTO     ,
+cQuery += "		C6_LOTECTL     ,
+cQuery += "		C6_YCLASSI     ,
+cQuery += "		0              ,
+cQuery += "		C6_LOCAL       ,
+cQuery += "		C6_QTDVEN      ,
+cQuery += "		'P'            ,
+cQuery += "		C6_PRUNIT	   ,
+cQuery += "		C6_PRCVEN      ,
+cQuery += "		C6_DESCONT     ,
+cQuery += "		C6_VALDESC     ,
 cQuery += "		C6_NUM C5_NUM
 cQuery += "  FROM SC6010 SC6 INNER JOIN SC5010 SC5 ON(C5_FILIAL = C6_FILIAL  AND C6_NUM=C5_NUM)
 cQuery += " WHERE SC6.D_E_L_E_T_ = ''
 cQuery += "   AND SC5.D_E_L_E_T_ = ''
 cQuery += "   AND C6_FILIAL + C6_NUM IN(
 cQuery += "							 SELECT DISTINCT '010101'+ SC5.C5_NUM AS C5_NUM
-cQuery += "							  FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+cQuery += "							   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+/*
+cQuery += "  						  WHERE (ZSA_IDPEND in ('P') OR SC5.C5_NUM ='003953')
+cQuery += "    						    AND ZSA_STATUS = 'ATIVA'
+cQuery += "    						    AND (ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = '' OR  SC5.C5_NUM ='003953')
+*/
 cQuery += "							 WHERE ZSA_IDPEND in ('P')
 cQuery += "							   AND ZSA_STATUS = 'ATIVA'
 cQuery += "							   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
-cQuery += "							  )
 
+cQuery += "							  )
 cQuery += " ORDER BY IDMOB,C5_NUM, ACAO DESC,ITEM
 
 /*
 Geraçao do arquivo temporario de Itens
 */
+//MemoWrite("D:\TOTVS 12\Microsiga\protheus_data\_LOGINTMOB\ITENS_INT_MOG.TXT",cQuery)
 TCQUERY cQuery ALIAS "TRB_ITEM" NEW
 
 /*
@@ -791,7 +813,7 @@ If !Empty(_aCabecalho)
 			EndIf
 
 			aadd(_aLinha,{"C6_PRODUTO",_aItens[i,3]                					,Nil}) // Codigo do Produto
-			aadd(_aLinha,{"C6_DESCRI" ,SB1->B1_DESC                					,Nil}) // Descricao produto
+			aadd(_aLinha,{"C6_DESCRI" ,AllTrim(SB1->B1_DESC)       					,Nil}) // Descricao produto
 			aadd(_aLinha,{"C6_LOCAL"  ,_aItens[i,10]              					,Nil}) // Armazem
 			
 			aadd(_aLinha,{"C6_YCAVALE",_aItens[i,5]                					,Nil}) // cavalete
@@ -800,13 +822,25 @@ If !Empty(_aCabecalho)
 			aadd(_aLinha,{"C6_NUMLOTE",_aItens[i,9]                					,Nil}) // Lote 
 			
 			aadd(_aLinha,{"C6_QTDVEN" ,_aItens[i,11]               					,Nil}) // Quantidade Vendida
-
-			aadd(_aLinha,{"C6_DESCONT",_aItens[i,18]              				    ,Nil}) // Percentual de desconto
-			aadd(_aLinha,{"C6_VALDESC",_aItens[i,19]              				    ,Nil}) // valor do desconto
-			aadd(_aLinha,{"C6_PRCVEN" ,_aItens[i,12]              				    ,Nil}) // Preco Unitario Liquido
-			aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,13]                 				,Nil}) // Preco de Lista
-			aadd(_aLinha,{"C6_VALOR"  ,Round(_aItens[i,11] * _aItens[i,12],2)      	,Nil}) // Preco Total
-
+			/*
+			If cPedido <> '003953' 
+				//aadd(_aLinha,{"C6_DESCONT",_aItens[i,18]              				,Nil}) // Percentual de desconto
+				//aadd(_aLinha,{"C6_VALDESC",_aItens[i,19]              			    ,Nil}) // valor do desconto
+				aadd(_aLinha,{"C6_PRCVEN" ,_aItens[i,12]               				    ,Nil}) // Preco Unitario Liquido CONFERIDO
+				//aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,13] 	             				,Nil}) // Preco de Lista         CONFERIDO
+				aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,12] 	             				,Nil}) // Preco de Lista         CONFERIDO
+				aadd(_aLinha,{"C6_VALOR"  ,Round(_aItens[i,11] * _aItens[i,12],2)      	,Nil}) // Preco Total
+			else
+			*/
+				//aadd(_aLinha,{"C6_DESCONT",_aItens[i,18]              				,Nil}) // Percentual de desconto
+				
+			aadd(_aLinha,{"C6_PRCVEN" ,_aItens[i,12]               					,Nil}) // Preco Unitario Liquido CONFERIDO
+			aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,13] 	             				,Nil}) // Preco de Lista         CONFERIDO
+			aadd(_aLinha,{"C6_VALOR"  ,Round(_aItens[i,11] * _aItens[i,12],2)  		,Nil}) // Preco Total
+			aadd(_aLinha,{"C6_VALDESC",_aItens[i,19]              			   		,Nil}) // valor do desconto
+			/*
+			EndIf
+			*/
 			aadd(_aLinha,{"C6_ENTREG" ,dDatabase          							,Nil}) // Data da Entrega
 			aadd(_aLinha,{"C6_UM"     ,_aItens[i,7]                 				,Nil}) // Unidade de Medida Primar.
 			aadd(_aLinha,{"C6_TES"    ,_aItens[i,14]                 				,Nil}) // Tipo de Entrada/Saida do Item
@@ -856,7 +890,7 @@ If !Empty(_aCabecalho)
 		cDescErro += Mostraerro("D:\TOTVS 12\Microsiga\protheus_data\_LOGINTMOB\", Replace(Replace(DtoC(dDatabase)+"_"+TIME(),":","_"),"/","_") + "_ErroPedido.log")
 
 		ConOut(cDescErro)
-		
+		Sleep(10000)
 		cQuery := " UPDATE "+RetSqlName("ZSA")
 		cQuery += "    SET ZSA_IDPEND = 'M',ZSA_MSGINT= CONVERT(VARBINARY(MAX), '"+UPPER(cDescErro)+"') 
 		cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
@@ -871,6 +905,19 @@ If !Empty(_aCabecalho)
 		DisarmTransaction()
 		RollBackSxE()
 	Else
+
+		cQuery := " UPDATE "+RetSqlName("ZSA")
+		cQuery += "    SET ZSA_IDPEND = 'M',ZSA_PEDVEN='"+AllTrim(cPedido) +"'
+		cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+		cQuery += "  WHERE ZSA_IDMOBP = '"+ AllTrim(_aCabecalho[5]) +"'
+		//cQuery += "    AND ZSA_PEDVEN <> '003953'
+		
+		/*
+		Execucao background do codigo sql
+		*/
+		TcSqlExec(cQuery)
+
+
 		/*
 		Confirmacao do pedido
 		*/

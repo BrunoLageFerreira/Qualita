@@ -1338,8 +1338,8 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	TABELA - ZSC
 	*/
 	If Empty(M->C5_XMOTBLQ) 
-		M->C5_XMOTBLQ := "06 = Aguardando liberação do vendedor!" + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
-		M->C5_BLQ     := "1"
+		//M->C5_XMOTBLQ := "06 = Aguardando liberação do vendedor!" + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
+		M->C5_BLQ     := ""
 		fTPBLQ        := .T.
 	ENDIF
 
@@ -1428,17 +1428,18 @@ Local lSemFin   := .F.
 		TcSqlExec(cQuery)
 
 		//regras
-		If  RecLock("ZSC",.T.)
-				Replace ZSC_FILIAL With xFilial(_cTabela)
-				Replace ZSC_CODIGO With AllTrim(cPedido)
-				Replace ZSC_TIPO   With "1"
-				Replace ZSC_MSGRET With IIF(fTPBLQ == .F. ,xMotBlq,"" )
-				Replace ZSC_IDMOBP With AllTrim(XIdMobP)
-				Replace ZSC_SITUAC With IIF(fTPBLQ == .F. ,""    ,"X" )
-				Replace ZSC_FLUXOM With IIF(fTPBLQ == .F. ,"S"    ,"" )
-		   	MsUnLock()
-		EndIf 
-
+		If fTPBLQ == .F.
+			If  RecLock("ZSC",.T.)
+					Replace ZSC_FILIAL With xFilial(_cTabela)
+					Replace ZSC_CODIGO With AllTrim(cPedido)
+					Replace ZSC_TIPO   With "1"
+					Replace ZSC_MSGRET With IIF(fTPBLQ == .F. ,xMotBlq,"" )
+					Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+					Replace ZSC_SITUAC With IIF(fTPBLQ == .F. ,""    ,"X" )
+					Replace ZSC_FLUXOM With IIF(fTPBLQ == .F. ,"S"    ,"" )
+				MsUnLock()
+			EndIf 
+		EndIf
 		//financeiro
 		If lSemFin 
 			If  RecLock("ZSC",.T.)

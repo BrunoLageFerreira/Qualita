@@ -449,22 +449,47 @@ cQuery += "	   ZSA_LOCAL           ,
 cQuery += "	   ZSA_QTDVEN          , 
 cQuery += "	   ZSA_IDPEND          ,
 cQuery += "	   ZSA_PRCUNT          ,
-//cQuery += "	   IIF(SC5.C5_NUM='003953',ROUND(((ZSA_QTDVEN * 100) * ZSA_DESCON)/100,2) ,ZSA_PRCTAB  ) AS ZSA_PRCTAB,
 cQuery += "	   ROUND(((ZSA_QTDVEN*ZSA_PRCUNT)+ZSA_VALDES)/ZSA_QTDVEN,2)  AS ZSA_PRCTAB,
 cQuery += "	   ZSA_DESCON          ,
 cQuery += "	   ZSA_VALDES          ,
-cQuery += "	   SC5.C5_NUM AS C5_NUM
+cQuery += "	   SC5.C5_NUM AS C5_NUM,
+cQuery += "	   0 PESOAMOSTRA
 cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
-
-/*
-cQuery += "  WHERE (ZSA_IDPEND in ('P') OR SC5.C5_NUM ='003953')
-cQuery += "    AND ZSA_STATUS = 'ATIVA'
-cQuery += "    AND (ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = '' OR  SC5.C5_NUM ='003953')
-*/
-
 cQuery += " WHERE ZSA_IDPEND in ('P')
 cQuery += "   AND ZSA_STATUS = 'ATIVA'
 cQuery += "   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
+
+cQuery += " UNION ALL
+
+cQuery += "  SELECT 'I' ACAO    ,
+cQuery += "		C6_FILIAL      ,
+cQuery += "		C6_ITEM ITEM   ,
+cQuery += "		C5_XIDMOB IDMOB,
+cQuery += "		C6_YCAVALE     ,
+cQuery += "		C6_PRODUTO     ,
+cQuery += "		C6_LOTECTL     ,
+cQuery += "		C6_YCLASSI     ,
+cQuery += "		0              ,
+cQuery += "		C6_LOCAL       ,
+cQuery += "		C6_QTDVEN      ,
+cQuery += "		'P'            ,
+cQuery += "		C6_PRUNIT	   ,
+cQuery += "		C6_PRCVEN      ,
+cQuery += "		C6_DESCONT     ,
+cQuery += "		C6_VALDESC     ,
+cQuery += "		C6_NUM C5_NUM  ,
+cQuery += "		C6_XPESO PESOAMOSTRA
+cQuery += "  FROM SC6010 SC6 INNER JOIN SC5010 SC5 ON(C5_FILIAL = C6_FILIAL  AND C6_NUM=C5_NUM)
+cQuery += " WHERE SC6.D_E_L_E_T_ = ''
+cQuery += "   AND SC5.D_E_L_E_T_ = ''
+cQuery += "   AND SC6.C6_PRODUTO  LIKE 'AM%' 
+cQuery += "   AND C6_FILIAL + C6_NUM IN(
+cQuery += "							 SELECT DISTINCT '010101'+ SC5.C5_NUM AS C5_NUM
+cQuery += "							   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
+cQuery += "							 WHERE ZSA_IDPEND in ('P')
+cQuery += "							   AND ZSA_STATUS = 'ATIVA'
+cQuery += "							   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
+cQuery += "							  )
 
 cQuery += " UNION ALL 
 
@@ -484,22 +509,17 @@ cQuery += "		C6_PRUNIT	   ,
 cQuery += "		C6_PRCVEN      ,
 cQuery += "		C6_DESCONT     ,
 cQuery += "		C6_VALDESC     ,
-cQuery += "		C6_NUM C5_NUM
+cQuery += "		C6_NUM C5_NUM  ,
+cQuery += "		C6_XPESO PESOAMOSTRA
 cQuery += "  FROM SC6010 SC6 INNER JOIN SC5010 SC5 ON(C5_FILIAL = C6_FILIAL  AND C6_NUM=C5_NUM)
 cQuery += " WHERE SC6.D_E_L_E_T_ = ''
 cQuery += "   AND SC5.D_E_L_E_T_ = ''
 cQuery += "   AND C6_FILIAL + C6_NUM IN(
 cQuery += "							 SELECT DISTINCT '010101'+ SC5.C5_NUM AS C5_NUM
 cQuery += "							   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
-/*
-cQuery += "  						  WHERE (ZSA_IDPEND in ('P') OR SC5.C5_NUM ='003953')
-cQuery += "    						    AND ZSA_STATUS = 'ATIVA'
-cQuery += "    						    AND (ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = '' OR  SC5.C5_NUM ='003953')
-*/
 cQuery += "							 WHERE ZSA_IDPEND in ('P')
 cQuery += "							   AND ZSA_STATUS = 'ATIVA'
 cQuery += "							   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
-
 cQuery += "							  )
 cQuery += " ORDER BY IDMOB,C5_NUM, ACAO DESC,ITEM
 
@@ -542,18 +562,6 @@ Do While !EOF()
 	aAdd(_aCabecalho,TRB_CAB->C5_XSHOWFO       	    )     // C5_XSHOWFO  8
 	aAdd(_aCabecalho,"ME"				       	    )     // C5_YTIPO    9
 	aAdd(_aCabecalho,TRB_CAB->C5_NUM				)     // C5_COTACAO  10
-	
-	//aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_TABELA)	)  // C5_TABELA   6
-	//aAdd(_aCabecalho,"S"							)  // C5_LIBEROK  7
-	//aAdd(_aCabecalho,1                     		)  // C5_MOEDA    8
-	//aAdd(_aCabecalho,"1"                   		)  // C5_TIPLIB   9
-	//aAdd(_aCabecalho,"N"        					)  // C5_BOLETO   10
-	//aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_VEND1)	)  // C5_VEND1    11
-	//aAdd(_aCabecalho,AllTrim(TRB_CAB->C5_MENNOTA)	)  // C5_MENNOTA  12
-	
-	//aAdd(_aCabecalho,TRB_CAB->C5_HORA				)  // C5_HORA     15
-	//aAdd(_aCabecalho,TRB_CAB->C5_DESCONT			)  // C5_DESCONT  16
-	//aAdd(_aCabecalho,TRB_CAB->C5_XFORMA 			)  // C5_XFORMA   17
 	
 	/*
 	Na inclusao dos itens a cada loop ele zera o valor inicial
@@ -622,13 +630,14 @@ Do While !EOF()
 
 			cC18 := TRB_ITEM->ZSA_DESCON
 			cC19 := TRB_ITEM->ZSA_VALDES
+			cC20 := TRB_ITEM->PESOAMOSTRA
 
 			//cC13 := TRB_ITEM->C6_DESCONT  				// C6_DESCONT
 			
 			/*
 			Criaçao da Linha de itens dos Pedidos
 			*/
-			aAdd( _aItens , {cC01,cC02,cC03,cC04,cC05,cC06,cC07,cC08,cC09,cC10,cC11,cC12,cC13,cC14,cC15,cC16,cC17,cC18,cC19} )
+			aAdd( _aItens , {cC01,cC02,cC03,cC04,cC05,cC06,cC07,cC08,cC09,cC10,cC11,cC12,cC13,cC14,cC15,cC16,cC17,cC18,cC19,cC20} )
 			
 		EndIf
 		
@@ -704,10 +713,6 @@ Local _aRetorno		:= {}
 Local cCodTab   	:= ""
 Local cCodTabP  	:= ""
 Local cDescErro     := ""
-
-Local nAux          := 0 
-Local aLogAuto      := {}
-
 
 cPedido  := ""
 cCodTab  := ""
@@ -822,25 +827,12 @@ If !Empty(_aCabecalho)
 			aadd(_aLinha,{"C6_NUMLOTE",_aItens[i,9]                					,Nil}) // Lote 
 			
 			aadd(_aLinha,{"C6_QTDVEN" ,_aItens[i,11]               					,Nil}) // Quantidade Vendida
-			/*
-			If cPedido <> '003953' 
-				//aadd(_aLinha,{"C6_DESCONT",_aItens[i,18]              				,Nil}) // Percentual de desconto
-				//aadd(_aLinha,{"C6_VALDESC",_aItens[i,19]              			    ,Nil}) // valor do desconto
-				aadd(_aLinha,{"C6_PRCVEN" ,_aItens[i,12]               				    ,Nil}) // Preco Unitario Liquido CONFERIDO
-				//aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,13] 	             				,Nil}) // Preco de Lista         CONFERIDO
-				aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,12] 	             				,Nil}) // Preco de Lista         CONFERIDO
-				aadd(_aLinha,{"C6_VALOR"  ,Round(_aItens[i,11] * _aItens[i,12],2)      	,Nil}) // Preco Total
-			else
-			*/
-				//aadd(_aLinha,{"C6_DESCONT",_aItens[i,18]              				,Nil}) // Percentual de desconto
-				
+	
 			aadd(_aLinha,{"C6_PRCVEN" ,_aItens[i,12]               					,Nil}) // Preco Unitario Liquido CONFERIDO
 			aadd(_aLinha,{"C6_PRUNIT" ,_aItens[i,13] 	             				,Nil}) // Preco de Lista         CONFERIDO
 			aadd(_aLinha,{"C6_VALOR"  ,Round(_aItens[i,11] * _aItens[i,12],2)  		,Nil}) // Preco Total
 			aadd(_aLinha,{"C6_VALDESC",_aItens[i,19]              			   		,Nil}) // valor do desconto
-			/*
-			EndIf
-			*/
+
 			aadd(_aLinha,{"C6_ENTREG" ,dDatabase          							,Nil}) // Data da Entrega
 			aadd(_aLinha,{"C6_UM"     ,_aItens[i,7]                 				,Nil}) // Unidade de Medida Primar.
 			aadd(_aLinha,{"C6_TES"    ,_aItens[i,14]                 				,Nil}) // Tipo de Entrada/Saida do Item
@@ -849,6 +841,7 @@ If !Empty(_aCabecalho)
 			aadd(_aLinha,{"C6_LOJA"   ,_aCabecalho[4]              					,Nil}) // Loja do Cliente
 			
 			aadd(_aLinha,{"C6_XOFERTA",_aItens[i,4]                					,Nil}) // Oferta
+			aadd(_aLinha,{"C6_XPESO"  ,_aItens[i,20]                				,Nil}) // Peso da Amostra
 			
 			/*
 			Clone da Linha de Produtos

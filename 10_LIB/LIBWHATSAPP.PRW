@@ -879,7 +879,7 @@ Do While !EOF()
 				//U_SWENV(TRBMNT->WAM_TELL, "ok", "DIST-OK" )
 				dbSelectArea("TQB")
 				dbSetOrder(1)
-				dbSeek(xFilial("TQB")+AllTrim(TRBMNT->WAM_INDEX) )
+				dbSeek(xFilial("TQB") + AllTrim(TRBMNT->WAM_INDEX) )
 				If  RecLock("TQB",.F.)
 					Replace TQB_CDSERV  With aRespDist[1]
 					Replace TQB_CDEXEC  With "LUAN SANTOS"

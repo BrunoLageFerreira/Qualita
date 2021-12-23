@@ -84,10 +84,7 @@ Local cQuery    := ""
 Local cNumCli   := ""
 Local cCodMun   := ""
 
-Local aLogAuto  := {}
-Local cDescErro := ""
-Local nAux      := 0
-
+Local   cDescErro   := ""
 Private lMsErroAuto := .F.
 
 ConOut("[Importaçao de Clientes] INICIO!")
@@ -869,7 +866,6 @@ If !Empty(_aCabecalho)
 	Else
 		MSExecAuto({|x,y,Z| Mata410(x,y,Z)},_aAutoSC5,_aAutoSC6,4) //ALTERAÇÃO
 	EndIf
-
 
 	/*
 	Variavel complementar de apoio de erros

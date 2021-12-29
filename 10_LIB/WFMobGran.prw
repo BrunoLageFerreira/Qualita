@@ -240,7 +240,7 @@ cQuery += "              WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' THEN 'UPDATE ZSC
 cQuery += "  		 	 WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='2' THEN 'UPDATE ZSC010 SET ZSC_SITUAC='''+'X'+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(ZSC.R_E_C_N_O_))
 cQuery += "  		END UPDZSC,
 cQuery += " 		CASE
-cQuery += " 			WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' AND (SELECT ZSC_DATA FROM ZSC010 WHERE	D_E_L_E_T_ = '' AND ZSC_CODIGO = '003940' AND ZSC_TIPO <> 'B' AND ZSC_TIPO = '2')<>''   THEN 'UPDATE SC5010 SET C5_BLQ='''+''+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(SC5.R_E_C_N_O_))
+cQuery += " 			WHEN ZSC_SITUAC = 'L' AND ZSC_TIPO='1' AND (SELECT DISTINCT ZSC_DATA FROM ZSC010 WHERE	D_E_L_E_T_ = '' AND ZSC_CODIGO = C5_NUM AND ZSC_TIPO <> 'B' AND ZSC_TIPO = '2')<>''   THEN 'UPDATE SC5010 SET C5_BLQ='''+''+'''' + ' WHERE R_E_C_N_O_ = ' +RTRIM(LTRIM(SC5.R_E_C_N_O_))
 cQuery += " 		END UPDSC5_LIBFIN
 cQuery += "    FROM SC5010 SC5 INNER JOIN ZSC010 ZSC ON (C5_FILIAL+C5_NUM = ZSC_FILIAL+ZSC_CODIGO) 
 cQuery += "   WHERE C5_BLQ     <> '' 
@@ -248,7 +248,7 @@ cQuery += "     AND ZSC_TIPO   <> 'B'
 cQuery += "     AND ZSC_SITUAC <> 'X'
 cQuery += "     AND SC5.D_E_L_E_T_ = '' 
 cQuery += "     AND ZSC.D_E_L_E_T_ = ''
-cQuery += "     AND ZSC_TIPO   < 3
+cQuery += "     AND ZSC_TIPO   < '3'
 
 TCQUERY cQuery ALIAS "TRB_LPV" NEW
 
@@ -518,7 +518,7 @@ cQuery += "							 WHERE ZSA_IDPEND in ('P')
 cQuery += "							   AND ZSA_STATUS = 'ATIVA'
 cQuery += "							   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
 cQuery += "							  )
-cQuery += " ORDER BY IDMOB,C5_NUM, ACAO DESC,ITEM
+cQuery += " ORDER BY IDMOB,ACAO DESC,ITEM,CAVALETE,ZSA_LOTE,C5_NUM
 
 /*
 Geraçao do arquivo temporario de Itens

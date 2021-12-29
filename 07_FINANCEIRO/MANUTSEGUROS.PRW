@@ -28,7 +28,7 @@ aRotina   := { 	{ "Marcar Todos [F5]","U_SMARCAR" 		, 0, 4},;
 				{ "Grava Dados  [F6]","u_SMGravMov" 	, 0, 1},;
 				{ "Inverter Todos   ","U_SMARKALL" 		, 0, 4}}   
 
-cCadastro := "Manutenção ( OSC - Operação de Seguro de Crédito )"
+cCadastro := "Manutenção (OSC - Operação de Seguro de Crédito )"
 
 SetKey(VK_F4,{||u_SMfiltDados()})
 SetKey(VK_F5,{||U_SMARCAR()})

@@ -12,24 +12,24 @@ TIPO X
 */                                                                	
 
 User Function MA030TOK()
-	*************************************************************************************************************
-	*
-	*
-	***        
-	Local lRet := .T.  
+*************************************************************************************************************
+*
+*
+***        
+Local lRet := .T.  
 
-	If M->A1_TIPO <> "X" .And. Empty(M->A1_CGC)
+If M->A1_TIPO <> "X" .And. Empty(M->A1_CGC)
+	Alert("CNPJ é parte de um campo obrigatorio!")
+	lRet := .F.
+Else
+	If M->A1_TIPO = "X" .AND. M->A1_CGC == "00000000000000"
+		lRet := .T.      
+	ElseIf M->A1_TIPO $ "F/R/J"
+		lRet := .T.	
+	Else           
 		Alert("CNPJ é parte de um campo obrigatorio!")
 		lRet := .F.
-	Else
-		If M->A1_TIPO = "X" .AND. M->A1_CGC == "00000000000000"
-			lRet := .T.      
-		ElseIf M->A1_TIPO $ "F/R/J"
-			lRet := .T.	
-		Else           
-			Alert("CNPJ é parte de um campo obrigatorio!")
-			lRet := .F.
-		EndIf
 	EndIf
+EndIf
 
 Return(lRet)

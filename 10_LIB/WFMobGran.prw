@@ -71,6 +71,7 @@ EndIf
 
 Return(lRet)
 
+
 User Function MFQueryC()
 ************************************************************************************************
 *
@@ -84,39 +85,41 @@ Local cQuery    := ""
 Local cNumCli   := ""
 Local cCodMun   := ""
 
+Local aAI0Auto := {}
+Local nOpcAuto := 3//MODEL_OPERATION_INSERT
+
 Local   cDescErro   := ""
 Private lMsErroAuto := .F.
 
 ConOut("[Importaçao de Clientes] INICIO!")
 
-cQuery := " SELECT 
-cQuery += "		ZSE_FILIAL,
-cQuery += "		ZSE_COD,
-cQuery += "		ZSE_LOJA,
-cQuery += "		ZSE_PESSOA,
-cQuery += "		ZSE_CGC,
-cQuery += "		ZSE_NOME,
-cQuery += "		ZSE_ENDER,
-cQuery += "		ZSE_TIPO,
-cQuery += "		ZSE_EST,
-cQuery += "		ZSE_CODMUN,
-cQuery += "		ZSE_MUNIC,
-cQuery += "		ZSE_BAIRRO,
-cQuery += "		ZSE_PAIS,
-cQuery += "		ZSE_INSCRI,
-cQuery += "		ZSE_VEND1,
-cQuery += "		ZSE_CDPAIS,
-cQuery += "		ZSE_LAT,
-cQuery += "		ZSE_LONG,
-cQuery += "		ZSE_MOEDA,
-cQuery += "		ZSE_STATUS,
-cQuery += "		ZSE_DDD,
-cQuery += "		ZSE_DDI,
-cQuery += "		ZSE_TELL,
-cQuery += "		ZSE_EMAIL,
-cQuery += "		ZSE_CEP,
-cQuery += "		ZSE_ERRO,
-cQuery += "		R_E_C_N_O_ RECNO
+cQuery := " SELECT  ZSE_FILIAL,
+cQuery += "			ZSE_COD,
+cQuery += "			ZSE_LOJA,
+cQuery += "			ZSE_PESSOA,
+cQuery += "			ZSE_CGC,
+cQuery += "			ZSE_NOME,
+cQuery += "			ZSE_ENDER,
+cQuery += "			ZSE_TIPO,
+cQuery += "			ZSE_EST,
+cQuery += "			ZSE_CODMUN,
+cQuery += "			ZSE_MUNIC,
+cQuery += "			ZSE_BAIRRO,
+cQuery += "			ZSE_PAIS,
+cQuery += "			ZSE_INSCRI,
+cQuery += "			ZSE_VEND1,
+cQuery += "			ZSE_CDPAIS,
+cQuery += "			ZSE_LAT,
+cQuery += "			ZSE_LONG,
+cQuery += "			ZSE_MOEDA,
+cQuery += "			ZSE_STATUS,
+cQuery += "			ZSE_DDD,
+cQuery += "			ZSE_DDI,
+cQuery += "			ZSE_TELL,
+cQuery += "			ZSE_EMAIL,
+cQuery += "			ZSE_CEP,
+cQuery += "			ZSE_ERRO,
+cQuery += "			R_E_C_N_O_ RECNO
 cQuery += "	   FROM ZSE010 
 cQuery += "	  WHERE D_E_L_E_T_ = ''
 cQuery += "	    AND ZSE_STATUS = 'P'
@@ -171,10 +174,12 @@ Do While !EOF()
 	aAdd(aCli, {"A1_EMAIL"  , TRB_CLI->ZSE_EMAIL        , Nil})
 	aAdd(aCli, {"A1_CEP"    , TRB_CLI->ZSE_CEP          , Nil})
 
+	aAdd(aAI0Auto,{"AI0_SALDO" ,0 ,Nil})
 
 	lMsErroAuto := .F.
-	MsExecAuto({|x,y| MATA030(x,y)}, aCli, 3)
-	
+	//MsExecAuto({|x,y| MATA030(x,y)}, aCli, 3)
+	MSExecAuto({|a,b,c| CRMA980(a,b,c)}, aCli, nOpcAuto, aAI0Auto)
+
 	If lMsErroAuto
 
 		cDescErro :="**********************"+ CRLF 
@@ -810,8 +815,8 @@ If !Empty(_aCabecalho)
 			if _aItens[i,17] == "I"
 				aadd(_aLinha,{"C6_ITEM"   ,Iif(i < 100, StrZero(i,2),AllTrim(Str(i))) ,Nil}) // Numero do Item no Pedido
 			else
-				aadd(_aLinha,{"LINPOS",     "C6_ITEM",     _aItens[i,02]})
-      			aadd(_aLinha,{"AUTDELETA",  "S",           Nil})
+				aadd(_aLinha,{"LINPOS"   ,  "C6_ITEM",  _aItens[i,02] })
+      			aadd(_aLinha,{"AUTDELETA",  "S"      ,  Nil           })
 			EndIf
 
 			aadd(_aLinha,{"C6_PRODUTO",_aItens[i,3]                					,Nil}) // Codigo do Produto

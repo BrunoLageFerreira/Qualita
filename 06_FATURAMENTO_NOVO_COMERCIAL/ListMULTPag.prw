@@ -8,21 +8,19 @@ Data .......: 30/09/2021
 Feito por ..: Bruno Lage Ferreira 
 */
 
-USER FUNCTION LstMULPag()
+USER FUNCTION LstMULPag(cListAtu)
 /*******************************************************************************************************
 *
 *
 ****/
-//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-//³DECLARACAO DE VARIAVEIS³
-//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 LOCAL _CSQL 			:= ""
 LOCAL _NOPC 			:= 0
 LOCAL _CNOME			:= Space(30)
-Local cReturn			:= ""
+LOCAL lRet              := .f.
+//Local cReturn			:= ""
 
-PRIVATE CINDEXNAME	:= ''
-PRIVATE CINDEXKEY 	:= ''
+PRIVATE CINDEXNAME	    := ''
+PRIVATE CINDEXKEY 	    := ''
 PRIVATE CFILTER 		:= ''
 
 PRIVATE ALB1 			:= {}
@@ -30,10 +28,9 @@ PRIVATE OLB1
 PRIVATE OOK				:= LOADBITMAP(GETRESOURCES(), "LBOK")
 PRIVATE ONO				:= LOADBITMAP(GETRESOURCES(), "LBNO")
 
+PUBLIC __cReturn		:= ""
 
-//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-//³PERGUNTA E SELECAO DE DADOS³
-//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
 _cSql	:= " SELECT	E4_CODIGO,
 _cSql	+= "        E4_COND,
 _cSql	+= "    	E4_DESCRI ,
@@ -50,12 +47,9 @@ _cSql	+= "   E4_CODIGO
 	
 	ALB1:= {}
 	
-	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-	//³MONTAGEM DA ARRAY DE DADOS³
-	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 	WHILE !SE4TMP->(EOF())
 		
-		AADD(ALB1,	{		IIF((SE4TMP->E4_CODIGO $ M->A1_XCONDPG),"*"," ")	,;
+		AADD(ALB1,	{		IIF((SE4TMP->E4_CODIGO $ cListAtu),"*"," ")	,;
 							SE4TMP->E4_CODIGO									,;
 							SE4TMP->E4_COND 									,;
 							SE4TMP->E4_DESCRI})
@@ -65,13 +59,10 @@ _cSql	+= "   E4_CODIGO
 	
 	SE4TMP->(DBCLOSEAREA())
 	
-	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-	//³MONTAGEM DA TELA DE DADOS³
-	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 	IF LEN(ALB1) = 0
 		MSGINFO("Não existem dados para os parâmetros fornecidos!")
 	ELSE
-		DEFINE MSDIALOG _ODLGNF TITLE "Selecione as tabelas de Condição de Pagamentos:" FROM U_MGETTELA(178),U_MGETTELA(181) TO U_MGETTELA(548),U_MGETTELA(885) PIXEL
+		DEFINE MSDIALOG _ODLGNF TITLE "Selecione a Condição de Pagamento:" FROM U_MGETTELA(178),U_MGETTELA(181) TO U_MGETTELA(548),U_MGETTELA(885) PIXEL
 			@ U_MGETTELA(007),U_MGETTELA(005) 	LISTBOX OLB1 ;
 								FIELDS HEADER	""				,;
 												"Código"		,;
@@ -103,16 +94,17 @@ _cSql	+= "   E4_CODIGO
 			
 			FOR _NI := 1 TO LEN(ALB1)
 				IF ALB1[_NI,1] = '*'
-					cReturn += "'" + ALB1[_NI,2] + "',"
+					__cReturn += "'" + ALB1[_NI,2] + "',"
 				ENDIF
 			NEXT
-			cReturn := substr(cReturn,1,Len(cReturn)-1)
+			__cReturn := substr(__cReturn,1,Len(__cReturn)-1)
+			lRet := .T.
 		ENDIF
 	ENDIF
 
-M->A1_XCONDPG := cReturn
+//M->A1_XCONDPG := __cReturn
 
-RETURN
+RETURN(lRet)
 
 Static Function fVMTabClick()
 /*********************************************************************************************************************

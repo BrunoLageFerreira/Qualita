@@ -99,10 +99,10 @@ User Function RelInWEB(cPrograma,cDescri,cParam,cTipo)
 
 	aRethora := FwTimeUF("MG")
 
-	If aRethora[1] >= "20220101" //*<------------cofigurar a validade e trocar as datas abaixo
-		Alert("SIGAWISE! Atualize os relatórios.")      
-		Return()
-	EndIf
+	//If aRethora[1] >= "20220101" //*<------------cofigurar a validade e trocar as datas abaixo
+	//	Alert("SIGAWISE! Atualize os relatórios.")      
+	//	Return()
+	//EndIf
 
 /*
 cBaseUrl := cLink
@@ -276,9 +276,7 @@ Else
     ConOut("@ADVPL: Couldn't consume API")
 EndIf
          
- /*
-         
-         
+/* 
 conout("* fazendo download do arquivo " + cLocalFile)
          
 nRet = WDClient("GET", cLocalFile, cURL1, "", cUserPwd, @aInfo)
@@ -293,7 +291,6 @@ else
    conout("* erro2=" + AllTrim(Str(aInfo[2])))
    conout("* erro3=" + AllTrim(Str(aInfo[3])))
 endif
-
 */
 
 

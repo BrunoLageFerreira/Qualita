@@ -8,21 +8,19 @@ Data .......: 14/05/2019
 Feito por ..: Bruno Lage Ferreira 
 */
 
-USER FUNCTION LstMULTAB()
+USER FUNCTION LstMULTAB(cListAtu)
 /*******************************************************************************************************
 *
 *
 ****/
-//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-//³DECLARACAO DE VARIAVEIS³
-//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
 LOCAL _CSQL 			:= ""
 LOCAL _NOPC 			:= 0
 LOCAL _CNOME			:= Space(30)
-Local cReturn			:= ""
+LOCAL lRet              := .F.
 
-PRIVATE CINDEXNAME	:= ''
-PRIVATE CINDEXKEY 	:= ''
+PRIVATE CINDEXNAME		:= ''
+PRIVATE CINDEXKEY 		:= ''
 PRIVATE CFILTER 		:= ''
 
 PRIVATE ALB1 			:= {}
@@ -30,10 +28,9 @@ PRIVATE OLB1
 PRIVATE OOK				:= LOADBITMAP(GETRESOURCES(), "LBOK")
 PRIVATE ONO				:= LOADBITMAP(GETRESOURCES(), "LBNO")
 
+PUBLIC __cReturn		:= ""
 
-//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-//³PERGUNTA E SELECAO DE DADOS³
-//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
 _cSql	:= " SELECT	DA0_CODTAB,
 _cSql	+= "        DA0_YCLASS,
 _cSql	+= "    	DA0_DESCRI,
@@ -51,12 +48,10 @@ _cSql	+= "   DA0_CODTAB
 	
 	ALB1:= {}
 	
-	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-	//³MONTAGEM DA ARRAY DE DADOS³
-	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
 	WHILE !DA0TMP->(EOF())
 		
-		AADD(ALB1,	{		IIF((DA0TMP->DA0_CODTAB $ SA1->A1_MULTTAB),"*"," ")	,;
+		AADD(ALB1,	{		IIF((DA0TMP->DA0_CODTAB $ cListAtu),"*"," ")	,;
 							DA0TMP->DA0_CODTAB									,;
 							DA0TMP->DA0_YCLASS 									,;
 							DA0TMP->DA0_DESCRI})
@@ -66,11 +61,9 @@ _cSql	+= "   DA0_CODTAB
 	
 	DA0TMP->(DBCLOSEAREA())
 	
-	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-	//³MONTAGEM DA TELA DE DADOS³
-	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
 	IF LEN(ALB1) = 0
-		MSGINFO("Nao Existem Dados para os parametros fornecidos")
+		MSGINFO("Não existem dados para os parametros fornecidos!")
 	ELSE
 		DEFINE MSDIALOG _ODLGNF TITLE "Selecione as tabelas de preços:" FROM U_MGETTELA(178),U_MGETTELA(181) TO U_MGETTELA(548),U_MGETTELA(885) PIXEL
 			@ U_MGETTELA(007),U_MGETTELA(005) 	LISTBOX OLB1 ;
@@ -104,16 +97,17 @@ _cSql	+= "   DA0_CODTAB
 			
 			FOR _NI := 1 TO LEN(ALB1)
 				IF ALB1[_NI,1] = '*'
-					cReturn += "'" + ALB1[_NI,2] + "',"
+					__cReturn += "'" + ALB1[_NI,2] + "',"
 				ENDIF
 			NEXT
-			cReturn := substr(cReturn,1,Len(cReturn)-1)
+			__cReturn := substr(__cReturn,1,Len(__cReturn)-1)
+			lRet := .T.
 		ENDIF
 	ENDIF
 
-M->A1_MULTTAB := cReturn
+//M->A1_MULTTAB := cReturn
 
-RETURN
+RETURN(lRet)
 
 Static Function fVMTabClick()
 /*********************************************************************************************************************

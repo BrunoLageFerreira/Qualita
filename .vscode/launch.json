@@ -2,34 +2,36 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"type": "totvs_tdsreplay_debug",
+			"request": "launch",
+			"name": "DEBUG",
+			"cwb": "${workspaceFolder}",
+			"tdsReplayFile": "",
+			"ignoreFiles": false,
+			"password": "",
+			"includeSources": "*",
+			"excludeSources": ""
+		},
+		{
 			"type": "totvs_language_debug",
 			"request": "launch",
-			"name": "Depuração do idioma TOTVS",
+			"cwb": "${workspaceRoot}",
+			"name": "TESTE",
+			"smartclientBin": "D:/TOTVS 12/Microsiga/Protheus/bin/smartclient_LG_QUALITA/smartclient.exe",
 			"program": "SIGAMDI",
-			"cwb": "${workspaceFolder}",
-			"smartclientBin": "D:\\TOTVS 12\\Microsiga\\Protheus\\bin\\smartclient_LG_QUALITA\\smartclient.exe",
-			"isMultiSession": true,
-			"enableTableSync": true,
 			"programArguments": [],
 			"enableMultiThread": false,
 			"enableProfile": false,
+			"isMultiSession": true,
 			"isAccessibilityMode": false,
 			"doNotShowSplash": false,
 			"openglMode": false,
 			"dpiMode": false,
 			"language": "1",
-			"ignoreFiles": true
+			"ignoreFiles": true,
+			"enableTableSync": true,
+			"logFile": "${workspaceFolder}\\dap.log",
+			
 		}
-	],
-	"lastPrograms": [
-		{
-			"label": "SIGAMDI",
-			"description": "SIGAMDI"
-		},
-		{
-			"label": "sigafin",
-			"description": "<nil>"
-		}
-	],
-	"lastProgramExecuted": "sigamdi"
+	]
 }

@@ -1341,10 +1341,12 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		//M->C5_XMOTBLQ := "06 = Aguardando liberação do vendedor!" + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
 		M->C5_BLQ     := ""
 		fTPBLQ        := .T.
-	ENDIF
+	EndIf
 
-	IF !Empty(M->C5_XIDMOB) .Or. M->C5_XIDMOB <> '-'
-		u_MIntMGLib(M->C5_NUM , M->C5_XIDMOB , "SC5" , M->C5_XMOTBLQ , M->C5_FILIAL , M->C5_XTOTAL , fTPBLQ )
+	if (Empty(M->C5_NOTA) .OR. M->C5_NOTA == 'XXXXXXXXX' )
+		IF (!Empty(M->C5_XIDMOB) .Or. M->C5_XIDMOB <> '-') 
+			u_MIntMGLib(M->C5_NUM , M->C5_XIDMOB , "SC5" , M->C5_XMOTBLQ , M->C5_FILIAL , M->C5_XTOTAL , fTPBLQ )
+		EndIf
 	EndIf
 
 	ConOut("******************************************" )

@@ -1,0 +1,1061 @@
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2022-02-03 17:18:16.407 (   0.001s) [                ]             loguru.cpp:755   INFO| Logging to 'totvsls.log', mode: 'w', verbosity: 9
+(   0.001s) [main thread     ]             loguru.cpp:591   | arguments: c:\\Users\\Administrator\\.vscode\\extensions\\totvs.tds-vscode-1.3.11/node_modules/@totvs/tds-ls/bin/windows/advpls.exe --language-server --enableAutoComplete=LS --notificationLevel=\"none\" --fsencoding=cp1252 --includes=D:\\TOTVS\ 12\\Microsiga\\Protheus\\include --linter=enabled --log-file=totvsls.log --record=totvsls
+(   0.001s) [main thread     ]             loguru.cpp:594   | Current dir: d:\TOTVS 12\Microsiga\Protheus\ProjetoVSCode
+(   0.001s) [main thread     ]             loguru.cpp:596   | stderr verbosity: -3
+(   0.001s) [main thread     ]             loguru.cpp:597   | -----------------------------------
+(   0.002s) [main thread     ]    security_manager.cc:859   | lsRsaInit
+(   0.002s) [main thread     ]    security_manager.cc:861   | lsRsaInit.1
+(   0.002s) [main thread     ]    security_manager.cc:886   | lsRsaInit.2
+(   0.002s) [main thread     ]    security_manager.cc:900   | lsRsaInit.3
+(   0.002s) [main thread     ]    security_manager.cc:912   | lsRsaInit.4
+(   0.002s) [main thread     ]    security_manager.cc:926   | lsRsaInit.5
+(   0.002s) [main thread     ]    security_manager.cc:950   | lsRsaInit.6
+(   0.002s) [main thread     ]    security_manager.cc:971   | lsRsaInit.7
+(   0.002s) [main thread     ]    security_manager.cc:986   | lsRsaInit.8
+(   0.002s) [main thread     ]    security_manager.cc:989   | lsRsaInit.9
+(   0.002s) [main thread     ]    security_manager.cc:1008  | lsRsaInit.10
+(   0.002s) [main thread     ]    security_manager.cc:1010  | lsRsaInit.11
+(   0.002s) [main thread     ]    security_manager.cc:1021  | lsRsaInit.12
+(   0.002s) [main thread     ]    security_manager.cc:1023  | lsRsaInit.13
+(   0.002s) [main thread     ]    security_manager.cc:1031  | lsRsaInit.14
+(   0.002s) [main thread     ]    security_manager.cc:1038  | lsRsaInit.15
+(   0.002s) [main thread     ]    security_manager.cc:1053  | lsRsaInit.16
+(   0.002s) [main thread     ]    security_manager.cc:1419  | lsAsymmDecrypt
+(   0.002s) [main thread     ]    security_manager.cc:1420  | plaintext --linter=enabled
+(   0.002s) [main thread     ]    security_manager.cc:1421  | ciphertext T≠çsÖÏ]«eÕì“}›\˝ÔÉù¡¢ËIøª	ØÅÕˆÿ k6aı]aÌ£zﬁStØ;ôÚÖÈîiV<Ω;8ˇ4dhÿz √~P;Õ¥ä@hnÿÊuÈŒœ¨kW^K:ØìË}ërNqıΩ;ñ:HE©†<ΩéÊz⁄Œ∫◊>B=2&ÀWâ√'µ"níøxÓ›*—5Áƒ¶¡Æa§X°á¥
+(   0.002s) [main thread     ]    security_manager.cc:1422  | ciphertext_len 256
+(   0.017s) [main thread     ]    security_manager.cc:1055  | lsRsaInit.17
+(   0.017s) [main thread     ]    security_manager.cc:1088  | lsRsaInit.22
+(   0.017s) [main thread     ]    security_manager.cc:1099  | userRsaInit
+(   0.017s) [main thread     ]    security_manager.cc:1118  | Loading user prv key.
+(   0.017s) [main thread     ]    security_manager.cc:1149  | Loading user pub key.
+(   0.017s) [main thread     ]    security_manager.cc:1248  | Loading user symm key.
+(   0.027s) [main thread     ]  connection_manager.cc:6982  | Invalid notificationLevel value. Value="none"
+(   0.027s) [main thread     ]  connection_manager.cc:6983  | Settings to 'only error' level.
+(   0.028s) [querydb         ]msg_lsp_initialize_requ:496   | Start Running initialize
+(   0.028s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Initializing Language Server." took 0.1 ms
+(   0.028s) [querydb         ]msg_lsp_initialize_requ:502   | Init parameters: {"compilationDatabaseCommand":"","compilationDatabaseDirectory":"","cacheDirectory":"","cacheFormat":"json","resourceDirectory":"","discoverSystemIncludes":true,"extraClangArguments":[],"progressReportFrequencyMs":500,"emitQueryDbBlocked":false,"emitInactiveRegions":false,"showDocumentLinksOnIncludes":true,"codeLens":{"localVariables":true},"completion":{"enableSnippets":true,"detailedLabel":false,"dropOldRequests":true,"filterAndSort":true,"includeMaxPathSize":30,"includeSuffixWhitelist":[".h",".hpp",".hh",".ch"],"includeBlacklist":[],"includeWhitelist":[]},"formatting":{"enabled":false},"diagnostics":{"blacklist":[],"whitelist":[],"frequencyMs":0,"onParse":true,"onType":true},"highlight":{"enabled":false,"blacklist":[],"whitelist":[]},"index":{"attributeMakeCallsToCtor":true,"blacklist":[],"whitelist":[],"comments":2,"enabled":true,"logSkippedPaths":false,"threads":0},"workspaceSymbol":{"maxNum":1000,"sort":true},"xref":{"maxNum":2000},"enableIndexOnDidChange":false}
+(   0.028s) [querydb         ]msg_lsp_initialize_requ:517   | [querydb] Initialize in directory d:/totvs 12/microsiga/protheus/projetovscode with uri file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode
+(   0.028s) [querydb         ]msg_lsp_initialize_requ:574   | Using -resource-dir=d:/totvs 12/microsiga/protheus/projetovscode/default_resource_directory
+(   0.028s) [querydb         ]msg_lsp_initialize_requ:577   | Send initialization before starting indexers, so we don't send a status update too early.
+(   0.028s) [querydb         ]msg_lsp_initialize_requ:597   | Set project root.
+(   0.028s) [stdout          ]               timer.cc:41    | [e2e] Running initialize took 0.414 ms
+(   0.032s) [querydb         ]               timer.cc:41    | compile_commands.json advpllang time took 0.1 ms
+(   0.032s) [querydb         ]               timer.cc:41    | compile_commands.json our time took 0.1 ms
+(   0.032s) [querydb         ]               timer.cc:41    | [perf] Loaded compilation entries (0 files) took 0.145 ms
+(   0.032s) [querydb         ]msg_lsp_initialize_requ:640   | Starting 16 indexers
+(   0.033s) [querydb         ]               timer.cc:41    | [perf] Dispatched initial index requests took 0.1 ms
+(   0.033s) [querydb         ]msg_lsp_initialize_requ:669   | End Running initialize
+(   0.035s) [scan_includes   ]               timer.cc:41    | [perf] Scanning for includes took 1.1438 ms
+(   0.260s) [querydb         ]msg_lsp_initialized_not:22    | Got Initialized Notification
+(   0.260s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Language Server initialized." took 0.2 ms
+(   0.260s) [querydb         ]msg_totvsserver_reconne:48    | Start Running $totvsserver/reconnect
+(   0.260s) [querydb         ]msg_totvsserver_reconne:52    | Reconnecting server with connectionToken: djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxNTg5MzowOjE6MQ==.j2uqRcEQ8jvYxmT+LRNH9aWeSPbq24/SB7AltRu3HyIdFDSzHHm2Ux4U9I7EbTUSLALirXfzVlWHmfRdxdrsAIiZQGjMyhbEd3/MaEdigppkb35vzF4phvEBCFZHS47QhOpLIkmdhA1U9sCfCr5uXmdafkj7I45spLcnTmAyDbKIWj1TRsjb5thtEbxMydCQuhib2rqJLEmrcniZU8ZzE0NFj7qwov0eLrJcvqFNg6GAuF2cKXQEQ/TGmzX9zUFr6XehOAqX+XDlW7tLZsRTN75xrin+zKSuTTgT5PTZfbIlao8avAL3z4lgGeZ/TrS6oMwIlnY5jBDrM8GMHCHgcg==
+(   0.260s) [querydb         ]  connection_manager.cc:389   | Starting reconnection to the server 'SRV_DEVELOPER'
+(   0.260s) [querydb         ]  connection_manager.cc:390   | djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxNTg5MzowOjE6MQ==.j2uqRcEQ8jvYxmT+LRNH9aWeSPbq24/SB7AltRu3HyIdFDSzHHm2Ux4U9I7EbTUSLALirXfzVlWHmfRdxdrsAIiZQGjMyhbEd3/MaEdigppkb35vzF4phvEBCFZHS47QhOpLIkmdhA1U9sCfCr5uXmdafkj7I45spLcnTmAyDbKIWj1TRsjb5thtEbxMydCQuhib2rqJLEmrcniZU8ZzE0NFj7qwov0eLrJcvqFNg6GAuF2cKXQEQ/TGmzX9zUFr6XehOAqX+XDlW7tLZsRTN75xrin+zKSuTTgT5PTZfbIlao8avAL3z4lgGeZ/TrS6oMwIlnY5jBDrM8GMHCHgcg==
+(   0.260s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Starting reconnection to the server 'SRV_DEVELOPER'" took 0.2 ms
+(   0.261s) [querydb         ]    security_manager.cc:337   | authentic TRUE
+(   0.261s) [querydb         ]    security_manager.cc:520   | done sKuA0e/x8805lQ1JbhSIo9e08YMppKbjJyH9zNfAXCY=
+(   0.261s) [querydb         ]    security_manager.cc:530   | done password symmDecrypt (12)
+(   0.261s) [querydb         ]  connection_manager.cc:4376  | ConnectionManager::newConnection: 192.168.1.101:1236 (20191205055624) [1] {3}
+(   0.261s) [querydb         ]  connection_manager.cc:4380  | connected status: 0
+(   0.362s) [querydb         ]  connection_manager.cc:4383  | connected status: 2
+(   0.362s) [querydb         ]  connection_manager.cc:4391  | MS_DBGGETBUILD OK
+(   0.362s) [querydb         ]  connection_manager.cc:4401  | build: 7.00.191205P
+(   0.362s) [querydb         ]  connection_manager.cc:4410  | creating secureContext
+(   0.362s) [querydb         ]  connection_manager.cc:4412  | secureContext initialize
+(   0.770s) [querydb         ]  connection_manager.cc:4415  | asymmetric generateKeys
+(   0.770s) [querydb         ]  connection_manager.cc:4417  | secureContext initialized
+(   0.783s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Secure authenticating..." took 0.2 ms
+(   2.454s) [querydb         ]  connection_manager.cc:4695  | MS_DBGPSWADM_SEC OK
+(   2.454s) [querydb         ]  connection_manager.cc:4716  | User authenticated successfully.
+(   2.455s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] User authenticated successfully." took 0.3 ms
+(   2.473s) [querydb         ]    security_manager.cc:541   | encodedExtraInfo: djI6MTY0MzkxOTQ5ODowOjE6MQ==
+(   2.481s) [querydb         ]    security_manager.cc:289   | signature BvWu12u7PwyYySMnBPiFz4FGLRqZKu0HNmG7ryZDWFONkV0a4sI1IVt/lU7/oUJmr6Uko45aVn0W4cpgjSXaZIBVtKeb8uUmf/o/AVAyAKDMQNYZjAOQsHImTE4htuRQSccB0mwnvYmi2i4JF6rSiiClX7cwVbml9hhEHjvHnQ0lISb17nkZwYFO39/BO62w6BsqPL3dhV8HNgxo8EaHS52J6tOjRaPx4ZGFlMLkjOHxChrnXyN93+LO0LJkuTeMPdMadVyITSOVdj+R1iKGiHYmH6pRk3bVBTCQk/99qj9jTNa4pcSaWxjyHogbAB1M/u7sURUgn882zwVHDQqIyw==
+(   2.481s) [querydb         ]  connection_manager.cc:467   | Reconnection to the server 'SRV_DEVELOPER' finished.
+(   2.481s) [querydb         ]  connection_manager.cc:468   | djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxOTQ5ODowOjE6MQ==.BvWu12u7PwyYySMnBPiFz4FGLRqZKu0HNmG7ryZDWFONkV0a4sI1IVt/lU7/oUJmr6Uko45aVn0W4cpgjSXaZIBVtKeb8uUmf/o/AVAyAKDMQNYZjAOQsHImTE4htuRQSccB0mwnvYmi2i4JF6rSiiClX7cwVbml9hhEHjvHnQ0lISb17nkZwYFO39/BO62w6BsqPL3dhV8HNgxo8EaHS52J6tOjRaPx4ZGFlMLkjOHxChrnXyN93+LO0LJkuTeMPdMadVyITSOVdj+R1iKGiHYmH6pRk3bVBTCQk/99qj9jTNa4pcSaWxjyHogbAB1M/u7sURUgn882zwVHDQqIyw==
+(   2.481s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager Reconnect server for connectionToken: djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxOTQ5ODowOjE6MQ==.BvWu12u7PwyYySMnBPiFz4FGLRqZKu0HNmG7ryZDWFONkV0a4sI1IVt/lU7/oUJmr6Uko45aVn0W4cpgjSXaZIBVtKeb8uUmf/o/AVAyAKDMQNYZjAOQsHImTE4htuRQSccB0mwnvYmi2i4JF6rSiiClX7cwVbml9hhEHjvHnQ0lISb17nkZwYFO39/BO62w6BsqPL3dhV8HNgxo8EaHS52J6tOjRaPx4ZGFlMLkjOHxChrnXyN93+LO0LJkuTeMPdMadVyITSOVdj+R1iKGiHYmH6pRk3bVBTCQk/99qj9jTNa4pcSaWxjyHogbAB1M/u7sURUgn882zwVHDQqIyw== took 2220.2218720 ms
+(   2.481s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Reconnection to the server 'SRV_DEVELOPER' finished." took 0.3 ms
+(   2.481s) [querydb         ]msg_totvsserver_reconne:112   | End Running $totvsserver/reconnect
+(   2.481s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/reconnect took 2221.2218924 ms
+(   2.491s) [querydb         ]msg_totvsserver_server_:46    | Start Running $totvsserver/serverPermissions
+(   2.491s) [querydb         ]msg_totvsserver_server_:49    | Get server permissions of: 
+(   2.491s) [querydb         ]  connection_manager.cc:4811  | Searching for connection token: djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxOTQ5ODowOjE6MQ==.BvWu12u7PwyYySMnBPiFz4FGLRqZKu0HNmG7ryZDWFONkV0a4sI1IVt/lU7/oUJmr6Uko45aVn0W4cpgjSXaZIBVtKeb8uUmf/o/AVAyAKDMQNYZjAOQsHImTE4htuRQSccB0mwnvYmi2i4JF6rSiiClX7cwVbml9hhEHjvHnQ0lISb17nkZwYFO39/BO62w6BsqPL3dhV8HNgxo8EaHS52J6tOjRaPx4ZGFlMLkjOHxChrnXyN93+LO0LJkuTeMPdMadVyITSOVdj+R1iKGiHYmH6pRk3bVBTCQk/99qj9jTNa4pcSaWxjyHogbAB1M/u7sURUgn882zwVHDQqIyw==
+(   2.491s) [querydb         ]  connection_manager.cc:4816  | Connections thread size: 1
+(   2.491s) [querydb         ]  connection_manager.cc:4826  | connection pointer address 0000008972072E50
+(   2.491s) [querydb         ]  connection_manager.cc:5205  | retrievedConnectionThread status 2
+(   2.491s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager GetServerPermissions => serverPermissions.size: [] took 0.111 ms
+(   2.491s) [querydb         ]msg_totvsserver_server_:90    | End Running $totvsserver/serverPermissions
+(   2.491s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   2.491s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/serverPermissions took 0.311 ms
+(   2.491s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key includes, value D:\TOTVS 12\Microsiga\Protheus\include;
+(   2.491s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.46 ms
+(   2.491s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   2.491s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.500 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(   3.169s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.11 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(   3.169s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.11 ms
+(   3.169s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   3.169s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.68 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(   3.169s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(   3.169s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.128 ms
+(   3.169s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   3.169s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.160 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(   3.169s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.4 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   3.169s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.327 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(   3.169s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   3.169s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.402 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(   3.169s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   3.169s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   3.169s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.482 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(   3.169s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   3.169s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   3.169s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.554 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.069s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(   4.069s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.8 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.069s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.069s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.28 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(   4.069s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.069s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.118 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.069s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(   4.069s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.069s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.069s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.181 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(   4.069s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.069s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.069s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.243 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(   4.069s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.069s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.291 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.069s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(   4.069s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.4 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.069s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.380 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.069s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(   4.069s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.069s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.463 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.069s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(   4.069s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   4.069s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.069s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.559 ms
+(   4.844s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.844s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(   4.844s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.10 ms
+(   4.844s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.844s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.21 ms
+(   4.844s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.844s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(   4.844s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   4.844s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.844s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.844s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(   4.844s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
+(   4.844s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.844s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.844s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(   4.844s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   4.844s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.844s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.218 ms
+(   4.844s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.280 ms
+(   4.844s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.297 ms
+(   4.844s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.844s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(   4.844s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.7 ms
+(   4.844s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.844s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.844s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.401 ms
+(   4.844s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(   4.844s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
+(   4.845s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.845s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.845s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.486 ms
+(   4.845s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(   4.845s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   4.845s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.845s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   4.845s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.543 ms
+(   4.845s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(   4.845s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   4.845s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   4.845s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.706 ms
+(  34.684s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+(  34.684s) [querydb         ]       working_files.cc:483   | OnOpen
+(  34.684s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+(  34.684s) [querydb         ]               timer.cc:41    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 0.585 ms
+(  34.684s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/02_compras/ma103opc.prw
+(  34.684s) [querydb         ]      totvs_complete.cc:906   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/02_compras/ma103opc.prw
+(  34.684s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+(  34.684s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+(  34.685s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+(  34.685s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+(  34.685s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/ma103opc.prw)
+(  41.168s) [querydb         ]msg_text_document_did_c:29    | Start Running textDocument/didClose
+(  41.168s) [querydb         ]       working_files.cc:539   | OnClose
+(  41.168s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/didClose took 0.135 ms
+(  41.168s) [querydb         ]      totvs_complete.cc:847   | Dropped preloaded-based code completion session for d:/totvs 12/microsiga/protheus/projetovscode/02_compras/ma103opc.prw
+(  41.168s) [querydb         ]msg_text_document_did_c:40    | End Running textDocument/didClose
+(  41.261s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+(  41.261s) [querydb         ]       working_files.cc:483   | OnOpen
+(  41.261s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+(  41.261s) [querydb         ]               timer.cc:41    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 0.334 ms
+(  41.261s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mxdtval.prw
+(  41.261s) [querydb         ]      totvs_complete.cc:906   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mxdtval.prw
+(  41.261s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+(  41.261s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+(  41.261s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+(  41.261s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+(  41.261s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mxdtval.prw)
+(  45.308s) [querydb         ]msg_text_document_did_c:29    | Start Running textDocument/didClose
+(  45.308s) [querydb         ]       working_files.cc:539   | OnClose
+(  45.308s) [querydb         ]      totvs_complete.cc:847   | Dropped preloaded-based code completion session for d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mxdtval.prw
+(  45.308s) [querydb         ]msg_text_document_did_c:40    | End Running textDocument/didClose
+(  45.308s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/didClose took 0.152 ms
+(  45.368s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+(  45.368s) [querydb         ]       working_files.cc:483   | OnOpen
+(  45.368s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+(  45.368s) [querydb         ]               timer.cc:41    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 0.226 ms
+(  45.368s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/03_conex√onfe/mta103mnu.prw
+(  45.368s) [querydb         ]      totvs_complete.cc:906   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/03_conex√onfe/mta103mnu.prw
+(  45.368s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+(  45.368s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+(  45.368s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+(  45.368s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+(  45.368s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/03_conex√onfe/mta103mnu.prw)
+(  47.646s) [querydb         ]msg_text_document_did_c:29    | Start Running textDocument/didClose
+(  47.646s) [querydb         ]       working_files.cc:539   | OnClose
+(  47.646s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/didClose took 0.157 ms
+(  47.646s) [querydb         ]      totvs_complete.cc:847   | Dropped preloaded-based code completion session for d:/totvs 12/microsiga/protheus/projetovscode/03_conex√onfe/mta103mnu.prw
+(  47.646s) [querydb         ]msg_text_document_did_c:40    | End Running textDocument/didClose
+(  47.710s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+(  47.710s) [querydb         ]       working_files.cc:483   | OnOpen
+(  47.711s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+(  47.711s) [querydb         ]               timer.cc:41    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 0.373 ms
+(  47.711s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/01_somente_itinga/mta103mnu.prw
+(  47.711s) [querydb         ]      totvs_complete.cc:906   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/01_somente_itinga/mta103mnu.prw
+(  47.711s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+(  47.711s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+(  47.711s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+(  47.711s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+(  47.711s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/01_somente_itinga/mta103mnu.prw)
+(  70.854s) [querydb         ]msg_text_document_did_c:29    | Start Running textDocument/didClose
+(  70.854s) [querydb         ]       working_files.cc:539   | OnClose
+(  70.854s) [querydb         ]      totvs_complete.cc:847   | Dropped preloaded-based code completion session for d:/totvs 12/microsiga/protheus/projetovscode/01_somente_itinga/mta103mnu.prw
+(  70.854s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/didClose took 0.144 ms
+(  70.854s) [querydb         ]msg_text_document_did_c:40    | End Running textDocument/didClose
+(  71.052s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+(  71.052s) [querydb         ]       working_files.cc:483   | OnOpen
+(  71.053s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+(  71.053s) [querydb         ]               timer.cc:41    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 0.400 ms
+(  71.053s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/01_somente_itinga/mt103fim.prw
+(  71.053s) [querydb         ]      totvs_complete.cc:906   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/01_somente_itinga/mt103fim.prw
+(  71.053s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+(  71.053s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+(  71.053s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+(  71.053s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+(  71.053s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/01_somente_itinga/mt103fim.prw)
+( 382.734s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+( 382.734s) [querydb         ]       working_files.cc:483   | OnOpen
+( 382.735s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+( 382.735s) [querydb         ]               timer.cc:41    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 0.230 ms
+( 382.735s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 382.735s) [querydb         ]      totvs_complete.cc:906   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 382.735s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 382.735s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 382.735s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+( 382.735s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 382.735s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 382.738s) [comp-preload    ]        totvs_linter.cc:13    | linterParseDiagnostic: File not found mt103vcc
+
+( 401.069s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 401.069s) [querydb         ]       working_files.cc:503   | OnChange
+( 401.069s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 401.070s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 401.070s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 401.070s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 401.070s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 401.070s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 401.070s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 401.157s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW:File is empty or corrupted.. (mt103vcc.prw)
+( 401.693s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 401.693s) [querydb         ]       working_files.cc:503   | OnChange
+( 401.693s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 401.693s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 401.693s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 401.693s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 401.693s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 401.693s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 401.693s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 401.749s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(3) warning W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version.
+( 418.727s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 418.727s) [querydb         ]       working_files.cc:503   | OnChange
+( 418.727s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 418.727s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 418.727s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 418.727s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 418.727s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 418.727s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 418.727s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 418.783s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(4) warning W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version.
+( 419.419s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 419.419s) [querydb         ]       working_files.cc:503   | OnChange
+( 419.419s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 419.419s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 419.419s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 419.419s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 419.419s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 419.419s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 419.419s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 419.493s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(4) warning W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version.
+( 419.898s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 419.898s) [querydb         ]       working_files.cc:503   | OnChange
+( 419.898s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 419.898s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 419.898s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 419.898s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 419.898s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 419.898s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 419.898s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 419.968s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(5) warning W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version.
+( 429.350s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 429.350s) [querydb         ]       working_files.cc:503   | OnChange
+( 429.350s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 429.350s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 429.350s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 429.350s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 429.350s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 429.350s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 429.350s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 429.441s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(5) warning W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version.
+( 429.983s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 429.983s) [querydb         ]       working_files.cc:503   | OnChange
+( 429.983s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 429.983s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 429.983s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 429.983s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 429.983s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 429.983s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 429.983s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 444.545s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 444.545s) [querydb         ]       working_files.cc:503   | OnChange
+( 444.545s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 444.545s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 444.545s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 444.545s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 444.545s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 444.545s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 444.545s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 469.068s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 469.068s) [querydb         ]       working_files.cc:503   | OnChange
+( 469.068s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 469.068s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 469.068s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 469.068s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 469.068s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 469.068s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 469.068s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 471.287s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 471.287s) [querydb         ]       working_files.cc:503   | OnChange
+( 471.287s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 471.287s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 471.287s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 471.287s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 471.287s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 471.287s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 471.287s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 471.946s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 471.946s) [querydb         ]       working_files.cc:503   | OnChange
+( 471.946s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 471.946s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 471.946s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 471.946s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 471.946s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 471.946s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 471.946s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 472.499s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 472.499s) [querydb         ]       working_files.cc:503   | OnChange
+( 472.499s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 472.499s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 472.499s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 472.499s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 472.499s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 472.499s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 472.499s) [querydb         ]msg_text_document_compl:296   | Start Running textDocument/completion
+( 472.499s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 472.499s) [querydb         ]msg_text_document_compl:311   | File found d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 472.501s) [querydb         ]msg_text_document_compl:369   | existing_completion: S
+( 472.501s) [querydb         ]msg_text_document_compl:480   | [MSG] line: 6 / char: 0
+( 472.501s) [querydb         ]      totvs_complete.cc:778   | AdvPLCompleteManager::CodeComplete
+( 472.501s) [querydb         ]msg_text_document_compl:486   | End Running textDocument/completion
+( 472.501s) [comp-query      ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 472.501s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 6 / char: 0 / offset: 56
+( 472.508s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.65 ms
+( 472.509s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 10.10044 ms
+( 472.566s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 473.079s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 473.079s) [querydb         ]       working_files.cc:503   | OnChange
+( 473.079s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 473.079s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 473.079s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 473.079s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 473.079s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 473.079s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 473.079s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 473.143s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 473.759s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 473.759s) [querydb         ]       working_files.cc:503   | OnChange
+( 473.759s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 473.759s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 473.759s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 473.759s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 473.759s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 473.759s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 473.759s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 473.826s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 474.565s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 474.565s) [querydb         ]       working_files.cc:503   | OnChange
+( 474.565s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 474.565s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 474.565s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 474.565s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 474.565s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 474.565s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 474.565s) [querydb         ]msg_text_document_compl:296   | Start Running textDocument/completion
+( 474.565s) [querydb         ]msg_text_document_compl:311   | File found d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 474.565s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 474.565s) [querydb         ]msg_text_document_compl:369   | existing_completion: Sa
+( 474.565s) [querydb         ]msg_text_document_compl:480   | [MSG] line: 6 / char: 0
+( 474.565s) [querydb         ]      totvs_complete.cc:778   | AdvPLCompleteManager::CodeComplete
+( 474.565s) [querydb         ]msg_text_document_compl:486   | End Running textDocument/completion
+( 474.565s) [comp-query      ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 474.565s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 6 / char: 0 / offset: 56
+( 474.565s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.36 ms
+( 474.565s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 0.668 ms
+( 474.631s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 474.922s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 474.922s) [querydb         ]       working_files.cc:503   | OnChange
+( 474.922s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 474.922s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 474.922s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 474.922s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 474.922s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 474.922s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 474.923s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 474.995s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 475.257s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 475.258s) [querydb         ]       working_files.cc:503   | OnChange
+( 475.258s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 475.258s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 475.258s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 475.258s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 475.258s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 475.258s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 475.258s) [querydb         ]msg_text_document_compl:296   | Start Running textDocument/completion
+( 475.258s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 475.258s) [querydb         ]msg_text_document_compl:311   | File found d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 475.258s) [querydb         ]msg_text_document_compl:369   | existing_completion: S
+( 475.258s) [querydb         ]msg_text_document_compl:480   | [MSG] line: 6 / char: 0
+( 475.258s) [querydb         ]      totvs_complete.cc:778   | AdvPLCompleteManager::CodeComplete
+( 475.258s) [querydb         ]msg_text_document_compl:486   | End Running textDocument/completion
+( 475.258s) [comp-query      ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 475.258s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 6 / char: 0 / offset: 56
+( 475.258s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.65 ms
+( 475.259s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 1.1093 ms
+( 475.324s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 475.613s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 475.613s) [querydb         ]       working_files.cc:503   | OnChange
+( 475.613s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 475.613s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 475.613s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 475.613s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 475.613s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 475.613s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 475.613s) [querydb         ]msg_text_document_compl:296   | Start Running textDocument/completion
+( 475.613s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 475.613s) [querydb         ]msg_text_document_compl:311   | File found d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 475.613s) [querydb         ]msg_text_document_compl:369   | existing_completion: A
+( 475.613s) [querydb         ]msg_text_document_compl:480   | [MSG] line: 6 / char: 0
+( 475.613s) [querydb         ]      totvs_complete.cc:778   | AdvPLCompleteManager::CodeComplete
+( 475.613s) [querydb         ]msg_text_document_compl:486   | End Running textDocument/completion
+( 475.613s) [comp-query      ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 475.613s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 6 / char: 0 / offset: 56
+( 475.614s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.41 ms
+( 475.614s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 0.829 ms
+( 475.684s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 476.046s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 476.046s) [querydb         ]       working_files.cc:503   | OnChange
+( 476.046s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 476.046s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 476.046s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 476.046s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 476.046s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 476.046s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 476.046s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 476.118s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 476.457s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 476.457s) [querydb         ]       working_files.cc:503   | OnChange
+( 476.457s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 476.457s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 476.457s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 476.457s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 476.457s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 476.457s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 476.457s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 476.517s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 476.698s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 476.698s) [querydb         ]       working_files.cc:503   | OnChange
+( 476.698s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 476.698s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 476.698s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 476.698s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 476.698s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 476.699s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 476.699s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 476.757s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 477.792s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 477.792s) [querydb         ]       working_files.cc:503   | OnChange
+( 477.792s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 477.792s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 477.792s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 477.793s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 477.793s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 477.793s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 477.793s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 478.531s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 478.531s) [querydb         ]       working_files.cc:503   | OnChange
+( 478.532s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 478.532s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 478.532s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 478.532s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 478.532s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 478.532s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 478.532s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 484.563s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 484.563s) [querydb         ]       working_files.cc:503   | OnChange
+( 484.563s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 484.563s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 484.563s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 484.563s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 484.563s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 484.563s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 484.563s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 488.824s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 488.824s) [querydb         ]       working_files.cc:503   | OnChange
+( 488.824s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 488.824s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 488.824s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 488.824s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 488.824s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 488.824s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 488.824s) [querydb         ]msg_text_document_compl:296   | Start Running textDocument/completion
+( 488.824s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 488.824s) [querydb         ]msg_text_document_compl:311   | File found d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 488.824s) [querydb         ]msg_text_document_compl:369   | existing_completion: A
+( 488.824s) [querydb         ]msg_text_document_compl:480   | [MSG] line: 6 / char: 0
+( 488.824s) [querydb         ]      totvs_complete.cc:778   | AdvPLCompleteManager::CodeComplete
+( 488.824s) [querydb         ]msg_text_document_compl:486   | End Running textDocument/completion
+( 488.824s) [comp-query      ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 488.824s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 6 / char: 0 / offset: 56
+( 488.825s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.54 ms
+( 488.825s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 0.788 ms
+( 489.742s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 489.742s) [querydb         ]       working_files.cc:503   | OnChange
+( 489.742s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 489.742s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 489.742s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 489.742s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 489.742s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 489.742s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 489.742s) [querydb         ]msg_text_document_compl:296   | Start Running textDocument/completion
+( 489.742s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 489.742s) [querydb         ]msg_text_document_compl:311   | File found d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 489.742s) [querydb         ]msg_text_document_compl:369   | existing_completion: AVISO
+( 489.742s) [querydb         ]msg_text_document_compl:480   | [MSG] line: 6 / char: 0
+( 489.742s) [querydb         ]      totvs_complete.cc:778   | AdvPLCompleteManager::CodeComplete
+( 489.742s) [querydb         ]msg_text_document_compl:486   | End Running textDocument/completion
+( 489.742s) [comp-query      ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 489.742s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 6 / char: 0 / offset: 56
+( 489.770s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.417 ms
+( 489.770s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 28.28493 ms
+( 491.071s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 491.071s) [querydb         ]       working_files.cc:503   | OnChange
+( 491.071s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 491.071s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 491.071s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 491.071s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 491.071s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 491.071s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 491.071s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 491.146s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW(7) warning W0001 Command has no effect 
+( 492.360s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 492.360s) [querydb         ]       working_files.cc:503   | OnChange
+( 492.360s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 492.360s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 492.360s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 492.360s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 492.360s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 492.360s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 492.360s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 492.446s) [diag-query      ]        totvs_linter.cc:13    | linterParseDiagnostic: MT103VCC.PRW:MT103VCC.PRW(7)   C2003 Syntax Error
+( 492.654s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 492.654s) [querydb         ]       working_files.cc:503   | OnChange
+( 492.654s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 492.654s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 492.654s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 492.654s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 492.654s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 492.654s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 492.654s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 492.928s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 492.928s) [querydb         ]       working_files.cc:503   | OnChange
+( 492.928s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 492.928s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 492.928s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 492.928s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 492.928s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 492.928s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 492.928s) [querydb         ]msg_text_document_compl:296   | Start Running textDocument/completion
+( 492.928s) [querydb         ]msg_text_document_compl:311   | File found d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 492.928s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 492.928s) [querydb         ]msg_text_document_compl:369   | existing_completion: AVISI
+( 492.928s) [querydb         ]msg_text_document_compl:480   | [MSG] line: 6 / char: 0
+( 492.928s) [querydb         ]      totvs_complete.cc:778   | AdvPLCompleteManager::CodeComplete
+( 492.928s) [querydb         ]msg_text_document_compl:486   | End Running textDocument/completion
+( 492.928s) [comp-query      ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 492.928s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 6 / char: 0 / offset: 56
+( 492.933s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.427 ms
+( 492.933s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 5.5231 ms
+( 494.160s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 494.160s) [querydb         ]       working_files.cc:503   | OnChange
+( 494.160s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 494.160s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 494.160s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 494.160s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 494.160s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 494.160s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 494.160s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 494.605s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 494.605s) [querydb         ]       working_files.cc:503   | OnChange
+( 494.605s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 494.605s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 494.605s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 494.605s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 494.605s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 494.605s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 494.605s) [querydb         ]msg_text_document_compl:296   | Start Running textDocument/completion
+( 494.605s) [querydb         ]msg_text_document_compl:311   | File found d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 494.605s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 494.605s) [querydb         ]msg_text_document_compl:369   | existing_completion: AVISO
+( 494.605s) [querydb         ]msg_text_document_compl:480   | [MSG] line: 6 / char: 0
+( 494.605s) [querydb         ]      totvs_complete.cc:778   | AdvPLCompleteManager::CodeComplete
+( 494.605s) [querydb         ]msg_text_document_compl:486   | End Running textDocument/completion
+( 494.605s) [comp-query      ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 494.605s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 6 / char: 0 / offset: 56
+( 494.610s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.418 ms
+( 494.610s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 5.5195 ms
+( 499.507s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 499.507s) [querydb         ]       working_files.cc:503   | OnChange
+( 499.507s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 499.507s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 499.507s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 499.507s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 499.507s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 499.507s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 499.507s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 500.084s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 500.084s) [querydb         ]       working_files.cc:503   | OnChange
+( 500.084s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 500.084s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 500.084s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 500.084s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 500.084s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 500.084s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 500.084s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 500.306s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 500.306s) [querydb         ]       working_files.cc:503   | OnChange
+( 500.306s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 500.306s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 500.306s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 500.306s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 500.306s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 500.306s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 500.306s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 505.495s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 505.495s) [querydb         ]       working_files.cc:503   | OnChange
+( 505.495s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 505.495s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 505.495s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 505.495s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 505.495s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 505.495s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 505.495s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 506.121s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 506.121s) [querydb         ]       working_files.cc:503   | OnChange
+( 506.121s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 506.121s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 506.121s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 506.121s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 506.121s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 506.121s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 506.121s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 506.576s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 506.576s) [querydb         ]       working_files.cc:503   | OnChange
+( 506.576s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 506.576s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 506.576s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 506.576s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 506.576s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 506.576s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 506.576s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 507.922s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 507.922s) [querydb         ]       working_files.cc:503   | OnChange
+( 507.922s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 507.922s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 507.922s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 507.922s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 507.922s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 507.922s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 507.922s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 510.144s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 510.144s) [querydb         ]       working_files.cc:503   | OnChange
+( 510.145s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 510.145s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 510.145s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 510.145s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 510.145s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 510.145s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 510.145s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 512.857s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 512.857s) [querydb         ]       working_files.cc:503   | OnChange
+( 512.857s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 512.857s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 512.857s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 512.857s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 512.857s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 512.857s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 512.857s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 513.139s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 513.139s) [querydb         ]       working_files.cc:503   | OnChange
+( 513.139s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 513.139s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 513.139s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 513.139s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 513.139s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 513.139s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 513.139s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 516.048s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 516.048s) [querydb         ]       working_files.cc:503   | OnChange
+( 516.048s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 516.048s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 516.048s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 516.048s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 516.048s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 516.048s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 516.048s) [querydb         ]msg_text_document_compl:296   | Start Running textDocument/completion
+( 516.048s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 516.048s) [querydb         ]msg_text_document_compl:311   | File found d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw
+( 516.048s) [querydb         ]msg_text_document_compl:369   | existing_completion: O
+( 516.048s) [querydb         ]msg_text_document_compl:480   | [MSG] line: 6 / char: 24
+( 516.048s) [querydb         ]      totvs_complete.cc:778   | AdvPLCompleteManager::CodeComplete
+( 516.048s) [querydb         ]msg_text_document_compl:486   | End Running textDocument/completion
+( 516.048s) [comp-query      ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 516.048s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 6 / char: 24 / offset: 80
+( 516.049s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.43 ms
+( 516.049s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 0.634 ms
+( 516.367s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 516.367s) [querydb         ]       working_files.cc:503   | OnChange
+( 516.367s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 516.367s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 516.367s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 516.367s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 516.367s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 516.367s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 516.367s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 517.050s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 517.050s) [querydb         ]       working_files.cc:503   | OnChange
+( 517.050s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 517.050s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 517.050s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 517.050s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 517.050s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 517.050s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 517.050s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 517.293s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 517.293s) [querydb         ]       working_files.cc:503   | OnChange
+( 517.293s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 517.293s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 517.293s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 517.293s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 517.293s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 517.293s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 517.293s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 518.202s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 518.202s) [querydb         ]       working_files.cc:503   | OnChange
+( 518.202s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 518.202s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 518.202s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 518.202s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 518.202s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 518.202s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 518.202s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 529.325s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 529.325s) [querydb         ]       working_files.cc:503   | OnChange
+( 529.325s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 529.325s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 529.325s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 529.325s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 529.325s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 529.325s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 529.325s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 534.880s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 534.880s) [querydb         ]       working_files.cc:503   | OnChange
+( 534.880s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 534.880s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 534.880s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 534.880s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 534.880s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 534.880s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 534.880s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 537.524s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 537.524s) [querydb         ]       working_files.cc:503   | OnChange
+( 537.524s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 537.524s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 537.524s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 537.524s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 537.524s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 537.524s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 537.524s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 547.247s) [querydb         ]msg_totvsserver_compila:65    | Start Running $totvsserver/compilation
+( 547.247s) [querydb         ]  connection_manager.cc:4811  | Searching for connection token: djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxOTQ5ODowOjE6MQ==.BvWu12u7PwyYySMnBPiFz4FGLRqZKu0HNmG7ryZDWFONkV0a4sI1IVt/lU7/oUJmr6Uko45aVn0W4cpgjSXaZIBVtKeb8uUmf/o/AVAyAKDMQNYZjAOQsHImTE4htuRQSccB0mwnvYmi2i4JF6rSiiClX7cwVbml9hhEHjvHnQ0lISb17nkZwYFO39/BO62w6BsqPL3dhV8HNgxo8EaHS52J6tOjRaPx4ZGFlMLkjOHxChrnXyN93+LO0LJkuTeMPdMadVyITSOVdj+R1iKGiHYmH6pRk3bVBTCQk/99qj9jTNa4pcSaWxjyHogbAB1M/u7sURUgn882zwVHDQqIyw==
+( 547.247s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Starting recompile." took 0.3 ms
+( 547.247s) [querydb         ]  connection_manager.cc:4816  | Connections thread size: 1
+( 547.247s) [querydb         ]  connection_manager.cc:4826  | connection pointer address 0000008972072E50
+( 547.247s) [querydb         ]  connection_manager.cc:715   | retrievedConnectionThread status 2
+( 547.247s) [querydb         ]  connection_manager.cc:4170  | Starting build for environment compila_q.
+( 547.247s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Starting build for environment compila_q." took 0.3 ms
+( 547.247s) [querydb         ]  connection_manager.cc:4291  | Execute MS_DBGSTARTBUILD for environment=compila_q, sEmail=, nBuildType=1, nDefragRPO=0
+( 598.081s) [querydb         ]  connection_manager.cc:4296  | MS_DBGSTARTBUILD EXEC OK: bOpenOk=0, sMessage=
+It wasn't possible to obtain exclusive access to the objects repository
+, nVersion=120, nPatchCount=0
+( 598.081s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager Compile server  took 50833.50782995 ms
+( 598.081s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Error] Start build error: Server returned: 
+It wasn't possible to obtain exclusive access to the objects repository
+" took 0.17 ms
+( 598.081s) [querydb         ]msg_totvsserver_compila:133   | End Running $totvsserver/compilation
+( 598.081s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 598.081s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/compilation took 50834.50783225 ms
+( 598.081s) [querydb         ]       working_files.cc:503   | OnChange
+( 598.081s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 598.081s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 598.081s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 598.081s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 598.081s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 598.081s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 598.081s) [querydb         ]msg_text_document_did_s:36    | Start Running textDocument/didSave
+( 598.081s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 598.081s) [querydb         ]      totvs_complete.cc:826   | AdvPLCompleteManager::NotifySave
+( 598.081s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 598.081s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 598.081s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 598.081s) [querydb         ]msg_text_document_did_s:65    | End Running textDocument/didSave
+( 598.081s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 598.081s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 598.151s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 608.179s) [querydb         ]msg_totvsserver_compila:65    | Start Running $totvsserver/compilation
+( 608.179s) [querydb         ]  connection_manager.cc:4811  | Searching for connection token: djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxOTQ5ODowOjE6MQ==.BvWu12u7PwyYySMnBPiFz4FGLRqZKu0HNmG7ryZDWFONkV0a4sI1IVt/lU7/oUJmr6Uko45aVn0W4cpgjSXaZIBVtKeb8uUmf/o/AVAyAKDMQNYZjAOQsHImTE4htuRQSccB0mwnvYmi2i4JF6rSiiClX7cwVbml9hhEHjvHnQ0lISb17nkZwYFO39/BO62w6BsqPL3dhV8HNgxo8EaHS52J6tOjRaPx4ZGFlMLkjOHxChrnXyN93+LO0LJkuTeMPdMadVyITSOVdj+R1iKGiHYmH6pRk3bVBTCQk/99qj9jTNa4pcSaWxjyHogbAB1M/u7sURUgn882zwVHDQqIyw==
+( 608.179s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Starting recompile." took 0.3 ms
+( 608.179s) [querydb         ]  connection_manager.cc:4816  | Connections thread size: 1
+( 608.179s) [querydb         ]  connection_manager.cc:4826  | connection pointer address 0000008972072E50
+( 608.179s) [querydb         ]  connection_manager.cc:715   | retrievedConnectionThread status 2
+( 608.179s) [querydb         ]  connection_manager.cc:4170  | Starting build for environment compila_q.
+( 608.179s) [querydb         ]  connection_manager.cc:4291  | Execute MS_DBGSTARTBUILD for environment=compila_q, sEmail=, nBuildType=1, nDefragRPO=0
+( 608.179s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Starting build for environment compila_q." took 0.2 ms
+( 646.671s) [querydb         ]  connection_manager.cc:4296  | MS_DBGSTARTBUILD EXEC OK: bOpenOk=1, sMessage=, nVersion=120, nPatchCount=9
+( 646.676s) [querydb         ]  connection_manager.cc:758   | MS_DBGGETCOMPPARS OK
+( 646.676s) [querydb         ]  connection_manager.cc:761   | params  /dTOP /uPRTOPDEF.CH  /DPORTUGUESE 
+( 646.676s) [querydb         ]  connection_manager.cc:818   | includeList: d:/TOTVS 12/Microsiga/Protheus/include
+( 646.676s) [querydb         ]               timer.cc:41    | [perf] Before compile process finished. took 38497.38458770 ms
+( 646.676s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Start file recompile." took 0.3 ms
+( 646.676s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Using Includes: d:/TOTVS 12/Microsiga/Protheus/include" took 0.2 ms
+( 646.677s) [querydb         ]  connection_manager.cc:873   | cFile=d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw, drive=d:, dir=/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/, name=MT103VCC, ext=.prw
+( 646.677s) [querydb         ]  connection_manager.cc:4951  | isProtheusSourceExtension .prw
+( 646.677s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Start secure compiling d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw (1/1)." took 0.2 ms
+( 646.677s) [querydb         ]  connection_manager.cc:963   | nCheckSum 695500124
+( 646.677s) [querydb         ]  connection_manager.cc:4951  | isProtheusSourceExtension .prw
+( 646.678s) [querydb         ]               timer.cc:41    | [perf] Before preprocessing file d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw took 0.523 ms
+( 646.678s) [querydb         ]  connection_manager.cc:678   | preCompilerFullCommand: totvsls @EdummyForX64 @Fd:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw -Id:/TOTVS 12/Microsiga/Protheus/include @DC:/Users/Administrator/AppData/Local/Temp/2 @I41 /N /S /P /dPROTHEUS /DAP-101 /dTOP /uPRTOPDEF.CH /DPORTUGUESE 
+( 646.734s) [querydb         ]               timer.cc:41    | [perf] File d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw preprocessed took 55.55914 ms
+( 646.734s) [querydb         ]  connection_manager.cc:4951  | isProtheusSourceExtension .prw
+( 646.742s) [querydb         ]  connection_manager.cc:1090  | MS_DBGCOMPILE_SEC OK
+( 646.742s) [querydb         ]  connection_manager.cc:1091  | sMessage: 
+( 646.742s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] [SUCCESS] Source d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw compiled successfully." took 0.3 ms
+( 646.742s) [querydb         ]               timer.cc:41    | [perf] Compiled d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw took 66.66163 ms
+( 646.743s) [querydb         ]               timer.cc:41    | [perf] Compile took 0.147 ms
+( 646.743s) [querydb         ]  connection_manager.cc:4328  | Committing end build.
+( 646.743s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Committing end build." took 0.1 ms
+( 648.319s) [querydb         ]  connection_manager.cc:4333  | MS_DBGENDBUILD OK with abort set to FALSE
+( 648.319s) [querydb         ]               timer.cc:41    | [perf] End build took 1576.1575256 ms
+( 648.319s) [querydb         ]  connection_manager.cc:1295  | All files compiled successfully.
+( 648.320s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager Compile server  took 40140.40100538 ms
+( 648.320s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] All files compiled successfully." took 0.4 ms
+( 648.320s) [querydb         ]msg_totvsserver_compila:133   | End Running $totvsserver/compilation
+( 648.320s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Recompile finished." took 0.0 ms
+( 648.320s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/compilation took 40140.40100784 ms
+( 655.298s) [querydb         ]msg_totvsserver_compila:65    | Start Running $totvsserver/compilation
+( 655.298s) [querydb         ]  connection_manager.cc:4811  | Searching for connection token: djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxOTQ5ODowOjE6MQ==.BvWu12u7PwyYySMnBPiFz4FGLRqZKu0HNmG7ryZDWFONkV0a4sI1IVt/lU7/oUJmr6Uko45aVn0W4cpgjSXaZIBVtKeb8uUmf/o/AVAyAKDMQNYZjAOQsHImTE4htuRQSccB0mwnvYmi2i4JF6rSiiClX7cwVbml9hhEHjvHnQ0lISb17nkZwYFO39/BO62w6BsqPL3dhV8HNgxo8EaHS52J6tOjRaPx4ZGFlMLkjOHxChrnXyN93+LO0LJkuTeMPdMadVyITSOVdj+R1iKGiHYmH6pRk3bVBTCQk/99qj9jTNa4pcSaWxjyHogbAB1M/u7sURUgn882zwVHDQqIyw==
+( 655.298s) [querydb         ]  connection_manager.cc:4816  | Connections thread size: 1
+( 655.298s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Starting recompile." took 0.2 ms
+( 655.298s) [querydb         ]  connection_manager.cc:4826  | connection pointer address 0000008972072E50
+( 655.298s) [querydb         ]  connection_manager.cc:715   | retrievedConnectionThread status 2
+( 655.298s) [querydb         ]  connection_manager.cc:4170  | Starting build for environment compila_q.
+( 655.298s) [querydb         ]  connection_manager.cc:4291  | Execute MS_DBGSTARTBUILD for environment=compila_q, sEmail=, nBuildType=1, nDefragRPO=0
+( 655.298s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Starting build for environment compila_q." took 0.2 ms
+( 658.680s) [querydb         ]  connection_manager.cc:4296  | MS_DBGSTARTBUILD EXEC OK: bOpenOk=1, sMessage=, nVersion=120, nPatchCount=9
+( 658.684s) [querydb         ]  connection_manager.cc:758   | MS_DBGGETCOMPPARS OK
+( 658.684s) [querydb         ]  connection_manager.cc:761   | params  /dTOP /uPRTOPDEF.CH  /DPORTUGUESE 
+( 658.684s) [querydb         ]  connection_manager.cc:818   | includeList: d:/TOTVS 12/Microsiga/Protheus/include
+( 658.684s) [querydb         ]               timer.cc:41    | [perf] Before compile process finished. took 3386.3382687 ms
+( 658.684s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Start file recompile." took 0.3 ms
+( 658.684s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Using Includes: d:/TOTVS 12/Microsiga/Protheus/include" took 0.2 ms
+( 658.684s) [querydb         ]  connection_manager.cc:873   | cFile=d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw, drive=d:, dir=/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/, name=MT103VCC, ext=.prw
+( 658.684s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Start secure compiling d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw (1/1)." took 0.2 ms
+( 658.684s) [querydb         ]  connection_manager.cc:4951  | isProtheusSourceExtension .prw
+( 658.684s) [querydb         ]  connection_manager.cc:963   | nCheckSum 695500124
+( 658.684s) [querydb         ]  connection_manager.cc:4951  | isProtheusSourceExtension .prw
+( 658.685s) [querydb         ]               timer.cc:41    | [perf] Before preprocessing file d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw took 0.418 ms
+( 658.685s) [querydb         ]  connection_manager.cc:678   | preCompilerFullCommand: totvsls @EdummyForX64 @Fd:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw -Id:/TOTVS 12/Microsiga/Protheus/include @DC:/Users/Administrator/AppData/Local/Temp/2 @I18467 /N /S /P /dPROTHEUS /DAP-101 /dTOP /uPRTOPDEF.CH /DPORTUGUESE 
+( 658.747s) [querydb         ]               timer.cc:41    | [perf] File d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw preprocessed took 62.61973 ms
+( 658.747s) [querydb         ]  connection_manager.cc:4951  | isProtheusSourceExtension .prw
+( 658.749s) [querydb         ]  connection_manager.cc:1090  | MS_DBGCOMPILE_SEC OK
+( 658.749s) [querydb         ]  connection_manager.cc:1091  | sMessage: 
+( 658.749s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] [SUCCESS] Source d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw compiled successfully." took 0.3 ms
+( 658.749s) [querydb         ]               timer.cc:41    | [perf] Compiled d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw took 65.65265 ms
+( 658.749s) [querydb         ]               timer.cc:41    | [perf] Compile took 0.8 ms
+( 658.749s) [querydb         ]  connection_manager.cc:4328  | Committing end build.
+( 658.749s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Committing end build." took 0.2 ms
+( 660.173s) [querydb         ]  connection_manager.cc:4333  | MS_DBGENDBUILD OK with abort set to FALSE
+( 660.173s) [querydb         ]               timer.cc:41    | [perf] End build took 1423.1422355 ms
+( 660.173s) [querydb         ]  connection_manager.cc:1295  | All files compiled successfully.
+( 660.173s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager Compile server  took 4875.4870481 ms
+( 660.173s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] All files compiled successfully." took 0.4 ms
+( 660.173s) [querydb         ]msg_totvsserver_compila:133   | End Running $totvsserver/compilation
+( 660.173s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Recompile finished." took 0.2 ms
+( 660.173s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/compilation took 4875.4870673 ms
+( 863.399s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 863.400s) [querydb         ]       working_files.cc:503   | OnChange
+( 863.400s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 863.400s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 863.400s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 863.400s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 863.400s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 863.400s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 863.400s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 873.032s) [querydb         ]msg_text_document_did_c:28    | Start Running textDocument/didChange
+( 873.032s) [querydb         ]       working_files.cc:503   | OnChange
+( 873.032s) [querydb         ]      totvs_complete.cc:815   | AdvPLCompleteManager::NotifyEdit
+( 873.032s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+( 873.032s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 873.032s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 873.032s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 873.032s) [querydb         ]msg_text_document_did_c:42    | End Running textDocument/didChange
+( 873.032s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 923.075s) [querydb         ]msg_totvsserver_compila:65    | Start Running $totvsserver/compilation
+( 923.075s) [querydb         ]  connection_manager.cc:4811  | Searching for connection token: djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxOTQ5ODowOjE6MQ==.BvWu12u7PwyYySMnBPiFz4FGLRqZKu0HNmG7ryZDWFONkV0a4sI1IVt/lU7/oUJmr6Uko45aVn0W4cpgjSXaZIBVtKeb8uUmf/o/AVAyAKDMQNYZjAOQsHImTE4htuRQSccB0mwnvYmi2i4JF6rSiiClX7cwVbml9hhEHjvHnQ0lISb17nkZwYFO39/BO62w6BsqPL3dhV8HNgxo8EaHS52J6tOjRaPx4ZGFlMLkjOHxChrnXyN93+LO0LJkuTeMPdMadVyITSOVdj+R1iKGiHYmH6pRk3bVBTCQk/99qj9jTNa4pcSaWxjyHogbAB1M/u7sURUgn882zwVHDQqIyw==
+( 923.075s) [querydb         ]  connection_manager.cc:4816  | Connections thread size: 1
+( 923.075s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Starting recompile." took 0.3 ms
+( 923.075s) [querydb         ]  connection_manager.cc:4826  | connection pointer address 0000008972072E50
+( 923.075s) [querydb         ]  connection_manager.cc:715   | retrievedConnectionThread status 2
+( 923.075s) [querydb         ]  connection_manager.cc:4170  | Starting build for environment compila_q.
+( 923.075s) [querydb         ]  connection_manager.cc:4291  | Execute MS_DBGSTARTBUILD for environment=compila_q, sEmail=, nBuildType=1, nDefragRPO=0
+( 923.075s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Starting build for environment compila_q." took 0.3 ms
+( 929.412s) [querydb         ]  connection_manager.cc:4296  | MS_DBGSTARTBUILD EXEC OK: bOpenOk=1, sMessage=, nVersion=120, nPatchCount=9
+( 929.414s) [querydb         ]  connection_manager.cc:758   | MS_DBGGETCOMPPARS OK
+( 929.414s) [querydb         ]  connection_manager.cc:761   | params  /dTOP /uPRTOPDEF.CH  /DPORTUGUESE 
+( 929.415s) [querydb         ]  connection_manager.cc:818   | includeList: d:/TOTVS 12/Microsiga/Protheus/include
+( 929.415s) [querydb         ]               timer.cc:41    | [perf] Before compile process finished. took 6339.6333395 ms
+( 929.415s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Start file recompile." took 0.3 ms
+( 929.415s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Using Includes: d:/TOTVS 12/Microsiga/Protheus/include" took 0.2 ms
+( 929.415s) [querydb         ]  connection_manager.cc:873   | cFile=d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw, drive=d:, dir=/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/, name=MT103VCC, ext=.prw
+( 929.415s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Start secure compiling d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw (1/1)." took 0.2 ms
+( 929.415s) [querydb         ]  connection_manager.cc:4951  | isProtheusSourceExtension .prw
+( 929.415s) [querydb         ]  connection_manager.cc:963   | nCheckSum 529170122
+( 929.415s) [querydb         ]  connection_manager.cc:4951  | isProtheusSourceExtension .prw
+( 929.416s) [querydb         ]               timer.cc:41    | [perf] Before preprocessing file d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw took 0.797 ms
+( 929.416s) [querydb         ]  connection_manager.cc:678   | preCompilerFullCommand: totvsls @EdummyForX64 @Fd:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw -Id:/TOTVS 12/Microsiga/Protheus/include @DC:/Users/Administrator/AppData/Local/Temp/2 @I6334 /N /S /P /dPROTHEUS /DAP-101 /dTOP /uPRTOPDEF.CH /DPORTUGUESE 
+( 929.486s) [querydb         ]               timer.cc:41    | [perf] File d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw preprocessed took 69.69566 ms
+( 929.486s) [querydb         ]  connection_manager.cc:4951  | isProtheusSourceExtension .prw
+( 929.488s) [querydb         ]  connection_manager.cc:1090  | MS_DBGCOMPILE_SEC OK
+( 929.488s) [querydb         ]  connection_manager.cc:1091  | sMessage: 
+( 929.488s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] [SUCCESS] Source d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw compiled successfully." took 0.3 ms
+( 929.488s) [querydb         ]               timer.cc:41    | [perf] Compiled d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw took 73.73334 ms
+( 929.488s) [querydb         ]               timer.cc:41    | [perf] Compile took 0.12 ms
+( 929.488s) [querydb         ]  connection_manager.cc:4328  | Committing end build.
+( 929.488s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Committing end build." took 0.2 ms
+( 930.909s) [querydb         ]  connection_manager.cc:4333  | MS_DBGENDBUILD OK with abort set to FALSE
+( 930.909s) [querydb         ]               timer.cc:41    | [perf] End build took 1421.1419907 ms
+( 930.909s) [querydb         ]  connection_manager.cc:1295  | All files compiled successfully.
+( 930.910s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] All files compiled successfully." took 0.3 ms
+( 930.910s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager Compile server  took 7834.7826928 ms
+( 930.910s) [stdout          ]               timer.cc:41    | [e2e] Message to Client: "[Info] Recompile finished." took 0.1 ms
+( 930.910s) [querydb         ]msg_totvsserver_compila:133   | End Running $totvsserver/compilation
+( 930.910s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/compilation took 7834.7827097 ms
+( 930.910s) [querydb         ]msg_text_document_did_s:36    | Start Running textDocument/didSave
+( 930.910s) [querydb         ]      totvs_complete.cc:826   | AdvPLCompleteManager::NotifySave
+( 930.910s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+( 930.910s) [querydb         ]      totvs_complete.cc:786   | AdvPLCompleteManager::DiagnosticsUpdate
+( 930.910s) [querydb         ]      totvs_complete.cc:793   | AdvPLCompleteManager::DiagnosticsUpdate has=false
+( 930.910s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+( 930.910s) [querydb         ]msg_text_document_did_s:65    | End Running textDocument/didSave
+( 930.910s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+( 930.910s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw)
+(11788.917s) [querydb         ]msg_text_document_did_c:29    | Start Running textDocument/didClose
+(11788.917s) [querydb         ]       working_files.cc:539   | OnClose
+(11788.917s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/didClose took 0.265 ms
+(11788.917s) [querydb         ]      totvs_complete.cc:847   | Dropped preloaded-based code completion session for d:/totvs 12/microsiga/protheus/projetovscode/01_somente_itinga/mt103fim.prw
+(11788.917s) [querydb         ]msg_text_document_did_c:40    | End Running textDocument/didClose
+(11789.483s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+(11789.483s) [querydb         ]       working_files.cc:483   | OnOpen
+(11789.499s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+(11789.506s) [querydb         ]               timer.cc:41    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 22.22295 ms
+(11789.506s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/06_faturamento/nfesefaz.prw
+(11789.506s) [querydb         ]      totvs_complete.cc:906   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/06_faturamento/nfesefaz.prw
+(11789.506s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+(11789.506s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+(11789.506s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+(11789.506s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+(11789.506s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/06_faturamento/nfesefaz.prw)

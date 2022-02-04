@@ -913,8 +913,6 @@ EndDo
 dbSelectArea("TRBMNT") 
 dbCloseArea()
 
-
-
 /*
 Verificação de erro 
 CAVALETES DIFRENTE DO PEDIDO DE VENDA
@@ -966,7 +964,9 @@ cQuery   += "                  ROUND(SB8.B8_SALDO,4,0) SALDO_BUNDLE,
 cQuery   += "                  * 
 cQuery   += "             FROM SB8010 SB8 
 cQuery   += "                     WHERE SB8.B8_FILIAL='010101' 
-cQuery   += "                       AND CAST(SB8.B8_NUMLOTE AS INT) BETWEEN 100 AND 999999 
+//cQuery   += "                     AND CAST(SB8.B8_NUMLOTE AS INT) BETWEEN 100 AND 999999 
+cQuery   += "                       AND SB8.B8_NUMLOTE = SB8.B8_YCAVALE
+cQuery   += "  					    AND SB8.B8_YCAVALE <> ''
 cQuery   += "                       AND SB8.B8_SALDO>0 
 cQuery   += "                       AND SB8.D_E_L_E_T_=''
 cQuery   += "         )TB

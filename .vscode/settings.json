@@ -1,4 +1,8 @@
 {
+    "totvsLanguageServer.launch.args": [
+        "--log-file=totvsls.log",
+        "--record=totvsls"
+    ],
     "totvsLanguageServer.welcomePage": false,
     "advpl.projectActive": "ProjetoVSCode",
     "totvsLanguageServer.askCompileResult": true,
@@ -31,5 +35,6 @@
     "advpl.selectedEnvironment": "COMPILA_Q",
     "advpl.foldersProject": [],
     "search.useGlobalIgnoreFiles": true,
-    "advpl.debug_multiThread": true
+    "advpl.debug_multiThread": true,
+    "advpl.workspaceFolders": "d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode;"
 }

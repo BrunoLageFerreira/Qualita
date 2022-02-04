@@ -170,7 +170,7 @@ Do While !EOF()
 
 	aAdd(aCli, {"A1_DDD"    , TRB_CLI->ZSE_DDD          , Nil})
 	aAdd(aCli, {"A1_DDI"    , TRB_CLI->ZSE_DDI          , Nil})
-	aAdd(aCli, {"A1_TELL"   , TRB_CLI->ZSE_TELL         , Nil})
+	aAdd(aCli, {"A1_TEL"    , TRB_CLI->ZSE_TELL         , Nil})
 	aAdd(aCli, {"A1_EMAIL"  , TRB_CLI->ZSE_EMAIL        , Nil})
 	aAdd(aCli, {"A1_CEP"    , TRB_CLI->ZSE_CEP          , Nil})
 

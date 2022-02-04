@@ -1,0 +1,1336 @@
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 108
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Initializing Language Server."}}
+
+Content-Length: 702
+
+{"jsonrpc":"2.0","id":0,"result":{"capabilities":{"textDocumentSync":1,"completionProvider":{"resolveProvider":false,"triggerCharacters":[":","#"]},"hoverProvider":false,"declarationProvider":false,"definitionProvider":false,"typeDefinitionProvider":false,"implementationProvider":false,"referencesProvider":false,"documentHighlightProvider":false,"documentSymbolProvider":false,"codeActionProvider":false,"colorProvider":false,"workspaceSymbolProvider":false,"documentFormattingProvider":false,"documentRangeFormattingProvider":false,"documentOnTypeFormattingProvider":false,"renameProvider":false,"foldingRangeProvider":false,"executeCommandProvider":{"commands":[]},"selectionRangeProvider":false}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 107
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Language Server initialized."}}
+
+Content-Length: 130
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting reconnection to the server 'SRV_DEVELOPER'"}}
+
+Content-Length: 103
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Secure authenticating..."}}
+
+Content-Length: 111
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"User authenticated successfully."}}
+
+Content-Length: 131
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Reconnection to the server 'SRV_DEVELOPER' finished."}}
+
+Content-Length: 652
+
+{"jsonrpc":"2.0","id":1,"result":{"connectionToken":"djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAxOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOnNLdUEwZS94ODgwNWxRMUpiaFNJbzllMDhZTXBwS2JqSnlIOXpOZkFYQ1k9|djI6MTY0MzkxOTQ5ODowOjE6MQ==.BvWu12u7PwyYySMnBPiFz4FGLRqZKu0HNmG7ryZDWFONkV0a4sI1IVt/lU7/oUJmr6Uko45aVn0W4cpgjSXaZIBVtKeb8uUmf/o/AVAyAKDMQNYZjAOQsHImTE4htuRQSccB0mwnvYmi2i4JF6rSiiClX7cwVbml9hhEHjvHnQ0lISb17nkZwYFO39/BO62w6BsqPL3dhV8HNgxo8EaHS52J6tOjRaPx4ZGFlMLkjOHxChrnXyN93+LO0LJkuTeMPdMadVyITSOVdj+R1iKGiHYmH6pRk3bVBTCQk/99qj9jTNa4pcSaWxjyHogbAB1M/u7sURUgn882zwVHDQqIyw==","environment":"compila_q","user":"Admin"}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 391
+
+{"jsonrpc":"2.0","id":2,"result":{"message":"OK","serverPermissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}
+
+Content-Length: 118
+
+{"jsonrpc":"2.0","id":3,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 83
+
+{"jsonrpc":"2.0","id":4,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":5,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 88
+
+{"jsonrpc":"2.0","id":6,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 80
+
+{"jsonrpc":"2.0","id":7,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 83
+
+{"jsonrpc":"2.0","id":8,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":9,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 89
+
+{"jsonrpc":"2.0","id":10,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":11,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 84
+
+{"jsonrpc":"2.0","id":12,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 82
+
+{"jsonrpc":"2.0","id":13,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 89
+
+{"jsonrpc":"2.0","id":14,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":15,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 84
+
+{"jsonrpc":"2.0","id":16,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 82
+
+{"jsonrpc":"2.0","id":17,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 89
+
+{"jsonrpc":"2.0","id":18,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":19,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 84
+
+{"jsonrpc":"2.0","id":20,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 82
+
+{"jsonrpc":"2.0","id":21,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 89
+
+{"jsonrpc":"2.0","id":22,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":23,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 84
+
+{"jsonrpc":"2.0","id":24,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 82
+
+{"jsonrpc":"2.0","id":25,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 89
+
+{"jsonrpc":"2.0","id":26,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":27,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/ma103opc.prw","diagnostics":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MA103OPC.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 176
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mxdtval.prw","diagnostics":[]}}
+
+Content-Length: 176
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/mXdtVal.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 186
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/03_conex%C3%83onfe/mta103mnu.prw","diagnostics":[]}}
+
+Content-Length: 186
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/03_CONEX%C3%83ONFE/MTA103MNU.PRW","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 185
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/01_somente_itinga/mta103mnu.prw","diagnostics":[]}}
+
+Content-Length: 185
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/01_SOMENTE_ITINGA/MTA103MNU.PRW","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 184
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/01_somente_itinga/mt103fim.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":1,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 314
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":0,"character":0},"end":{"line":1,"character":0}},"severity":1,"source":"Linter","message":"not found mt103vcc"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 334
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":0,"character":0},"end":{"line":1,"character":0}},"severity":1,"source":"Linter","message":"is empty or corrupted.. (mt103vcc.prw)"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 395
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":2,"character":0},"end":{"line":3,"character":0}},"severity":2,"source":"Linter","message":"W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version."}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 395
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":3,"character":0},"end":{"line":4,"character":0}},"severity":2,"source":"Linter","message":"W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version."}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 395
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":3,"character":0},"end":{"line":4,"character":0}},"severity":2,"source":"Linter","message":"W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version."}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 395
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":4,"character":0},"end":{"line":5,"character":0}},"severity":2,"source":"Linter","message":"W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version."}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 395
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":4,"character":0},"end":{"line":5,"character":0}},"severity":2,"source":"Linter","message":"W0019 Statement unbalanced function in U_MT103FIM. This warning will be an error in future version."}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 3193
+
+{"jsonrpc":"2.0","id":28,"result":{"isIncomplete":false,"items":[{"label":"SAY","kind":14,"detail":"AdvPL keyword","sortText":"0000","insertText":"SAY","filterText":"SAY","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SAY"}},{"label":"STR","kind":14,"detail":"AdvPL keyword","sortText":"0001","insertText":"STR","filterText":"STR","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"STR"}},{"label":"SQRT","kind":14,"detail":"AdvPL keyword","sortText":"0002","insertText":"SQRT","filterText":"SQRT","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SQRT"}},{"label":"STEP","kind":14,"detail":"AdvPL keyword","sortText":"0003","insertText":"STEP","filterText":"STEP","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"STEP"}},{"label":"SPACE","kind":14,"detail":"AdvPL keyword","sortText":"0004","insertText":"SPACE","filterText":"SPACE","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SPACE"}},{"label":"#STDOUT","kind":9,"detail":"Directive","sortText":"0005","insertText":"#STDOUT","filterText":"#STDOUT","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"#STDOUT"}},{"label":"SCREEN","kind":14,"detail":"AdvPL keyword","sortText":"0006","insertText":"SCREEN","filterText":"SCREEN","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SCREEN"}},{"label":"SELECT","kind":14,"detail":"AdvPL keyword","sortText":"0007","insertText":"SELECT","filterText":"SELECT","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SELECT"}},{"label":"SETPOS","kind":14,"detail":"AdvPL keyword","sortText":"0008","insertText":"SETPOS","filterText":"SETPOS","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SETPOS"}},{"label":"STATIC","kind":14,"detail":"AdvPL keyword","sortText":"0009","insertText":"STATIC","filterText":"STATIC","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"STATIC"}},{"label":"SUBSTR","kind":14,"detail":"AdvPL keyword","sortText":"000A","insertText":"SUBSTR","filterText":"SUBSTR","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SUBSTR"}},{"label":"SECONDS","kind":14,"detail":"AdvPL keyword","sortText":"000B","insertText":"SECONDS","filterText":"SECONDS","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SECONDS"}},{"label":"SEQUENCE","kind":14,"detail":"AdvPL keyword","sortText":"000C","insertText":"SEQUENCE","filterText":"SEQUENCE","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SEQUENCE"}}]}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 780
+
+{"jsonrpc":"2.0","id":29,"result":{"isIncomplete":false,"items":[{"label":"SAY","kind":14,"detail":"AdvPL keyword","sortText":"0000","insertText":"SAY","filterText":"SAY","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":2}},"newText":"SAY"}},{"label":"SPACE","kind":14,"detail":"AdvPL keyword","sortText":"0001","insertText":"SPACE","filterText":"SPACE","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":2}},"newText":"SPACE"}},{"label":"STATIC","kind":14,"detail":"AdvPL keyword","sortText":"0002","insertText":"STATIC","filterText":"STATIC","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":2}},"newText":"STATIC"}}]}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 3193
+
+{"jsonrpc":"2.0","id":30,"result":{"isIncomplete":false,"items":[{"label":"SAY","kind":14,"detail":"AdvPL keyword","sortText":"0000","insertText":"SAY","filterText":"SAY","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SAY"}},{"label":"STR","kind":14,"detail":"AdvPL keyword","sortText":"0001","insertText":"STR","filterText":"STR","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"STR"}},{"label":"SQRT","kind":14,"detail":"AdvPL keyword","sortText":"0002","insertText":"SQRT","filterText":"SQRT","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SQRT"}},{"label":"STEP","kind":14,"detail":"AdvPL keyword","sortText":"0003","insertText":"STEP","filterText":"STEP","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"STEP"}},{"label":"SPACE","kind":14,"detail":"AdvPL keyword","sortText":"0004","insertText":"SPACE","filterText":"SPACE","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SPACE"}},{"label":"#STDOUT","kind":9,"detail":"Directive","sortText":"0005","insertText":"#STDOUT","filterText":"#STDOUT","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"#STDOUT"}},{"label":"SCREEN","kind":14,"detail":"AdvPL keyword","sortText":"0006","insertText":"SCREEN","filterText":"SCREEN","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SCREEN"}},{"label":"SELECT","kind":14,"detail":"AdvPL keyword","sortText":"0007","insertText":"SELECT","filterText":"SELECT","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SELECT"}},{"label":"SETPOS","kind":14,"detail":"AdvPL keyword","sortText":"0008","insertText":"SETPOS","filterText":"SETPOS","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SETPOS"}},{"label":"STATIC","kind":14,"detail":"AdvPL keyword","sortText":"0009","insertText":"STATIC","filterText":"STATIC","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"STATIC"}},{"label":"SUBSTR","kind":14,"detail":"AdvPL keyword","sortText":"000A","insertText":"SUBSTR","filterText":"SUBSTR","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SUBSTR"}},{"label":"SECONDS","kind":14,"detail":"AdvPL keyword","sortText":"000B","insertText":"SECONDS","filterText":"SECONDS","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SECONDS"}},{"label":"SEQUENCE","kind":14,"detail":"AdvPL keyword","sortText":"000C","insertText":"SEQUENCE","filterText":"SEQUENCE","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"SEQUENCE"}}]}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 1493
+
+{"jsonrpc":"2.0","id":31,"result":{"isIncomplete":false,"items":[{"label":"AS","kind":14,"detail":"AdvPL keyword","sortText":"0000","insertText":"AS","filterText":"AS","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"AS"}},{"label":"AT","kind":14,"detail":"AdvPL keyword","sortText":"0001","insertText":"AT","filterText":"AT","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"AT"}},{"label":"AND","kind":14,"detail":"AdvPL keyword","sortText":"0002","insertText":"AND","filterText":"AND","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"AND"}},{"label":"ASC","kind":14,"detail":"AdvPL keyword","sortText":"0003","insertText":"ASC","filterText":"ASC","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"ASC"}},{"label":"ACTIVATE","kind":14,"detail":"AdvPL keyword","sortText":"0004","insertText":"ACTIVATE","filterText":"ACTIVATE","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"ACTIVATE"}},{"label":"ATTRIBUTES","kind":14,"detail":"AdvPL keyword","sortText":"0005","insertText":"ATTRIBUTES","filterText":"ATTRIBUTES","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"ATTRIBUTES"}}]}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 1493
+
+{"jsonrpc":"2.0","id":32,"result":{"isIncomplete":false,"items":[{"label":"AS","kind":14,"detail":"AdvPL keyword","sortText":"0000","insertText":"AS","filterText":"AS","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"AS"}},{"label":"AT","kind":14,"detail":"AdvPL keyword","sortText":"0001","insertText":"AT","filterText":"AT","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"AT"}},{"label":"AND","kind":14,"detail":"AdvPL keyword","sortText":"0002","insertText":"AND","filterText":"AND","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"AND"}},{"label":"ASC","kind":14,"detail":"AdvPL keyword","sortText":"0003","insertText":"ASC","filterText":"ASC","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"ASC"}},{"label":"ACTIVATE","kind":14,"detail":"AdvPL keyword","sortText":"0004","insertText":"ACTIVATE","filterText":"ACTIVATE","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"ACTIVATE"}},{"label":"ATTRIBUTES","kind":14,"detail":"AdvPL keyword","sortText":"0005","insertText":"ATTRIBUTES","filterText":"ATTRIBUTES","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":0},"end":{"line":6,"character":1}},"newText":"ATTRIBUTES"}}]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 68
+
+{"jsonrpc":"2.0","id":33,"result":{"isIncomplete":false,"items":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 323
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":2,"source":"Linter","message":"W0001 Command has no effect"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 308
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[{"range":{"start":{"line":6,"character":0},"end":{"line":7,"character":0}},"severity":1,"source":"Linter","message":"Syntax Error"}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 68
+
+{"jsonrpc":"2.0","id":34,"result":{"isIncomplete":false,"items":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 68
+
+{"jsonrpc":"2.0","id":35,"result":{"isIncomplete":false,"items":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 1252
+
+{"jsonrpc":"2.0","id":36,"result":{"isIncomplete":false,"items":[{"label":"OF","kind":14,"detail":"AdvPL keyword","sortText":"0000","insertText":"OF","filterText":"OF","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":24},"end":{"line":6,"character":25}},"newText":"OF"}},{"label":"ON","kind":14,"detail":"AdvPL keyword","sortText":"0001","insertText":"ON","filterText":"ON","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":24},"end":{"line":6,"character":25}},"newText":"ON"}},{"label":"OR","kind":14,"detail":"AdvPL keyword","sortText":"0002","insertText":"OR","filterText":"OR","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":24},"end":{"line":6,"character":25}},"newText":"OR"}},{"label":"ORDER","kind":14,"detail":"AdvPL keyword","sortText":"0003","insertText":"ORDER","filterText":"ORDER","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":24},"end":{"line":6,"character":25}},"newText":"ORDER"}},{"label":"OTHERWISE","kind":14,"detail":"AdvPL keyword","sortText":"0004","insertText":"OTHERWISE","filterText":"OTHERWISE","insertTextFormat":1,"textEdit":{"range":{"start":{"line":6,"character":24},"end":{"line":6,"character":25}},"newText":"OTHERWISE"}}]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 98
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting recompile."}}
+
+Content-Length: 120
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting build for environment compila_q."}}
+
+Content-Length: 190
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":1,"message":"Start build error: Server returned: \nIt wasn't possible to obtain exclusive access to the objects repository\n"}}
+
+Content-Length: 73
+
+{"jsonrpc":"2.0","id":37,"result":{"returnCode":40910,"compileInfos":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 98
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting recompile."}}
+
+Content-Length: 120
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting build for environment compila_q."}}
+
+Content-Length: 100
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Start file recompile."}}
+
+Content-Length: 133
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Using Includes: d:/TOTVS 12/Microsiga/Protheus/include"}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw","diagnostics":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Start secure compiling d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw (1/1)."}}
+
+Content-Length: 187
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"[SUCCESS] Source d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw compiled successfully."}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw","diagnostics":[]}}
+
+Content-Length: 100
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Committing end build."}}
+
+Content-Length: 111
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"All files compiled successfully."}}
+
+Content-Length: 98
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Recompile finished."}}
+
+Content-Length: 224
+
+{"jsonrpc":"2.0","id":38,"result":{"returnCode":0,"compileInfos":[{"status":"SUCCESS","filePath":"d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw","message":"Source compiled successfully","detail":""}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 98
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting recompile."}}
+
+Content-Length: 120
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting build for environment compila_q."}}
+
+Content-Length: 100
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Start file recompile."}}
+
+Content-Length: 133
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Using Includes: d:/TOTVS 12/Microsiga/Protheus/include"}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw","diagnostics":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Start secure compiling d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw (1/1)."}}
+
+Content-Length: 187
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"[SUCCESS] Source d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw compiled successfully."}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw","diagnostics":[]}}
+
+Content-Length: 100
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Committing end build."}}
+
+Content-Length: 111
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"All files compiled successfully."}}
+
+Content-Length: 98
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Recompile finished."}}
+
+Content-Length: 224
+
+{"jsonrpc":"2.0","id":39,"result":{"returnCode":0,"compileInfos":[{"status":"SUCCESS","filePath":"d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw","message":"Source compiled successfully","detail":""}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 98
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting recompile."}}
+
+Content-Length: 120
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting build for environment compila_q."}}
+
+Content-Length: 100
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Start file recompile."}}
+
+Content-Length: 133
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Using Includes: d:/TOTVS 12/Microsiga/Protheus/include"}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw","diagnostics":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Start secure compiling d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw (1/1)."}}
+
+Content-Length: 187
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"[SUCCESS] Source d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw compiled successfully."}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw","diagnostics":[]}}
+
+Content-Length: 100
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Committing end build."}}
+
+Content-Length: 111
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"All files compiled successfully."}}
+
+Content-Length: 98
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Recompile finished."}}
+
+Content-Length: 224
+
+{"jsonrpc":"2.0","id":40,"result":{"returnCode":0,"compileInfos":[{"status":"SUCCESS","filePath":"d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/02_COMPRAS/MT103VCC.prw","message":"Source compiled successfully","detail":""}]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mt103vcc.prw","diagnostics":[]}}
+
+Content-Length: 184
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/01_SOMENTE_ITINGA/MT103FIM.PRW","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 181
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/06_faturamento/nfesefaz.prw","diagnostics":[]}}
+

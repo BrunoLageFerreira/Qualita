@@ -16,7 +16,7 @@ User Function FISMNTNFE()
 	Local cCodRetNfe:= aNfeInf[1][9]                     			
 
 	If cCodRetNfe  == "100"
-		U_GATI007()
+		//U_GATI007()
 	Endif
 
 	RestArea(aArea)

@@ -1453,7 +1453,7 @@ Local lSemFin   := .F.
 					Replace ZSC_SITUAC With ""
 				MsUnLock()
 			EndIf 
-			
+			/*
 			If  RecLock("ZSC",.T.)
 					Replace ZSC_FILIAL With xFilial(_cTabela)
 					Replace ZSC_CODIGO With AllTrim(cPedido)
@@ -1483,7 +1483,7 @@ Local lSemFin   := .F.
 					Replace ZSC_SITUAC With ""
 				MsUnLock()
 			EndIf 
-
+			*/
 			/*
 			Pendencia Vendedor
 			*/ 

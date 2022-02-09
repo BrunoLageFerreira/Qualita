@@ -15,7 +15,7 @@ Nome do Arquivo:
 */     
 User Function M030Inc()  
 /*****************************
-*   Ponto de entrada apos gravacao dos dados do SA2
+*   Ponto de entrada apos gravacao dos dados do SA1
 *   // INCLUSAO
 */                
   

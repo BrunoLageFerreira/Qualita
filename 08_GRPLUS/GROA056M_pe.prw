@@ -40,14 +40,14 @@ If aParam <> NIL
       
        If     cIdPonto == 'MODELPOS'
       			       	 
-          	/*
-             cMsg := 'Chamada na validação total do modelo (MODELPOS).' + CRLF
-             cMsg += 'ID ' + cIdModel + CRLF
-            
-             If !( xRet := ApMsgYesNo( cMsg + 'Continua ?' ) )
-                    Help( ,, 'Help',, 'O MODELPOS retornou .F.', 1, 0 )
-             EndIf
-            */
+       /*
+       cMsg := 'Chamada na validação total do modelo (MODELPOS).' + CRLF
+       cMsg += 'ID ' + cIdModel + CRLF
+       
+       If !( xRet := ApMsgYesNo( cMsg + 'Continua ?' ) )
+              Help( ,, 'Help',, 'O MODELPOS retornou .F.', 1, 0 )
+       EndIf
+       */
        ElseIf cIdPonto == 'FORMPOS'
        
               If !Empty(m->ZG3_XENDER)

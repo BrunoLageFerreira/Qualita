@@ -48,4 +48,6 @@ If (ZG3->(DbSeek(xFilial("ZG3") + cCavale)))
     End If
 EndIF
 
+ConOut("Fim da rotina - u_MAUTPESO:" + cCavale)
+
 Return lRet

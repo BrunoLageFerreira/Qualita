@@ -78,7 +78,6 @@ If aParam <> NIL
 			dbSelectArea("TRB") 
 			dbCloseArea()
               EndIf
-
        
              /*
              cMsg := 'Chamada na validação total do formulário (FORMPOS).' + CRLF
@@ -131,7 +130,11 @@ If aParam <> NIL
             ApMsgInfo('Chamada apos a gravação total do modelo e dentro da transação (MODELCOMMITTTS).' + CRLF + 'ID ' + cIdModel )
             */
        ElseIf cIdPonto == 'MODELCOMMITNTTS'
-       		
+
+             // Alert("Atualizando pesos!")
+             // u_MAUTPESO(M->ZG3_CODIGO)
+
+
             //ApMsgInfo('Chamada apos a gravação total do modelo e fora da transação (MODELCOMMITNTTS).' + CRLF + 'ID ' + cIdModel)
             
             //Comentado para ser usado somente na
@@ -192,5 +195,7 @@ If aParam <> NIL
        EndIf
 
 EndIf
+
+
 
 Return xRet

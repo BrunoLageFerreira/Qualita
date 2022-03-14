@@ -1052,7 +1052,12 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	cMSG := ""
 	
 	For nX := 1 To Len(aCols)
-	
+		
+		If !Empty(AllTrim(GdFieldGet("C6_YCAVALE",nX))) .And. IsBlind() 
+			ConOut("Força atualição dos pesos dos cavalete!" + AllTrim(GdFieldGet("C6_YCAVALE",nX)) )
+			u_MAUTPESO(AllTrim(GdFieldGet("C6_YCAVALE",nX)))
+		EndIf
+
 		//EXECUTAR SOMENTE PARA ESTES GRUPOS 
 		//"0005/0006/0034/0035/0036"
 		dbSelectArea("SB1")

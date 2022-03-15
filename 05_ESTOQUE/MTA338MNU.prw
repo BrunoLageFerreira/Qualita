@@ -18,8 +18,9 @@ User Function MTA338MNU()
 *
 ****
 
-aAdd(aRotina, {"Cópia de Dados","U_MMTA338SDQ(3)", 0 , 2, 0,nil})
-aAdd(aRotina, {"Exclui Cópia  ","U_MMTA338SDQ(5)", 0 , 2, 0,nil})
+aAdd(aRotina, {"Cópia de Dados"     ,"U_MMTA338SDQ(3)"      , 0 , 2, 0,nil})
+aAdd(aRotina, {"Exclui Cópia  "     ,"U_MMTA338SDQ(5)"      , 0 , 2, 0,nil})
+aAdd(aRotina, {"Rel. Conf. Custos " ,"U_RELINWEB('RQ0090')" , 0 , 2, 0,nil})
 
 Return()
 

@@ -204,13 +204,14 @@ Else
 		//oTIBrw := TIBrowser():New( aPObj[1,1],aPObj[1,2],aPObj[1,4],aPObj[1,3], cLink, oDlg1 )
 		
 		//PRIVATE oWebChannel := TWebChannel():New()
-	 	//nPort 				:= oWebChannel::connect()
+	 	//nPort 			  := oWebChannel::connect()
 	 	 	
 	 	oWebEngine := TWebEngine():New(oDlg1, aPObj[1,1],aPObj[1,2],aPObj[1,4],aPObj[1,3],,)
 		oWebEngine:cLang := "pt-BR"
 	 	//oWebEngine := TWebEngine():New(test:Content, 0, 0, 100, 100,, nPort)
 	 	
 		oWebEngine:navigate(cLink)
+		//oWebEngine:bDlStatus := {|self,nStatus,sPath| conout( "Status do download: " + Str(nStatus) + " (" + sPAth + ")" )}
 		//oWebEngine:bLoadFinished := {|self,url| DRSFile(cLink) }
 	 	
 		//oWebEngine:setHtml(cHtml, cBaseUrl)

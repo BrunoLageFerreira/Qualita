@@ -18,12 +18,11 @@ User Function MTA338MNU()
 *
 ****
 
-aAdd(aRotina, {"Cópia de Dados"     ,"U_MMTA338SDQ(3)"      , 0 , 2, 0,nil})
-aAdd(aRotina, {"Exclui Cópia  "     ,"U_MMTA338SDQ(5)"      , 0 , 2, 0,nil})
-aAdd(aRotina, {"Rel. Conf. Custos " ,"U_RELINWEB('RQ0090')" , 0 , 2, 0,nil})
+aAdd(aRotina, {"Cópia de Dados"     ,"Processa({|| U_MMTA338SDQ(3)}, 'Copiando...')"      , 0 , 3, 0,nil})
+aAdd(aRotina, {"Deleta Cópia  "     ,"Processa({|| U_MMTA338SDQ(5)}, 'Deletando...')"     , 0 , 3, 0,nil})
+aAdd(aRotina, {"Rel. Conf. Custos " ,"U_RELINWEB('RQ0090')" , 0 , 3, 0,nil})
 
 Return()
-
 
 
 User Function MMTA338SDQ(nOpcao)
@@ -32,7 +31,13 @@ User Function MMTA338SDQ(nOpcao)
 *
 ****
 local   aItem  := {}
+
+Local nAtual := 0
+Local nTotal := 0
+
 Private aPerg  := {}
+
+
 Private cPerg  := "PMTA338SDQ"
 Private cQuery := ""
 PRIVATE lMsErroAuto := .F.
@@ -88,10 +93,16 @@ cQuery += " ORDER BY DQ_COD
 
 TcQuery cQuery Alias TMPSDQ New
 
+Count To nTotal
+ProcRegua(nTotal)
+
 dbSelectArea("TMPSDQ")     
 dbGoTop()
 Do While !EOF()         
 
+    nAtual :=  nAtual + 1
+    IncProc("Processando registro " + cValToChar(nAtual) + " de " + cValToChar(nTotal) + "...")
+          
     aItem := {}
 
     IF nOpcao == 3

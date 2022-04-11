@@ -1,6 +1,7 @@
 {
 	"version": "0.2.0",
 	"configurations": [
+
 		
 		{
 			"type": "totvs_tdsreplay_debug",
@@ -17,11 +18,32 @@
 			"type": "totvs_language_debug",
 			"request": "launch",
 			"cwb": "${workspaceRoot}",
-			"name": "TESTE",
+			"name": "QUALITA-DEBUG",
 			"smartclientBin": "D:/TOTVS 12/Microsiga/Protheus/bin/smartclient_LG_QUALITA/smartclient.exe",
 			"program": "SIGAMDI",
 			"programArguments": [],
 			"enableMultiThread": false,
+			"enableProfile": false,
+			"isMultiSession": true,
+			"isAccessibilityMode": false,
+			"doNotShowSplash": false,
+			"openglMode": false,
+			"dpiMode": false,
+			"language": "1",
+			"ignoreFiles": true,
+			"enableTableSync": true,
+			"logFile": "${workspaceFolder}\\dap.log",
+			
+		}
+		{
+			"type": "totvs_language_debug",
+			"request": "launch",
+			"cwb": "${workspaceRoot}",
+			"name": "WSREST",
+			"smartclientBin": "D:/TOTVS 12/Microsiga/Protheus/bin/smartclient_LG_QUALITA_REST/smartclient.exe",
+			"program": "SIGAMDI",
+			"programArguments": [],
+			"enableMultiThread": true,
 			"enableProfile": false,
 			"isMultiSession": true,
 			"isAccessibilityMode": false,

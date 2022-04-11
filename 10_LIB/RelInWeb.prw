@@ -236,14 +236,43 @@ oWebEngine:goBack()
 Return()
 
  
-Static Function DRSFile(cLocalFile,cURL1)
+Static Function DRSFile()
 *******************************************************************************
 *  
 *
 ***
 //local cLocalFile := "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\test_bruno.pdf"
 //local cURL1      := "http://192.168.1.101:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2fRIM0023&cFilDest=&rs:Format=pdf"
-local cUserPwd   := "" //"john.doe@example.com:my_password"
+
+    Local cURL    := "http://192.168.1.101:10530"                      // URL DO SERVIÇO
+    Local cPath   := "/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2fRIM0023&cFilDest=&rs:Format=pdf" // RECURSO DA URI
+    Local aHeader := {}                                           // CABEÇALHO DE INFORMAÇÕ?ES DA REQUISIÇÃO
+    Local oRest   := NIL                                          // CLIENTE PARA CONSUMO
+    Local nHandle := 00                                           // CÓDIGO DE SUPORTE AO ARQUIVO
+
+        // INSTANCIA O CLIENTE REST
+        oRest := FwRest():New(cURL)
+
+        // INFORMA O RECURSO E O BODY
+        oRest:SetPath(cPath)
+
+        // ENVIA A REQUISIÇÃO E VALIDA O RESULTADO
+        If (oRest:Get(aHeader))
+            // CRIA O NOME DO ARQUIVO (FUNÇÕES UTILIZADAS PARA EVITAR CONFLITO DE NOME)
+            nHandle := FCreate("\dirdoc\" + StrTran(DToS(Date()) + "_" + Time() + "_DOCUMENT.pdf", ":", ""))
+            FWrite(nHandle, oRest:GetResult())
+            FClose(nHandle)
+
+            // VERIFICA SE O ARQUIVO FOI CRIADO CORRETAMENTE
+            If (!File("\dirdoc\" + cFileName))
+                ConOut("@ADVPL: Couldn't generate *.PDF file")
+            EndIf
+        Else
+            ConOut("@ADVPL: Couldn't consume API")
+        EndIf
+
+
+/*local cUserPwd   := "" //"john.doe@example.com:my_password"
 local aInfo      := {}
 local nRet       := 0
 local cFileName  := ""
@@ -276,7 +305,7 @@ If (oRest:Get(aHeader))
 Else
     ConOut("@ADVPL: Couldn't consume API")
 EndIf
-         
+         */
 /* 
 conout("* fazendo download do arquivo " + cLocalFile)
          

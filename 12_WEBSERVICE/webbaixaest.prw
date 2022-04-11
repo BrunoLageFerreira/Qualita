@@ -6,7 +6,6 @@
 
 //-------------------------------------------------------------------
 /*
-
 */
 //-------------------------------------------------------------------
 WSRESTFUL wBaixaEstoque DESCRIPTION "Api REST para baixa de estoque"
@@ -20,11 +19,162 @@ WSRESTFUL wBaixaEstoque DESCRIPTION "Api REST para baixa de estoque"
     WSDATA cCodProd    AS STRING  OPTIONAL
     WSDATA cCC         AS STRING  OPTIONAL
     WSDATA cQtdbaixa   AS STRING  OPTIONAL
- 
+
+    WSDATA cPesqCC     AS STRING  OPTIONAL
+    WSDATA cPesqPrd    AS STRING  OPTIONAL
+
     WSMETHOD GET incOrderbx  DESCRIPTION 'Submete baixa de estoque'     WSSYNTAX '/incOrderbx'  PATH 'incOrderbx'   PRODUCES APPLICATION_JSON
+    WSMETHOD GET ConCCusto   DESCRIPTION 'Consulta Centro de custo'     WSSYNTAX '/ConCCusto'   PATH 'ConCCusto'    PRODUCES APPLICATION_JSON
+    WSMETHOD GET ConSldEst   DESCRIPTION 'Consulta Saldo do Estoque'    WSSYNTAX '/ConSldEst'   PATH 'ConSldEst'    PRODUCES APPLICATION_JSON
 
 END WSRESTFUL
 
+
+WSMETHOD GET ConSldEst WSRECEIVE cPesqPrd WSREST wBaixaEstoque
+*****************************************************************************************************************
+*
+*
+****
+Local lRet              := .T.
+Local aArea             := GetArea()
+Local aList             := {}
+
+Local oJson             := JsonObject():New() 
+Local cJson             := ""
+Local nAux              := 0
+
+Default self:cPesqPrd   := ''
+
+
+If EMPTY(AllTrim(Self:cPesqPrd))
+    oJson['RETURN:'] := EncodeUTF8("Produto em branco! ")
+        
+    cJson:= FwJsonSerialize( oJson )
+    FreeObj(oJson)
+    Self:SetResponse( cJson ) //-- Seta resposta
+
+    RpcClearEnv()
+    RestArea(aArea)
+
+    Return(.F.)
+EndIf
+
+
+RPCSetType(3)
+RpcSetEnv("01","01","","","EST","MATA241",{"","SB1","SB2"})
+
+cQuery := "SELECT B1_COD,R_E_C_N_O_ REC FROM " + RetSqlName( 'SB1' ) + " WHERE D_E_L_E_T_ = '' AND B1_COD = '"+ AllTrim(Self:cPesqPrd) +"'
+TcQuery cQuery Alias cQrySB1 New
+
+dbSelectArea("cQrySB1")
+dbgotop()
+If Eof()
+    oJson['RETURN:'] := EncodeUTF8("Produto não encontrado!")
+
+    dbSelectArea("cQrySB1")
+    dbCloseArea()
+
+    cJson:= FwJsonSerialize( oJson )
+    FreeObj(oJson)
+    Self:SetResponse( cJson ) //-- Seta resposta
+
+    RpcClearEnv()
+    RestArea(aArea)
+    Return(.F.)
+EndIf
+
+dbSelectArea("SB1")
+dbGoto(cQrySB1->REC)
+
+dbSelectArea("cQrySB1")
+dbCloseArea()
+
+dbSelectArea("SB2")
+dbSetOrder(1)
+dbGoTop()
+dbSeek(xFilial("SB2") + Self:cPesqPrd )
+While !SB2->( Eof() ) .And. SB2->B2_FILIAL + AllTrim(SB2->B2_COD) == xFilial("SB2") + AllTrim(Self:cPesqPrd)
+	    
+    nAux := nAux + 1
+    conOut(nAux)
+    aAdd( aList , JsonObject():New() )
+    aList[nAux]['CUSTO']     := SB2->B2_CM1
+    aList[nAux]['SALDO']     := SaldoSB2()
+    aList[nAux]['LOCAL']     := SB2->B2_LOCAL
+    aList[nAux]['ENDER']     := Alltrim(SB1->B1_ENDAPRO)
+    aList[nAux]['DESCRICAO'] := Alltrim( EncodeUTF8( SB1->B1_DESC) )
+    aList[nAux]['CODIGO']    := AllTrim(SB1->B1_COD)
+
+    DbSelectArea("SB2")
+    DBSkip()
+EndDO
+
+RpcClearEnv()
+
+
+oJson['SLDPRODUTO'] := aList
+cJson:= FwJsonSerialize( oJson )
+FreeObj(oJson)
+Self:SetResponse( cJson ) 
+
+RestArea(aArea)
+Return(lRet)
+
+WSMETHOD GET ConCCusto WSRECEIVE cPesqCC WSREST wBaixaEstoque
+*****************************************************************************************************************
+*
+*
+****
+Local lRet              := .T.
+Local aArea             := GetArea()
+Local cQuery            := ""
+
+Local aList             := {}
+Local nAux              := 0
+//Local nX                := 0
+
+Local oJsonCC           := JsonObject():New() 
+Local cJsonCC           := ""
+
+Default self:cPesqCC    := ''
+
+cQuery := "   SELECT RTRIM(LTRIM(CTT_CUSTO)) CODIGO,
+cQuery += "		  RTRIM(LTRIM(CTT_DESC01)) DESCRICAO	
+cQuery += "	     FROM CTT010 
+cQuery += "		WHERE D_E_L_E_T_ = '' 
+cQuery += "		  AND CTT_BLOQ IN ('','2') 
+cQuery += "		  AND CTT_CLASSE = '2'
+cQuery += "		  AND CTT_CUSTO + CTT_DESC01 LIKE '%" + upper(Self:cPesqCC) + "%'
+
+tcQuery cQuery alias TBWSCC new
+dbSelectArea("TBWSCC")
+dbgotop()
+
+//cJsonCC := ''
+Do While !EOF()
+    nAux := nAux + 1
+
+    aAdd( aList , JsonObject():New() )
+    aList[nAux]['DESCRICAO'] := Alltrim( EncodeUTF8( TBWSCC->DESCRICAO ) )
+    aList[nAux]['CODDESC']   := AllTrim(TBWSCC->CODIGO) +" "+ Alltrim( EncodeUTF8( TBWSCC->DESCRICAO ) )
+    aList[nAux]['CODIGO']    := AllTrim(TBWSCC->CODIGO)
+    
+    dbSelectArea("TBWSCC") 
+    DBSkip()
+EndDo
+//cJsonCC := cJsonCC + ''
+
+dbSelectArea("TBWSCC") 
+dbCloseArea()	
+
+oJsonCC['CENTRO_CUSTOS'] := aList
+cJsonCC:= FwJsonSerialize( oJsonCC )
+FreeObj(oJsonCC)
+
+Self:SetResponse( cJsonCC ) 
+
+RestArea(aArea)
+Return(lRet)
 
 WSMETHOD GET incOrderbx WSRECEIVE cCodProd , cQtdbaixa , cCC WSREST wBaixaEstoque
 *****************************************************************************************************************
@@ -46,9 +196,10 @@ Local _atotitem         := {}
                                                                                                                       
 Default self:cCodProd   := ''
 Default self:cQtdbaixa  := ''
+Default self:cCC        := ''
 
-Private lMsHelpAuto     := .t. // se .t. direciona as mensagens de help
-Private lMsErroAuto     := .f. //necessario a criacao
+Private lMsHelpAuto     := .T. // se .t. direciona as mensagens de help
+Private lMsErroAuto     := .F. //necessario a criacao
 Private lAutoErrNoFile  := .T.
 
 
@@ -100,20 +251,33 @@ EndIf
 * Validação do cadastro de Produtos
 *
 *****/
-DbSelectArea("SB1")
-dbSetorder(1)
-If !dbSeek(xFilial("SB1") + AllTrim(Self:cCodProd) ,.t.)
+
+cQuery := "SELECT B1_COD,R_E_C_N_O_ REC FROM " + RetSqlName( 'SB1' ) + " WHERE D_E_L_E_T_ = '' AND B1_COD = '"+ AllTrim(Self:cCodProd) +"'
+TcQuery cQuery Alias cQrySB1 New
+
+dbSelectArea("cQrySB1")
+dbgotop()
+If Eof()
     oJson['RETURN:'] := EncodeUTF8("Produto não encontrado!")
-        
+
+    dbSelectArea("cQrySB1")
+    dbCloseArea()
+
     cJson:= FwJsonSerialize( oJson )
     FreeObj(oJson)
     Self:SetResponse( cJson ) //-- Seta resposta
 
     RpcClearEnv()
     RestArea(aArea)
-
     Return(.F.)
 EndIf
+
+dbSelectArea("SB1")
+dbGoto(cQrySB1->REC)
+
+dbSelectArea("cQrySB1")
+dbCloseArea()
+
 /******************************************
 * Montagem dos dados de baixa
 *

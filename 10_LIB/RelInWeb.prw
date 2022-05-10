@@ -75,6 +75,7 @@ User Function RelInWEB(cPrograma,cDescri,cParam,cTipo)
 	*/
 	
 	/*
+	teste
 	If GetClientIP() == "192.168.1.101"
 		cLink		:= "http://192.168.1.101:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
 	EndIf

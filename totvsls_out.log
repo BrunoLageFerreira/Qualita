@@ -850,3 +850,43 @@ Content-Length: 68
 
 {"jsonrpc":"2.0","id":28,"result":{"isIncomplete":false,"items":[]}}
 
+Content-Length: 84
+
+{"jsonrpc":"2.0","id":29,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 82
+
+{"jsonrpc":"2.0","id":30,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 89
+
+{"jsonrpc":"2.0","id":31,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":32,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 84
+
+{"jsonrpc":"2.0","id":33,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 82
+
+{"jsonrpc":"2.0","id":34,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 89
+
+{"jsonrpc":"2.0","id":35,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":36,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+

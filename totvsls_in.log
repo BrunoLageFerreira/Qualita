@@ -64,3 +64,21 @@ Content-Length: 1235
 {"jsonrpc":"2.0","id":27,"method":"$totvsserver/compilation","params":{"compilationInfo":{"connectionToken":"djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOjNBQWx5ZERjZ1poWERxUzR2SWNIY2NxV1ZQdzJBM2E3Mm1aQTVuUFptRlU9|djI6MTY1MjE3ODQ3NzowOjE6MQ==.Wt0h7Xec5EOTugGUcUBmYWiFZElbYGoLYeKv4JmRoWZgtEYJieBHqTpG8w9rEMCDdix009KMk6joxEUA/EuMM9mjyoX2Fd3eDsrjPFuGNvuO46YjSiIfktxSgwYWPzbnOs3daEMO4/TH9ZQEc5Sz6QpaaCJNiKwIjEfzUhDQIuauwGib7ZDokVBfNXuTPxbv3CCB7K6baB9/MaxLjFocfMtCrER3UA6/vs/GIeC4aIH6A2WqRBmJCauDImrrOwQtrbeqREniKY8sSYmTF7FuXiTatf9SXLUbq5LzKvyCPEbeJalBV+RzwrmqOT7ep3eLVAcv91CzqPIB0zvg6E+ODg==","environment":"compila_q","includeUris":["file:///d%3A/TOTVS%2012/Microsiga/Protheus/include"],"fileUris":["file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/10_LIB/RelInWeb.prw"],"compileOptions":{"recompile":true,"debugAphInfo":true,"gradualSending":true,"generatePpoFile":false,"showPreCompiler":false,"priorVelocity":true,"returnPpo":false,"commitWithErrorOrWarning":false},"extensionsAllowed":[".PRW",".PRX",".PRG",".PPX",".PPP",".TLPP",".APW",".APH",".APL",".AHU",".TRES",".PNG",".BMP",".RES",".4GL",".PER",".JS",".RPTDESIGN"],"includeUrisRequired":true}}}
 Content-Length: 239
 {"jsonrpc":"2.0","id":28,"method":"textDocument/completion","params":{"textDocument":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/10_LIB/RelInWeb.prw"},"position":{"line":53,"character":34},"context":{"triggerKind":1}}}
+Content-Length: 149
+{"jsonrpc":"2.0","id":29,"method":"$totvsserver/changeSetting","params":{"changeSettingInfo":{"scope":"advpls","key":"fsencoding","value":"cp1252"}}}
+Content-Length: 147
+{"jsonrpc":"2.0","id":30,"method":"$totvsserver/changeSetting","params":{"changeSettingInfo":{"scope":"advpls","key":"autocomplete","value":"LS"}}}
+Content-Length: 154
+{"jsonrpc":"2.0","id":31,"method":"$totvsserver/changeSetting","params":{"changeSettingInfo":{"scope":"advpls","key":"notificationlevel","value":"none"}}}
+Content-Length: 146
+{"jsonrpc":"2.0","id":32,"method":"$totvsserver/changeSetting","params":{"changeSettingInfo":{"scope":"advpls","key":"linter","value":"enabled"}}}
+Content-Length: 149
+{"jsonrpc":"2.0","id":33,"method":"$totvsserver/changeSetting","params":{"changeSettingInfo":{"scope":"advpls","key":"fsencoding","value":"cp1252"}}}
+Content-Length: 147
+{"jsonrpc":"2.0","id":34,"method":"$totvsserver/changeSetting","params":{"changeSettingInfo":{"scope":"advpls","key":"autocomplete","value":"LS"}}}
+Content-Length: 154
+{"jsonrpc":"2.0","id":35,"method":"$totvsserver/changeSetting","params":{"changeSettingInfo":{"scope":"advpls","key":"notificationlevel","value":"none"}}}
+Content-Length: 146
+{"jsonrpc":"2.0","id":36,"method":"$totvsserver/changeSetting","params":{"changeSettingInfo":{"scope":"advpls","key":"linter","value":"enabled"}}}
+Content-Length: 76
+{"jsonrpc":"2.0","method":"$/setTraceNotification","params":{"value":"off"}}

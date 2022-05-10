@@ -33269,3 +33269,43 @@ date       time         ( uptime  ) [ thread name/id ]                   file:li
 (2807.924s) [comp-query      ]      totvs_complete.cc:552   | [Dequeue] line: 53 / char: 33 / offset: 1641
 (2807.925s) [comp-query      ]               timer.cc:41    | FilterAndSortCompletionResponse took 0.586 ms
 (2807.926s) [stdout          ]               timer.cc:41    | [e2e] Running textDocument/completion took 3.3739 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(3098.656s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(3098.656s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.9 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(3098.656s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(3098.656s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(3098.656s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(3098.656s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.63 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(3098.656s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(3098.656s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.121 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(3098.656s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(3098.656s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(3098.656s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.168 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(3098.656s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(3098.656s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(3098.656s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.218 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(3098.656s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(3098.656s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.268 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(3098.656s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(3098.656s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(3098.656s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.330 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(3098.656s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(3098.656s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(3098.656s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.402 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(3098.656s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(3098.656s) [querydb         ]               timer.cc:41    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
+(3098.656s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(3098.656s) [stdout          ]               timer.cc:41    | [e2e] Running $totvsserver/changeSetting took 0.456 ms

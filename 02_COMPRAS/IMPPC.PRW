@@ -210,7 +210,7 @@ cQuery += " 		'" + UPPER(ALLTRIM(SM0->M0_CEPENT))  + "' AS CEP_ENT,
 cQuery += " 		'" + UPPER(UsrFullName(SC7->C7_USER)) + "' AS COMPRADOR,
 
 If SubString(CNUMEMP,1,2) == "01"
-	cQuery += "			'" + cAprov +"' APROVADOR,
+	cQuery += "			'" + "Diego Sirtori" +"' APROVADOR,
 Else
 	cQuery += "			'" + IIF(EMPTY(cAprov),UPPER("Airton Novais dos Santos"),cAprov) +"' APROVADOR,
 EndIf

@@ -62,8 +62,8 @@ User Function RelInWEB(cPrograma,cDescri,cParam,cTipo)
 	//Alert(GetEnvServer())
 
 	If "COMPI" $ upper(GetEnvServer())  	
-		cLink		:= "http://192.168.1.101:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
-		cLinkIe   	:= "http://192.168.1.101:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
+		cLink		:= "http://Administrator:xpacD99label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
+		cLinkIe   	:= "http://Administrator:xpacD99label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
 	EndIf
 	
 	/*

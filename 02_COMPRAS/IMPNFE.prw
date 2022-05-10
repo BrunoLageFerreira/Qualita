@@ -5,8 +5,8 @@ User Function IMPNFE()
 	Local aAreaSE1:=SE1->(GetArea())
 
 	Local lRet := .F.
-	Private dDtCusto := CtoD('')                
-
+	Private dDtCusto := CtoD('')     
+	
 	/*
 	**************************************************************************************
 	* P.E.p/ grav.dos campos: SF1->F1_OBSERV, F1_PESOLIQ,F1_PESOBRU,F1_VOLUME E F1_ESPECIE

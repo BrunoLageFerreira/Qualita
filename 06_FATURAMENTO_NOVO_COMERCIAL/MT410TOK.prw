@@ -1055,7 +1055,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		
 		If !Empty(AllTrim(GdFieldGet("C6_YCAVALE",nX))) .And. IsBlind() 
 			ConOut("Força atualição dos pesos dos cavalete!" + AllTrim(GdFieldGet("C6_YCAVALE",nX)) )
-			u_MAUTPESO(AllTrim(GdFieldGet("C6_YCAVALE",nX)))
+			//u_MAUTPESO(AllTrim(GdFieldGet("C6_YCAVALE",nX)))
 		EndIf
 
 		//EXECUTAR SOMENTE PARA ESTES GRUPOS 
@@ -1348,7 +1348,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		fTPBLQ        := .T.
 	EndIf
 
-	if (Empty(M->C5_NOTA) .OR. M->C5_NOTA == 'XXXXXXXXX' )
+	if (Empty(M->C5_NOTA) .OR. M->C5_NOTA == 'XXXXXXXXX' ) 
 		IF (!Empty(M->C5_XIDMOB) .Or. M->C5_XIDMOB <> '-') 
 			u_MIntMGLib(M->C5_NUM , M->C5_XIDMOB , "SC5" , M->C5_XMOTBLQ , M->C5_FILIAL , M->C5_XTOTAL , fTPBLQ )
 		EndIf
@@ -1382,6 +1382,8 @@ Local cLoja     := ""
 Local nValor    := 0
 Local cCondPg   := ""
 Local lSemFin   := .F.
+
+
 
 		cQuery := " SELECT  CAST(ZSC_RJSON AS VARCHAR(8000)) RJSON from "+ RetSqlName("ZSC")+ " WHERE ZSC_IDMOBP = '"+XIdMobP+"' AND ZSC_TIPO <> 'B' AND ZSC_TIPO = '2' AND ZSC_RJSON IS NOT NULL"
 	
@@ -1447,62 +1449,66 @@ Local lSemFin   := .F.
 				MsUnLock()
 			EndIf 
 		EndIf
+
 		//financeiro
 		If lSemFin 
-			If  RecLock("ZSC",.T.)
-					Replace ZSC_FILIAL With xFilial(_cTabela)
-					Replace ZSC_CODIGO With AllTrim(cPedido)
-					Replace ZSC_TIPO   With "2"
-					Replace ZSC_MSGRET With ""
-					Replace ZSC_IDMOBP With AllTrim(XIdMobP)
-					Replace ZSC_SITUAC With ""
-				MsUnLock()
-			EndIf 
-			/*
-			If  RecLock("ZSC",.T.)
-					Replace ZSC_FILIAL With xFilial(_cTabela)
-					Replace ZSC_CODIGO With AllTrim(cPedido)
-					Replace ZSC_TIPO   With "3"
-					Replace ZSC_MSGRET With ""
-					Replace ZSC_IDMOBP With AllTrim(XIdMobP)
-					Replace ZSC_SITUAC With ""
-				MsUnLock()
-			EndIf 
+			If M->C5_BLQ  <> ""
+				If  RecLock("ZSC",.T.)
+						Replace ZSC_FILIAL With xFilial(_cTabela)
+						Replace ZSC_CODIGO With AllTrim(cPedido)
+						Replace ZSC_TIPO   With "2"
+						Replace ZSC_MSGRET With ""
+						Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+						Replace ZSC_SITUAC With ""
+					MsUnLock()
+				EndIf 
+				/*
+				If  RecLock("ZSC",.T.)
+						Replace ZSC_FILIAL With xFilial(_cTabela)
+						Replace ZSC_CODIGO With AllTrim(cPedido)
+						Replace ZSC_TIPO   With "3"
+						Replace ZSC_MSGRET With ""
+						Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+						Replace ZSC_SITUAC With ""
+					MsUnLock()
+				EndIf 
 
-			If  RecLock("ZSC",.T.)
-					Replace ZSC_FILIAL With xFilial(_cTabela)
-					Replace ZSC_CODIGO With AllTrim(cPedido)
-					Replace ZSC_TIPO   With "4"
-					Replace ZSC_MSGRET With ""
-					Replace ZSC_IDMOBP With AllTrim(XIdMobP)
-					Replace ZSC_SITUAC With ""
-				MsUnLock()
-			EndIf 
+				If  RecLock("ZSC",.T.)
+						Replace ZSC_FILIAL With xFilial(_cTabela)
+						Replace ZSC_CODIGO With AllTrim(cPedido)
+						Replace ZSC_TIPO   With "4"
+						Replace ZSC_MSGRET With ""
+						Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+						Replace ZSC_SITUAC With ""
+					MsUnLock()
+				EndIf 
 
-			If  RecLock("ZSC",.T.)
-					Replace ZSC_FILIAL With xFilial(_cTabela)
-					Replace ZSC_CODIGO With AllTrim(cPedido)
-					Replace ZSC_TIPO   With "5"
-					Replace ZSC_MSGRET With ""
-					Replace ZSC_IDMOBP With AllTrim(XIdMobP)
-					Replace ZSC_SITUAC With ""
-				MsUnLock()
-			EndIf 
-			*/
-			/*
-			Pendencia Vendedor
-			*/ 
-			If  RecLock("ZSC",.T.)
-					Replace ZSC_FILIAL With xFilial(_cTabela)
-					Replace ZSC_CODIGO With AllTrim(cPedido)
-					Replace ZSC_TIPO   With "6"
-					Replace ZSC_MSGRET With IIF(fTPBLQ == .t. ,xMotBlq,"")
-					Replace ZSC_IDMOBP With AllTrim(XIdMobP)
-					Replace ZSC_SITUAC With ""
-					Replace ZSC_FLUXOM With IIF(fTPBLQ == .t. ,"S"    ,"")
-				MsUnLock()
-			EndIf 
+				If  RecLock("ZSC",.T.)
+						Replace ZSC_FILIAL With xFilial(_cTabela)
+						Replace ZSC_CODIGO With AllTrim(cPedido)
+						Replace ZSC_TIPO   With "5"
+						Replace ZSC_MSGRET With ""
+						Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+						Replace ZSC_SITUAC With ""
+					MsUnLock()
+				EndIf 
+				*/
+				/*
+				Pendencia Vendedor
+				*/ 
+				If  RecLock("ZSC",.T.)
+						Replace ZSC_FILIAL With xFilial(_cTabela)
+						Replace ZSC_CODIGO With AllTrim(cPedido)
+						Replace ZSC_TIPO   With "6"
+						Replace ZSC_MSGRET With IIF(fTPBLQ == .t. ,xMotBlq,"")
+						Replace ZSC_IDMOBP With AllTrim(XIdMobP)
+						Replace ZSC_SITUAC With ""
+						Replace ZSC_FLUXOM With IIF(fTPBLQ == .t. ,"S"    ,"")
+					MsUnLock()
+				EndIf 
+			ENDIF
 		EndIf
+
 
 Return()
 

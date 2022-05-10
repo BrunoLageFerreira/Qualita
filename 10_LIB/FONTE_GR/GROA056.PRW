@@ -1226,7 +1226,7 @@ Static Function PosLine(oModelZPB, nLine, cOperation)
 	If !lAtuaZG3
 
 		if  cOperation == "DELETE"
-			u_GRA056V1(nPosicao,"DELETE")
+			(nPosicao,"DELETE")
 		elseIf cOperation == "UNDELETE"
 			u_GRA056V1(nPosicao,"UNDELETE")
 		EndIf

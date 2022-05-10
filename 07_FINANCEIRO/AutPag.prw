@@ -189,7 +189,8 @@ User Function Autori()
 		//+------------------------------------------------------+
 		DbSelectArea("SE2")
 		DbSetOrder(1)
-		If DbSeek(xFilial("SE2")+SZ2->Z2_PREFIXO+SZ2->Z2_NUM)
+		//E2_FILIAL+E2_PREFIXO+E2_NUM+E2_PARCELA+E2_TIPO+E2_FORNECE+E2_LOJA 
+		If DbSeek(xFilial("SE2")+SZ2->Z2_PREFIXO+SZ2->Z2_NUM+"  "+SZ2->Z2_TIPO+SZ2->Z2_FORNECE+SZ2->Z2_LOJA)
 
 			MsgStop("É necessário deletar o titulo que já foi autorizado no Contas a Pagar","Erro")
 			DbCloseArea("SE2")

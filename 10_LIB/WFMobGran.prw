@@ -440,15 +440,15 @@ MobGran_pedcorp
 */
 cQuery := " SELECT 'I'    ACAO     ,
 cQuery += "	   '010101'   FILIAL   ,
-cQuery += "	   '00'       ITEM     , 
+cQuery += "	   '00'       ITEM     ,
 cQuery += "	   ZSA_IDMOBP IDMOB    ,
 cQuery += "	   ZSA_NUMCAV CAVALETE ,
 cQuery += "	   ZSA_PROD            ,
 cQuery += "	   ZSA_LOTE            ,
-cQuery += "	   ZSA_CLASSI          , 
+cQuery += "	   ZSA_CLASSI          ,
 cQuery += "	   ZSA_PRCDES          ,
 cQuery += "	   ZSA_LOCAL           ,
-cQuery += "	   ZSA_QTDVEN          , 
+cQuery += "	   ZSA_QTDVEN          ,
 cQuery += "	   ZSA_IDPEND          ,
 cQuery += "	   ZSA_PRCUNT          ,
 cQuery += "	   ROUND(((ZSA_QTDVEN*ZSA_PRCUNT)+ZSA_VALDES)/ZSA_QTDVEN,2)  AS ZSA_PRCTAB,
@@ -463,7 +463,7 @@ cQuery += "   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX
 
 cQuery += " UNION ALL
 
-cQuery += "  SELECT 'I' ACAO    ,
+cQuery += "  SELECT 'I' ACAO   ,
 cQuery += "		C6_FILIAL      ,
 cQuery += "		C6_ITEM ITEM   ,
 cQuery += "		C5_XIDMOB IDMOB,
@@ -617,7 +617,7 @@ Do While !EOF()
 			cC13 := TRB_ITEM->ZSA_PRCTAB    				// C6_PRUNIT PRC TABELA
 
 			If AllTrim(TRB_ITEM->ZSA_CLASSI) $ 'A' .OR. SubStr(AllTrim(TRB_ITEM->ZSA_PROD) ,1,2) == 'AM'
-				cC14 :=  "525"  							// C6_TES
+				cC14 :=  "668"  							// C6_TES
 			else
 				If _aCabecalho[9]=="ME"
 					cC14 :=  "511"		 						// C6_TES

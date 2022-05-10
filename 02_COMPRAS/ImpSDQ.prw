@@ -9,7 +9,6 @@ User Function ImpSDQ()
 	//зддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
 	//Ё Montagem da tela de processamento.                                  Ё
 	//юддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
-
 	@ 200,1 TO 380,380 DIALOG oLeTxt TITLE OemToAnsi("Leitura de Arquivo Texto")
 	@ 02,10 TO 080,190
 	@ 10,018 Say " Este programa ira ler o conteudo de um arquivo texto, conforme"
@@ -20,7 +19,7 @@ User Function ImpSDQ()
 	@ 70,158 BMPBUTTON TYPE 02 ACTION Close(oLeTxt)
 
 	Activate Dialog oLeTxt Centered
-
+	
 Return
 
 Static Function OkLeTxt

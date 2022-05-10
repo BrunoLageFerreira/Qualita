@@ -79,14 +79,14 @@ For nX := 1 To Len(aCols)
 		    Classificação Amostra
 		    */
 		    If AllTrim(cClassif) $ 'A'
-		    	aCols[nX][nPosTes] := "525"
+		    	aCols[nX][nPosTes] := "668"
 		    EndIf
 		    
 		    /*
 		    Produto Amostra
 		    */
 		    If SubStr(AllTrim(aCols[nX][nPosPro]) ,1,2) == 'AM'
-		    	aCols[nX][nPosTes] := "525"
+		    	aCols[nX][nPosTes] := "668"
 		    EndIf
 			
 			dbSelectArea("TRB") 
@@ -146,14 +146,14 @@ For nX := 1 To Len(aCols)
 		    Classificação Amostra
 		    */
 		    If AllTrim(cClassif) $ 'A'
-		    	aCols[nX][nPosTes] := "525"	
+		    	aCols[nX][nPosTes] := "668"	
 		    EndIf
 		    
 		    /*
 		    Produto Amostra
 		    */
 		    If SubStr(AllTrim(aCols[nX][nPosPro]) ,1,2) == 'AM'
-		    	aCols[nX][nPosTes] := "525"
+		    	aCols[nX][nPosTes] := "668"
 		    EndIf
 		    
 			dbSelectArea("TRB") 

@@ -2988,7 +2988,8 @@ If cTipo == "1"
 						EndIf	
 
 						
-						/* PISST + COFINSST deixam de ir para <vOutros> ficando em <vPis> e <vCofins> - NT 2020.005 
+						/* 
+							PISST + COFINSST deixam de ir para <vOutros> ficando em <vPis> e <vCofins> - NT 2020.005 
 							Anteriormente em tag vOutros NT 2011.004
 						*/
 						nValOutr += (cAliasSD2)->D2_DESPESA + nIcmsST + nCrdPres + If(retNT2005(), 0, (cAliasSD2)->D2_VALPS3 + (cAliasSD2)->D2_VALCF3)
@@ -3079,7 +3080,7 @@ If cTipo == "1"
 								(cAliasSD2)->D2_QUANT,;
 								IIF(!((cAliasSD2)->D2_TIPO$"IP" .Or. ((cAliasSD2)->D2_TIPO $ "D" .And. cTpOrig == "P")) ,IIF(!(lMvNFLeiZF),(cAliasSD2)->D2_TOTAL+nDesconto+(cAliasSD2)->D2_DESCZFR-nDesVrIcms,(cAliasSD2)->D2_TOTAL+nDesconto+(cAliasSD2)->D2_DESCZFR - ((cAliasSD2)->D2_DESCZFP+(cAliasSD2)->D2_DESCZFC+nDesVrIcms)),IIF(((cAliasSD2)->D2_TIPO=="I" .And. SF4->F4_AJUSTE == "S" .And. "RESSARCIMENTO" $ Upper(cNatOper) .And. "RESSARCIMENTO" $ Upper(cDescProd)),(cAliasSD2)->D2_TOTAL,0)),;
 								cUmDipi ,;                 //retUn2UM( lNoImp2UM, cCFOPExp, Alltrim((cAliasSD2)->D2_CF), SB5->B5_UMDIPI, SB1->B1_UM ),;
-								IIf(cF2Tipo == "B",retQtd2UM( lNoImp2UM, cCFOPExp, Alltrim((cAliasSD2)->D2_CF), SB5->B5_CONVDIP, (cAliasSD2)->D2_QUANT ),U_RETPESOFAT((cAliasSD2)->D2_PEDIDO,(cAliasSD2)->D2_ITEMPV)  ),; 			// BRUNO SIGAWISE retQtd2UM( lNoImp2UM, cCFOPExp, Alltrim((cAliasSD2)->D2_CF), SB5->B5_CONVDIP, (cAliasSD2)->D2_QUANT )
+								IIf(cF2Tipo == "B",retQtd2UM( lNoImp2UM, lImp2UM, cCFOPExp, Alltrim((cAliasSD2)->D2_CF), nConvDip, (cAliasSD2)->D2_QUANT, SB1->B1_TIPCONV ),U_RETPESOFAT((cAliasSD2)->D2_PEDIDO,(cAliasSD2)->D2_ITEMPV)  ),; 			// BRUNO SIGAWISE retQtd2UM( lNoImp2UM, cCFOPExp, Alltrim((cAliasSD2)->D2_CF), SB5->B5_CONVDIP, (cAliasSD2)->D2_QUANT )								                   
 								(cAliasSD2)->D2_VALFRE,;
 								(cAliasSD2)->D2_SEGURO,;
 								(nDesconto+nDescIcm+nDescRed+nDescNfDup+nDescFis),;

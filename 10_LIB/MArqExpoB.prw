@@ -18,12 +18,11 @@ User function MArqExpoB()
 *
 ***  
 //Local _aDados := {}                         //Array com os campos enviados no TXT.
-Local nHandle := 0                          //Handle do arquivo texto.
-Local cArqImp := ""                         //Arquivo Txt a ser lido.
+Local nHandle      := 0                       //Handle do arquivo texto.
+Local cArqImp      := ""                      //Arquivo Txt a ser lido.
 Local cNomeArquivo := ""
-Private aPerg := {}
-Private cPerg := "IMPEXPBASE"
-
+Private aPerg      := {}
+Private cPerg      := "IMPEXPBASE"
 
 Aadd(aPerg,{cPerg,"Digite o ano do arqvivo? (04)","C",04,00,"G","","","","","","","",""})
 

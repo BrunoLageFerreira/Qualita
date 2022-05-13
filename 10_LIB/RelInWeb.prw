@@ -1,4 +1,8 @@
-#Include "protheus.ch"
+#INCLUDE "PROTHEUS.CH"
+#INCLUDE "RESTFUL.CH"
+#include "rwmake.ch"
+#include "tbiconn.ch"
+#INCLUDE "TOPCONN.CH"
 
 /*
 Criado por: Bruno
@@ -10,31 +14,184 @@ http://administrador:xpacD99label@189.50.0.33:10530/ReportServer/Pages/ReportVie
 #define SW_SHOWNA           8 // Esconde a barra de tarefas
 #define SW_SHOWNORMAL       1 // Normal
 
+WSRESTFUL WSTOTVSXRS DESCRIPTION "Api de segurança entre Protheus e Report Server"
+*****************************************************************************************************************
+*
+*
+****
+    WSDATA cPSWRET    AS STRING  OPTIONAL
+
+	WSMETHOD POST RSXUSER  DESCRIPTION 'Consulta Usuários para RServer'   WSSYNTAX '/RSXUSER'   PATH 'RSXUSER'    PRODUCES APPLICATION_JSON
+
+END WSRESTFUL
+
+WSMETHOD POST RSXUSER WSRECEIVE WSRESTFUL WSTOTVSXRS
+*****************************************************************************************************************
+* /*Inclusão ou abertura de um novo produto*/
+*
+****
+Local lRet  := .T.
+Local aArea := GetArea()
+Local cQuery := ""
+Local oJson
+Local cPSW,cEmail
+
+Local cJson     := Self:GetContent()
+Local cError    
+
+    //Definindo o conteúdo como JSON, e pegando o content e dando um parse para ver se a estrutura está ok
+    Self:SetContentType("application/json")
+    oJson   := JsonObject():New()
+    cError  := oJson:FromJson(cJson)
+ 
+    //Se tiver algum erro no Parse, encerra a execução
+    IF !Empty(cError)
+        SetRestFault(500,'Parser Json Error. (Erro no Json)"')
+        lRet    := .F.
+    Else
+	    cEmail    := EncodeUTF8(AllTrim(Upper(oJson:GetJsonObject('email'))))
+		
+        cQuery:= "SELECT REPLACE(ZSR_USR ,' ','') +':'+ REPLACE( ZSR_PSW,'@','%40') DADOS,ZSR_PSW FROM " + RetSQLName("ZSR") + " WHERE D_E_L_E_T_ = '' AND UPPER(ZSR_EMAIL) = '" + cEmail + "'"
+
+		TcQuery cQuery Alias cQryUSR2 New
+		dbSelectArea("cQryUSR2")
+		dbgotop()
+
+		If !Eof()
+			cPSW  := EncodeUTF8(AllTrim(cQryUSR2->DADOS))
+		EndIf
+
+		dbSelectArea("cQryUSR2")
+		DBCLOSEAREA()
+
+        FreeObj(oJson)
+        Self:SetContentType("application/json")
+        oJson   := JsonObject():New()
+
+        oJson['usuario:'] := cPSW
+        
+        cJson:= FwJsonSerialize( oJson )
+        Self:SetResponse( cJson ) //-- Seta resposta
+
+        lRet    := .T.
+    EndIf
+
+    RestArea(aArea)
+    FreeObj(oJson)
+Return(lRet)
+
+Static Function MUSRRP(cIdUsuario,cEndEmail)
+*******************************************************************************
+*  
+*
+***
+// Variaveis Locais da Funcao
+Local cEdit1	 := cIdUsuario
+Local cEdit2	 := AllTrim(cEndEmail)
+Local cEdit3	 := Space(25)
+
+Local oEdit1
+Local oEdit2
+Local oEdit3
+
+Local cQuery     := ""
+
+// Variaveis Private da Funcao
+Private _oDlg	
+
+cQuery:= "SELECT RTRIM(LTRIM(ZSR_USR)) +':'+ REPLACE( ZSR_PSW,'@','%40') DADOS,ZSR_PSW FROM " + RetSQLName("ZSR") + " WHERE D_E_L_E_T_ = '' AND ZSR_USR = '" + AllTrim(aInfUsr[1][2]) + "'"
+
+TcQuery cQuery Alias cQryUSR1 New
+dbSelectArea("cQryUSR1")
+dbgotop()
+
+If !Eof()
+	cEdit3 := cQryUSR1->ZSR_PSW
+EndIf
+
+dbSelectArea("cQryUSR1")
+DBCLOSEAREA()
+                       
+DEFINE MSDIALOG _oDlg TITLE "Usuário dos Relatórios" FROM u_MGETTELA(212),u_MGETTELA(178) TO u_MGETTELA(399),u_MGETTELA(495) PIXEL
+
+	// Cria as Groups do Sistema
+	@ u_MGETTELA(004),u_MGETTELA(007) TO u_MGETTELA(066),u_MGETTELA(151) LABEL "" PIXEL OF _oDlg
+
+	// Cria Componentes Padroes do Sistema
+	@ u_MGETTELA(012),u_MGETTELA(039) MsGet oEdit1 Var cEdit1 when(.F.) Size u_MGETTELA(102),u_MGETTELA(009) COLOR CLR_BLACK PIXEL OF _oDlg
+	@ u_MGETTELA(013),u_MGETTELA(016) Say "Login:" 	Size u_MGETTELA(016),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
+	@ u_MGETTELA(029),u_MGETTELA(039) MsGet oEdit2 Var cEdit2 Size u_MGETTELA(102),u_MGETTELA(009) COLOR CLR_BLACK PIXEL OF _oDlg
+	@ u_MGETTELA(030),u_MGETTELA(016) Say "e-Mail:" Size u_MGETTELA(017),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
+	@ u_MGETTELA(046),u_MGETTELA(039) MsGet oEdit3 Var cEdit3 Size u_MGETTELA(101),u_MGETTELA(009) PASSWORD COLOR CLR_BLACK PIXEL OF _oDlg
+	@ u_MGETTELA(047),u_MGETTELA(016) Say "Senha:" Size u_MGETTELA(019),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
+	@ u_MGETTELA(069),u_MGETTELA(112) Button "OK" action(MUpdDB(cEdit1,cEdit2,cEdit3),close(_oDlg)) Size u_MGETTELA(037),u_MGETTELA(012) PIXEL OF _oDlg
+
+ACTIVATE MSDIALOG _oDlg CENTERED 
+
+Return(.T.)
+
+Static Function MUpdDB(cEdit1,cEdit2,cEdit3)
+*******************************************************************************
+*  
+*
+***
+Local cQuery := ""
+
+cQuery := " UPDATE " + RetSQLName("ZSR")
+cQuery += "    SET D_E_L_E_T_ = '*' , ZSR_DTDEL = cast(replace(cast(getdate() as date),'-','') as varchar(8)), R_E_C_D_E_L_ = R_E_C_N_O_
+cQuery += "  WHERE ZSR_USR = '" + AllTrim(cEdit1) + "'
+cQuery += "    AND D_E_L_E_T_ = ''
+                   
+TcSQLExec(cquery)
+
+cQuery := " INSERT INTO " + RetSQLName("ZSR") 
+cQuery += " 	(ZSR_USR,
+cQuery += " 	ZSR_EMAIL,
+cQuery += " 	ZSR_PSW,
+cQuery += " 	ZSR_DTINC,
+cQuery += " 	ZSR_DTDEL,
+cQuery += " 	R_E_C_N_O_)
+cQuery += " VALUES (
+cQuery += " 		'" + AllTrim(cEdit1) + "',
+cQuery += " 		'" + AllTrim(cEdit2) + "',
+cQuery += " 		'" + AllTrim(cEdit3) + "',
+cQuery += " 		cast(replace(cast(getdate() as date),'-','') as varchar(8)),
+cQuery += " 		'',
+cQuery += " 		isnull((SELECT MAX(R_E_C_N_O_) FROM " + RetSQLName("ZSR") + "),0) + 1
+cQuery += " 	   )
+
+TcSQLExec(cquery)
+
+TCSPExec("USER_REPORT",AllTrim(cEdit1) , AllTrim(cEdit3))
+
+Return()
+
 User Function RelInWEB(cPrograma,cDescri,cParam,cTipo)
 *******************************************************************************
 *  
 *
 ***
-	Default cPrograma  := ""
-	Default cDescri    := ""
-	Default cParam     := "" 
-	Default cTipo      := ""  
-	Default cLinkIe    := ""            
+Default cPrograma  := ""
+Default cDescri    := ""
+Default cParam     := ""
+Default cTipo      := ""
+Default cLinkIe    := ""
 
-	Private cLink      := ""
-	Private cLinkInt   := ""
-	Private aInfoGeral := {}
-	
-	Private oDlg1, oTIBrw
+Private cLink      := ""
+Private cLinkInt   := ""
+Private aInfoGeral := {}
 
-	Private aSize	   := MsAdvSize()
-	Private aInfo	   := {}
-	Private aObj	   := {}
-	Private aPObj	   := {}
+Private aInfUsr    := {}
 
-	Private aRethora   := {}
+Private oDlg1, oTIBrw
 
-	
+Private aSize	   := MsAdvSize()
+Private aInfo	   := {}
+Private aObj	   := {}
+Private aPObj	   := {}
+
+Private aRethora   := {}
+
 	If Empty(cPrograma) .and. Empty(cDescri)
 		cPrograma	:= SubString(FunDesc(), 1+At("[",FunDesc()) , At("]",FunDesc())  - At("[",FunDesc()) -1  )
 		cDescri		:= Upper(SubString(FunDesc(), 1 , At("[",FunDesc()) - 1 ))
@@ -61,9 +218,31 @@ User Function RelInWEB(cPrograma,cDescri,cParam,cTipo)
 
 	//Alert(GetEnvServer())
 
+	PswOrder(1) 
+	If ( PswSeek(__cUserId, .T.) )
+		aInfUsr := Pswret(1)
+	endif
+
+	cQuery:= "SELECT RTRIM(LTRIM(ZSR_USR)) +':'+ REPLACE( ZSR_PSW,'@','%40') DADOS FROM " + RetSQLName("ZSR") + " WHERE D_E_L_E_T_ = '' AND ZSR_USR = '" + AllTrim(aInfUsr[1][2]) + "'"
+
+	TcQuery cQuery Alias cQryUSR New
+	dbSelectArea("cQryUSR")
+	dbgotop()
+
+	If !Eof()
+		cSenhas := AllTrim(cQryUSR->DADOS)
+	else
+		MUSRRP(AllTrim(aInfUsr[1][2]) , AllTrim(aInfUsr[1][14]) )
+
+		Return()
+	EndIf
+
+	dbSelectArea("cQryUSR")
+	DBCLOSEAREA()
+
 	If "COMPI" $ upper(GetEnvServer())  	
-		cLink		:= "http://Administrator:xpacD99label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
-		cLinkIe   	:= "http://Administrator:xpacD99label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
+		cLink		:= 'http://'+cSenhas+'@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkIe   	:= 'http://'+cSenhas+'@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
 	EndIf
 	
 	/*
@@ -194,6 +373,8 @@ EndIf
    
 // Prepara o conector WebSocket
 
+SetKey(VK_F12,{|| MUSRRP(AllTrim(aInfUsr[1][2]) , AllTrim(aInfUsr[1][14]) )} )
+
 If Upper(cTipo) == "[IE]"
 
 	AVISO("Leia com Atenção!", "Os relatórios dinâmicos serão abertos em um modelo externo ao Protheus! Para Fechar use o (ALT)+[F4]!" , { "Fechar" }, 1)
@@ -233,9 +414,8 @@ Static Function MGUrlMain(cUrlNow)
 
 MsgAlert(cUrlNow)
 oWebEngine:goBack()
- 
-Return()
 
+Return()
  
 Static Function DRSFile()
 *******************************************************************************

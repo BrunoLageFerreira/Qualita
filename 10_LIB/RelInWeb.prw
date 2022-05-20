@@ -204,7 +204,7 @@ Private aRethora   := {}
 		Alert("Este relatório não pertence a essa empresa!")
 		Return()
 	EndIf
-	
+
 	//If GetEnvServer() == "PRODUCAO"
 	
 	cLink		:= "http://189.50.0.33:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma //+"&rs:Command=Render"+ cParam
@@ -222,6 +222,11 @@ Private aRethora   := {}
 	If ( PswSeek(__cUserId, .T.) )
 		aInfUsr := Pswret(1)
 	endif
+
+	If TYPE('cQryUSR') <> 'U'
+		dbSelectArea("cQryUSR")
+		dbgotop()
+	EndIf
 
 	cQuery:= "SELECT RTRIM(LTRIM(ZSR_USR)) +':'+ REPLACE( ZSR_PSW,'@','%40') DADOS FROM " + RetSQLName("ZSR") + " WHERE D_E_L_E_T_ = '' AND ZSR_USR = '" + AllTrim(aInfUsr[1][2]) + "'"
 

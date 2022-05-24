@@ -30,13 +30,13 @@ WSMETHOD POST RSXUSER WSRECEIVE WSRESTFUL WSTOTVSXRS
 * /*Inclusão ou abertura de um novo produto*/
 *
 ****
-Local lRet  := .T.
-Local aArea := GetArea()
+Local lRet   := .T.
+Local aArea  := GetArea()
 Local cQuery := ""
 Local oJson
-Local cPSW,cEmail
+Local cPSW , cEmail
 
-Local cJson     := Self:GetContent()
+Local cJson  := Self:GetContent()
 Local cError    
 
     //Definindo o conteúdo como JSON, e pegando o content e dando um parse para ver se a estrutura está ok
@@ -491,7 +491,7 @@ If (oRest:Get(aHeader))
 Else
     ConOut("@ADVPL: Couldn't consume API")
 EndIf
-         */
+*/
 /* 
 conout("* fazendo download do arquivo " + cLocalFile)
          

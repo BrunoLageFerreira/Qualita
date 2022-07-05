@@ -2,6 +2,7 @@
 	"version": "0.2.0",
 	"configurations": [
 
+
 		
 		{
 			"type": "totvs_tdsreplay_debug",
@@ -19,7 +20,7 @@
 			"request": "launch",
 			"cwb": "${workspaceRoot}",
 			"name": "QUALITA-DEBUG",
-			"smartclientBin": "D:/TOTVS 12/Microsiga/Protheus/bin/smartclient_LG_QUALITA/smartclient.exe",
+			"smartclientBin": "D:/TOTVS 12/Microsiga/Protheus/bin/smartclient33/smartclient.exe",
 			"program": "SIGAMDI",
 			"programArguments": [],
 			"enableMultiThread": false,

@@ -1120,7 +1120,7 @@ Do While !EOF()
 		/*
 		EMAIL
 		*/
-		TCSPExec("SP_SENDMAIL",'ITINGA',"ti.vix@grupoqualita.com.br;logistica.es@qualitagroup.com;sales.es@qualitagroup.com","ERRO URGENTE ! CAVALETE:" + TRBERRO->B8_YCAVALE ,'')
+		TCSPExec("SP_SENDMAIL",'ITINGA',"ti.vix@grupoqualita.com.br;logistica.es@qualitagroup.com;sales.es@qualitagroup.com","ERRO URGENTE (DIF. DE SALDO)","ERRO URGENTE ! CAVALETE:" + TRBERRO->B8_YCAVALE ,'')
 	ENDIF
 
 	
@@ -1142,7 +1142,7 @@ Do While !EOF()
 		/*
 		EMAIL
 		*/
-		TCSPExec("SP_SENDMAIL",'ITINGA',"ti.vix@grupoqualita.com.br;logistica.es@qualitagroup.com;sales.es@qualitagroup.com","ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + TRBERRO->C6_NUM ,'')
+		TCSPExec("SP_SENDMAIL",'ITINGA',"ti.vix@grupoqualita.com.br;logistica.es@qualitagroup.com;sales.es@qualitagroup.com","ERRO URGENTE (DIF. DE SALDO)","ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + TRBERRO->C6_NUM ,'')
 	ENDIF
 
 	dbSelectArea("TRBERRO")

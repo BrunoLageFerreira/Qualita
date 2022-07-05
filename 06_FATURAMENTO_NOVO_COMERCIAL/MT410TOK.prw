@@ -57,11 +57,11 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. nOpc == 1 .OR. ALTER
 EndIf
 
 Return(lRet)
-
+              
 User Function M410LIOK()
 ****************************************************************************************************************
 *    Libera ou bloquea linha do pedido de venda 
-*
+*  //A410LINOK
 ****
 Local lRet   := .T.
 Local cQuery := ""
@@ -79,33 +79,34 @@ If SubString(CNUMEMP,1,2) == "01"
 	If SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",n))) ,1,2) $ 'CH' .AND. (Empty(GdFieldGet("C6_LOTECTL",n)) .OR. Empty(GdFieldGet("C6_NUMLOTE",n)))  
 		Alert("ERRO! CHAPA COM LOTE OU SUB-LOTE EM BRANCO!")
 		lRet := .F.
+
+
+	/*
+	Valida mobGran
+	*/
+	cQuery  := " SELECT ZSA_PRCDES FROM ZSA010
+	cQuery  += "  WHERE D_E_L_E_T_ = ''
+	cQuery  += "  AND ZSA_PRCDES <> 0
+	//cQuery  += "  AND ZSA_STATUS = 'ATIVA'
+	cQuery  += "  AND ZSA_IDMOBP = '"+ AllTrim(M->C5_XIDMOB)                    +"'
+	cQuery  += "  AND ZSA_NUMCAV = '"+ AllTrim(GdFieldGet("C6_YCAVALE",n))      +"'
+	cQuery  += "  AND ZSA_PROD   = '"+ AllTrim(GdFieldGet("C6_PRODUTO",n))      +"'
+	cQuery  += "  AND ZSA_CLASSI = '"+ AllTrim(GdFieldGet("C6_YCLASSI",n))      +"'
+	cQuery  += "  AND ZSA_LOTE   = '"+ AllTrim(GdFieldGet("C6_LOTECTL",n))      +"'
+
+	tcQuery cQuery alias TRB new
+	dbSelectArea("TRB")
+	dbgotop()
+
+	If !EMPTY(TRB->ZSA_PRCDES)
+		GdFieldPut("C6_XOFERTA",'S')
+	EndIf
+
+	dbSelectArea("TRB") 
+	dbCloseArea()
+
 	EndIf
 EndIf
-
-
-/*
-Valida mobGran
-*/
-cQuery  := " SELECT ZSA_PRCDES FROM ZSA010
-cQuery  += "  WHERE D_E_L_E_T_ = ''
-cQuery  += "  AND ZSA_PRCDES <> 0
-//cQuery  += "  AND ZSA_STATUS = 'ATIVA'
-cQuery  += "  AND ZSA_IDMOBP = '"+ AllTrim(M->C5_XIDMOB)                    +"'
-cQuery  += "  AND ZSA_NUMCAV = '"+ AllTrim(GdFieldGet("C6_YCAVALE",n))      +"'
-cQuery  += "  AND ZSA_PROD   = '"+ AllTrim(GdFieldGet("C6_PRODUTO",n))      +"'
-cQuery  += "  AND ZSA_CLASSI = '"+ AllTrim(GdFieldGet("C6_YCLASSI",n))      +"'
-cQuery  += "  AND ZSA_LOTE   = '"+ AllTrim(GdFieldGet("C6_LOTECTL",n))      +"'
-
-tcQuery cQuery alias TRB new
-dbSelectArea("TRB")
-dbgotop()
-
-If !EMPTY(TRB->ZSA_PRCDES)
-	GdFieldPut("C6_XOFERTA",'S')
-EndIf
-
-dbSelectArea("TRB") 
-dbCloseArea()
 
 
 Return(lRet)

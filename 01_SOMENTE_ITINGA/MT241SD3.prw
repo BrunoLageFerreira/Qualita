@@ -79,7 +79,7 @@ If !Empty(cEnvMail)
 	*/
 	TCSPExec("SP_SENDMAIL",'ITINGA',SX5->X5_DESCSPA,'Nova Transferência','Anexo relatório','D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RIM0023.pdf')
 	
-	U_SWENARWAP(SX5->X5_DESCENG,"Nova Transferência","Nova Transferência","RIM0023","PDF","\RELINWEB\RIM0023.pdf")
+	//U_SWENARWAP(SX5->X5_DESCENG,"Nova Transferência","Nova Transferência","RIM0023","PDF","D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RIM0023.pdf")
 	//U_SWENARWAP("5533984022125","Nova Transferência","Nova Transferência","RIM0023","PDF","\RELINWEB\RIM0023.pdf")
 	
 	Alert("Email enviado com sucesso!")

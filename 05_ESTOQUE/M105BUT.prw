@@ -52,7 +52,7 @@ Private nEstru		:= 0
 
 DEFINE MSDIALOG oDlg FROM  140,000 TO 300,400 TITLE OemToAnsi("Informe nota fiscal para importar itens") PIXEL //"Informe produto com estrutura"
 //@ 10,15 TO 63,185 LABEL Alltrim(RetTitle("CP_OP"))+" - "+Alltrim(RetTitle("CP_PRODUTO"))+" - "+Alltrim(RetTitle("CP_QUANT")) OF oDlg PIXEL
-@ 20,20 MSGET cNFENT F3 "SF1" Picture PesqPict("SF1","F1_DOC")   SIZE 70,9 OF oDlg PIXEL
+@ 20,20 MSGET cNFENT F3 "USF1" Picture PesqPict("SF1","F1_DOC")   SIZE 70,9 OF oDlg PIXEL
 //@ 35,20 MSGET cProdEst F3 "SB1" Picture PesqPict("SCP","CP_PRODUTO") When( lSugSemSld := If(Empty(cOpEst),.F.,lSugSemSld),oSugerSld:lVisible:=!Empty(cOpEst),SysRefresh(),.T.) Valid (NaoVazio() .Or. ExistCpo("SB1",cProdEst)) SIZE 70,9 OF oDlg PIXEL
 //@ 35,95 MSGET nQtdOrigEs Picture PesqPict("SCP","CP_QUANT") Valid (Positivo() .And. NaoVazio()) SIZE 60,9 OF oDlg PIXEL
 //@ 50,20 CHECKBOX oSugerSld Var lSugSemSld PROMPT OemtoAnsi(STR0034)	SIZE 150,10 OF oDlg PIXEL //"Sugere itens sem saldo"

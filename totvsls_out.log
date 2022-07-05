@@ -1,0 +1,212 @@
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 108
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Initializing Language Server."}}
+
+Content-Length: 702
+
+{"jsonrpc":"2.0","id":0,"result":{"capabilities":{"textDocumentSync":1,"completionProvider":{"resolveProvider":false,"triggerCharacters":[":","#"]},"hoverProvider":false,"declarationProvider":false,"definitionProvider":false,"typeDefinitionProvider":false,"implementationProvider":false,"referencesProvider":false,"documentHighlightProvider":false,"documentSymbolProvider":false,"codeActionProvider":false,"colorProvider":false,"workspaceSymbolProvider":false,"documentFormattingProvider":false,"documentRangeFormattingProvider":false,"documentOnTypeFormattingProvider":false,"renameProvider":false,"foldingRangeProvider":false,"executeCommandProvider":{"commands":[]},"selectionRangeProvider":false}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 107
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Language Server initialized."}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 128
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting reconnection to the server 'DEV_COMPILA'"}}
+
+Content-Length: 177
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/04_contabil/mct1cli.prw","diagnostics":[]}}
+
+Content-Length: 103
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Secure authenticating..."}}
+
+Content-Length: 111
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"User authenticated successfully."}}
+
+Content-Length: 129
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Reconnection to the server 'DEV_COMPILA' finished."}}
+
+Content-Length: 652
+
+{"jsonrpc":"2.0","id":1,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOkNDUGc4WEViRTl4YUdVTGRqZWY2TjhidlkrTGN5L0s1UzlHUkNnaFFNRnc9|djI6MTY1NzAzNzAzODowOjE6MQ==.bI3XwtVP4cA6nx7GkmciOLNsCtEL2ukZVg/4aJE28qYKsmQi3csP2OQPf52FxSpCEoi+Ik4tWkg39PrfxYbL+fYAQDFHhALG1m5gUXwTo8MWdFX0uH/HWv5FEj7ET5d7RQO77Os+Tcb2ZZIR1EoqbrAXalDSVs5QSgIDRm0YhYuae6sI1IrjKD32eQUyKf+1nqdOL4JGT5NUl8bwWuf0mGlzVYcukAUSJUnT1CA7SEFpOxTPJNnoqgoHTKbV6hNwWGj5Za6TzE13g//4XYRvrNjIvuUiwVBuh+1aEp5gzcx51YupohskS/QnChi4RLtiyDU1X1Hrmg1eOdUZK274Xg==","environment":"COMPILA_Q","user":"Admin"}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 470
+
+{"jsonrpc":"2.0","id":2,"result":{"message":"OK","serverInformations":{"server":{"serverDetectedType":1,"environmentDetectedType":1},"permissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 118
+
+{"jsonrpc":"2.0","id":3,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 174
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/10_lib/marqexpob.prw","diagnostics":[]}}
+
+Content-Length: 174
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/10_LIB/MArqExpoB.prw","diagnostics":[]}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 83
+
+{"jsonrpc":"2.0","id":4,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":5,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 88
+
+{"jsonrpc":"2.0","id":6,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 80
+
+{"jsonrpc":"2.0","id":7,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 83
+
+{"jsonrpc":"2.0","id":8,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":9,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 89
+
+{"jsonrpc":"2.0","id":10,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":11,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+

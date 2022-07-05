@@ -1,0 +1,165 @@
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2022-07-05 13:03:55.525 (   0.001s) [                ]             loguru.cpp:755   INFO| Logging to 'totvsls.log', mode: 'w', verbosity: 9
+(   0.001s) [main thread     ]             loguru.cpp:591   | arguments: c:\\Users\\Administrator\\.vscode\\extensions\\totvs.tds-vscode-1.3.14/node_modules/@totvs/tds-ls/bin/windows/advpls.exe --language-server --enableAutoComplete=LS --notificationLevel=\"none\" --fsencoding=cp1252 --includes=D:\\TOTVS\ 12\\Microsiga\\Protheus\\include --linter=enabled --log-file=totvsls.log --record=totvsls
+(   0.001s) [main thread     ]             loguru.cpp:594   | Current dir: d:\TOTVS 12\Microsiga\Protheus\ProjetoVSCode
+(   0.001s) [main thread     ]             loguru.cpp:596   | stderr verbosity: -3
+(   0.001s) [main thread     ]             loguru.cpp:597   | -----------------------------------
+(   0.001s) [main thread     ]    security_manager.cc:859   | lsRsaInit
+(   0.001s) [main thread     ]    security_manager.cc:861   | lsRsaInit.1
+(   0.001s) [main thread     ]    security_manager.cc:886   | lsRsaInit.2
+(   0.001s) [main thread     ]    security_manager.cc:900   | lsRsaInit.3
+(   0.001s) [main thread     ]    security_manager.cc:912   | lsRsaInit.4
+(   0.001s) [main thread     ]    security_manager.cc:926   | lsRsaInit.5
+(   0.001s) [main thread     ]    security_manager.cc:950   | lsRsaInit.6
+(   0.001s) [main thread     ]    security_manager.cc:971   | lsRsaInit.7
+(   0.001s) [main thread     ]    security_manager.cc:986   | lsRsaInit.8
+(   0.001s) [main thread     ]    security_manager.cc:989   | lsRsaInit.9
+(   0.001s) [main thread     ]    security_manager.cc:1008  | lsRsaInit.10
+(   0.002s) [main thread     ]    security_manager.cc:1010  | lsRsaInit.11
+(   0.002s) [main thread     ]    security_manager.cc:1021  | lsRsaInit.12
+(   0.002s) [main thread     ]    security_manager.cc:1023  | lsRsaInit.13
+(   0.002s) [main thread     ]    security_manager.cc:1031  | lsRsaInit.14
+(   0.002s) [main thread     ]    security_manager.cc:1038  | lsRsaInit.15
+(   0.002s) [main thread     ]    security_manager.cc:1053  | lsRsaInit.16
+(   0.002s) [main thread     ]    security_manager.cc:1419  | lsAsymmDecrypt
+(   0.002s) [main thread     ]    security_manager.cc:1420  | plaintext 1
+(   0.002s) [main thread     ]    security_manager.cc:1421  | ciphertext f
+(   0.002s) [main thread     ]    security_manager.cc:1422  | ciphertext_len 256
+(   0.010s) [main thread     ]    security_manager.cc:1055  | lsRsaInit.17
+(   0.010s) [main thread     ]    security_manager.cc:1088  | lsRsaInit.22
+(   0.010s) [main thread     ]    security_manager.cc:1099  | userRsaInit
+(   0.010s) [main thread     ]    security_manager.cc:1118  | Loading user prv key.
+(   0.010s) [main thread     ]    security_manager.cc:1149  | Loading user pub key.
+(   0.010s) [main thread     ]    security_manager.cc:1248  | Loading user symm key.
+(   0.020s) [main thread     ]  connection_manager.cc:7148  | Invalid notificationLevel value. Value="none"
+(   0.020s) [main thread     ]  connection_manager.cc:7149  | Settings to 'only error' level.
+(   0.020s) [querydb         ]msg_lsp_initialize_requ:496   | Start Running initialize
+(   0.020s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Initializing Language Server." took 0.1 ms
+(   0.020s) [querydb         ]msg_lsp_initialize_requ:502   | Init parameters: {"compilationDatabaseCommand":"","compilationDatabaseDirectory":"","cacheDirectory":"","cacheFormat":"json","resourceDirectory":"","discoverSystemIncludes":true,"extraClangArguments":[],"progressReportFrequencyMs":500,"emitQueryDbBlocked":false,"emitInactiveRegions":false,"showDocumentLinksOnIncludes":true,"codeLens":{"localVariables":true},"completion":{"enableSnippets":true,"detailedLabel":false,"dropOldRequests":true,"filterAndSort":true,"includeMaxPathSize":30,"includeSuffixWhitelist":[".h",".hpp",".hh",".ch"],"includeBlacklist":[],"includeWhitelist":[]},"formatting":{"enabled":false},"diagnostics":{"blacklist":[],"whitelist":[],"frequencyMs":0,"onParse":true,"onType":true},"highlight":{"enabled":false,"blacklist":[],"whitelist":[]},"index":{"attributeMakeCallsToCtor":true,"blacklist":[],"whitelist":[],"comments":2,"enabled":true,"logSkippedPaths":false,"threads":0},"workspaceSymbol":{"maxNum":1000,"sort":true},"xref":{"maxNum":2000},"enableIndexOnDidChange":false}
+(   0.021s) [querydb         ]msg_lsp_initialize_requ:517   | [querydb] Initialize in directory d:/totvs 12/microsiga/protheus/projetovscode with uri file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode
+(   0.021s) [querydb         ]msg_lsp_initialize_requ:574   | Using -resource-dir=d:/totvs 12/microsiga/protheus/projetovscode/default_resource_directory
+(   0.021s) [querydb         ]msg_lsp_initialize_requ:577   | Send initialization before starting indexers, so we don't send a status update too early.
+(   0.021s) [querydb         ]msg_lsp_initialize_requ:597   | Set project root.
+(   0.021s) [stdout          ]               timer.cc:42    | [e2e] Running initialize took 0.497 ms
+(   0.024s) [querydb         ]               timer.cc:42    | compile_commands.json advpllang time took 0.1 ms
+(   0.025s) [querydb         ]               timer.cc:42    | compile_commands.json our time took 0.1 ms
+(   0.025s) [querydb         ]               timer.cc:42    | [perf] Loaded compilation entries (0 files) took 0.139 ms
+(   0.025s) [querydb         ]msg_lsp_initialize_requ:640   | Starting 12 indexers
+(   0.025s) [querydb         ]               timer.cc:42    | [perf] Dispatched initial index requests took 0.1 ms
+(   0.025s) [querydb         ]msg_lsp_initialize_requ:669   | End Running initialize
+(   0.027s) [scan_includes   ]               timer.cc:42    | [perf] Scanning for includes took 1.1210 ms
+(   0.035s) [querydb         ]msg_lsp_initialized_not:22    | Got Initialized Notification
+(   0.035s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Language Server initialized." took 0.1 ms
+(   0.035s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+(   0.035s) [querydb         ]       working_files.cc:483   | OnOpen
+(   0.036s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+(   0.036s) [querydb         ]               timer.cc:42    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 0.763 ms
+(   0.036s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/04_contabil/mct1cli.prw
+(   0.036s) [querydb         ]      totvs_complete.cc:906   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/04_contabil/mct1cli.prw
+(   0.036s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+(   0.036s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+(   0.036s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+(   0.036s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+(   0.036s) [querydb         ]msg_totvsserver_reconne:48    | Start Running $totvsserver/reconnect
+(   0.036s) [querydb         ]msg_totvsserver_reconne:52    | Reconnecting server with connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOkNDUGc4WEViRTl4YUdVTGRqZWY2TjhidlkrTGN5L0s1UzlHUkNnaFFNRnc9|djI6MTY1NzAzMTI3NTowOjE6MQ==.WZpjryN26fHQdYeNb0qrTED7lfczCX6PF7nWBAAgwv+QV0baNKLg+Go+T1rBZOQ2xGyboQBStR3rTbcy0c+esmU0JeFmTrPnQb1T3OvLzThiF2RA1ssE4kHN5xBQUVhuN7rnOJ+k9Hta2ezpB9n/Tj/KEwtKuJmsB3Vo7nRlYGqgYlVAN8Rh7spCBxCgCM3oXL5Taikub7XOK0GJERsKEODM0w6sSEodtKG/KoElCqC5Wdr52a5n1drMICOvjsULeT+F664JrlYnJrZ+y7oWcbKlBY8nJiz/sUJvn0eo/Zfn1cEY37EPDKtptNBKfMJ5J3LdBCYXgxWndhLf4g2jMQ==
+(   0.036s) [querydb         ]  connection_manager.cc:392   | Starting reconnection to the server 'DEV_COMPILA'
+(   0.036s) [querydb         ]  connection_manager.cc:393   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOkNDUGc4WEViRTl4YUdVTGRqZWY2TjhidlkrTGN5L0s1UzlHUkNnaFFNRnc9|djI6MTY1NzAzMTI3NTowOjE6MQ==.WZpjryN26fHQdYeNb0qrTED7lfczCX6PF7nWBAAgwv+QV0baNKLg+Go+T1rBZOQ2xGyboQBStR3rTbcy0c+esmU0JeFmTrPnQb1T3OvLzThiF2RA1ssE4kHN5xBQUVhuN7rnOJ+k9Hta2ezpB9n/Tj/KEwtKuJmsB3Vo7nRlYGqgYlVAN8Rh7spCBxCgCM3oXL5Taikub7XOK0GJERsKEODM0w6sSEodtKG/KoElCqC5Wdr52a5n1drMICOvjsULeT+F664JrlYnJrZ+y7oWcbKlBY8nJiz/sUJvn0eo/Zfn1cEY37EPDKtptNBKfMJ5J3LdBCYXgxWndhLf4g2jMQ==
+(   0.036s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/04_contabil/mct1cli.prw)
+(   0.036s) [querydb         ]    security_manager.cc:337   | authentic TRUE
+(   0.036s) [querydb         ]    security_manager.cc:520   | done CCPg8XEbE9xaGULdjef6N8bvY+Lcy/K5S9GRCghQMFw=
+(   0.036s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting reconnection to the server 'DEV_COMPILA'" took 0.1 ms
+(   0.036s) [querydb         ]    security_manager.cc:530   | done password symmDecrypt (12)
+(   0.037s) [querydb         ]  connection_manager.cc:4447  | ConnectionManager::newConnection: 192.168.1.103:1236 (20210324103317) [1] {3}
+(   0.037s) [querydb         ]  connection_manager.cc:4451  | connected status: 0
+(   0.138s) [querydb         ]  connection_manager.cc:4454  | connected status: 2
+(   0.138s) [querydb         ]  connection_manager.cc:4462  | MS_DBGGETBUILD OK
+(   0.138s) [querydb         ]  connection_manager.cc:4472  | build: 7.00.210324P
+(   0.138s) [querydb         ]  connection_manager.cc:4481  | creating secureContext
+(   0.138s) [querydb         ]  connection_manager.cc:4483  | secureContext initialize
+(   0.441s) [querydb         ]  connection_manager.cc:4486  | asymmetric generateKeys
+(   0.441s) [querydb         ]  connection_manager.cc:4488  | secureContext initialized
+(   0.708s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Secure authenticating..." took 0.5 ms
+(   3.129s) [querydb         ]  connection_manager.cc:4772  | MS_DBGPSWADM_SEC OK
+(   3.129s) [querydb         ]  connection_manager.cc:4793  | User authenticated successfully.
+(   3.129s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] User authenticated successfully." took 0.5 ms
+(   3.152s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager dbgGetServerType exec took 1.1056 ms
+(   3.152s) [querydb         ]  connection_manager.cc:4896  | MS_DBGGETSERVERTYPE OK => TOTVSTEC
+(   3.152s) [querydb         ]    security_manager.cc:541   | encodedExtraInfo: djI6MTY1NzAzNzAzODowOjE6MQ==
+(   3.161s) [querydb         ]    security_manager.cc:289   | signature bI3XwtVP4cA6nx7GkmciOLNsCtEL2ukZVg/4aJE28qYKsmQi3csP2OQPf52FxSpCEoi+Ik4tWkg39PrfxYbL+fYAQDFHhALG1m5gUXwTo8MWdFX0uH/HWv5FEj7ET5d7RQO77Os+Tcb2ZZIR1EoqbrAXalDSVs5QSgIDRm0YhYuae6sI1IrjKD32eQUyKf+1nqdOL4JGT5NUl8bwWuf0mGlzVYcukAUSJUnT1CA7SEFpOxTPJNnoqgoHTKbV6hNwWGj5Za6TzE13g//4XYRvrNjIvuUiwVBuh+1aEp5gzcx51YupohskS/QnChi4RLtiyDU1X1Hrmg1eOdUZK274Xg==
+(   3.161s) [querydb         ]  connection_manager.cc:464   | Reconnection to the server 'DEV_COMPILA' finished.
+(   3.161s) [querydb         ]  connection_manager.cc:465   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOkNDUGc4WEViRTl4YUdVTGRqZWY2TjhidlkrTGN5L0s1UzlHUkNnaFFNRnc9|djI6MTY1NzAzNzAzODowOjE6MQ==.bI3XwtVP4cA6nx7GkmciOLNsCtEL2ukZVg/4aJE28qYKsmQi3csP2OQPf52FxSpCEoi+Ik4tWkg39PrfxYbL+fYAQDFHhALG1m5gUXwTo8MWdFX0uH/HWv5FEj7ET5d7RQO77Os+Tcb2ZZIR1EoqbrAXalDSVs5QSgIDRm0YhYuae6sI1IrjKD32eQUyKf+1nqdOL4JGT5NUl8bwWuf0mGlzVYcukAUSJUnT1CA7SEFpOxTPJNnoqgoHTKbV6hNwWGj5Za6TzE13g//4XYRvrNjIvuUiwVBuh+1aEp5gzcx51YupohskS/QnChi4RLtiyDU1X1Hrmg1eOdUZK274Xg==
+(   3.161s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Reconnect server for connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOkNDUGc4WEViRTl4YUdVTGRqZWY2TjhidlkrTGN5L0s1UzlHUkNnaFFNRnc9|djI6MTY1NzAzNzAzODowOjE6MQ==.bI3XwtVP4cA6nx7GkmciOLNsCtEL2ukZVg/4aJE28qYKsmQi3csP2OQPf52FxSpCEoi+Ik4tWkg39PrfxYbL+fYAQDFHhALG1m5gUXwTo8MWdFX0uH/HWv5FEj7ET5d7RQO77Os+Tcb2ZZIR1EoqbrAXalDSVs5QSgIDRm0YhYuae6sI1IrjKD32eQUyKf+1nqdOL4JGT5NUl8bwWuf0mGlzVYcukAUSJUnT1CA7SEFpOxTPJNnoqgoHTKbV6hNwWGj5Za6TzE13g//4XYRvrNjIvuUiwVBuh+1aEp5gzcx51YupohskS/QnChi4RLtiyDU1X1Hrmg1eOdUZK274Xg== took 3124.3121804 ms
+(   3.161s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Reconnection to the server 'DEV_COMPILA' finished." took 0.5 ms
+(   3.161s) [querydb         ]msg_totvsserver_reconne:112   | End Running $totvsserver/reconnect
+(   3.161s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/reconnect took 3126.3122933 ms
+(   3.174s) [querydb         ]msg_totvsserver_server_:47    | Start Running $totvsserver/serverInformations
+(   3.174s) [querydb         ]msg_totvsserver_server_:50    | Get server informations of: 
+(   3.174s) [querydb         ]  connection_manager.cc:4916  | Searching for connection token: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOkNDUGc4WEViRTl4YUdVTGRqZWY2TjhidlkrTGN5L0s1UzlHUkNnaFFNRnc9|djI6MTY1NzAzNzAzODowOjE6MQ==.bI3XwtVP4cA6nx7GkmciOLNsCtEL2ukZVg/4aJE28qYKsmQi3csP2OQPf52FxSpCEoi+Ik4tWkg39PrfxYbL+fYAQDFHhALG1m5gUXwTo8MWdFX0uH/HWv5FEj7ET5d7RQO77Os+Tcb2ZZIR1EoqbrAXalDSVs5QSgIDRm0YhYuae6sI1IrjKD32eQUyKf+1nqdOL4JGT5NUl8bwWuf0mGlzVYcukAUSJUnT1CA7SEFpOxTPJNnoqgoHTKbV6hNwWGj5Za6TzE13g//4XYRvrNjIvuUiwVBuh+1aEp5gzcx51YupohskS/QnChi4RLtiyDU1X1Hrmg1eOdUZK274Xg==
+(   3.174s) [querydb         ]  connection_manager.cc:4921  | Connections thread size: 1
+(   3.174s) [querydb         ]  connection_manager.cc:4931  | connection pointer address 0000021F151442D0
+(   3.174s) [querydb         ]  connection_manager.cc:7199  | retrievedConnectionThread status 2
+(   3.174s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager GetServerInformations => serverInformations.size: [] took 0.137 ms
+(   3.174s) [querydb         ]msg_totvsserver_server_:91    | End Running $totvsserver/serverInformations
+(   3.174s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/serverInformations took 0.359 ms
+(   3.204s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   3.204s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key includes, value D:\TOTVS 12\Microsiga\Protheus\include;
+(   3.204s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.19 ms
+(   3.204s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   3.204s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.235 ms
+(   8.068s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+(   8.068s) [querydb         ]       working_files.cc:483   | OnOpen
+(   8.069s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+(   8.069s) [querydb         ]               timer.cc:42    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 0.454 ms
+(   8.069s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/10_lib/marqexpob.prw
+(   8.069s) [querydb         ]      totvs_complete.cc:906   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/10_lib/marqexpob.prw
+(   8.069s) [querydb         ]      totvs_complete.cc:801   | AdvPLCompleteManager::NotifyView
+(   8.069s) [querydb         ]      totvs_complete.cc:857   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+(   8.069s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+(   8.069s) [comp-preload    ]      totvs_complete.cc:872   | AdvPLCompleteManager::TryGetSession
+(   8.069s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/10_lib/marqexpob.prw)
+(7072.611s) [querydb         ]msg_text_document_did_c:29    | Start Running textDocument/didClose
+(7072.611s) [querydb         ]       working_files.cc:539   | OnClose
+(7072.611s) [querydb         ]      totvs_complete.cc:847   | Dropped preloaded-based code completion session for d:/totvs 12/microsiga/protheus/projetovscode/10_lib/marqexpob.prw
+(7072.611s) [querydb         ]msg_text_document_did_c:40    | End Running textDocument/didClose
+(7072.612s) [stdout          ]               timer.cc:42    | [e2e] Running textDocument/didClose took 0.493 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(7122.637s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.10 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(7122.637s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.34 ms
+(7122.637s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(7122.637s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.108 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(7122.637s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.6 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(7122.637s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.59 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(7122.637s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(7122.637s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.118 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(7122.637s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(7122.637s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.191 ms
+(7122.637s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(7122.637s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.256 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(7122.637s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(7122.637s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(7122.637s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(7122.637s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.475 ms
+(7122.637s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(7122.637s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.504 ms

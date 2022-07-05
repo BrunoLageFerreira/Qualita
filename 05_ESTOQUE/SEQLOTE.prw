@@ -12,14 +12,12 @@
 ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
 ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß*/
 User Function SEQLOTE()
-
 	Local aArea    := GetArea()                   
 
 	Private cCod := ""
 	Private nSeqLote := 0
 	Private cLote  := ""
 	Private cQuery:= ""
-
 
 	cCod := Alltrim(M->C2_PRODUTO)
 	nSeqLote := SB1->B1_SEQLT

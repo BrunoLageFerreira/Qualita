@@ -10,7 +10,7 @@ User Function ChkSc2
 
 	nLote := M->c2_LOTECTL
 
-	CQuery:= "SELECT C2_NUM,C2_LOTECTL FROM SC2050 WHERE C2_LOTECTL = '"+nLote+"' AND D_E_L_E_T_ = ''"
+	CQuery:= "SELECT C2_NUM,C2_LOTECTL FROM "+ RetSqlName("SC2") +" WHERE C2_LOTECTL = '"+nLote+"' AND D_E_L_E_T_ = ''"
 
 	TCQuery CQuery Alias TSTC2 New
 

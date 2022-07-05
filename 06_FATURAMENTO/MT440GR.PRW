@@ -16,7 +16,7 @@ User Function MT440GR()
 ***    
 Local nRet     := PARAMIXB[1]
 Local aMT440GR := GetArea()	  
-	
+Local nX       := 1 	
 
 If nRet == 1
     
@@ -24,7 +24,7 @@ If nRet == 1
 		GdFieldPut("C6_XMOTBLQ","",nX)
 	Next nX
 	
-	TCSPExec("SP_MLIBPV", M->C5_NUM , SUBSTR(CUSUARIO,7,15))
+	TCSPExec("SP_MLIBPV",M->C5_FILIAL, M->C5_NUM , SUBSTR(CUSUARIO,7,15))
 	Aviso("Liberado!","Pedido de venda liberado!")		
 EndIf
 

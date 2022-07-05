@@ -98,6 +98,7 @@ Local cQuery     := ""
 
 // Variaveis Private da Funcao
 Private _oDlg	
+Private lLibBt   := .f.
 
 cQuery:= "SELECT RTRIM(LTRIM(ZSR_USR)) +':'+ REPLACE( ZSR_PSW,'@','%40') DADOS,ZSR_PSW FROM " + RetSQLName("ZSR") + " WHERE D_E_L_E_T_ = '' AND ZSR_USR = '" + AllTrim(aInfUsr[1][2]) + "'"
 
@@ -122,13 +123,84 @@ DEFINE MSDIALOG _oDlg TITLE "Usuário dos Relatórios" FROM u_MGETTELA(212),u_MGET
 	@ u_MGETTELA(013),u_MGETTELA(016) Say "Login:" 	Size u_MGETTELA(016),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
 	@ u_MGETTELA(029),u_MGETTELA(039) MsGet oEdit2 Var cEdit2 Size u_MGETTELA(102),u_MGETTELA(009) COLOR CLR_BLACK PIXEL OF _oDlg
 	@ u_MGETTELA(030),u_MGETTELA(016) Say "e-Mail:" Size u_MGETTELA(017),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
-	@ u_MGETTELA(046),u_MGETTELA(039) MsGet oEdit3 Var cEdit3 Size u_MGETTELA(101),u_MGETTELA(009) PASSWORD COLOR CLR_BLACK PIXEL OF _oDlg
+	@ u_MGETTELA(046),u_MGETTELA(039) MsGet oEdit3 Var cEdit3 valid(lLibBt:=MValidCPO(cEdit3,lLibBt)) Size u_MGETTELA(101),u_MGETTELA(009) PASSWORD COLOR CLR_BLACK PIXEL OF _oDlg
 	@ u_MGETTELA(047),u_MGETTELA(016) Say "Senha:" Size u_MGETTELA(019),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
-	@ u_MGETTELA(069),u_MGETTELA(112) Button "OK" action(MUpdDB(cEdit1,cEdit2,cEdit3),close(_oDlg)) Size u_MGETTELA(037),u_MGETTELA(012) PIXEL OF _oDlg
+	@ u_MGETTELA(069),u_MGETTELA(112) Button "OK" action(MUpdDB(cEdit1,cEdit2,cEdit3),close(_oDlg)) when(lLibBt) Size u_MGETTELA(037),u_MGETTELA(012) PIXEL OF _oDlg
 
 ACTIVATE MSDIALOG _oDlg CENTERED 
 
 Return(.T.)
+
+
+Static Function MValidCPO(cEdit3,lLibBt)
+*******************************************************************************
+*  
+*
+***
+Local cSenhaPSW := AllTrim(cEdit3)
+
+Local lPSWBlank := .F.
+Local lPSWTaman := .F.
+
+Local lPSWMaius := .F.
+Local lPSWMinus := .F.
+Local lPSWNumer := .F.
+
+Local nX        := 0
+
+/*
+Verifica se tem registros.
+*/
+If !Empty(cSenhaPSW)
+	lPSWBlank := .T.
+EndIf
+/*
+Verifica se tem minimo de 6 digitos
+*/
+If Len(cSenhaPSW) >=6
+	lPSWTaman := .T.
+EndIf
+
+If 	lPSWBlank == .T. .And.; 
+	lPSWTaman == .T.
+	
+	For nX := 1 to Len(cSenhaPSW)
+
+		If	lPSWMaius == .F. .and.;
+			ISUPPER(SubStr(cSenhaPSW,nX,1)) == .T.
+			lPSWMaius := .T.
+		EndIf
+
+		If	lPSWMinus == .F. .and.;
+			ISLOWER(SubStr(cSenhaPSW,nX,1)) == .T.
+			lPSWMinus := .T.
+		EndIf
+
+		If	lPSWNumer == .F. .and.;
+			IsDigit(SubStr(cSenhaPSW,nX,1)) == .T.
+			lPSWNumer := .T.
+		EndIf
+
+	Next nX
+
+EndIf
+
+/*
+Valida todas as questões de testes da senha
+*/
+If 	lPSWBlank == .T. .and.;
+	lPSWMaius == .T. .and.;
+	lPSWMinus == .T. .and.;
+	lPSWNumer == .T. .and.;
+	lPSWTaman == .T.
+
+	lLibBt := .T.
+else
+	Alert("Algum requisito de sua senha não foi atendido. Mínimo de 6 Dígitos, conter números, letras maiúsculas e minúsculas.")
+	lLibBt := .F.
+EndIf
+
+Return(lLibBt)
 
 Static Function MUpdDB(cEdit1,cEdit2,cEdit3)
 *******************************************************************************
@@ -205,18 +277,6 @@ Private aRethora   := {}
 		Return()
 	EndIf
 
-	//If GetEnvServer() == "PRODUCAO"
-	
-	cLink		:= "http://189.50.0.33:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma //+"&rs:Command=Render"+ cParam
-	cLinkInt	:= "http://189.50.0.33:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
-	
-	cLinkIe   	:= "http://189.50.0.33:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2f"+ cPrograma
-
-	//cLink		:= "http://189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRIM0019&rs:Command=Render"
-	//EndIf
-	//http://192.168.0.201/report_server?%2fsup_brasil%2fRSB0027&DTINI=2018/1/1&DTFIM=2018/12/31&NATINI=0&NATFIM=ZZZZZZ&TIPOPREV=2&rs:Format=MHTML" -O '+ @Filename +''
-
-	//Alert(GetEnvServer())
 
 	PswOrder(1) 
 	If ( PswSeek(__cUserId, .T.) )
@@ -228,7 +288,8 @@ Private aRethora   := {}
 		dbgotop()
 	EndIf
 
-	cQuery:= "SELECT RTRIM(LTRIM(ZSR_USR)) +':'+ REPLACE( ZSR_PSW,'@','%40') DADOS FROM " + RetSQLName("ZSR") + " WHERE D_E_L_E_T_ = '' AND ZSR_USR = '" + AllTrim(aInfUsr[1][2]) + "'"
+	//SIGAEIS.dbo.UrlEncode(ZSR_USR) + ':' + SIGAEIS.dbo.UrlEncode(ZSR_PSW)
+	cQuery:= "SELECT RTRIM(LTRIM(ZSR_USR)) +':'+ REPLACE( REPLACE( ZSR_PSW,'@','%40'),'#','%23') DADOS FROM " + RetSQLName("ZSR") + " WHERE D_E_L_E_T_ = '' AND ZSR_USR = '" + AllTrim(aInfUsr[1][2]) + "'"
 
 	TcQuery cQuery Alias cQryUSR New
 	dbSelectArea("cQryUSR")
@@ -245,7 +306,24 @@ Private aRethora   := {}
 	dbSelectArea("cQryUSR")
 	DBCLOSEAREA()
 
-	If "COMPI" $ upper(GetEnvServer())  	
+	If SubString(CNUMEMP,1,2) == "01"
+		cLink		:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkInt	:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkIe   	:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+	else
+		cLink		:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkInt	:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkIe   	:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma	
+	EndIf
+	
+	//cLink		:= "http://189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRIM0019&rs:Command=Render"
+	//EndIf
+	//http://192.168.0.201/report_server?%2fsup_brasil%2fRSB0027&DTINI=2018/1/1&DTFIM=2018/12/31&NATINI=0&NATFIM=ZZZZZZ&TIPOPREV=2&rs:Format=MHTML" -O '+ @Filename +''
+
+	//Alert(GetEnvServer())
+	//Alert(GetServerIp())
+
+	If "COMPI" $ upper(GetEnvServer())
 		cLink		:= 'http://'+cSenhas+'@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
 		cLinkIe   	:= 'http://'+cSenhas+'@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
 	EndIf
@@ -379,11 +457,14 @@ EndIf
 // Prepara o conector WebSocket
 
 SetKey(VK_F12,{|| MUSRRP(AllTrim(aInfUsr[1][2]) , AllTrim(aInfUsr[1][14]) )} )
+SetKey(VK_F11,{|| cLink := FwInputBox("Link:", cLink), oWebEngine:navigate(cLink)} )
+
+
 
 If Upper(cTipo) == "[IE]"
 
-	AVISO("Leia com Atenção!", "Os relatórios dinâmicos serão abertos em um modelo externo ao Protheus! Para Fechar use o (ALT)+[F4]!" , { "Fechar" }, 1)
-	ShellExecute( "Open", "%PROGRAMFILES%\Internet Explorer\iexplore.exe", '-k "' + cLinkIe +'"', "C:\", 3 )
+	//AVISO("Leia com Atenção!", "Os relatórios dinâmicos serão abertos em um modelo externo ao Protheus! Para Fechar use o (ALT)+[F4]!" , { "Fechar" }, 1)
+	ShellExecute( "Open", cLinkIe ,"","", 1 )
 	
 Else
 
@@ -408,6 +489,7 @@ Else
 	Activate MsDialog oDlg1
 
 EndIf
+
 
 Return
 

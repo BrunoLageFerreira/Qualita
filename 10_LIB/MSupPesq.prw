@@ -9,7 +9,7 @@ Programa        : Programa MSUPPESQ.prw
 Objetivo        : Pesquisa de Produtos
 Autor           : Bruno Lage Ferreira	
 Data/Hora       : 12/02/2006 11:29
-Obs.            :
+Obs.            : XUSB1 
 */
 
 User Function MSUPPESQ(cPStart)

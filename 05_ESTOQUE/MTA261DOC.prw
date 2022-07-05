@@ -76,10 +76,10 @@ dbCloseArea()
 
 Return(cCodCvte)
 
-User Function MA261CPO()
+User Function GMA261CP()
 ****************************************************
 * // Manipulação pelo usuário do aHeader e aCols para inclusão de campos na getdados.
-*
+* // MA261CPO
 ****
 Local aTam := {}
 
@@ -92,12 +92,13 @@ EndIf
 Return Nil
 
 
-User Function A261TOK()
+User Function GR261TOK()
 ****************************************************
 * // Tudo OK?
-*
+* // A261TOK
 ****
-Local lRet 		:= .T.
+Local lRet 	   := .T.
+Local nX       := 0 
 
 Local nPosCava := aScan(aHeader, {|x| AllTrim(x[2]) == "D3_YCAVALE"}) //Cavalete
 Local nPosLOTE := aScan(aHeader, {|x| AllTrim(x[2]) == "D3_LOTECTL"}) //SubLote

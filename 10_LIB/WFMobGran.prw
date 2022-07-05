@@ -234,6 +234,7 @@ ConOut("[Liberação de Pedidos de Venda] Início!")
 cQuery := "  SELECT	C5_FILIAL+C5_NUM CHAVE,
 cQuery += "  		SC5.R_E_C_N_O_ REC_SC5,
 cQuery += "  		ZSC.R_E_C_N_O_ REC_ZSC,
+cQuery += "  		C5_NUM PEDIDO,
 cQuery += "  		ZSC_TIPO TIPO,
 cQuery += "  		ZSC_SITUAC SIT, 
 cQuery += "  		CASE
@@ -264,7 +265,7 @@ Do While !EOF()
 	If TRB_LPV->SIT = 'L'
 		cQuery := TRB_LPV->UPDSC5
 		TcSqlExec(cQuery)
-		
+
 		cQuery := TRB_LPV->UPDZSC
 		TcSqlExec(cQuery)
 

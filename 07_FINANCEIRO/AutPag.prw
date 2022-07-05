@@ -263,7 +263,7 @@ User Function Autori()
 				SZ2->(MsUnlock())
 			EndIf
 
-			DbCloseArea("SE2")
+			dbCloseArea("SE2")
 
 		EndIf
 

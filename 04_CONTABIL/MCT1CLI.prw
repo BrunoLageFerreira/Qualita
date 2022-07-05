@@ -23,7 +23,9 @@ User Function M030Inc()
 Chamada para o item contabil
 */
 If PARAMIXB # 3
-	U_MCT1CLI()
+	//If SubString(CNUMEMP,1,2) == "01"
+		U_MCT1CLI()
+	//EndIf
 EndIf
 
 Return(.T.)
@@ -94,8 +96,8 @@ User Function MCT1CLI()
 	cQuery += " 		CT1_CONTA ULCTA, 
 	cQuery += " 		CAST(REPLACE(CT1_CONTA,'11201','') AS INTEGER) COD_INTEIRO,
 	cQuery += " 		REPLACE(CT1_CONTA,'11201','') CODIGO,
-	cQuery += " 		(SELECT MAX(CT1_RES) FROM CT1010 (nolock) WHERE D_E_L_E_T_ = '' ) ULTRES  
-	cQuery += "   FROM CT1010 (nolock) CT1 
+	cQuery += " 		(SELECT MAX(CT1_RES) FROM " + RetSqlName("CT1") + " (nolock) WHERE D_E_L_E_T_ = '' ) ULTRES  
+	cQuery += "   FROM " + RetSqlName("CT1") + " (nolock) CT1 
 	cQuery += "  WHERE D_E_L_E_T_ <> '*' 
 	cQuery += "    AND SUBSTRING(CT1_CONTA,1,5) = '11201'
 	cQuery += "    AND REPLACE(CT1_CONTA,'11201','') <> ''

@@ -5,9 +5,12 @@
 #INCLUDE "TBICONN.CH"
 
 User Function CARGACT2()
-
+/*****************************************************************************************
+*
+*
+****/
 	Local cLinha := ""  
-	Local nLinha := 0
+	Local i      := 0
 	Local aDados := {}
 	Local nTamLinha := 0
 	Local nTamArq:= 0
@@ -75,7 +78,7 @@ User Function CARGACT2()
 		aDados:={}  
 		While !FT_FEOF() //Ler todo o arquivo enquanto não for o final dele
 
-			//            IncProc('Importando Linha: ' + Alltrim(Str(nCont)) )
+			//IncProc('Importando Linha: ' + Alltrim(Str(nCont)) )
 			IncProc('Importando Linha: ')
 
 			clinha := FT_FREADLN() 
@@ -119,8 +122,10 @@ User Function CARGACT2()
 Return
 
 Static Function IncluiCT2(cData, cContaDeb, cContaCrd, cItemD, cItemC, cHistor, nValor, i, cCCD, cCCC)
-
-	Local _lOk := .T.
+/*****************************************************************************************
+*
+*
+****/
 	Local aItens := {}
 	Local aCab := {} 
 	Local cTipo := ''
@@ -139,29 +144,29 @@ Static Function IncluiCT2(cData, cContaDeb, cContaCrd, cItemD, cItemC, cHistor, 
 		cTipo := '3'
 	EndIf
 
-	aCab := { {'DDATALANC' , ctod(cData) ,NIL},;
-	{'CLOTE' ,'333335' ,NIL},;
-	{'CSUBLOTE' ,'001' ,NIL},;
-	{'CDOC' ,CTBPRXDOC(ctod(cData),'333335','001') ,NIL},;
-	{'CPADRAO' ,'' ,NIL},;
-	{'NTOTINF' ,0 ,NIL},;
-	{'NTOTINFLOT' ,0 ,NIL} }
+	aCab := { 	{'DDATALANC' 	,ctod(cData) 		,NIL},;
+				{'CLOTE' 		,'333335' 			,NIL},;
+				{'CSUBLOTE' 	,'001' 				,NIL},;
+				{'CPADRAO' 		,'' 				,NIL},;
+				{'NTOTINF' 		,0 					,NIL},;
+				{'NTOTINFLOT' 	,0 					,NIL} }
+				//{'CDOC' 		,CTBPRXDOC(ctod(cData),'333335','001') ,NIL},;
 
-	aAdd(aItens,{ {'CT2_FILIAL' ,cFilAnt , NIL},;
-	{'CT2_LINHA' ,StrZero(i,3,0) , NIL},;
-	{'CT2_MOEDLC' ,'01' , NIL},;
-	{'CT2_DC' ,cTipo , NIL},;
-	{'CT2_DEBITO' ,cContaDeb , NIL},;
-	{'CT2_CREDIT' ,cContaCrd , NIL},;
-	{'CT2_CCD' ,cCCD , NIL},;
-	{'CT2_CCC' ,cCCC , NIL},;
-	{'CT2_VALOR' , nValor , NIL},;
-	{'CT2_ITEMC' ,cItemC , NIL},;
-	{'CT2_ITEMD' ,cItemD , NIL},;
-	{'CT2_ORIGEM' ,'MSEXECAUT', NIL},;
-	{'CT2_HP' ,'' , NIL},;
-	{'CT2_CONVER','15555', NIL},;
-	{'CT2_HIST' , cHistor , NIL} } )
+	aAdd(aItens,{ 	{'CT2_FILIAL' 	,cFilAnt 		, NIL},;
+					{'CT2_LINHA' 	,StrZero(i,3,0) , NIL},;
+					{'CT2_MOEDLC' 	,'01' 			, NIL},;
+					{'CT2_DC' 		,cTipo 			, NIL},;
+					{'CT2_DEBITO' 	,cContaDeb 		, NIL},;
+					{'CT2_CREDIT' 	,cContaCrd 		, NIL},;
+					{'CT2_CCD' 		,cCCD 			, NIL},;
+					{'CT2_CCC' 		,cCCC 			, NIL},;
+					{'CT2_VALOR' 	, nValor 		, NIL},;
+					{'CT2_ITEMC' 	,cItemC 		, NIL},;
+					{'CT2_ITEMD' 	,cItemD 		, NIL},;
+					{'CT2_ORIGEM' 	,'MSEXECAUT'	, NIL},;
+					{'CT2_HP'	 	,'' 			, NIL},;
+					{'CT2_CONVER'	,'15555'		, NIL},;
+					{'CT2_HIST' 	,cHistor 		, NIL} } )
 
 	MSExecAuto( {|X,Y,Z| CTBA102(X,Y,Z)} ,aCab ,aItens, 3)
 
@@ -172,6 +177,10 @@ Static Function IncluiCT2(cData, cContaDeb, cContaCrd, cItemD, cItemC, cHistor, 
 Return
 
 STATIC FUNCTION CTBPRXDOC(DataLote, Lote, SubLote)
+/*****************************************************************************************
+*
+*
+****/
 
 	Local aArea    := GetArea()
 	Local cProxDoc := "000001"
@@ -185,11 +194,13 @@ STATIC FUNCTION CTBPRXDOC(DataLote, Lote, SubLote)
 	dDataFim := LASTDAY(dDataLanc)
 
 	cQuery := "SELECT Max(CTF_DOC) MAXDOC "
-	cQuery += "FROM "+RetSqlName("CTF")+" CTF WHERE "
-	cQuery += "CTF_DATA BETWEEN '"+DTOS(dDataIni)+"' AND '"+DTOS(dDataFim)+"' AND "
-	cQuery += "CTF_LOTE = '"+cLote+"' AND "
-	cQuery += "CTF_SBLOTE = '"+cSubLote+"' AND "
-	cQuery += "D_E_L_E_T_=' ' "
+	cQuery += "  FROM "+RetSqlName("CTF")+" CTF WHERE "
+	cQuery += "        CTF_DATA BETWEEN '"+DTOS(dDataIni)+"' AND '"+DTOS(dDataFim)+"' AND "
+	//cQuery += "        CTF_DATA BETWEEN '"+dtoS(stoD(cData))+"' AND '"+dtoS(stoD(cData))+"' AND "
+	cQuery += "        CTF_LOTE   = '"+cLote+"'              AND "
+	cQuery += "        CTF_SBLOTE = '"+cSubLote+"'           AND "
+	cQuery += "        CTF_FILIAL = '"+xFilial("CTF")+"'     AND "
+	cQuery += "        D_E_L_E_T_ = ' ' "
 	cQuery := ChangeQuery(cQuery)
 
 	dbUseArea(.T.,"TOPCONN",TcGenQry(,,cQuery),"TMPPRXDOC")

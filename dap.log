@@ -1,11 +1,11 @@
 File verbosity level: 9
 date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
-2022-05-24 11:53:13.835 (   0.001s) [                ]             loguru.cpp:755   INFO| Logging to 'd:\TOTVS 12\Microsiga\Protheus\ProjetoVSCode\dap.log', mode: 'w', verbosity: 9
-(   0.001s) [main thread     ]             loguru.cpp:591   | arguments: c:\\Users\\Administrator\\.vscode\\extensions\\totvs.tds-vscode-1.3.13\\node_modules\\@totvs\\tds-da\\bin\\windows\\debugAdapter.exe --log-file=d:\\TOTVS\ 12\\Microsiga\\Protheus\\ProjetoVSCode\\dap.log
-(   0.001s) [main thread     ]             loguru.cpp:594   | Current dir: C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code
-(   0.001s) [main thread     ]             loguru.cpp:596   | stderr verbosity: 0
-(   0.001s) [main thread     ]             loguru.cpp:597   | -----------------------------------
-(   0.001s) [main thread     ]    security_manager.cc:859   | lsRsaInit
+2022-07-04 14:54:13.361 (   0.002s) [                ]             loguru.cpp:755   INFO| Logging to 'd:\TOTVS 12\Microsiga\Protheus\ProjetoVSCode\dap.log', mode: 'w', verbosity: 9
+(   0.002s) [main thread     ]             loguru.cpp:591   | arguments: c:\\Users\\Administrator\\.vscode\\extensions\\totvs.tds-vscode-1.3.14\\node_modules\\@totvs\\tds-da\\bin\\windows\\debugAdapter.exe --log-file=d:\\TOTVS\ 12\\Microsiga\\Protheus\\ProjetoVSCode\\dap.log
+(   0.002s) [main thread     ]             loguru.cpp:594   | Current dir: C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code
+(   0.002s) [main thread     ]             loguru.cpp:596   | stderr verbosity: 0
+(   0.002s) [main thread     ]             loguru.cpp:597   | -----------------------------------
+(   0.002s) [main thread     ]    security_manager.cc:859   | lsRsaInit
 (   0.002s) [main thread     ]    security_manager.cc:861   | lsRsaInit.1
 (   0.002s) [main thread     ]    security_manager.cc:886   | lsRsaInit.2
 (   0.002s) [main thread     ]    security_manager.cc:900   | lsRsaInit.3
@@ -16,135 +16,582 @@ date       time         ( uptime  ) [ thread name/id ]                   file:li
 (   0.002s) [main thread     ]    security_manager.cc:986   | lsRsaInit.8
 (   0.002s) [main thread     ]    security_manager.cc:989   | lsRsaInit.9
 (   0.002s) [main thread     ]    security_manager.cc:1008  | lsRsaInit.10
-(   0.002s) [main thread     ]    security_manager.cc:1010  | lsRsaInit.11
-(   0.002s) [main thread     ]    security_manager.cc:1021  | lsRsaInit.12
-(   0.002s) [main thread     ]    security_manager.cc:1023  | lsRsaInit.13
-(   0.002s) [main thread     ]    security_manager.cc:1031  | lsRsaInit.14
-(   0.002s) [main thread     ]    security_manager.cc:1038  | lsRsaInit.15
-(   0.002s) [main thread     ]    security_manager.cc:1053  | lsRsaInit.16
-(   0.002s) [main thread     ]    security_manager.cc:1419  | lsAsymmDecrypt
-(   0.002s) [main thread     ]    security_manager.cc:1420  | plaintext 
-(   0.002s) [main thread     ]    security_manager.cc:1421  | ciphertext f
-(   0.002s) [main thread     ]    security_manager.cc:1422  | ciphertext_len 256
-(   0.010s) [main thread     ]    security_manager.cc:1055  | lsRsaInit.17
-(   0.010s) [main thread     ]    security_manager.cc:1088  | lsRsaInit.22
-(   0.010s) [main thread     ]    security_manager.cc:1099  | userRsaInit
-(   0.010s) [main thread     ]    security_manager.cc:1118  | Loading user prv key.
-(   0.011s) [main thread     ]    security_manager.cc:1149  | Loading user pub key.
-(   0.011s) [main thread     ]    security_manager.cc:1248  | Loading user symm key.
-(   0.024s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"initialize","arguments":{"clientID":"vscode","clientName":"Visual Studio Code","adapterID":"totvs_language_debug","pathFormat":"path","linesStartAt1":true,"columnsStartAt1":true,"supportsVariableType":true,"supportsVariablePaging":true,"supportsRunInTerminalRequest":true,"locale":"en-us","supportsProgressReporting":true,"supportsInvalidatedEvent":true,"supportsMemoryReferences":true},"type":"request","seq":1}
+(   0.003s) [main thread     ]    security_manager.cc:1010  | lsRsaInit.11
+(   0.003s) [main thread     ]    security_manager.cc:1021  | lsRsaInit.12
+(   0.003s) [main thread     ]    security_manager.cc:1023  | lsRsaInit.13
+(   0.003s) [main thread     ]    security_manager.cc:1031  | lsRsaInit.14
+(   0.003s) [main thread     ]    security_manager.cc:1038  | lsRsaInit.15
+(   0.003s) [main thread     ]    security_manager.cc:1053  | lsRsaInit.16
+(   0.003s) [main thread     ]    security_manager.cc:1419  | lsAsymmDecrypt
+(   0.003s) [main thread     ]    security_manager.cc:1420  | plaintext s
+(   0.003s) [main thread     ]    security_manager.cc:1421  | ciphertext f
+(   0.003s) [main thread     ]    security_manager.cc:1422  | ciphertext_len 256
+(   0.014s) [main thread     ]    security_manager.cc:1055  | lsRsaInit.17
+(   0.014s) [main thread     ]    security_manager.cc:1088  | lsRsaInit.22
+(   0.014s) [main thread     ]    security_manager.cc:1099  | userRsaInit
+(   0.014s) [main thread     ]    security_manager.cc:1118  | Loading user prv key.
+(   0.014s) [main thread     ]    security_manager.cc:1149  | Loading user pub key.
+(   0.014s) [main thread     ]    security_manager.cc:1248  | Loading user symm key.
+(   0.027s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"initialize","arguments":{"clientID":"vscode","clientName":"Visual Studio Code","adapterID":"totvs_language_debug","pathFormat":"path","linesStartAt1":true,"columnsStartAt1":true,"supportsVariableType":true,"supportsVariablePaging":true,"supportsRunInTerminalRequest":true,"locale":"en-us","supportsProgressReporting":true,"supportsInvalidatedEvent":true,"supportsMemoryReferences":true},"type":"request","seq":1}
 
-(   0.024s) [main thread     ]       tDAPProtocol.cpp:150   | REQUEST RECEIVED: initialize
+(   0.027s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: initialize
 
-(   0.024s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (1168) {"body":{"supportTerminateDebuggee":true,"supportsBreakpointLocationsRequest":false,"supportsCancelRequest":true,"supportsClipboardContext":false,"supportsCompletionsRequest":false,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsDataBreakpoints":false,"supportsDelayedStackTraceLoading":true,"supportsDisassembleRequest":false,"supportsEvaluateForHovers":true,"supportsExceptionInfoRequest":false,"supportsExceptionOptions":false,"supportsFunctionBreakpoints":false,"supportsGotoTargetsRequest":false,"supportsHitConditionalBreakpoints":true,"supportsInstructionBreakpoints":false,"supportsLoadedSourcesRequest":false,"supportsLogPoints":true,"supportsModulesRequest":false,"supportsReadMemoryRequest":false,"supportsRestartFrame":false,"supportsRestartRequest":false,"supportsSetExpression":false,"supportsSetVariable":false,"supportsStepBack":false,"supportsStepInTargetsRequest":false,"supportsSteppingGranularity":false,"supportsTerminateRequest":true,"supportsTerminateThreadsRequest":false,"supportsValueFormattingOptions":false},"command":"initialize","message":"","request_seq":1,"seq":2,"success":true,"type":"response"}
+(   0.028s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (1168) {"body":{"supportTerminateDebuggee":true,"supportsBreakpointLocationsRequest":false,"supportsCancelRequest":true,"supportsClipboardContext":false,"supportsCompletionsRequest":false,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsDataBreakpoints":false,"supportsDelayedStackTraceLoading":true,"supportsDisassembleRequest":false,"supportsEvaluateForHovers":true,"supportsExceptionInfoRequest":false,"supportsExceptionOptions":false,"supportsFunctionBreakpoints":false,"supportsGotoTargetsRequest":false,"supportsHitConditionalBreakpoints":true,"supportsInstructionBreakpoints":false,"supportsLoadedSourcesRequest":false,"supportsLogPoints":true,"supportsModulesRequest":false,"supportsReadMemoryRequest":false,"supportsRestartFrame":false,"supportsRestartRequest":false,"supportsSetExpression":false,"supportsSetVariable":false,"supportsStepBack":false,"supportsStepInTargetsRequest":false,"supportsSteppingGranularity":false,"supportsTerminateRequest":true,"supportsTerminateThreadsRequest":false,"supportsValueFormattingOptions":false},"command":"initialize","message":"","request_seq":1,"seq":2,"success":true,"type":"response"}
 
-(   0.024s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   0.024s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (46) {"event":"initialized","seq":1,"type":"event"}
+(   0.028s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.028s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (46) {"event":"initialized","seq":1,"type":"event"}
 
-(   0.024s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   0.055s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"launch","arguments":{"type":"totvs_language_debug","request":"launch","cwb":"D:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode","name":"QUALITA-DEBUG","smartclientBin":"D:/TOTVS 12/Microsiga/Protheus/bin/smartclient_LG_QUALITA/smartclient.exe","program":"SIGAMDI","programArguments":[],"enableMultiThread":false,"enableProfile":false,"isMultiSession":true,"isAccessibilityMode":false,"doNotShowSplash":false,"openglMode":false,"dpiMode":false,"language":"1","ignoreFiles":true,"enableTableSync":true,"logFile":"D:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\dap.log","__configurationTarget":5,"environment":"compila_q","token":"djM6djF5aTBwNzQ4bm1ranViaXNrbGl4aW93NXFneDQ6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjE5MTIwNVA6Mw==:djE6Y29tcGlsYV9xOkFkbWluOjNBQWx5ZERjZ1poWERxUzR2SWNIY2NxV1ZQdzJBM2E3Mm1aQTVuUFptRlU9|djI6MTY1MzQwMzUxMzowOjE6MQ==.botN8pKJH/MMzdTs8mbI54u2newzChUKPRlkVdvo3SNA/lOzOWgscOJu712lq56Abc+vxa26FW0QYh9uME1cm8G6vT28BxDZpn2n/Igqg8jeI1rvWdbKCN7WuJueZtFUmM9ajT4vAy4mDZGB7j3p1khD5VgHbbyEhUqaSpA8fi1nFCsrg26dzkRa5TrZSzvmz00Ve+L6NOP9jKBLGeRKsdDQ/RrXLNUgyre8bvofa3DE6wdJG/YHY/l8v/Tgp99yTv63PFzFqjvroKpFDmkovAwR2NZzVIwEBUXWKtk68ALlHi9wVC4+YvVTnhzvQh5ZDuDPxXEKMeclyOHMg2eF4w==","workspaceFolders":{"uri":{"$mid":1,"fsPath":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode","_sep":1,"external":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode","path":"/d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode","scheme":"file"},"name":"ProjetoVSCode","index":0},"__sessionId":"4ed3acce-0b2d-4d5a-a188-eae2abe49f24"},"type":"request","seq":2}
+(   0.028s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.044s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"launch","arguments":{"type":"totvs_language_debug","request":"launch","cwb":"D:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode","name":"QUALITA-DEBUG","smartclientBin":"D:/TOTVS 12/Microsiga/Protheus/bin/smartclient33/smartclient.exe","program":"SIGAMDI","programArguments":[],"enableMultiThread":false,"enableProfile":false,"isMultiSession":true,"isAccessibilityMode":false,"doNotShowSplash":false,"openglMode":false,"dpiMode":false,"language":"1","ignoreFiles":true,"enableTableSync":true,"logFile":"D:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\dap.log","__configurationTarget":5,"environment":"COMPILA_I","environmentType":"totvs_server_protheus","token":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9JOkFkbWluOmp0dDdtT0lpOGlyR0tVUXRyOW5CalJDNk1GQ3ZGc3JjZlhvSzZ2bjlkSmc9|djI6MTY1Njk1NjIyMDowOjE6MQ==.Nt65AAVo6zPxE88GYJhSWWKxPToZFc2RvXHIduET5Y0FaNYrbIvh37Ghe/pF/6H0NGAJFzNbaA2KelcyBFqSIW+gruvo8E+jNxYSuyWVBVSHPPGoOtx1VAqqRu7ORWF71bacbCFc3b+sOSRFRlbnMnRWWRdBG37+rXGyE82H9NBqjAO56SGlpEmI9V4iUt5su/LTaTVYi1bPN5Iq9f8WvHFelessSSUDz/QtbVouhc/R5JgEh2gT8j3xED5QZ/t1L6oRkoqjjhOWYLdiHBb2TnqjGGFXt9yE5KjZl8Wez6kE70ZOSXYwk1aUZowvMQ76/M2HMLYKLiz7MmljwjeAPw==","workspaceFolders":{"uri":{"$mid":1,"fsPath":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode","_sep":1,"external":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode","path":"/d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode","scheme":"file"},"name":"ProjetoVSCode","index":0},"__sessionId":"e7014569-735c-4319-b41e-2ea978869e08"},"type":"request","seq":2}
 
-(   0.055s) [main thread     ]       tDAPProtocol.cpp:150   | REQUEST RECEIVED: launch
+(   0.044s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: launch
 
-(   0.055s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (136) {"body":{"level":"INFO","message":"TDS-DA being initialized.","notify":true,"time":"11:53:13"},"event":"TDA/log","seq":3,"type":"event"}
+(   0.044s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (136) {"body":{"level":"INFO","message":"TDS-DA being initialized.","notify":true,"time":"14:54:13"},"event":"TDA/log","seq":3,"type":"event"}
 
-(   0.055s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   0.056s) [main thread     ]    security_manager.cc:314   | authentic TRUE
-(   0.056s) [main thread     ]    security_manager.cc:337   | authentic TRUE
-(   0.067s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"MArqExpoB.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\10_LIB\\MArqExpoB.prw"},"lines":[27,37],"breakpoints":[{"line":27},{"line":37}],"sourceModified":false},"type":"request","seq":3}
+(   0.044s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.045s) [main thread     ]    security_manager.cc:314   | authentic TRUE
+(   0.045s) [main thread     ]    security_manager.cc:337   | authentic TRUE
+(   0.056s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"ChkSc2.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\06_FATURAMENTO\\ChkSc2.prw"},"lines":[7],"breakpoints":[{"line":7}],"sourceModified":false},"type":"request","seq":3}
 
-(   0.067s) [main thread     ]       tDAPProtocol.cpp:150   | REQUEST RECEIVED: setBreakpoints
+(   0.056s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: setBreakpoints
 
-(   0.067s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (501) {"body":{"breakpoints":[{"column":11,"endcolumn":374,"endline":115,"line":27,"source":{"name":"MArqExpoB.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\10_LIB\\MArqExpoB.prw"},"verified":true},{"column":11,"endcolumn":7602273,"endline":4456557,"line":37,"source":{"name":"MArqExpoB.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\10_LIB\\MArqExpoB.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":3,"seq":4,"success":true,"type":"response"}
+(   0.056s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (314) {"body":{"breakpoints":[{"column":0,"endcolumn":379,"endline":-68091904,"line":7,"source":{"name":"ChkSc2.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\06_FATURAMENTO\\ChkSc2.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":3,"seq":4,"success":true,"type":"response"}
 
-(   0.067s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   0.067s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"RelInWeb.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\10_LIB\\RelInWeb.prw"},"lines":[165],"breakpoints":[{"line":165}],"sourceModified":false},"type":"request","seq":4}
+(   0.056s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.056s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"M105BUT.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\05_ESTOQUE\\M105BUT.prw"},"lines":[68],"breakpoints":[{"line":68}],"sourceModified":false},"type":"request","seq":4}
 
-(   0.067s) [main thread     ]       tDAPProtocol.cpp:150   | REQUEST RECEIVED: setBreakpoints
+(   0.056s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: setBreakpoints
 
-(   0.068s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (315) {"body":{"breakpoints":[{"column":11,"endcolumn":3014754,"endline":7667824,"line":165,"source":{"name":"RelInWeb.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\10_LIB\\RelInWeb.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":4,"seq":5,"success":true,"type":"response"}
+(   0.056s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (311) {"body":{"breakpoints":[{"column":0,"endcolumn":7471220,"endline":110,"line":68,"source":{"name":"M105BUT.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\05_ESTOQUE\\M105BUT.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":4,"seq":5,"success":true,"type":"response"}
 
-(   0.068s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   0.073s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGSETINFO | BIT_COMMIT 
-(   0.073s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGSETINFO | BIT_COMMIT. Result: 1
-(   0.089s) [                ]       tDAPProtocol.hpp:205   | Caching files in workspace folder(s) (may take a long time if folder(s) has a lot of files/subfolders)
-(   0.089s) [main thread     ]    security_manager.cc:337   | authentic TRUE
-(   0.089s) [main thread     ]       tDAPProtocol.cpp:1581  | D:/TOTVS 12/Microsiga/Protheus/bin/smartclient_LG_QUALITA/smartclient.exe -DEBUG=11908 -z=192.168.1.103 -y=1236  "-E=compila_q" "-P=SIGAMDI"  -M -L=1 -opengl
-(   0.094s) [                ]       tDAPProtocol.hpp:225   | Caching files completed)
-(   0.094s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (140) {"body":{"level":"INFO","message":"Application Server connected.","notify":true,"time":"11:53:13"},"event":"TDA/log","seq":6,"type":"event"}
+(   0.056s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.056s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"MArqExpoB.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\10_LIB\\MArqExpoB.prw"},"lines":[27,37],"breakpoints":[{"line":27},{"line":37}],"sourceModified":false},"type":"request","seq":5}
 
-(   0.094s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   0.094s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (90) {"command":"launch","message":"","request_seq":2,"seq":6,"success":true,"type":"response"}
+(   0.056s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: setBreakpoints
 
-(   0.094s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   0.134s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"configurationDone","type":"request","seq":5}
+(   0.057s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (509) {"body":{"breakpoints":[{"column":0,"endcolumn":7471205,"endline":7536725,"line":27,"source":{"name":"MArqExpoB.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\10_LIB\\MArqExpoB.prw"},"verified":true},{"column":0,"endcolumn":7828080,"endline":777278786,"line":37,"source":{"name":"MArqExpoB.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\10_LIB\\MArqExpoB.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":5,"seq":6,"success":true,"type":"response"}
 
-(   0.134s) [main thread     ]       tDAPProtocol.cpp:150   | REQUEST RECEIVED: configurationDone
+(   0.057s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.057s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"MCARGACT2.PRW","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCARGACT2.PRW","adapterData":"advpl-adapter-data"},"lines":[111,129,185,193],"breakpoints":[{"line":111},{"line":129},{"line":185},{"line":193}],"sourceModified":false},"type":"request","seq":6}
 
-(   0.135s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (124) {"body":{"level":"INFO","message":"TDS-DA ready.","notify":true,"time":"11:53:13"},"event":"TDA/log","seq":6,"type":"event"}
+(   0.057s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: setBreakpoints
 
-(   0.135s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   0.135s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (101) {"command":"configurationDone","message":"","request_seq":5,"seq":6,"success":true,"type":"response"}
+(   0.057s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (1056) {"body":{"breakpoints":[{"column":0,"endcolumn":7828080,"endline":777257026,"line":111,"source":{"adapterData":"advpl-adapter-data","name":"MCARGACT2.PRW","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCARGACT2.PRW"},"verified":true},{"column":0,"endcolumn":7471223,"endline":1919954498,"line":129,"source":{"adapterData":"advpl-adapter-data","name":"MCARGACT2.PRW","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCARGACT2.PRW"},"verified":true},{"column":0,"endcolumn":6225989,"endline":5242953,"line":185,"source":{"adapterData":"advpl-adapter-data","name":"MCARGACT2.PRW","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCARGACT2.PRW"},"verified":true},{"column":0,"endcolumn":7471220,"endline":110,"line":193,"source":{"adapterData":"advpl-adapter-data","name":"MCARGACT2.PRW","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCARGACT2.PRW"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":6,"seq":7,"success":true,"type":"response"}
 
-(   0.135s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   0.281s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"threads","type":"request","seq":6}
+(   0.057s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.057s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"MCT1CLI.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCT1CLI.prw"},"lines":[25,26,41,94],"breakpoints":[{"line":25},{"line":26},{"line":41},{"line":94}],"sourceModified":false},"type":"request","seq":7}
 
-(   0.281s) [main thread     ]       tDAPProtocol.cpp:150   | REQUEST RECEIVED: threads
+(   0.057s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: setBreakpoints
 
-(   0.282s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (139) {"body":{"threads":[{"id":1,"name":"Thread 1"}]},"command":"threads","message":"","request_seq":6,"seq":7,"success":true,"type":"response"}
+(   0.057s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (897) {"body":{"breakpoints":[{"column":0,"endcolumn":1345204820,"endline":1128351570,"line":25,"source":{"name":"MCT1CLI.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCT1CLI.prw"},"verified":true},{"column":0,"endcolumn":29296,"endline":5505090,"line":26,"source":{"name":"MCT1CLI.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCT1CLI.prw"},"verified":true},{"column":0,"endcolumn":116,"endline":110,"line":41,"source":{"name":"MCT1CLI.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCT1CLI.prw"},"verified":true},{"column":0,"endcolumn":1342190164,"endline":1128351570,"line":94,"source":{"name":"MCT1CLI.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCT1CLI.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":7,"seq":8,"success":true,"type":"response"}
 
-(   0.282s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(   1.743s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(   1.743s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(   1.748s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGGETACTION | BIT_COMMIT 
-(   1.748s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGGETACTION | BIT_COMMIT. Result: 1
-(   2.910s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(   2.910s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(   3.925s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(   3.926s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(   4.941s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(   4.941s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(   5.966s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(   5.966s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(   6.976s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(   6.976s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(   7.991s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(   7.991s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(   9.007s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(   9.007s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(  10.022s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(  10.022s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(  11.038s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(  11.038s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(  12.055s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(  12.055s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(  15.988s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(  15.988s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(  17.003s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(  17.003s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(  18.019s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(  18.019s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(  19.021s) [                ]  tconnectionsocket.cpp:194   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
-(  19.021s) [                ]  tconnectionsocket.cpp:196   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
-(  19.636s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (131) {"body":{"level":"INFO","message":"Closing SmartClient.","notify":true,"time":"11:53:33"},"event":"TDA/log","seq":8,"type":"event"}
+(   0.057s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.057s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"MT100LOK.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\02_COMPRAS\\MT100LOK.prw"},"lines":[15],"breakpoints":[{"line":15}],"sourceModified":false},"type":"request","seq":8}
 
-(  19.636s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(  19.645s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (154) {"body":{"level":"INFO","message":"ExitCode=-1073741819 ExistStatus=CancelExit","notify":true,"time":"11:53:33"},"event":"TDA/log","seq":8,"type":"event"}
+(   0.057s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: setBreakpoints
 
-(  19.645s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(  19.645s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (130) {"body":{"level":"INFO","message":"SmartClient closed.","notify":true,"time":"11:53:33"},"event":"TDA/log","seq":8,"type":"event"}
+(   0.057s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (315) {"body":{"breakpoints":[{"column":0,"endcolumn":29296,"endline":5505090,"line":15,"source":{"name":"MT100LOK.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\02_COMPRAS\\MT100LOK.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":8,"seq":9,"success":true,"type":"response"}
 
-(  19.645s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(  19.657s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (127) {"body":{"level":"INFO","message":"TDS-DA finished.","notify":true,"time":"11:53:33"},"event":"TDA/log","seq":8,"type":"event"}
+(   0.057s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.057s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"MT100TOK.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\02_COMPRAS\\MT100TOK.prw"},"lines":[21],"breakpoints":[{"line":21}],"sourceModified":false},"type":"request","seq":9}
 
-(  19.657s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(  19.657s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (45) {"event":"terminated","seq":8,"type":"event"}
+(   0.058s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: setBreakpoints
 
-(  19.657s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
-(  19.685s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"disconnect","arguments":{"restart":false,"terminateDebuggee":false},"type":"request","seq":7}
+(   0.058s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (324) {"body":{"breakpoints":[{"column":0,"endcolumn":2003988526,"endline":1263488048,"line":21,"source":{"name":"MT100TOK.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\02_COMPRAS\\MT100TOK.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":9,"seq":10,"success":true,"type":"response"}
 
-(  19.685s) [main thread     ]       tDAPProtocol.cpp:150   | REQUEST RECEIVED: disconnect
+(   0.058s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.058s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"name":"SEQLOTE.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\05_ESTOQUE\\SEQLOTE.prw"},"lines":[15],"breakpoints":[{"line":15}],"sourceModified":false},"type":"request","seq":10}
 
-(  19.685s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (94) {"command":"disconnect","message":"","request_seq":7,"seq":8,"success":true,"type":"response"}
+(   0.058s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: setBreakpoints
 
-(  19.685s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.058s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (323) {"body":{"breakpoints":[{"column":0,"endcolumn":2003988526,"endline":1263488048,"line":15,"source":{"name":"SEQLOTE.prw","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\05_ESTOQUE\\SEQLOTE.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":10,"seq":11,"success":true,"type":"response"}
+
+(   0.058s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.059s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGSETINFO | BIT_COMMIT 
+(   0.060s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGSETINFO | BIT_COMMIT. Result: 1
+(   0.080s) [                ]       tDAPProtocol.hpp:205   | Caching files in workspace folder(s) (may take a long time if folder(s) has a lot of files/subfolders)
+(   0.080s) [main thread     ]    security_manager.cc:337   | authentic TRUE
+(   0.080s) [main thread     ]       tDAPProtocol.cpp:1616  | D:/TOTVS 12/Microsiga/Protheus/bin/smartclient33/smartclient.exe -DEBUG=7924 -z=192.168.1.103 -y=1236  "-E=COMPILA_I" "-P=SIGAMDI"  -M -L=1
+(   0.085s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (141) {"body":{"level":"INFO","message":"Application Server connected.","notify":true,"time":"14:54:13"},"event":"TDA/log","seq":12,"type":"event"}
+
+(   0.085s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.085s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (91) {"command":"launch","message":"","request_seq":2,"seq":12,"success":true,"type":"response"}
+
+(   0.085s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.088s) [                ]       tDAPProtocol.hpp:225   | Caching files completed)
+(   0.119s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"configurationDone","type":"request","seq":11}
+
+(   0.119s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: configurationDone
+
+(   0.119s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (125) {"body":{"level":"INFO","message":"TDS-DA ready.","notify":true,"time":"14:54:13"},"event":"TDA/log","seq":12,"type":"event"}
+
+(   0.119s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.119s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (103) {"command":"configurationDone","message":"","request_seq":11,"seq":12,"success":true,"type":"response"}
+
+(   0.119s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   0.215s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"threads","type":"request","seq":12}
+
+(   0.215s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: threads
+
+(   0.215s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (141) {"body":{"threads":[{"id":1,"name":"Thread 1"}]},"command":"threads","message":"","request_seq":12,"seq":13,"success":true,"type":"response"}
+
+(   0.215s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(   1.209s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(   1.209s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(   1.211s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGGETACTION | BIT_COMMIT 
+(   1.211s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGGETACTION | BIT_COMMIT. Result: 1
+(   2.211s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(   2.211s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(   3.213s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(   3.213s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(   4.214s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(   4.214s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(   5.215s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(   5.215s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(   6.216s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(   6.216s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(   7.217s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(   7.217s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  11.396s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  11.397s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  12.398s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  12.398s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  13.400s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  13.400s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  14.407s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  14.407s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  15.408s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  15.408s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  17.712s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  17.712s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  19.526s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  19.526s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  20.854s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  20.854s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  22.837s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  22.837s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  25.117s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  25.117s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  27.248s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  27.248s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  30.817s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  30.817s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  31.896s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  31.896s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  32.898s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  32.898s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  33.900s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  33.900s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  34.902s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  34.902s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  35.904s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  35.904s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  36.906s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  36.906s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  37.966s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  37.966s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  38.968s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  38.968s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  39.970s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  39.971s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  40.972s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  40.972s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  41.974s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  41.974s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  42.976s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  42.976s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  43.978s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  43.978s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  46.414s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  46.414s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  47.416s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  47.416s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  48.418s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  48.418s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  49.420s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  49.420s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  50.423s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  50.423s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  51.425s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  51.425s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  53.286s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  53.286s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  54.549s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  54.549s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  57.928s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  57.928s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  59.443s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  59.443s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  60.467s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  60.467s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  62.452s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  62.452s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  63.558s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  63.559s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  64.882s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  64.882s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  66.613s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  66.613s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  68.037s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  68.037s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  69.822s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  69.822s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  72.583s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  72.583s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  75.462s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  75.462s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  77.828s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  77.829s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  78.127s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGGETACTION | BIT_COMMIT 
+(  78.128s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGGETACTION | BIT_COMMIT. Result: 1
+(  78.128s) [main thread     ]       tDAPProtocol.cpp:1360  | GETACTION RECEBIDO: MCT1CLI.PRW - 41
+
+(  78.128s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (165) {"body":{"allThreadsStopped":true,"description":"","preserveFocusHint":false,"reason":"breakpoint","text":"","threadId":1},"event":"stopped","seq":14,"type":"event"}
+
+(  78.128s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  78.132s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"threads","type":"request","seq":13}
+
+(  78.132s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: threads
+
+(  78.132s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (141) {"body":{"threads":[{"id":1,"name":"Thread 1"}]},"command":"threads","message":"","request_seq":13,"seq":14,"success":true,"type":"response"}
+
+(  78.132s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  78.144s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"stackTrace","arguments":{"threadId":1,"startFrame":0,"levels":1},"type":"request","seq":14}
+
+(  78.144s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: stackTrace
+
+(  78.147s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (332) {"body":{"stackFrames":[{"column":0,"id":22,"line":41,"name":"U_MCT1CLI","source":{"adapterData":"advpl-adapter-data","name":"MCT1CLI.PRW","path":"D:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/04_CONTABIL/MCT1CLI.prw"}}],"totalFrames":1},"command":"stackTrace","message":"","request_seq":14,"seq":15,"success":true,"type":"response"}
+
+(  78.147s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  78.380s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"csenhas","frameId":22,"context":"watch"},"type":"request","seq":15}
+
+(  78.380s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  78.380s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":15,"seq":16,"success":true,"type":"response"}
+
+(  78.381s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  78.381s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"aInfUsr","frameId":22,"context":"watch"},"type":"request","seq":16}
+
+(  78.381s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  78.381s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":16,"seq":17,"success":true,"type":"response"}
+
+(  78.381s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  78.381s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"lMsErroAuto","frameId":22,"context":"watch"},"type":"request","seq":17}
+
+(  78.381s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  78.381s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":17,"seq":18,"success":true,"type":"response"}
+
+(  78.381s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  78.578s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"stackTrace","arguments":{"threadId":1,"startFrame":1,"levels":19},"type":"request","seq":18}
+
+(  78.578s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: stackTrace
+
+(  78.581s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (2909) {"body":{"stackFrames":[{"column":0,"id":22,"line":152,"name":"U_CRMA980","source":{"adapterData":"advpl-adapter-data","name":"CRMA980_PE.PRW","path":"D:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/06_FATURAMENTO/CRMA980_pe.prw"}},{"column":0,"id":21,"line":163,"name":"EXECBLOCK","source":{"adapterData":"advpl-adapter-data","name":"APLIB190.PRW","path":"APLIB190.PRW"}},{"column":0,"id":20,"line":2121,"name":"EXFORMCOMMIT","source":{"adapterData":"advpl-adapter-data","name":"PROTHEUSFUNCTIONMVC.PRX","path":"PROTHEUSFUNCTIONMVC.PRX"}},{"column":0,"id":19,"line":1790,"name":"FWFORMCOMMIT","source":{"adapterData":"advpl-adapter-data","name":"PROTHEUSFUNCTIONMVC.PRX","path":"PROTHEUSFUNCTIONMVC.PRX"}},{"column":0,"id":18,"line":116,"name":"{||FWFORMCOMMIT(SELF)}","source":{"adapterData":"advpl-adapter-data","name":"MPFORMMODEL.PRX","path":"MPFORMMODEL.PRX"}},{"column":0,"id":17,"line":2280,"name":"COMMITDATA","source":{"adapterData":"advpl-adapter-data","name":"FWFORMMODEL.PRX","path":"FWFORMMODEL.PRX"}},{"column":0,"id":16,"line":2218,"name":"BUTTONOKACTION","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":15,"line":2083,"name":"{||SELF:BUTTONOKACTION( LISOWNERDLG )}","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":14,"line":6993,"name":"SAFEEVAL","source":{"adapterData":"advpl-adapter-data","name":"MSLIB.PRW","path":"MSLIB.PRW"}},{"column":0,"id":13,"line":2083,"name":"{||  SAFEEVAL( {||SELF:BUTTONOKACTION( LISOWNERDLG )} ) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":12,"line":414,"name":"{||  EVAL(BOK,SELF:OFWFORMVIEW) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBAR.PRW","path":"FWFORMBAR.PRW"}},{"column":0,"id":11,"line":0,"name":"MSDIALOG:ACTIVATE"},{"column":0,"id":10,"line":189,"name":"SHOW","source":{"adapterData":"advpl-adapter-data","name":"FWMVCWINDOW.PRW","path":"FWMVCWINDOW.PRW"}},{"column":0,"id":9,"line":215,"name":"ACTIVATE","source":{"adapterData":"advpl-adapter-data","name":"FWMVCWINDOW.PRW","path":"FWMVCWINDOW.PRW"}},{"column":0,"id":8,"line":488,"name":"OPENVIEW","source":{"adapterData":"advpl-adapter-data","name":"FWVIEWEXEC.PRW","path":"FWVIEWEXEC.PRW"}},{"column":0,"id":7,"line":1088,"name":"EXECUTE","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBROWSE.PRW","path":"FWFORMBROWSE.PRW"}},{"column":0,"id":6,"line":579,"name":"{|| OSELF:EXECUTE(\"VIEWDEF.CRMA980\",              3,             0,\"INCLUIR\",              3,\"\",\"\",\"\",               3) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBROWSE.PRW","path":"FWFORMBROWSE.PRW"}},{"column":0,"id":5,"line":0,"name":"MSDIALOG:ACTIVATE"}],"totalFrames":19},"command":"stackTrace","message":"","request_seq":18,"seq":19,"success":true,"type":"response"}
+
+(  78.581s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  78.620s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"scopes","arguments":{"frameId":22},"type":"request","seq":19}
+
+(  78.620s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: scopes
+
+(  78.626s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (351) {"body":{"scopes":[{"expensive":true,"name":"Private","namedVariables":295,"variablesReference":50},{"expensive":true,"name":"Public","namedVariables":253,"variablesReference":49},{"expensive":true,"name":"Table","namedVariables":83,"variablesReference":54}]},"command":"scopes","message":"","request_seq":19,"seq":20,"success":true,"type":"response"}
+
+(  78.626s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  84.051s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"setBreakpoints","arguments":{"source":{"adapterData":"advpl-adapter-data","name":"MCT1CLI.PRW","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCT1CLI.prw"},"lines":[25,26,94],"breakpoints":[{"line":25},{"line":26},{"line":94}],"sourceModified":false},"type":"request","seq":20}
+
+(  84.051s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: setBreakpoints
+
+(  84.052s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (773) {"body":{"breakpoints":[{"column":0,"endcolumn":0,"endline":0,"line":25,"source":{"adapterData":"advpl-adapter-data","name":"MCT1CLI.PRW","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCT1CLI.prw"},"verified":true},{"column":0,"endcolumn":0,"endline":0,"line":26,"source":{"adapterData":"advpl-adapter-data","name":"MCT1CLI.PRW","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCT1CLI.prw"},"verified":true},{"column":0,"endcolumn":0,"endline":0,"line":94,"source":{"adapterData":"advpl-adapter-data","name":"MCT1CLI.PRW","path":"d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode\\04_CONTABIL\\MCT1CLI.prw"},"verified":true}]},"command":"setBreakpoints","message":"","request_seq":20,"seq":21,"success":true,"type":"response"}
+
+(  84.052s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  85.936s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"next","arguments":{"threadId":1},"type":"request","seq":21}
+
+(  85.936s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: next
+
+(  85.936s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (90) {"command":"next","message":"","request_seq":21,"seq":22,"success":true,"type":"response"}
+
+(  85.936s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  85.937s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  85.937s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  85.939s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGGETACTION | BIT_COMMIT 
+(  85.939s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGGETACTION | BIT_COMMIT. Result: 1
+(  85.939s) [main thread     ]       tDAPProtocol.cpp:1360  | GETACTION RECEBIDO: MCT1CLI.PRW - 42
+
+(  85.939s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (159) {"body":{"allThreadsStopped":true,"description":"","preserveFocusHint":false,"reason":"step","text":"","threadId":1},"event":"stopped","seq":23,"type":"event"}
+
+(  85.939s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  85.956s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"threads","type":"request","seq":22}
+
+(  85.956s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: threads
+
+(  85.956s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (141) {"body":{"threads":[{"id":1,"name":"Thread 1"}]},"command":"threads","message":"","request_seq":22,"seq":23,"success":true,"type":"response"}
+
+(  85.956s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  85.963s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"stackTrace","arguments":{"threadId":1,"startFrame":0,"levels":1},"type":"request","seq":23}
+
+(  85.963s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: stackTrace
+
+(  85.966s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (332) {"body":{"stackFrames":[{"column":0,"id":22,"line":42,"name":"U_MCT1CLI","source":{"adapterData":"advpl-adapter-data","name":"MCT1CLI.PRW","path":"D:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/04_CONTABIL/MCT1CLI.prw"}}],"totalFrames":1},"command":"stackTrace","message":"","request_seq":23,"seq":24,"success":true,"type":"response"}
+
+(  85.966s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  86.100s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"csenhas","frameId":22,"context":"watch"},"type":"request","seq":24}
+
+(  86.100s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  86.100s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":24,"seq":25,"success":true,"type":"response"}
+
+(  86.100s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  86.100s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"aInfUsr","frameId":22,"context":"watch"},"type":"request","seq":25}
+
+(  86.100s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  86.101s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":25,"seq":26,"success":true,"type":"response"}
+
+(  86.101s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  86.101s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"lMsErroAuto","frameId":22,"context":"watch"},"type":"request","seq":26}
+
+(  86.101s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  86.101s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":26,"seq":27,"success":true,"type":"response"}
+
+(  86.101s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  86.397s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"scopes","arguments":{"frameId":22},"type":"request","seq":27}
+
+(  86.398s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: scopes
+
+(  86.404s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (429) {"body":{"scopes":[{"expensive":false,"name":"Local","namedVariables":1,"variablesReference":51},{"expensive":true,"name":"Private","namedVariables":295,"variablesReference":50},{"expensive":true,"name":"Public","namedVariables":253,"variablesReference":49},{"expensive":true,"name":"Table","namedVariables":83,"variablesReference":54}]},"command":"scopes","message":"","request_seq":27,"seq":28,"success":true,"type":"response"}
+
+(  86.404s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  86.404s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"stackTrace","arguments":{"threadId":1,"startFrame":1,"levels":19},"type":"request","seq":28}
+
+(  86.404s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: stackTrace
+
+(  86.408s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (2909) {"body":{"stackFrames":[{"column":0,"id":22,"line":152,"name":"U_CRMA980","source":{"adapterData":"advpl-adapter-data","name":"CRMA980_PE.PRW","path":"D:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/06_FATURAMENTO/CRMA980_pe.prw"}},{"column":0,"id":21,"line":163,"name":"EXECBLOCK","source":{"adapterData":"advpl-adapter-data","name":"APLIB190.PRW","path":"APLIB190.PRW"}},{"column":0,"id":20,"line":2121,"name":"EXFORMCOMMIT","source":{"adapterData":"advpl-adapter-data","name":"PROTHEUSFUNCTIONMVC.PRX","path":"PROTHEUSFUNCTIONMVC.PRX"}},{"column":0,"id":19,"line":1790,"name":"FWFORMCOMMIT","source":{"adapterData":"advpl-adapter-data","name":"PROTHEUSFUNCTIONMVC.PRX","path":"PROTHEUSFUNCTIONMVC.PRX"}},{"column":0,"id":18,"line":116,"name":"{||FWFORMCOMMIT(SELF)}","source":{"adapterData":"advpl-adapter-data","name":"MPFORMMODEL.PRX","path":"MPFORMMODEL.PRX"}},{"column":0,"id":17,"line":2280,"name":"COMMITDATA","source":{"adapterData":"advpl-adapter-data","name":"FWFORMMODEL.PRX","path":"FWFORMMODEL.PRX"}},{"column":0,"id":16,"line":2218,"name":"BUTTONOKACTION","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":15,"line":2083,"name":"{||SELF:BUTTONOKACTION( LISOWNERDLG )}","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":14,"line":6993,"name":"SAFEEVAL","source":{"adapterData":"advpl-adapter-data","name":"MSLIB.PRW","path":"MSLIB.PRW"}},{"column":0,"id":13,"line":2083,"name":"{||  SAFEEVAL( {||SELF:BUTTONOKACTION( LISOWNERDLG )} ) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":12,"line":414,"name":"{||  EVAL(BOK,SELF:OFWFORMVIEW) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBAR.PRW","path":"FWFORMBAR.PRW"}},{"column":0,"id":11,"line":0,"name":"MSDIALOG:ACTIVATE"},{"column":0,"id":10,"line":189,"name":"SHOW","source":{"adapterData":"advpl-adapter-data","name":"FWMVCWINDOW.PRW","path":"FWMVCWINDOW.PRW"}},{"column":0,"id":9,"line":215,"name":"ACTIVATE","source":{"adapterData":"advpl-adapter-data","name":"FWMVCWINDOW.PRW","path":"FWMVCWINDOW.PRW"}},{"column":0,"id":8,"line":488,"name":"OPENVIEW","source":{"adapterData":"advpl-adapter-data","name":"FWVIEWEXEC.PRW","path":"FWVIEWEXEC.PRW"}},{"column":0,"id":7,"line":1088,"name":"EXECUTE","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBROWSE.PRW","path":"FWFORMBROWSE.PRW"}},{"column":0,"id":6,"line":579,"name":"{|| OSELF:EXECUTE(\"VIEWDEF.CRMA980\",              3,             0,\"INCLUIR\",              3,\"\",\"\",\"\",               3) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBROWSE.PRW","path":"FWFORMBROWSE.PRW"}},{"column":0,"id":5,"line":0,"name":"MSDIALOG:ACTIVATE"}],"totalFrames":19},"command":"stackTrace","message":"","request_seq":28,"seq":29,"success":true,"type":"response"}
+
+(  86.408s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  86.415s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"variables","arguments":{"variablesReference":51},"type":"request","seq":29}
+
+(  86.415s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: variables
+
+(  86.416s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (291) {"body":{"variables":[{"evaluateName":"AAREAOLD","indexedVariables":0,"kind":"","name":"AAREAOLD","namedVariables":3,"type":"A","value":"Array {size=3}","variablesReference":158,"visibility":""}]},"command":"variables","message":"","request_seq":29,"seq":30,"success":true,"type":"response"}
+
+(  86.416s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.494s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"stepIn","arguments":{"threadId":1},"type":"request","seq":30}
+
+(  87.494s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: stepIn
+
+(  87.494s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (92) {"command":"stepIn","message":"","request_seq":30,"seq":31,"success":true,"type":"response"}
+
+(  87.494s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.495s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  87.495s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  87.497s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGGETACTION | BIT_COMMIT 
+(  87.497s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGGETACTION | BIT_COMMIT. Result: 1
+(  87.497s) [main thread     ]       tDAPProtocol.cpp:1360  | GETACTION RECEBIDO: MCT1CLI.PRW - 43
+
+(  87.497s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (159) {"body":{"allThreadsStopped":true,"description":"","preserveFocusHint":false,"reason":"step","text":"","threadId":1},"event":"stopped","seq":32,"type":"event"}
+
+(  87.497s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.513s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"threads","type":"request","seq":31}
+
+(  87.513s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: threads
+
+(  87.513s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (141) {"body":{"threads":[{"id":1,"name":"Thread 1"}]},"command":"threads","message":"","request_seq":31,"seq":32,"success":true,"type":"response"}
+
+(  87.513s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.518s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"stackTrace","arguments":{"threadId":1,"startFrame":0,"levels":1},"type":"request","seq":32}
+
+(  87.518s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: stackTrace
+
+(  87.521s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (332) {"body":{"stackFrames":[{"column":0,"id":22,"line":43,"name":"U_MCT1CLI","source":{"adapterData":"advpl-adapter-data","name":"MCT1CLI.PRW","path":"D:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/04_CONTABIL/MCT1CLI.prw"}}],"totalFrames":1},"command":"stackTrace","message":"","request_seq":32,"seq":33,"success":true,"type":"response"}
+
+(  87.521s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.667s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"csenhas","frameId":22,"context":"watch"},"type":"request","seq":33}
+
+(  87.667s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  87.668s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":33,"seq":34,"success":true,"type":"response"}
+
+(  87.668s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.668s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"aInfUsr","frameId":22,"context":"watch"},"type":"request","seq":34}
+
+(  87.668s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  87.668s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":34,"seq":35,"success":true,"type":"response"}
+
+(  87.668s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.668s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"lMsErroAuto","frameId":22,"context":"watch"},"type":"request","seq":35}
+
+(  87.668s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  87.669s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":35,"seq":36,"success":true,"type":"response"}
+
+(  87.669s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.968s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"scopes","arguments":{"frameId":22},"type":"request","seq":36}
+
+(  87.968s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: scopes
+
+(  87.974s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (429) {"body":{"scopes":[{"expensive":false,"name":"Local","namedVariables":2,"variablesReference":51},{"expensive":true,"name":"Private","namedVariables":295,"variablesReference":50},{"expensive":true,"name":"Public","namedVariables":253,"variablesReference":49},{"expensive":true,"name":"Table","namedVariables":83,"variablesReference":54}]},"command":"scopes","message":"","request_seq":36,"seq":37,"success":true,"type":"response"}
+
+(  87.974s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.974s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"stackTrace","arguments":{"threadId":1,"startFrame":1,"levels":19},"type":"request","seq":37}
+
+(  87.974s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: stackTrace
+
+(  87.978s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (2909) {"body":{"stackFrames":[{"column":0,"id":22,"line":152,"name":"U_CRMA980","source":{"adapterData":"advpl-adapter-data","name":"CRMA980_PE.PRW","path":"D:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/06_FATURAMENTO/CRMA980_pe.prw"}},{"column":0,"id":21,"line":163,"name":"EXECBLOCK","source":{"adapterData":"advpl-adapter-data","name":"APLIB190.PRW","path":"APLIB190.PRW"}},{"column":0,"id":20,"line":2121,"name":"EXFORMCOMMIT","source":{"adapterData":"advpl-adapter-data","name":"PROTHEUSFUNCTIONMVC.PRX","path":"PROTHEUSFUNCTIONMVC.PRX"}},{"column":0,"id":19,"line":1790,"name":"FWFORMCOMMIT","source":{"adapterData":"advpl-adapter-data","name":"PROTHEUSFUNCTIONMVC.PRX","path":"PROTHEUSFUNCTIONMVC.PRX"}},{"column":0,"id":18,"line":116,"name":"{||FWFORMCOMMIT(SELF)}","source":{"adapterData":"advpl-adapter-data","name":"MPFORMMODEL.PRX","path":"MPFORMMODEL.PRX"}},{"column":0,"id":17,"line":2280,"name":"COMMITDATA","source":{"adapterData":"advpl-adapter-data","name":"FWFORMMODEL.PRX","path":"FWFORMMODEL.PRX"}},{"column":0,"id":16,"line":2218,"name":"BUTTONOKACTION","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":15,"line":2083,"name":"{||SELF:BUTTONOKACTION( LISOWNERDLG )}","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":14,"line":6993,"name":"SAFEEVAL","source":{"adapterData":"advpl-adapter-data","name":"MSLIB.PRW","path":"MSLIB.PRW"}},{"column":0,"id":13,"line":2083,"name":"{||  SAFEEVAL( {||SELF:BUTTONOKACTION( LISOWNERDLG )} ) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":12,"line":414,"name":"{||  EVAL(BOK,SELF:OFWFORMVIEW) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBAR.PRW","path":"FWFORMBAR.PRW"}},{"column":0,"id":11,"line":0,"name":"MSDIALOG:ACTIVATE"},{"column":0,"id":10,"line":189,"name":"SHOW","source":{"adapterData":"advpl-adapter-data","name":"FWMVCWINDOW.PRW","path":"FWMVCWINDOW.PRW"}},{"column":0,"id":9,"line":215,"name":"ACTIVATE","source":{"adapterData":"advpl-adapter-data","name":"FWMVCWINDOW.PRW","path":"FWMVCWINDOW.PRW"}},{"column":0,"id":8,"line":488,"name":"OPENVIEW","source":{"adapterData":"advpl-adapter-data","name":"FWVIEWEXEC.PRW","path":"FWVIEWEXEC.PRW"}},{"column":0,"id":7,"line":1088,"name":"EXECUTE","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBROWSE.PRW","path":"FWFORMBROWSE.PRW"}},{"column":0,"id":6,"line":579,"name":"{|| OSELF:EXECUTE(\"VIEWDEF.CRMA980\",              3,             0,\"INCLUIR\",              3,\"\",\"\",\"\",               3) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBROWSE.PRW","path":"FWFORMBROWSE.PRW"}},{"column":0,"id":5,"line":0,"name":"MSDIALOG:ACTIVATE"}],"totalFrames":19},"command":"stackTrace","message":"","request_seq":37,"seq":38,"success":true,"type":"response"}
+
+(  87.978s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  87.986s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"variables","arguments":{"variablesReference":51},"type":"request","seq":38}
+
+(  87.986s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: variables
+
+(  87.986s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (449) {"body":{"variables":[{"evaluateName":"AAREAOLD","indexedVariables":0,"kind":"","name":"AAREAOLD","namedVariables":3,"type":"A","value":"Array {size=3}","variablesReference":158,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"CBASECTA","namedVariables":0,"type":"C","value":"\"11201\"","variablesReference":0,"visibility":""}]},"command":"variables","message":"","request_seq":38,"seq":39,"success":true,"type":"response"}
+
+(  87.986s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  89.989s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"continue","arguments":{"threadId":1},"type":"request","seq":39}
+
+(  89.989s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: continue
+
+(  89.989s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (130) {"body":{"allThreadsContinued":true},"command":"continue","message":"","request_seq":39,"seq":40,"success":true,"type":"response"}
+
+(  89.989s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  89.990s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  89.990s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  89.995s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGGETACTION | BIT_COMMIT 
+(  89.995s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGGETACTION | BIT_COMMIT. Result: 1
+(  89.995s) [main thread     ]       tDAPProtocol.cpp:1360  | GETACTION RECEBIDO: MCT1CLI.PRW - 94
+
+(  89.995s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (165) {"body":{"allThreadsStopped":true,"description":"","preserveFocusHint":false,"reason":"breakpoint","text":"","threadId":1},"event":"stopped","seq":41,"type":"event"}
+
+(  89.995s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  90.007s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"threads","type":"request","seq":40}
+
+(  90.008s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: threads
+
+(  90.008s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (141) {"body":{"threads":[{"id":1,"name":"Thread 1"}]},"command":"threads","message":"","request_seq":40,"seq":41,"success":true,"type":"response"}
+
+(  90.008s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  90.011s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"stackTrace","arguments":{"threadId":1,"startFrame":0,"levels":1},"type":"request","seq":41}
+
+(  90.011s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: stackTrace
+
+(  90.015s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (332) {"body":{"stackFrames":[{"column":0,"id":22,"line":94,"name":"U_MCT1CLI","source":{"adapterData":"advpl-adapter-data","name":"MCT1CLI.PRW","path":"D:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/04_CONTABIL/MCT1CLI.prw"}}],"totalFrames":1},"command":"stackTrace","message":"","request_seq":41,"seq":42,"success":true,"type":"response"}
+
+(  90.015s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  90.171s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"csenhas","frameId":22,"context":"watch"},"type":"request","seq":42}
+
+(  90.171s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  90.172s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":42,"seq":43,"success":true,"type":"response"}
+
+(  90.172s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  90.172s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"aInfUsr","frameId":22,"context":"watch"},"type":"request","seq":43}
+
+(  90.172s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  90.172s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":43,"seq":44,"success":true,"type":"response"}
+
+(  90.172s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  90.172s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"evaluate","arguments":{"expression":"lMsErroAuto","frameId":22,"context":"watch"},"type":"request","seq":44}
+
+(  90.172s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: evaluate
+
+(  90.173s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (239) {"body":{"indexedVariables":0,"namedVariables":0,"presentationHint":{"kind":"","visibility":""},"result":"NIL","type":"U","variablesReference":0},"command":"evaluate","message":"","request_seq":44,"seq":45,"success":true,"type":"response"}
+
+(  90.173s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  90.445s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"scopes","arguments":{"frameId":22},"type":"request","seq":45}
+
+(  90.445s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: scopes
+
+(  90.452s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (430) {"body":{"scopes":[{"expensive":false,"name":"Local","namedVariables":10,"variablesReference":51},{"expensive":true,"name":"Private","namedVariables":295,"variablesReference":50},{"expensive":true,"name":"Public","namedVariables":253,"variablesReference":49},{"expensive":true,"name":"Table","namedVariables":83,"variablesReference":54}]},"command":"scopes","message":"","request_seq":45,"seq":46,"success":true,"type":"response"}
+
+(  90.452s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  90.456s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"stackTrace","arguments":{"threadId":1,"startFrame":1,"levels":19},"type":"request","seq":46}
+
+(  90.456s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: stackTrace
+
+(  90.459s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (2909) {"body":{"stackFrames":[{"column":0,"id":22,"line":152,"name":"U_CRMA980","source":{"adapterData":"advpl-adapter-data","name":"CRMA980_PE.PRW","path":"D:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/06_FATURAMENTO/CRMA980_pe.prw"}},{"column":0,"id":21,"line":163,"name":"EXECBLOCK","source":{"adapterData":"advpl-adapter-data","name":"APLIB190.PRW","path":"APLIB190.PRW"}},{"column":0,"id":20,"line":2121,"name":"EXFORMCOMMIT","source":{"adapterData":"advpl-adapter-data","name":"PROTHEUSFUNCTIONMVC.PRX","path":"PROTHEUSFUNCTIONMVC.PRX"}},{"column":0,"id":19,"line":1790,"name":"FWFORMCOMMIT","source":{"adapterData":"advpl-adapter-data","name":"PROTHEUSFUNCTIONMVC.PRX","path":"PROTHEUSFUNCTIONMVC.PRX"}},{"column":0,"id":18,"line":116,"name":"{||FWFORMCOMMIT(SELF)}","source":{"adapterData":"advpl-adapter-data","name":"MPFORMMODEL.PRX","path":"MPFORMMODEL.PRX"}},{"column":0,"id":17,"line":2280,"name":"COMMITDATA","source":{"adapterData":"advpl-adapter-data","name":"FWFORMMODEL.PRX","path":"FWFORMMODEL.PRX"}},{"column":0,"id":16,"line":2218,"name":"BUTTONOKACTION","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":15,"line":2083,"name":"{||SELF:BUTTONOKACTION( LISOWNERDLG )}","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":14,"line":6993,"name":"SAFEEVAL","source":{"adapterData":"advpl-adapter-data","name":"MSLIB.PRW","path":"MSLIB.PRW"}},{"column":0,"id":13,"line":2083,"name":"{||  SAFEEVAL( {||SELF:BUTTONOKACTION( LISOWNERDLG )} ) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMVIEW.PRW","path":"FWFORMVIEW.PRW"}},{"column":0,"id":12,"line":414,"name":"{||  EVAL(BOK,SELF:OFWFORMVIEW) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBAR.PRW","path":"FWFORMBAR.PRW"}},{"column":0,"id":11,"line":0,"name":"MSDIALOG:ACTIVATE"},{"column":0,"id":10,"line":189,"name":"SHOW","source":{"adapterData":"advpl-adapter-data","name":"FWMVCWINDOW.PRW","path":"FWMVCWINDOW.PRW"}},{"column":0,"id":9,"line":215,"name":"ACTIVATE","source":{"adapterData":"advpl-adapter-data","name":"FWMVCWINDOW.PRW","path":"FWMVCWINDOW.PRW"}},{"column":0,"id":8,"line":488,"name":"OPENVIEW","source":{"adapterData":"advpl-adapter-data","name":"FWVIEWEXEC.PRW","path":"FWVIEWEXEC.PRW"}},{"column":0,"id":7,"line":1088,"name":"EXECUTE","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBROWSE.PRW","path":"FWFORMBROWSE.PRW"}},{"column":0,"id":6,"line":579,"name":"{|| OSELF:EXECUTE(\"VIEWDEF.CRMA980\",              3,             0,\"INCLUIR\",              3,\"\",\"\",\"\",               3) }","source":{"adapterData":"advpl-adapter-data","name":"FWFORMBROWSE.PRW","path":"FWFORMBROWSE.PRW"}},{"column":0,"id":5,"line":0,"name":"MSDIALOG:ACTIVATE"}],"totalFrames":19},"command":"stackTrace","message":"","request_seq":46,"seq":47,"success":true,"type":"response"}
+
+(  90.460s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  90.460s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"variables","arguments":{"variablesReference":51},"type":"request","seq":47}
+
+(  90.460s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: variables
+
+(  90.460s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (1902) {"body":{"variables":[{"evaluateName":"AAREAOLD","indexedVariables":0,"kind":"","name":"AAREAOLD","namedVariables":3,"type":"A","value":"Array {size=3}","variablesReference":158,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"CBASECTA","namedVariables":0,"type":"C","value":"\"11201\"","variablesReference":0,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"CULTCTA","namedVariables":0,"type":"C","value":"\"\"","variablesReference":0,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"CULTRED","namedVariables":0,"type":"C","value":"\"\"","variablesReference":0,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"CQUERY","namedVariables":0,"type":"C","value":"\"\"","variablesReference":0,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"CQUERYA1","namedVariables":0,"type":"C","value":"\"SELECT A1_CONTA \r\nFROM SA1050 SA1 \r\nWHERE D_E_L_E_T_ <> '*' \r\n AND ((A1_TIPO = 'J' AND SUBSTR(A1_CGC,1,8) = '01353155') OR (A1_TIPO <> 'J' AND A1_CGC = '01353155650   ')) \"","variablesReference":0,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"CCTAREF","namedVariables":0,"type":"C","value":"\"1.01.02.02.01                 \"","variablesReference":0,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"CCTASUP","namedVariables":0,"type":"C","value":"\"1.01.02.02                    \"","variablesReference":0,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"CMSGSTOP","namedVariables":0,"type":"C","value":"\"\"","variablesReference":0,"visibility":""},{"evaluateName":"","indexedVariables":0,"kind":"","name":"LGRAVOU","namedVariables":0,"type":"L","value":".T.","variablesReference":0,"visibility":""}]},"command":"variables","message":"","request_seq":47,"seq":48,"success":true,"type":"response"}
+
+(  90.460s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  92.101s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"continue","arguments":{"threadId":1},"type":"request","seq":48}
+
+(  92.101s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: continue
+
+(  92.101s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (130) {"body":{"allThreadsContinued":true},"command":"continue","message":"","request_seq":48,"seq":49,"success":true,"type":"response"}
+
+(  92.101s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+(  92.102s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  92.102s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+(  98.972s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+(  98.972s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 103.223s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 103.223s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 104.228s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 104.228s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 105.241s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 105.241s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 106.242s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 106.242s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 109.228s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 109.228s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 110.428s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 110.428s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 111.431s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 111.431s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 112.443s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 112.443s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 113.444s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 113.444s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 114.445s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 114.445s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 115.446s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 115.446s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 116.447s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 116.447s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 117.454s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 117.454s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 118.456s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 118.456s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 119.458s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 119.458s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 120.463s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 120.463s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 121.465s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 121.465s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 124.249s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 124.249s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 126.725s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 126.725s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 128.724s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 128.724s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 131.251s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 131.251s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 132.339s) [                ]  tconnectionsocket.cpp:203   | Msg from Srv MS_DBGIDLE | BIT_COMMIT 
+( 132.339s) [                ]  tconnectionsocket.cpp:205   | Finished Msg from Srv MS_DBGIDLE | BIT_COMMIT. Result: 1
+( 132.525s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (132) {"body":{"level":"INFO","message":"Closing SmartClient.","notify":true,"time":"14:56:25"},"event":"TDA/log","seq":50,"type":"event"}
+
+( 132.525s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+( 132.593s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (149) {"body":{"level":"INFO","message":"ExitCode=62097 ExistStatus=CancelExit","notify":true,"time":"14:56:25"},"event":"TDA/log","seq":50,"type":"event"}
+
+( 132.593s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+( 132.593s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (131) {"body":{"level":"INFO","message":"SmartClient closed.","notify":true,"time":"14:56:25"},"event":"TDA/log","seq":50,"type":"event"}
+
+( 132.593s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+( 132.593s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (128) {"body":{"level":"INFO","message":"TDS-DA finished.","notify":true,"time":"14:56:25"},"event":"TDA/log","seq":50,"type":"event"}
+
+( 132.593s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+( 132.593s) [main thread     ]        tMessageDAP.cpp:93    | DAP Sent - > (46) {"event":"terminated","seq":50,"type":"event"}
+
+( 132.593s) [main thread     ]        tMessageDAP.cpp:110   | Sent via CIN
+( 132.601s) [main thread     ]        tMessageDAP.cpp:128   | DAP Received < - {"command":"disconnect","arguments":{"restart":false,"terminateDebuggee":false},"type":"request","seq":49}
+
+( 132.601s) [main thread     ]       tDAPProtocol.cpp:170   | REQUEST RECEIVED: disconnect
+

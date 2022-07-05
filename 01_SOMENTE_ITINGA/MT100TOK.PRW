@@ -8,12 +8,10 @@ Programa ...: MT100TOK.Prw
 Uso ........: Ponto de Entrada (DOCUMENTO DE ENTRADA VALIDACAO DO PEDIDO DE COMPRAS)
 Data .......: 09/11/16
 Feito por ..: Bruno Lage Ferreira.
-QUALITA QUALITA QUALITA QUALITA QUALITA QUALITA QUALITA QUALITA QUALITA QUALITA QUALITA 
-MT100LOK alterado para o GR 
-GMT100OK
+ITINGA ITINGA ITINGA ITINGA ITINGA ITINGA ITINGA ITINGA ITINGA ITINGA ITINGA ITINGA ITINGA 
 */
 
-User Function GMT100OK()
+User Function MT100TOK()
 ***********************************************************************************************************
 *  
 *

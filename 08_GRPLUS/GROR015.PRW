@@ -74,6 +74,29 @@ Local cPergunte := Padr("GROR015",10)
 
 		cSql += "        AND SB8.D_E_L_E_T_ = '' " + CHR(10) 
 		
+		cSql += "        AND B8_LOTECTL+B8_NUMLOTE+B8_DATA IN (
+		cSql += "        												SELECT B8_LOTECTL+B8_NUMLOTE+MAX(B8_DATA)B8_DATA      
+		cSql += "       												  FROM " + RETSQLNAME("SB8") + " SB8 " + CHR(10)
+		cSql += " 														       INNER JOIN " + RETSQLNAME("SB1") + " SB1 " + CHR(10)
+		cSql += "         												       ON SB1.B1_FILIAL  = '" + xFilial("SB1") + "' " + CHR(10)	
+		cSql += "        												          AND SB1.B1_COD     = SB8.B8_PRODUTO " + CHR(10)	
+		cSql += "        												          AND SB1.D_E_L_E_T_ = '' " + CHR(10) 
+		cSql += " 														        INNER JOIN " + RETSQLNAME("SBM") + " SBM " + CHR(10)
+		cSql += "         												       ON SBM.BM_FILIAL  = '" + xFilial("SBM") + "' " + CHR(10)	
+		cSql += "        												          AND SBM.BM_GRUPO   = SB1.B1_GRUPO " + CHR(10)	
+		cSql += "        														  AND SBM.BM_YTIPO   IN ('C','L') " + CHR(10)			
+		cSql += "        														  AND SBM.D_E_L_E_T_ = '' " + CHR(10) 
+		cSql += " 																INNER JOIN " + RETSQLNAME("SB5") + " SB5 " + CHR(10)
+		cSql += "         													   ON SB5.B5_FILIAL  = '" + xFilial("SB5") + "' " + CHR(10)	
+		cSql += "        														  AND SB5.B5_COD     = SB8.B8_PRODUTO " + CHR(10)		
+		cSql += "        														  AND SB5.D_E_L_E_T_ = '' " + CHR(10) 
+		cSql += "      													  WHERE SB8.B8_FILIAL  = '" + xFilial("SB8") + "' " + CHR(10)
+		cSql += "        												    AND SB8.B8_PRODUTO BETWEEN '" + MV_PAR01 + "' AND '" + MV_PAR02 + "' " + CHR(10) 
+		cSql += "        												    AND SB8.B8_LOTECTL BETWEEN '" + MV_PAR03 + "' AND '" + MV_PAR04 + "' " + CHR(10) 
+		cSql += "        												    AND SB8.B8_NUMLOTE BETWEEN '" + MV_PAR05 + "' AND '" + MV_PAR06 + "' " + CHR(10) 
+		cSql += "        												GROUP BY B8_LOTECTL,B8_NUMLOTE 
+		cSql += "        												)
+
 		TCQUERY cSQL NEW ALIAS qQUERY
 	
 		MsAguarde({|| setEtiqueta(qQUERY) },"Impressão de etiqueta...","Aguarde...")

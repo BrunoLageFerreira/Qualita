@@ -426,6 +426,7 @@ cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AN
 cQuery += "  WHERE (ZSA_IDPEND in ('P') )
 //cQuery += "  WHERE (ZSA_IDPEND in ('P') OR SC5.C5_NUM ='003953')
 cQuery += "    AND ZSA_STATUS = 'ATIVA'
+cQuery += "    AND ZSA_PROPRI = ''
 cQuery += "    AND (ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = '' )
 //cQuery += "    AND (ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = '' OR  SC5.C5_NUM ='003953')
 cQuery += "    ORDER BY IDMOB
@@ -460,6 +461,7 @@ cQuery += "	   0 PESOAMOSTRA
 cQuery += "   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
 cQuery += " WHERE ZSA_IDPEND in ('P')
 cQuery += "   AND ZSA_STATUS = 'ATIVA'
+cQuery += "   AND ZSA_PROPRI = ''
 cQuery += "   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
 
 cQuery += " UNION ALL
@@ -491,6 +493,7 @@ cQuery += "							 SELECT DISTINCT '010101'+ SC5.C5_NUM AS C5_NUM
 cQuery += "							   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
 cQuery += "							 WHERE ZSA_IDPEND in ('P')
 cQuery += "							   AND ZSA_STATUS = 'ATIVA'
+cQuery += "                            AND ZSA_PROPRI = ''
 cQuery += "							   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
 cQuery += "							  )
 
@@ -522,6 +525,7 @@ cQuery += "							 SELECT DISTINCT '010101'+ SC5.C5_NUM AS C5_NUM
 cQuery += "							   FROM ZSA010 ZSA LEFT JOIN SC5010 SC5 ON (C5_XIDMOB = ZSA_IDMOBP AND SC5.D_E_L_E_T_ = '' AND ZSA.D_E_L_E_T_ = '')
 cQuery += "							 WHERE ZSA_IDPEND in ('P')
 cQuery += "							   AND ZSA_STATUS = 'ATIVA'
+cQuery += "                            AND ZSA_PROPRI = ''
 cQuery += "							   AND ISNULL(CAST(CONVERT(VARBINARY(MAX), ZSA_MSGINT) AS VARCHAR(MAX)),'') = ''
 cQuery += "							  )
 cQuery += " ORDER BY IDMOB,ACAO DESC,ITEM,CAVALETE,ZSA_LOTE,C5_NUM

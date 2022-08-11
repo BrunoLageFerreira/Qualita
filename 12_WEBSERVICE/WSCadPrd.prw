@@ -313,7 +313,7 @@ Local cError
         cOBS        := EncodeUTF8(AllTrim(Upper(oJson:GetJsonObject('OBS'))))
 
         cQuery := " INSERT APP_CADASTRO_PRODUTOS (DATASOLICITACAO                     , RECNO                                        ,STATUS     ,NOME_PRODUTO    ,NOME_CIENTIFICO  ,TIPO       ,ALMOXARIFADO,GRUPO       ,UNID_MEDIDA   ,NCM        ,ORIGEM       ,USUARIO   , EMAIL ,OBS     ) 
-        cQuery += "                        VALUES((SELECT CAST(GETDATE() AS datetime)),(SELECT COUNT(*)+1 FROM APP_CADASTRO_PRODUTOS),'PENDENTE' ,'"+cDescricao+"','"+cCientifico+"','"+cTipo+"','01'        ,'"+cGrupo+"','"+cUNIDADE+"','"+cNCM+"' ,'"+cOrigem+"','"+UPPER(cUserName)+"' ,'"+UsrRetMail(__cUserID)+"','"+cOBS+"')
+        cQuery += "                        VALUES((SELECT CAST(GETDATE() AS datetime)),(SELECT COUNT(*)+1 FROM APP_CADASTRO_PRODUTOS),'PENDENTE' ,'"+cDescricao+"','"+cCientifico+"','"+cTipo+"','01'        ,'"+cGrupo+"','"+cUNIDADE+"','"+cNCM+"' ,'"+cOrigem+"','"+UPPER(UsrRetName(__cUserID) )+"' ,'"+UsrRetMail(__cUserID)+"','"+cOBS+"')
 
         cError := AllTrim(str(TcSqlExec(cQuery)))
 

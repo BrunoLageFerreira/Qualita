@@ -57,7 +57,7 @@ EndIf
 ******************************************************************************************
 chamada do Modulo AutoStart
 TODOS OS COMANDOS VIA PROCEDUTE
-*/
+
 ConOut("*********************************************************************************")
 ConOut("*********************************************************************************")
 ConOut("*********************         INICIANDO AUTOSTART          **********************")
@@ -65,11 +65,11 @@ ConOut("************************************************************************
 ConOut("*********************************************************************************")
 
 TCSPEXEC("WHATSAPP_AUTOSTART")
-   
+*/   
 /*
 *
 ******************************************************************************************
-*/
+
 cQuery :=  " SELECT  
 cQuery +=  " 		WAM_FILIAL,
 cQuery +=  " 		WAM_DATA,
@@ -116,7 +116,7 @@ Do While !EOF()
 		// Agora vamos ler as propriedades com GetJSonObject()
 		 aRetMsg :=	strTokArr(U_SWREMGWAP(TRBRA->WAM_ID), ',' )
 	EndIf
-	
+	*/
 	
 	/*
 	**********************************************************************************************************************
@@ -125,19 +125,16 @@ Do While !EOF()
 	 - Pedido de Compra
 	 - Pedido de Vendas
 	**********************************************************************************************************************
-	*/
+	
 	IF AllTrim(TRBRA->WAM_EXEC) == "QUALITA-MC"
-		
+	*/	
 		/*
 		***************************************************
 		NIVEL 1
 		***************************************************
-		*/
+		
 		If AllTrim(TRBRA->WAM_NIVEL) == "1"
 			
-			/*
-			Processamento dos retorno Mapa de cotação-MC
-			*/
 			If oJson:GetJSonObject('quoted') == "true"
 			
 				cMessage := oJson:GetJSonObject('quote_message')
@@ -159,9 +156,7 @@ Do While !EOF()
 						
 						cProt := U_SWENARWAP("5527995295180-1594316108@g.us", "APROVADO NO NIVEL 1.  MSG(" + AllTrim(TRBRA->WAM_MSG) + ")"                                                                     ,"MC"+ SC8->C8_NUM             ,"MC-" + SC7->C7_NUM  ,"PDF","\RELINWEB\MC-"+ SC8->C8_NUM +".PDF")
 						
-						/*
-						30 segundos
-						*/
+
 						sleep(300)
 						
 						IF cProt = "" .or. cProt = nil 
@@ -187,9 +182,6 @@ Do While !EOF()
 						   MsUnLock()
 						EndIf
 						
-						/*
-						Marcando o protocolo como já lido. 
-						*/
 						cQuery := " UPDATE WAM010 
 						cQuery += "    SET WAM_PERG = 'N',WAM_DATAR='"+ DToS(dDataBase) +"', WAM_HORAR='"+ LEFT(AllTrim(TIME()),5) +"', WAM_RESPOS='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM WAM010 
@@ -202,9 +194,6 @@ Do While !EOF()
 					EndIf
 				Else
 				
-						/*
-						Marcando o protocolo como já lido
-						*/
 						cQuery := " UPDATE WAM010 
 						cQuery += "    SET WAM_PERG = 'N',WAM_DATAR='"+ DToS(dDataBase) +"', WAM_HORAR='"+ LEFT(AllTrim(TIME()),5) +"', WAM_RESPOS='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM WAM010 
@@ -214,9 +203,6 @@ Do While !EOF()
 				
 						TcSQLExec(cQuery)
 						
-						/*
-						Coloca a MSg mais não mostra data nem hora de liberação
-						*/
 						cQuery := " UPDATE " + RetSqlName("SC8")  
 						cQuery += "    SET C8_MSGLIB='"+ "NÃO LIBERADO: " + Upper(cMessage) +"'"
 						cQuery += "   FROM " + RetSqlName("SC8")
@@ -235,17 +221,14 @@ Do While !EOF()
 			EndIf
 		
 		EndIf
-		
+		*/
 		/*
 		***************************************************
 		NIVEL 2
 		***************************************************
-		*/
+		
 		If AllTrim(TRBRA->WAM_NIVEL) == "2"
 			
-			/*
-			Processamento dos retorno Mapa de cotação-MC
-			*/
 			If oJson:GetJSonObject('quoted') == "true"
 			
 				cMessage := oJson:GetJSonObject('quote_message')
@@ -258,9 +241,6 @@ Do While !EOF()
 					dbSetOrder(1)
 					If dbSeek(AllTrim(TRBRA->WAM_INDEX))
 					
-						/*
-						Marcando o protocolo como ja lido 
-						*/
 						cQuery := " UPDATE WAM010 
 						cQuery += "    SET WAM_PERG = 'N',WAM_DATAR='"+ DToS(dDataBase) +"', WAM_HORAR='"+ LEFT(AllTrim(TIME()),5) +"', WAM_RESPOS='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM WAM010 
@@ -270,9 +250,6 @@ Do While !EOF()
 				
 						TcSQLExec(cQuery)
 					
-						/*
-						Gravando aprovação na SC8
-						*/
 						cQuery := " UPDATE " + RetSqlName("SC8")  
 						cQuery += "    SET C8_DATALIB='"+ DToS(dDataBase) +"',C8_HORALIB='"+ LEFT(AllTrim(TIME()),5) +"',C8_MSGLIB='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM " + RetSqlName("SC8")
@@ -294,9 +271,6 @@ Do While !EOF()
 					EndIf
 				Else
 				
-						/*
-						Marcando o protocolo como ja lido
-						*/
 						cQuery := " UPDATE WAM010 
 						cQuery += "    SET WAM_PERG = 'N',WAM_DATAR='"+ DToS(dDataBase) +"', WAM_HORAR='"+ LEFT(AllTrim(TIME()),5) +"', WAM_RESPOS='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM WAM010 
@@ -306,9 +280,6 @@ Do While !EOF()
 				
 						TcSQLExec(cQuery)
 						
-						/*
-						Coloca a MSg mais não mostra data nem hora de liberação
-						*/
 						cQuery := " UPDATE " + RetSqlName("SC8")  
 						cQuery += "    SET C8_MSGLIB='"+ "NÃO LIBERADO: " + Upper(cMessage) +"'"
 						cQuery += "   FROM " + RetSqlName("SC8")
@@ -328,23 +299,20 @@ Do While !EOF()
 		EndIf
 
 	ElseIf AllTrim(TRBRA->WAM_EXEC) == "QUALITA-PC"
-	
+	*/
 		/*
 		***************************************************
 		NIVEL 1
 		***************************************************
-		*/
+		
 		If AllTrim(TRBRA->WAM_NIVEL) == "1"
 	
-			/*
-			Processamento dos retorno Pedido de Compra-PC
-			*/
+
 			If oJson:GetJSonObject('quoted') == "true"
 				
 				
 				cMessage := oJson:GetJSonObject('quote_message')
 				
-				//ENVIO DO PROTOCOLO 
 				lEnvProt := .T.
 				
 				If "APROVADO" $ Upper(cMessage) 
@@ -352,18 +320,11 @@ Do While !EOF()
 					dbSetOrder(1)
 					If dbSeek(AllTrim(TRBRA->WAM_INDEX))
 					
-											
-						/*
-						Gera dados do pedido 
-						*/
 						u_ImpPc(2)
 						WaitRunSrv('"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://192.168.1.101:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRXX0022&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\PC-'+SC7->C7_NUM+'.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )						
 						
 						cProt := U_SWENARWAP("5527995295180-1594316108@g.us", "APROVADO NO NIVEL 1.  MSG(" + AllTrim(TRBRA->WAM_MSG) + ")"                                                                     ,"PC-2-" + SC7->C7_NUM         ,"PC-2-" + SC7->C7_NUM   ,"PDF","\RELINWEB\PC-" + SC7->C7_NUM + ".PDF")
 						
-						/*
-						30 segundos
-						*/
 						sleep(300)
 						        						                  
 						IF cProt = "" .or. cProt = nil 
@@ -389,9 +350,7 @@ Do While !EOF()
 						   MsUnLock()
 						EndIf
 
-						/*
-						Marcando o protocolo como ja lido 
-						*/
+
 						cQuery := " UPDATE WAM010 
 						cQuery += "    SET WAM_PERG = 'N',WAM_DATAR='"+ DToS(dDataBase) +"', WAM_HORAR='"+ LEFT(AllTrim(TIME()),5) +"', WAM_RESPOS='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM WAM010 
@@ -408,9 +367,7 @@ Do While !EOF()
 					dbSetOrder(1)
 					If dbSeek(AllTrim(TRBRA->WAM_INDEX))
 					
-						/*
-						Marcando o protocolo como ja lido 
-						*/
+
 						cQuery := " UPDATE WAM010 
 						cQuery += "    SET WAM_PERG = 'N',WAM_DATAR='"+ DToS(dDataBase) +"', WAM_HORAR='"+ LEFT(AllTrim(TIME()),5) +"', WAM_RESPOS='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM WAM010 
@@ -419,11 +376,7 @@ Do While !EOF()
 						//cQuery += "    AND WAM_TELL = ''
 				
 						TcSQLExec(cQuery)
-						
-	
-						/*
-						Gravando aprovação na SC7
-						*/
+
 						cQuery := " UPDATE " + RetSqlName("SC7")  
 						cQuery += "    SET C7_MSGLIB='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM " + RetSqlName("SC7")
@@ -433,10 +386,7 @@ Do While !EOF()
 				
 						TcSQLExec(cQuery)
 					
-					
-						/*
-						Gera dados do pedido 
-						*/
+				
 						//u_ImpPc(2)
 						//WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://192.168.1.101:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRXX0022&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\PC-'+SC7->C7_NUM+'.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
 						
@@ -457,20 +407,16 @@ Do While !EOF()
 			EndIf
 			
 		EndIf
-	
+		*/
 	
 		/*
 		***************************************************
 		NIVEL 2
 		***************************************************
-		*/
+		
 		If AllTrim(TRBRA->WAM_NIVEL) == "2"
 	
-			/*
-			Processamento dos retorno Pedido de Compra-PC
-			*/
 			If oJson:GetJSonObject('quoted') == "true"
-				
 				
 				cMessage := oJson:GetJSonObject('quote_message')
 				
@@ -482,10 +428,6 @@ Do While !EOF()
 					dbSetOrder(1)
 					If dbSeek(AllTrim(TRBRA->WAM_INDEX))
 					
-					
-						/*
-						Marcando o protocolo como ja lido 
-						*/
 						cQuery := " UPDATE WAM010 
 						cQuery += "    SET WAM_PERG = 'N',WAM_DATAR='"+ DToS(dDataBase) +"', WAM_HORAR='"+ LEFT(AllTrim(TIME()),5) +"', WAM_RESPOS='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM WAM010 
@@ -494,10 +436,7 @@ Do While !EOF()
 						cQuery += "    AND WAM_NIVEL = '2'
 				
 						TcSQLExec(cQuery)
-						
-						/*
-						Gravando aprovação na SC7
-						*/
+
 						cQuery := " UPDATE " + RetSqlName("SC7")  
 						cQuery += "    SET C7_DATALIB='"+ DToS(dDataBase) +"',C7_HORALIB='"+ LEFT(AllTrim(TIME()),5) +"',C7_MSGLIB='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM " + RetSqlName("SC7")
@@ -506,9 +445,6 @@ Do While !EOF()
 						
 						TcSQLExec(cQuery)
 					
-						/*
-						Gera dados do pedido 
-						*/
 						u_ImpPc(2)
 						WaitRunSrv('"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://192.168.1.101:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRXX0022&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\PC-'+SC7->C7_NUM+'.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
 						
@@ -527,22 +463,15 @@ Do While !EOF()
 					dbSetOrder(1)
 					If dbSeek(AllTrim(TRBRA->WAM_INDEX))
 					
-						/*
-						Marcando o protocolo como ja lido 
-						*/
 						cQuery := " UPDATE WAM010 
 						cQuery += "    SET WAM_PERG = 'N',WAM_DATAR='"+ DToS(dDataBase) +"', WAM_HORAR='"+ LEFT(AllTrim(TIME()),5) +"', WAM_RESPOS='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM WAM010 
 						cQuery += "  WHERE D_E_L_E_T_ <> '*'
 						cQuery += "    AND WAM_ID = '"+TRBRA->WAM_ID+"'
-						//cQuery += "    AND WAM_TELL = ''
+						
 				
 						TcSQLExec(cQuery)
-						
-	
-						/*
-						Gravando aprovação na SC7
-						*/
+
 						cQuery := " UPDATE " + RetSqlName("SC7")  
 						cQuery += "    SET C7_MSGLIB='"+ Upper(cMessage) +"'"
 						cQuery += "  FROM " + RetSqlName("SC7")
@@ -552,10 +481,6 @@ Do While !EOF()
 				
 						TcSQLExec(cQuery)
 					
-					
-						/*
-						Gera dados do pedido 
-						*/
 						//u_ImpPc(2)
 						//WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://192.168.1.101:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRXX0022&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\PC-'+SC7->C7_NUM+'.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
 						
@@ -579,9 +504,7 @@ Do While !EOF()
 	
 	
 	Else
-		/*
-		Processamento dos retornos Pedido de Venda PV 
-		*/
+
 		If oJson:GetJSonObject('quoted') == "true"
 		
 			cMessage := oJson:GetJSonObject('quote_message')
@@ -647,13 +570,13 @@ EndDo
 
 dbSelectArea("TRBRA") 
 dbCloseArea()
-
+*/
 
 /*
 ******************************************************************************************
 chamada do Modulo AutoStart
 TODOS OS COMANDOS VIA PROCEDUTE
-*/
+
 ConOut("*********************************************************************************")
 ConOut("*********************************************************************************")
 ConOut("*********************         INICIANDO AUTOSTART          **********************")
@@ -661,13 +584,13 @@ ConOut("************************************************************************
 ConOut("*********************************************************************************")
 
 TCSPEXEC("WHATSAPP_AUTOSTART")
-   
+*/   
 
 /*
 ******************************************************************************************
 Resposta do Modulo MNT
 ABERTURA E DISTRIBUIÇÃO
-*/
+
 cQuery   := " SELECT  ISNULL((SELECT USR_ID     FROM DADOSADV_Q..SYS_USR WHERE USR_MSBLQL <> 1 AND USR_CARGO = WAM_TELL),'') ID_USUARIO,
 cQuery   += " 	  	  ISNULL((SELECT USR_CODIGO FROM DADOSADV_Q..SYS_USR WHERE USR_MSBLQL <> 1 AND USR_CARGO = WAM_TELL),'') USUARIO,
 cQuery   += " 	  	  R_E_C_N_O_ RECNO,
@@ -713,12 +636,7 @@ Do While !EOF()
 
 				//Pegando log do ExecAuto
 				aLogAuto := GetAutoGRLog()
-
-				/*
-				//Percorrendo o Log e incrementando o texto (para usar o CRLF você deve usar a include "Protheus.ch")
-				//nAux 		:= 0
-				//aLogAuto    :={}
-				*/	
+	
 				For nAux := 1 To Len(aLogAuto) 
 					cErroTemp += aLogAuto[nAux] + CHR(13)+CHR(10)
 				Next nAux
@@ -767,10 +685,6 @@ Do While !EOF()
 
 				Sleep(3000)
 
-				/*
-				Distriburir 
-				Responsável pela Manutenção
-				*/
 				dbSelectArea("ST9")
 				dbSetOrder(1)
 				dbSeek(xFilial("ST9") + TRBMNT->WAM_RESPOS)
@@ -787,9 +701,7 @@ Do While !EOF()
 				cArquivo := "\_LOGWHATSMNT\" + "MNT_DIST" + cCodigoSS + dToS(dDataBase) +'_'+ Replace(time(),':','_') + ".txt"
 				MemoWrite(cArquivo, cErroTemp )
 
-				/*
-				Telefone fixo com a pessoa que vai distibuir 
-				*/ 
+
 				cNumDist := "27997857938"
 				                
 
@@ -833,12 +745,12 @@ EndDo
 
 dbSelectArea("TRBMNT") 
 dbCloseArea()
-
+*/
 /**
 *********************************************************************************
 Retorno da DISTRIBUIÇÃO
 MNT
-*/
+
 Private aRespDist := {}
 
 cQuery   := " SELECT UPPER(RETORNO) DIST,
@@ -912,7 +824,7 @@ EndDo
 
 dbSelectArea("TRBMNT") 
 dbCloseArea()
-
+*/
 /*
 Verificação de erro 
 CAVALETES DIFRENTE DO PEDIDO DE VENDA
@@ -1085,16 +997,16 @@ Do While !EOF()
 		/*
 		AVISO PARA BRUNO
 		*/
-		U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
+		//U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
 		
-		sleep(300)
+		//sleep(300)
 		
 		/*
 		AVISO PARA ARLINDO
 		*/
-		U_SWENV("5527981187553", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
+		//U_SWENV("5527981187553", "ERRO URGENTE (DIF. DE SALDO) PEDIDO:" + AllTrim(TRBERRO->C6_NUM)   + " CAVALETE:" + TRBERRO->B8_YCAVALE  , "ERRO:" +AllTrim(TRBERRO->B8_YCAVALE)  )
 		
-		sleep(300)
+		//sleep(300)
 		
 		/*
 		EMAIL
@@ -1106,16 +1018,16 @@ Do While !EOF()
 		/*
 		AVISO PARA BRUNO
 		*/
-		U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) CAVALETE -  BUNDLE:" + AllTrim(TRBERRO->B8_YCAVALE)    )
+		//U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) CAVALETE -  BUNDLE:" + AllTrim(TRBERRO->B8_YCAVALE)    )
 		
-		sleep(300)
+		//sleep(300)
 		
 		/*
 		AVISO PARA ARLINDO
 		*/
-		U_SWENV("5527981187553", "ERRO URGENTE (DIF. DE SALDO) CAVALETE - BUNDLE:" + AllTrim(TRBERRO->B8_YCAVALE)     )
+		//U_SWENV("5527981187553", "ERRO URGENTE (DIF. DE SALDO) CAVALETE - BUNDLE:" + AllTrim(TRBERRO->B8_YCAVALE)     )
 		
-		sleep(300)
+		//sleep(300)
 		
 		/*
 		EMAIL
@@ -1128,16 +1040,16 @@ Do While !EOF()
 		/*
 		AVISO PARA BRUNO
 		*/
-		U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + AllTrim(TRBERRO->C6_NUM)    )
+		//U_SWENV("5533984022125", "ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + AllTrim(TRBERRO->C6_NUM)    )
 		
-		sleep(300)
+		//sleep(300)
 		
 		/*
 		AVISO PARA ARLINDO
 		*/
-		U_SWENV("5527981187553", "ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + AllTrim(TRBERRO->C6_NUM)     )
+		//U_SWENV("5527981187553", "ERRO URGENTE (DIF. DE SALDO) NOTA FISCAL - :" + AllTrim(TRBERRO->C6_NUM)     )
 		
-		sleep(300)
+		//sleep(300)
 		
 		/*
 		EMAIL

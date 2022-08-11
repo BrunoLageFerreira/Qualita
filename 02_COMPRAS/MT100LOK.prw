@@ -42,61 +42,63 @@ If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01"
 	/*
 	SOMENTE PARA QUALITA
 	*/
-	IF SubString(CNUMEMP,1,2) == "01" .And. lRetBLFera == .F. //.AND. cTipo <> "B"
-		If SubString(gdFieldGet("D1_COD"),1,2) = "BL" .And. (AllTrim(cEspecie) <> 'CTE')
-	
-			/*
-			Lote do fornecedor
-			D1_YCOMBRU,D1_YALTBRU,D1_YESPBRU,D1_YTOTBRU,D1_YCOMLIQ,D1_YALTLIQ,D1_YESPLIQ,D1_YTOTLIQ
-			*/
-			If 	EMPTY(gdFieldGet("D1_YCOMBRU")) .Or.;
-			 	EMPTY(gdFieldGet("D1_YALTBRU")) .Or.; 
-			 	EMPTY(gdFieldGet("D1_YESPBRU")) .Or.;
-			 	EMPTY(gdFieldGet("D1_YTOTBRU")) .Or.; 
-			 	EMPTY(gdFieldGet("D1_YCOMLIQ")) .Or.;
-				EMPTY(gdFieldGet("D1_YALTLIQ")) .Or.;
-				EMPTY(gdFieldGet("D1_YESPLIQ")) .Or.;
-				EMPTY(gdFieldGet("D1_YTOTLIQ")) 
-				
-				Alert("Verifique os campos de Comprimento X Altura X Espessura. Não podem estar em branco!")
-				lRet := .F.
-				Return(lRet)
-			EndIf
-	
-			/*
-			Lote do Fornecedor
-			*/
-			If Empty(gdFieldGet("D1_LOTEFOR")) .And. AllTrim(CA100FOR) == '000165'
-				//GDFieldPut ( "D1_LOTEFOR", gdFieldGet("D1_LOTECTL") )
-				GDFieldPut ( "D1_LOTEFOR", "" )
-			ElseIf Empty(gdFieldGet("D1_LOTEFOR"))
-				Alert("Lote do Fornecedor não pode ficar em branco!")
-				lRet := .F.
-				Return(lRet)
-			EndIf
-			
-			dbSelectArea("SF4")
-			dbSetOrder(1)
-			If dbSeek(xFilial("SF4") + AllTrim(gdFieldGet("D1_TES")))
+	IF cTipo <> "C"
+		IF SubString(CNUMEMP,1,2) == "01" .And. lRetBLFera == .F. 
+			If SubString(gdFieldGet("D1_COD"),1,2) = "BL" .And. (AllTrim(cEspecie) <> 'CTE') 
+		
 				/*
-				Somente tes que controla estoque
+				Lote do fornecedor
+				D1_YCOMBRU,D1_YALTBRU,D1_YESPBRU,D1_YTOTBRU,D1_YCOMLIQ,D1_YALTLIQ,D1_YESPLIQ,D1_YTOTLIQ
 				*/
-				If SF4->F4_ESTOQUE = "S"
+				If 	EMPTY(gdFieldGet("D1_YCOMBRU")) .Or.;
+					EMPTY(gdFieldGet("D1_YALTBRU")) .Or.; 
+					EMPTY(gdFieldGet("D1_YESPBRU")) .Or.;
+					EMPTY(gdFieldGet("D1_YTOTBRU")) .Or.; 
+					EMPTY(gdFieldGet("D1_YCOMLIQ")) .Or.;
+					EMPTY(gdFieldGet("D1_YALTLIQ")) .Or.;
+					EMPTY(gdFieldGet("D1_YESPLIQ")) .Or.;
+					EMPTY(gdFieldGet("D1_YTOTLIQ")) 
+					
+					Alert("Verifique os campos de Comprimento X Altura X Espessura. Não podem estar em branco!")
+					lRet := .F.
+					Return(lRet)
+				EndIf
+		
+				/*
+				Lote do Fornecedor
+				*/
+				If Empty(gdFieldGet("D1_LOTEFOR")) .And. AllTrim(CA100FOR) == '000165'
+					//GDFieldPut ( "D1_LOTEFOR", gdFieldGet("D1_LOTECTL") )
+					GDFieldPut ( "D1_LOTEFOR", "" )
+				ElseIf Empty(gdFieldGet("D1_LOTEFOR"))
+					Alert("Lote do Fornecedor não pode ficar em branco!")
+					lRet := .F.
+					Return(lRet)
+				EndIf
+				
+				dbSelectArea("SF4")
+				dbSetOrder(1)
+				If dbSeek(xFilial("SF4") + AllTrim(gdFieldGet("D1_TES")))
 					/*
-					Lote sequencial Qualita
+					Somente tes que controla estoque
 					*/
-					If Empty(gdFieldGet("D1_LOTECTL"))
-						Processa({ || cLoteInterno := MCriaLote()}, "Gerando Lote Interno","Processando...", .T.)     
-						GDFieldPut ( "D1_LOTECTL", cLoteInterno  )
-						lRet := .T.
+					If SF4->F4_ESTOQUE = "S"
+						/*
+						Lote sequencial Qualita
+						*/
+						If Empty(gdFieldGet("D1_LOTECTL"))
+							Processa({ || cLoteInterno := MCriaLote()}, "Gerando Lote Interno","Processando...", .T.)     
+							GDFieldPut ( "D1_LOTECTL", cLoteInterno  )
+							lRet := .T.
+						EndIf
+						
 					EndIf
 					
 				EndIf
 				
-			EndIf
-			
-		EndIF	
-	EndIF
+			EndIF	
+		EndIF
+	ENDIF
 	
 	IF SubString(CNUMEMP,1,2) == "01"  .AND. lRetBLFera == .T. .AND. ( EMPTY(gdFieldGet("D1_YCOMBRU")) .Or.;
 							 	 EMPTY(gdFieldGet("D1_YALTBRU")) .Or.; 

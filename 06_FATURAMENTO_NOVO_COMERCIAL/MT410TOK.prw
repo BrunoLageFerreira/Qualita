@@ -1665,6 +1665,9 @@ IF FunName() == Alltrim("GROA014")
 	//aRotina[20][2] := "u_RelInWeb('RQ0002','Imprime Packing List [RQ0002]','u_fParAut(2)')"
 	aRotina[17][2][5][2] := "u_RelInWeb('RQ0002','Imprime Packing List [RQ0002]','u_fParAut(2)')"
 	
+	aRotina[17][2][6][1] := "Ficha de Amostras"
+	aRotina[17][2][6][2] := "u_RelInWeb('RQ0096','Ficha de Amotras [RQ0096]','u_fParAut(2)')"
+
 	//"Imprime Commercial Invoice" 
 	//aRotina[19][2] := "u_RelInWeb('RQ0004','Imprime Invoice (CH/AM)[RQ0004]','u_fParAut(4)')"
 	aRotina[17][2][4][2] := "u_RelInWeb('RQ0004','Imprime Invoice (CH/AM)[RQ0004]','u_fParAut(4)')"

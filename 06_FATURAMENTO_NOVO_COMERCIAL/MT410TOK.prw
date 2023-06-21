@@ -2649,6 +2649,7 @@ dbSelectArea("SF2")
 dbSetOrder(2)
 IF dbSeek(xFilial("SF2") + M->C5_CLIENTE + M->C5_LOJACLI + M->C5_NOTA + M->C5_SERIE + "N")
 
+	//função separa as condições de pagamento.
 	aTPadv := Condicao(M->C5_XVLRFIN,cSetCodPG,,SF2->F2_EMISSAO,) //FSepCond(M->C5_XVLRFIN,cSetCodPG,SF2->F2_EMISSAO)
 
 	dbSelectArea("SE4")

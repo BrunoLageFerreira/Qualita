@@ -81,12 +81,15 @@ User Function GMA261CP()
 * // Manipulação pelo usuário do aHeader e aCols para inclusão de campos na getdados.
 * // MA261CPO
 ****
-Local aTam := {}
+Local aTam1 := {}
+Local aTam2 := {}
 
-aTam := TamSX3('D3_YCAVALE')  
+aTam1 := TamSX3('D3_YCAVALE')  
+aTam2 := TamSX3('D3_OBSERVA')  
 
 If AllTrim(FUNNAME()) <> "GROA038"
-	Aadd(aHeader, {'Cavalete' , 'D3_YCAVALE'   , PesqPict('SD3', 'D3_YCAVALE'), aTam[1]  , aTam[2], ''            , USADO, 'C', 'SD3', ''})
+	Aadd(aHeader, {'Cavalete' , 'D3_YCAVALE'   , PesqPict('SD3', 'D3_YCAVALE'), aTam1[1]  , aTam1[2], ''            , USADO, 'C', 'SD3', ''})
+	Aadd(aHeader, {'OBS' , 'D3_OBSERVA '   , PesqPict('SD3', 'D3_OBSERVA '), aTam2[1]  , aTam2[2], ''            , USADO, 'C', 'SD3', ''})
 EndIf
 
 Return Nil

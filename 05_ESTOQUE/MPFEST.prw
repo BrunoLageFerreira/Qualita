@@ -42,9 +42,12 @@ DEFINE MSDIALOG _oDlg TITLE "Auxiliar de fechamento de estoque" FROM u_MGETTELA(
 	@ u_MGETTELA(045),u_MGETTELA(002) TO u_MGETTELA(083),u_MGETTELA(104) LABEL "Diferença de fechamento: " PIXEL OF _oDlg
 		//@ u_MGETTELA(061),u_MGETTELA(008) Say "Almoxarificado:" Size u_MGETTELA(037),u_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
 		//@ u_MGETTELA(071),u_MGETTELA(009) MsGet oEdit2 Var cEdit2 Size u_MGETTELA(028),u_MGETTELA(009) COLOR CLR_BLACK PIXEL OF _oDlg
-		@ u_MGETTELA(067),u_MGETTELA(061) Button "Rel. Diferenças"  Size u_MGETTELA(037),u_MGETTELA(012) ACTION(U_relinweb("RQ0077")) PIXEL OF _oDlg
-
-		//@ u_MGETTELA(075),u_MGETTELA(061) Button "Exec ZERA" Size u_MGETTELA(037),u_MGETTELA(012) ACTION(U_MZeraSB7()) PIXEL OF _oDlg
+		If SubString(CNUMEMP,1,2) == "05"
+			@ u_MGETTELA(067),u_MGETTELA(061) Button "01 - Rel. Zera Prods"  Size u_MGETTELA(037),u_MGETTELA(012) ACTION(U_ZERAQTD()) PIXEL OF _oDlg
+		Else
+			@ u_MGETTELA(067),u_MGETTELA(061) Button "Rel. Diferenças"  Size u_MGETTELA(037),u_MGETTELA(012) ACTION(U_relinweb("RQ0077")) PIXEL OF _oDlg
+		EndIf
+		//@ u_MGETTELA(075),u_MGETTELA(061) Button "02 - Exec ZERA" Size u_MGETTELA(037),u_MGETTELA(012) ACTION(U_ZERAQTD()) PIXEL OF _oDlg
 
 ACTIVATE MSDIALOG _oDlg CENTERED 
 
@@ -260,10 +263,10 @@ do while !EOF()
 		SB7->B7_COD     := TRB->B1_COD
 		SB7->B7_LOCAL   := TRB->B2_LOCAL
 		SB7->B7_QUANT   := 0
-		SB7->B7_DATA    := ctoD("18/01/2021")
-		SB7->B7_DOC     := "20210117D" 
+		SB7->B7_DATA    := ddatabase
+		SB7->B7_DOC     := dtos(ddatabase)
 		SB7->B7_TIPO    := TRB->B1_TIPO
-		SB7->B7_DTVALID := ctoD("18/01/2021")+365 // ddatabase
+		SB7->B7_DTVALID := ddatabase+365 // ddatabase
 		SB7->B7_STATUS  := "1"
 		SB7->B7_ORIGEM  := "ZERAX"
 	MsUnLock()

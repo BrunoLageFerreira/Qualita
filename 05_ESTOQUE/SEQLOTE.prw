@@ -19,31 +19,34 @@ User Function SEQLOTE()
 	Private cLote  := ""
 	Private cQuery:= ""
 
-	cCod := Alltrim(M->C2_PRODUTO)
-	nSeqLote := SB1->B1_SEQLT
+	If SubString(CNUMEMP,1,2) == "05"
 
-	CQuery:= " SELECT C2_LOTECTL 
-	CQuery+= " FROM " + RetSqlName("SC2") + " SC2 
-	CQuery+= " WHERE R_E_C_N_O_ = ( SELECT MAX(R_E_C_N_O_ ) 
-	CQuery+= " 				  FROM " + RetSqlName("SC2")  
-	CQuery+= " 				 WHERE C2_PRODUTO= '"+cCod+"' 
-	CQuery+= " 				  AND D_E_L_E_T_ = '' 
-	CQuery+= " 				  AND C2_FILIAL = '"+xFilial("SC2")+"'
-	CQuery+= " 			  )
+		cCod := Alltrim(M->C2_PRODUTO)
+		nSeqLote := SB1->B1_SEQLT
 
-	Query := ChangeQuery(cQuery)
+		CQuery:= " SELECT C2_LOTECTL 
+		CQuery+= " FROM " + RetSqlName("SC2") + " SC2 
+		CQuery+= " WHERE R_E_C_N_O_ = ( SELECT MAX(R_E_C_N_O_ ) 
+		CQuery+= " 				  FROM " + RetSqlName("SC2")  
+		CQuery+= " 				 WHERE C2_PRODUTO= '"+cCod+"' 
+		CQuery+= " 				  AND D_E_L_E_T_ = '' 
+		CQuery+= " 				  AND C2_FILIAL = '"+xFilial("SC2")+"'
+		CQuery+= " 			  )
 
-	dbUseArea(.T., "TOPCONN", TCGenQry(,,cQuery), 'TSTC2', .T., .F.)
+		Query := ChangeQuery(cQuery)
 
-	DBSeleCtArea("TSTC2")
-	dbGoTop()
-	While ! TSTC2->(Eof())                                                  
-		cLote := Strzero(Val(SubStr(TSTC2->C2_LOTECTL,1,5))+1,5) + Substr(TSTC2->C2_LOTECTL,6,2)
-		dbSkip()
-	End      
-	DbSeleCtArea("TSTC2")
-	DbCloseArea() 
+		dbUseArea(.T., "TOPCONN", TCGenQry(,,cQuery), 'TSTC2', .T., .F.)
 
+		DBSeleCtArea("TSTC2")
+		dbGoTop()
+		While ! TSTC2->(Eof())                                                  
+			cLote := Strzero(Val(SubStr(TSTC2->C2_LOTECTL,1,5))+1,5) + Substr(TSTC2->C2_LOTECTL,6,2)
+			dbSkip()
+		End      
+		DbSeleCtArea("TSTC2")
+		DbCloseArea() 
+	ENDIF
+	
 	RestArea(aArea)
 
 Return (cLote)

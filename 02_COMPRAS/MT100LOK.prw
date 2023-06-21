@@ -14,6 +14,10 @@ Local aMT100LOK    := GetArea()
 Local lRet         := .T.
 Local cLoteInterno := ""
 Local lRetBLFera   := .F. 
+Local iXD := AScan(aHeader, { |x| Alltrim(x[2]) == 'D1_CONTA'})
+
+
+
 
 /*
 SOMENTE PARA NOTA FISCAL 
@@ -50,7 +54,9 @@ If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01"
 				Lote do fornecedor
 				D1_YCOMBRU,D1_YALTBRU,D1_YESPBRU,D1_YTOTBRU,D1_YCOMLIQ,D1_YALTLIQ,D1_YESPLIQ,D1_YTOTLIQ
 				*/
-				If 	EMPTY(gdFieldGet("D1_YCOMBRU")) .Or.;
+				If 	EMPTY(gdFieldGet("D1_YPESOBR")) .Or.;
+					EMPTY(gdFieldGet("D1_YPESOLQ")) .Or.;
+					EMPTY(gdFieldGet("D1_YCOMBRU")) .Or.;
 					EMPTY(gdFieldGet("D1_YALTBRU")) .Or.; 
 					EMPTY(gdFieldGet("D1_YESPBRU")) .Or.;
 					EMPTY(gdFieldGet("D1_YTOTBRU")) .Or.; 
@@ -59,7 +65,7 @@ If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01"
 					EMPTY(gdFieldGet("D1_YESPLIQ")) .Or.;
 					EMPTY(gdFieldGet("D1_YTOTLIQ")) 
 					
-					Alert("Verifique os campos de Comprimento X Altura X Espessura. Não podem estar em branco!")
+					Alert("Verifique os campos de Comprimento X Altura X Espessura, peso líquido e bruto. Não podem estar em branco!")
 					lRet := .F.
 					Return(lRet)
 				EndIf

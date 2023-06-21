@@ -9,7 +9,7 @@ Programa        : Programa MSUPPESQ.prw
 Objetivo        : Pesquisa de Produtos
 Autor           : Bruno Lage Ferreira	
 Data/Hora       : 12/02/2006 11:29
-Obs.            : XUSB1 
+Obs.            : XUSB1    NO DA CONSULTA PADRÃO
 */
 
 User Function MSUPPESQ(cPStart)
@@ -22,6 +22,8 @@ Local lRet := .F.
 Private oEdit1
 Private oEdit2
 Private oEdit3
+
+Private CFILPERG01 := ""
    
 Private cEdit1	 := IIf(Empty(cPStart),Space(15),cPStart)
 Private cEdit2	 := Space(60)

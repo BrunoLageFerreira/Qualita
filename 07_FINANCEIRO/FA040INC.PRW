@@ -15,27 +15,29 @@ User Function FA040INC()
 *
 *
 ****/
-Local aArea := GetArea()
-Local lRet  := .T.
-
+Local aArea    := GetArea()
+Local lRet     := .T.
 Local nValAbat := M->E1_VALOR
 
 /*
 INCLUSAO DO AB-
 */ 
 IF M->E1_TIPO == "AB-"
-    dbSelectArea("SE1")
+
+    M->E1_NATUREZ := "1.2.11.03"
+
+	dbSelectArea("SE1")
     dbSetOrder(2)
     IF dbSeek(SE1->E1_FILIAL + SE1->E1_CLIENTE + SE1->E1_LOJA + SE1->E1_PREFIXO + SE1->E1_NUM + SE1->E1_PARCELA )
         SE1->(RecLock("SE1",.F.))
             E1_XVLABAT := Round(SE1->E1_TXMOEDA * nValAbat,2)
 			E1_XSEQABA := ""
+			//E1_NATUREZ := "1.2.11.03"
         SE1->(MsUnlock()) 
     EndIf
-
 EndIf
 
-If FUNNAME() <> "FINA460" 
+If !Alltrim(FUNNAME()) $ "FINA460/FINA630"  
 	If EMPTY(M->E1_HIST)
 		lRet  := .F.
 	    MsgInfo("Campo histórico do título em branco!", "Atenção")
@@ -52,8 +54,8 @@ User Function FA040ALT()
 *
 *
 ****/
-Local aArea := GetArea()
-Local lRet  := .T.
+Local aArea    := GetArea()
+Local lRet     := .T.
 
 Local nValAbat := M->E1_VALOR
 
@@ -79,10 +81,9 @@ IF dbSeek(SE1->E1_FILIAL + SE1->E1_CLIENTE + SE1->E1_LOJA + SE1->E1_PREFIXO + SE
 		dbSelectArea("SE1")
 		dbSkip()
 	EndDo
-
 EndIf
 
-If FUNNAME() <> "FINA460" 
+If !Alltrim(FUNNAME()) $ "FINA460/FINA630" 
 	If EMPTY(M->E1_HIST)
 		lRet  := .F.
 	    MsgInfo("Campo histórico do título em branco!", "Atenção")

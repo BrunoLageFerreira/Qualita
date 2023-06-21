@@ -614,7 +614,7 @@ Do While !EOF()
 			cC06 := AllTrim(TRB_ITEM->ZSA_CLASSI)		  	// C6_YCLASSI
 			cC07 := SB1->B1_UM  							// C6_UM
 			cC08 := AllTrim(TRB_ITEM->ZSA_LOTE)			    // C6_LOTECTL
-			cC09 := AllTrim(TRB_ITEM->CAVALETE)			    // C6_NUMLOTE
+			cC09 := AllTrim(TRB_ITEM->CAVALETE)			    // C6_YCAVALE
 			cC10 := AllTrim(TRB_ITEM->ZSA_LOCAL)	        // C6_LOCAL
 			cC11 := TRB_ITEM->ZSA_QTDVEN  					// C6_QTDVEN
 						
@@ -831,7 +831,7 @@ If !Empty(_aCabecalho)
 			aadd(_aLinha,{"C6_YCAVALE",_aItens[i,5]                					,Nil}) // cavalete
 			aadd(_aLinha,{"C6_YCLASSI",_aItens[i,6]                					,Nil}) // Cassificação
 			aadd(_aLinha,{"C6_LOTECTL",_aItens[i,8]                					,Nil}) // Lote 
-			aadd(_aLinha,{"C6_NUMLOTE",_aItens[i,9]                					,Nil}) // Lote 
+			aadd(_aLinha,{"C6_NUMLOTE",_aItens[i,9]                					,Nil}) // cavalete 
 			
 			aadd(_aLinha,{"C6_QTDVEN" ,_aItens[i,11]               					,Nil}) // Quantidade Vendida
 	
@@ -936,7 +936,6 @@ If !Empty(_aCabecalho)
 		
 	EndIf
 	
-
 	/*
 	Verica se o Pedido foi Inserido
 	*/

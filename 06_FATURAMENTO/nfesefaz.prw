@@ -6591,11 +6591,14 @@ IF lPe01Nfe
 	EndIf
 Endif 
 
+
 /* PONTO DE ENTRADA PARA TRATAMENTO SEGMENTO GRANITO BRUNO SIGAWISE */                      
-If ExistBlock("PEGRNFESEFAZ")                        
+If ExistBlock("PEGRNFESEFAZ")   
+
 	If AllTrim(aNota[1]) = "2"
 
-		aParam := {aNota,aProd,aIcms,aIcmsSt,aIpi,aICMUFDest,aPis,aCOFINS,aExp,aEspVol,aICMSZFM,aNfVinc,aIPIDevol}
+		aParam := {aNota,aProd,aIcms,aIcmsSt,aIpi,aICMUFDest,aPis,aCOFINS,aExp,aEspVol,aICMSZFM,aNfVinc,aIPIDevol,aCstIpi}
+
 		aParam := ExecBlock("PEGRNFESEFAZ",.F.,.F.,aParam)
 		
 		aProd      := aParam[1]
@@ -6610,6 +6613,7 @@ If ExistBlock("PEGRNFESEFAZ")
 		aICMSZFM   := aParam[10]
 		aNfVinc    := aParam[11]
 		aIPIDevol  := aParam[12]
+		aCstIpi    := aParam[13]
 	EndIf
 EndIf
 

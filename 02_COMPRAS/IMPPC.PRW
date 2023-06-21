@@ -3,7 +3,6 @@
 #INCLUDE "PROTHEUS.CH"   
 #INCLUDE "TBICONN.CH"
 
-
 /*
 +----------+-----------+----------+-------------------------+------+-----------+
 |Programa  | ImpPc     | Autor    | BRUNO LAGE FERREIRA     |Data  |11.02.2020 |
@@ -35,17 +34,19 @@ User Function MT121BRW()
 ****/
 Local aSubMnu := {}
 
-	AAdd(aSubMnu,	{ "Nível 01" , "U_fPCWAAPP('1')", 0 , 6, 0, nil})  	    
-	AAdd(aSubMnu,	{ "Nível 02" , "U_fPCWAAPP('2')", 0 , 6, 0, nil})  		
+	//AAdd(aSubMnu,	{ "Nível 01" , "U_fPCWAAPP('1')", 0 , 6, 0, nil})  	    
+	//AAdd(aSubMnu,	{ "Nível 02" , "U_fPCWAAPP('2')", 0 , 6, 0, nil})  		
 
 	aAdd(aRotina,{"(NEW) Ped.Compra","u_ImpPc(1)" , 0, 2, 0, Nil }) //"New Ped. Compra"
 
 	/*
 	Somente para Qualitá
 	*/
+	/*
 	If SubString(CNUMEMP,1,2) == "01"
 		AAdd(aRotina,{ "Enviar Ped.Compra WhatsApp" , aSubMnu, 0 , 6, 0, nil})  		   										//"pedido de compra
 	EndIf
+	*/
 
 Return 
 
@@ -279,7 +280,23 @@ cQuery += "			C7_DESC2 DESC2,
 cQuery += "			C7_DESC3 DESC3,
 cQuery += "			C7_FRETE VLRFRETE,
 cQuery += "			C7_DESPESA DESPESA,
-cQuery += "			C7_SEGURO SEGURO
+cQuery += "			C7_SEGURO SEGURO,
+cQuery += "         (
+cQuery += "        					SELECT TOP 1 ISNULL(CAST(CR_DATALIB AS DATE),'') DT_APROV
+cQuery += "        					FROM " + RetSQLName("SCR")
+cQuery += "        					WHERE D_E_L_E_T_ = '' 
+cQuery += "        					AND CR_STATUS = '03'
+cQuery += " 						AND CR_NIVEL = '99' 
+cQuery += "        					AND TRIM(CR_FILIAL) + TRIM(CR_NUM) = '" + AllTrim(SC7->C7_FILIAL) + AllTrim(SC7->C7_NUM) + "' 
+cQuery += "        ) DT_APROV,
+cQuery += "         (
+cQuery += "        					SELECT TOP 1 ISNULL((SELECT USR_CODIGO FROM SYS_USR WHERE D_E_L_E_T_ = '' AND USR_ID = CR_USERLIB),'') ASS_APROV
+cQuery += "        					FROM " + RetSQLName("SCR")
+cQuery += "        					WHERE D_E_L_E_T_ = '' 
+cQuery += "        					AND CR_STATUS = '03'
+cQuery += " 						AND CR_NIVEL  = '99' 
+cQuery += "        					AND TRIM(CR_FILIAL) + TRIM(CR_NUM) = '" + AllTrim(SC7->C7_FILIAL) + AllTrim(SC7->C7_NUM) + "' 
+cQuery += "        ) ASS_APROV
  
 cQuery += " INTO TB_RXX22
 

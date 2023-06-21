@@ -21,7 +21,6 @@ Local aArea      := GetArea()
 Local cChavePesq := SD3->D3_FILIAL+SD3->D3_DOC
 Local cEnvMail   := ""
 
-
 //SOMENTE PARA ITINGA 
 IF SubString(CNUMEMP,1,2) == "05"
 
@@ -166,8 +165,12 @@ IF SubString(CNUMEMP,1,2) == "05"
 					Alert("A filial/empresa de destino na linha ," + AllTrim(str(nX))+ " não esta igual da primeira linha." )
 			EndIf
 		Next nX
-
 	Endif
+Else
+	If Empty(m->CCC) .And. (FUNNAME() == "MATA241") .AND. !IsBlind() 
+		lRet := .F.
+		Alert("O campo Centro de Custo deve ser sempre preenchido!")
+	EndIf
 EndIf
 
 Return lRet
@@ -178,13 +181,13 @@ User Function TMATA241()
 *   Importação automatica 
 *  
 ***/
-Local _aCab1 := {}
-Local _aItem := {}
-Local _atotitem:={}
-Local cCodigoTM:="200"
+Local _aCab1    := {}
+Local _aItem    := {}
+Local _atotitem := {}
+Local cCodigoTM := "200"
 
-Private lMsHelpAuto := .t. // se .t. direciona as mensagens de help
-Private lMsErroAuto := .f. //necessario a criacao
+Private lMsHelpAuto := .t. // Se .t. direciona as mensagens de help
+Private lMsErroAuto := .f. // Necessário a criacao
 
 Private aPerg := {}
 Private cPerg := "MPIMPMOVAT"
@@ -192,7 +195,7 @@ Private cPerg := "MPIMPMOVAT"
 //Aadd(aPerg,{cPerg,"Empresa/Filial Destino?","C",06,00,"G","","SM0","","","","","",""})     
 Aadd(aPerg,{cPerg,"Almoxarifiado Destino?","C",02,00,"G","","NNR","","","","","",""})
 Aadd(aPerg,{cPerg,"Empresa/Filial Origem?","C",06,00,"G","","SM0","","","","","",""})     
-Aadd(aPerg,{cPerg,"Documento de Origem?","C",09,00,"G","","","","","","","",""})
+Aadd(aPerg,{cPerg,"Documento de Origem?"  ,"C",09,00,"G","",""   ,"","","","","",""})
 
 U_Testasx1(cPerg,aPerg,.t.) 
 

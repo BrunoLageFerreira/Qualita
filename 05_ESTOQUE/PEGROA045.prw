@@ -1,18 +1,31 @@
 #include "topconn.ch"
 #include "totvs.ch"
 
+/*
+{Protheus.doc} UGROA045
+@Author Nilton (TOTVS) / Bruno Lage/ Arlindo
+@since 04/11/2022
+@version 1.0
+*/
 User Function UGROA045()
 /**************************************************************************************************************
 *
 *
 ***/
-Local aArea := GetArea()
+Local aArea        := GetArea()
 Local aParam       := PARAMIXB
 Local lRet         := .T.
 Local nret         := 0
+Local nI           := 0
+Local nX           := 0
+Local oModel       := FWModelActive()
+Local oModeLZGH 
+Local oModelZGI 
 Private oObj       := ''
 Private cIdPonto   := ''
 Private cIdModel   := ''
+
+
 
 If aParam <> NIL
 	oObj       := aParam[1]
@@ -40,12 +53,84 @@ If aParam <> NIL
 			DbSelectArea("ZGI")
 			DbSkip()
 		EndDo
+	ElseIf cIdPonto == 'MODELPOS'
+
+				oModeLZGH := oModel:GetModel("ZGHDETAIL") 
+				//Local oModelZGH := oModel:GetModel("ZGHDETAIL") // Operações
+				//Local oModelSH6 := oModel:GetModel("SH6DETAIL") // Paradas - Hora improdutiva
+				//Local oModelZGI := oModel:GetModel("ZGIDETAIL") // Insumos
+				//Local oModelMOD := oModel:GetModel("MODDETAIL") // Custo indireto
+				//Local oModelZGK := oModel:GetModel("ZGKDETAIL") // Mão-de-Obra
+				//Local oModelZGL := oModel:GetModel("ZGLDETAIL") // Ferramenta
+				//Local oModelZHL := oModel:GetModel("ZGLDETAIL") // Operações x Produto Acabado
+
+				for nI := 1 to oModeLZGH:length()
+					oModelZGH:GoLine(nI)
+						
+					oModelZGI := oModel:GetModel("ZGIDETAIL")
+					oView := FwViewactive()
+					for nX := 1 To oModeLZGI:Length()
+						oModeLZGI:GoLine(nX)
+						//Aqui estamos prercorrendo os insumos da operação
+
+						lRet := u_UGR045V(oModeLZGI:GetValue("ZGI_PRODUT"),oModeLZGI:GetValue("ZGI_LOCAL"),oModeLZGI:GetValue("ZGI_QTDE"))
+						If  lRet == .F.
+							//FwFldPut("ZGI_QTDE", 0,nX,oModeLZGI)
+							oModeLZGI:SetValue("ZGI_QTDE",0)
+						EndIf
+						//cCodProd := oModeLZGI:GetValue("ZGI_PRODUT")
+						//Alert("Teste para mostrar os produtos de insumo"+cCodProd)
+					next
+					oModeLZGI:GoLine(1)
+					oView:Refresh("ZGIDETAIL")
+				next
+
+			//if MsgYesNo("Deseja cotinuar ?")
+			//	lRet := .f.
+			//EndIF
 	EndIf
+
 EndIf
 
 RestArea(aArea)
 //Final deo programa
-Return lRet
+Return(lRet)
+
+
+User Function UGR045V(cCodPro,cCodDep,nQtd)
+/**************************************************************************************************************
+*  VALIDAÇÃO = ZGI_QTDE ZGI_PRODUT ZGI_LOCAL // 
+*  Esta validação é chamada no campo ZGI_QTDE  para validar o estoque.
+*  u_UGR045V(trim(FWFldGet("ZGI_PRODUT")),trim(FWFldGet("ZGI_LOCAL")),FWFldGet("ZGI_QTDE") )
+***/
+Local lRet := .T.
+Local nSaldoAtu := 0
+
+dbSelectArea("SB2")
+dbSetOrder(1)
+dbSeek(xFilial("SB2") + cCodPro + cCodDep) 
+nSaldoAtu := CalcEst( cCodPro,cCodDep,dDataBASE,xFilial("SB2")) [1] 
+
+If nSaldoAtu < nQtd
+	lRet := .F.
+	Alert("Quantidade indisponível!")
+	//VALOR ENCONTRADO NO SALDO
+	FwFldPut("ZGI_QTDE", nSaldoAtu)
+
+	If !Empty(cCodPro)
+		dbSelectArea("SB1")
+		dbSetOrder(1)
+		dbSeek(xFilial("SB1")+ cCodPro)
+		If SB1->B1_RASTRO = 'N'
+			MaViewSB2(cCodPro,xFilial("SB1"))
+		Else
+			F4Lote(,,,   '',cCodPro,cCodDep,NIL,'',1)
+		EndIf
+	EndIf
+EndIf
+
+Return(lRet)
+
 
 Static Function ftempoS()
 /**************************************************************************************************************
@@ -57,8 +142,8 @@ Local nret  := 0
 
 DbSelectArea("ZGH")
 DbSetOrder(1)
-DbSeek(xFilial("ZGH")+ZH7->ZH7_NUM)
-Do while !Eof() .and. ZGH_FILIAL == xFilial("ZGH") .and. ZGH_OP == ZH7->ZH7_NUM
+DbSeek(xFilial("ZGH")+ZGI->ZGI_OP+ZGI->ZGI_SEQUEN )
+Do while !Eof() .and. ZGH_FILIAL == xFilial("ZGH") .and. ZGH_OP == ZGI->ZGI_OP .and. ZGH_SEQUEN == ZGI->ZGI_SEQUEN
 	nret += ZGH->ZGH_HRFIM - ZGH->ZGH_HRINI
 	DbSkip()
 EndDo
@@ -75,17 +160,18 @@ Local aArea := GetArea()
 Local cSql  := ""
 Local nret  := 0
 	
-csql := " SELECT ZGH_TOTHOR"
+csql := " SELECT ZGH_TOTHRA"
 csql += " from " + RetSqlName("ZGH")+" ZGH WITH(NOLOCK) "
 csql +=  " where ZGH.ZGH_FILIAL =  '"+xFilial("ZGH")+"' "
-csql +=  " and ZGH.ZGH_OP = '" + ZH7->ZH7_NUM +"'"
+csql +=  " and ZGH.ZGH_OP = '" + ZGI->ZGI_OP +"'"
+csql +=  " and ZGH.ZGH_SEQUEN = '" + ZGI->ZGI_SEQUEN +"'"
 csql +=  " and ZGH.D_E_L_E_T_ = ' '  "
 
 TcQuery csql New Alias "ctrabalho"
 DbGotop()
 	
 Do while !Eof()
-	nret :=  SomaHoras( nret, ctrabalho->ZGH_TOTHOR )
+	nret :=  SomaHoras( nret, ctrabalho->ZGH_TOTHRA )
 	DbSkip()
 EndDo
 
@@ -107,4 +193,4 @@ EndDo
 ctrabalho->(DbCloseArea())
 RestArea(aArea)
 
-Return(ABS(nret))
+Return(ABS( ((((nret - int(nret)) * 100)/60) )  + int(nret) ))

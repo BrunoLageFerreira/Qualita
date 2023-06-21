@@ -14,12 +14,16 @@ User Function A330DECC()
 	Local lGrupo    := PARAMIXB[4]
 	Local atemp
 	Local nqte      := 0
+	Local cperiodo  := PADL(Alltrim(Str(Month(dDataFim))),2,"0") + "/"+Alltrim(Str(Year(dDataFim)))
 	atemp := fA330Sal(cCod,dDataFim,cGrupo,lGrupo) //Funcao padrao TOTVS calculo custo
-	If Posicione("SB1",1,xFilial("SB1")+CCODPESQ,"B1_PRV1") > 0 //Achou valor fixo para valorizar
-		nqte := ABS(fQtdSB2(CCODPESQ))
-		atemp[1] := nqte * Posicione("SB1",1,xFilial("SB1")+CCODPESQ,"B1_PRV1")
-	ElseIf Posicione("SZG",1,xFilial("SZG")+Subs(Dtoc(dDataFim),4,7)+cCod,"ZG_VALOR") > 0
-		atemp[1] := Posicione("SZG",1,xFilial("SZG")+Subs(Dtoc(dDataFim),4,7)+cCod,"ZG_VALOR")
+	//B1_TIPO = 'MO'
+	If Posicione("SB1",1,xFilial("SB1")+CCODPESQ,"B1_TIPO") == "MO"
+		If Posicione("SB1",1,xFilial("SB1")+CCODPESQ,"B1_PRV1") > 0 //Achou valor fixo para valorizar
+			nqte := ABS(fQtdSB2(CCODPESQ))
+			atemp[1] := nqte * Posicione("SB1",1,xFilial("SB1")+CCODPESQ,"B1_PRV1")
+		ElseIf Posicione("SZG",1,xFilial("SZG")+cperiodo+cCod,"ZG_VALOR") > 0
+			atemp[1] := Posicione("SZG",1,xFilial("SZG")+cperiodo+cCod,"ZG_VALOR")
+		EndIf
 	EndIf
 Return atemp
 /*

@@ -1155,7 +1155,12 @@ Static Function PrtDanfe(oDanfe,oNFE,cCodAutSef,cModalidade,oNfeDPEC,cCodAutDPEC
 	aadd(aSitSN,"201")
 	aadd(aSitSN,"202")
 	aadd(aSitSN,"500")
-	aadd(aSitSN,"900")
+	aadd(aSitSN,"900") 
+
+
+	//teste bruno xml 
+	u_mXMLnfe(aNota[5], aNota[4], "D:\TOTVS 12\Microsiga\protheus_data\_xmlnfe\teste.xml" , .T.)
+
 
 	//旼컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴커
 	//쿜uadro Destinatario                                                     �

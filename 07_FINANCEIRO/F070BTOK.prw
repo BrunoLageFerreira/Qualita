@@ -112,6 +112,7 @@ Static Function fDelEST()
 * 
 *
 ***/
+Local nx := 0
 
 For nX:=1 to Len(aListBoxFES)
 	If aListBoxFES[nX][1] == OOK
@@ -153,6 +154,7 @@ Static Function fClickMark(nLinha)
 * 
 *
 ***/
+Local _NI := 0 
 For _NI := 1 To Len(aListBoxFES)
 	If _NI == nLinha
 		aListBoxFES[_NI][1] := iif(aListBoxFES[_NI][1]==ONO,OOK,ONO)
@@ -304,8 +306,6 @@ EndIf
 Return 
 
 
-
-
 Static Function fTransBx(nValorBaixa,dInfBaixa,lTPCall)
 ***********************************************************************************
 *
@@ -315,6 +315,7 @@ Local lNExec     := .F.
 Local lRet       := .F.
 Local dtUpdate   := ""
 Local cQuery     := ""
+Local _NI        := 0
 
 If SubString(CNUMEMP,1,2) == "01" .And. SE1->E1_MOEDA <> 1
 
@@ -634,6 +635,7 @@ Local lNExec     := .F.
 Local lNDele     := .F.
 
 Local nValAtu    := 0
+Local _NI        := 0
 
 // Variaveis Private da Funcao
 Private _oDlgVlr				// Dialog Principal
@@ -711,6 +713,7 @@ Static Function fValid21A(nEdit21,nLinhaRec,nValorBaixa)
 ****
 Local nTotal := 0
 Local lRet   := .t.
+Local _NI    := 0
 
 For _NI := 1 To Len(aListBoxFin)
 	If aListBoxFin[_NI][2] == nLinhaRec

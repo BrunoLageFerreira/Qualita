@@ -160,7 +160,7 @@ Do While !EOF()
     aList[nAux]['CODIGO']    := AllTrim(TBWSCC->CODIGO)
     
     dbSelectArea("TBWSCC") 
-    DBSkip()
+    dbSkip()
 EndDo
 //cJsonCC := cJsonCC + ''
 

@@ -62,6 +62,10 @@ Content-Length: 157
 
 {"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
 Content-Length: 107
 
 {"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Language Server initialized."}}
@@ -86,9 +90,9 @@ Content-Length: 128
 
 {"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting reconnection to the server 'DEV_COMPILA'"}}
 
-Content-Length: 177
+Content-Length: 1927
 
-{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/04_contabil/mct1cli.prw","diagnostics":[]}}
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/10_lib/wscadcli.prw","diagnostics":[{"range":{"start":{"line":47,"character":0},"end":{"line":48,"character":0}},"severity":2,"source":"Linter","message":"W0011 Variable LRET redefined"},{"range":{"start":{"line":49,"character":0},"end":{"line":50,"character":0}},"severity":2,"source":"Linter","message":"W0011 Variable CNUMCLI redefined"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CCIENTIFICO never used"},{"range":{"start":{"line":55,"character":0},"end":{"line":56,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CDESCERRO never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CDESCRICAO never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CGRUPO never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CNCM never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable COBS never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CORIGEM never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CTIPO never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CUNIDADE never used"}]}}
 
 Content-Length: 103
 
@@ -104,103 +108,103 @@ Content-Length: 129
 
 Content-Length: 652
 
-{"jsonrpc":"2.0","id":1,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOkNDUGc4WEViRTl4YUdVTGRqZWY2TjhidlkrTGN5L0s1UzlHUkNnaFFNRnc9|djI6MTY1NzAzNzAzODowOjE6MQ==.bI3XwtVP4cA6nx7GkmciOLNsCtEL2ukZVg/4aJE28qYKsmQi3csP2OQPf52FxSpCEoi+Ik4tWkg39PrfxYbL+fYAQDFHhALG1m5gUXwTo8MWdFX0uH/HWv5FEj7ET5d7RQO77Os+Tcb2ZZIR1EoqbrAXalDSVs5QSgIDRm0YhYuae6sI1IrjKD32eQUyKf+1nqdOL4JGT5NUl8bwWuf0mGlzVYcukAUSJUnT1CA7SEFpOxTPJNnoqgoHTKbV6hNwWGj5Za6TzE13g//4XYRvrNjIvuUiwVBuh+1aEp5gzcx51YupohskS/QnChi4RLtiyDU1X1Hrmg1eOdUZK274Xg==","environment":"COMPILA_Q","user":"Admin"}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 470
-
-{"jsonrpc":"2.0","id":2,"result":{"message":"OK","serverInformations":{"server":{"serverDetectedType":1,"environmentDetectedType":1},"permissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 118
-
-{"jsonrpc":"2.0","id":3,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 174
-
-{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/10_lib/marqexpob.prw","diagnostics":[]}}
-
-Content-Length: 174
-
-{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/10_LIB/MArqExpoB.prw","diagnostics":[]}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+{"jsonrpc":"2.0","id":1,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4NzM2NDk3OTowOjE6MQ==.mJx75+61qgSz8KdrZZVb66ZVCTjKjnqpQ27c1vPkE7VxFEx2cwVZgabnaWc//w1WgmXsSf3cr3NqnajowrDnDAyuztiRforE3xFCSevMJi84irQyq+3yz6ITDxX29vgaapcXK62NPhFEoxXa8/FUX//iAdEVt9BdLT7vscdpG1BMG+xVdKXJOsf7Jdz7GDrjZJ14iZQOQdIQ28NxHuEP6xWxk1RwgSJHfl0B2p6mJPey9+3H/vPy3NZWlL4JF4JPvx0ua0w2ladkSl/dW2iNR9EWPk8r8WUmNZ0sScDiroNqrhjwuOJyxZN1wD6EsNFrkNS/0QttfljGeEsoYsvDGA==","environment":"BASETESTE","user":"Admin"}}
 
 Content-Length: 83
 
-{"jsonrpc":"2.0","id":4,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+{"jsonrpc":"2.0","id":2,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
 
 Content-Length: 81
 
-{"jsonrpc":"2.0","id":5,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+{"jsonrpc":"2.0","id":3,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
 
 Content-Length: 88
 
-{"jsonrpc":"2.0","id":6,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+{"jsonrpc":"2.0","id":4,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
 
 Content-Length: 80
 
-{"jsonrpc":"2.0","id":7,"result":{"setting":{"key":"linter","value":"enabled"}}}
+{"jsonrpc":"2.0","id":5,"result":{"setting":{"key":"linter","value":"enabled"}}}
 
 Content-Length: 83
 
-{"jsonrpc":"2.0","id":8,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+{"jsonrpc":"2.0","id":6,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
 
 Content-Length: 81
 
-{"jsonrpc":"2.0","id":9,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+{"jsonrpc":"2.0","id":7,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 88
+
+{"jsonrpc":"2.0","id":8,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 80
+
+{"jsonrpc":"2.0","id":9,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 471
+
+{"jsonrpc":"2.0","id":10,"result":{"message":"OK","serverInformations":{"server":{"serverDetectedType":1,"environmentDetectedType":1},"permissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 119
+
+{"jsonrpc":"2.0","id":11,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 84
+
+{"jsonrpc":"2.0","id":12,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 82
+
+{"jsonrpc":"2.0","id":13,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
 
 Content-Length: 89
 
-{"jsonrpc":"2.0","id":10,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+{"jsonrpc":"2.0","id":14,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
 
 Content-Length: 81
 
-{"jsonrpc":"2.0","id":11,"result":{"setting":{"key":"linter","value":"enabled"}}}
+{"jsonrpc":"2.0","id":15,"result":{"setting":{"key":"linter","value":"enabled"}}}
+
+Content-Length: 84
+
+{"jsonrpc":"2.0","id":16,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+
+Content-Length: 82
+
+{"jsonrpc":"2.0","id":17,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 89
+
+{"jsonrpc":"2.0","id":18,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 81
+
+{"jsonrpc":"2.0","id":19,"result":{"setting":{"key":"linter","value":"enabled"}}}
 
 Content-Length: 157
 

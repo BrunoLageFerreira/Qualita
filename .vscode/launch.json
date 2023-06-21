@@ -1,61 +1,34 @@
 {
 	"version": "0.2.0",
 	"configurations": [
-
-
-		
 		{
-			"type": "totvs_tdsreplay_debug",
+			"type": "totvs_language_debug",
 			"request": "launch",
-			"name": "DEBUG",
+			"name": "Depuração do idioma TOTVS",
+			"program": "${command:AskForProgramName}",
 			"cwb": "${workspaceFolder}",
-			"tdsReplayFile": "",
-			"ignoreFiles": false,
-			"password": "",
-			"includeSources": "*",
-			"excludeSources": ""
+			"smartclientBin": "D:/TOTVS 12/Microsiga/Protheus/bin/smartclient33/smartclient.exe",
+			"isMultiSession": true,
+			"enableTableSync": true,
+			"enableMultiThread": true
+		}
+	],
+	"lastPrograms": [
+		{
+			"label": "sigamdi"
 		},
 		{
-			"type": "totvs_language_debug",
-			"request": "launch",
-			"cwb": "${workspaceRoot}",
-			"name": "QUALITA-DEBUG",
-			"smartclientBin": "D:/TOTVS 12/Microsiga/Protheus/bin/smartclient33/smartclient.exe",
-			"program": "SIGAMDI",
-			"programArguments": [],
-			"enableMultiThread": false,
-			"enableProfile": false,
-			"isMultiSession": true,
-			"isAccessibilityMode": false,
-			"doNotShowSplash": false,
-			"openglMode": false,
-			"dpiMode": false,
-			"language": "1",
-			"ignoreFiles": true,
-			"enableTableSync": true,
-			"logFile": "${workspaceFolder}\\dap.log",
-			
-		}
+			"label": "XXXX"
+		},
 		{
-			"type": "totvs_language_debug",
-			"request": "launch",
-			"cwb": "${workspaceRoot}",
-			"name": "WSREST",
-			"smartclientBin": "D:/TOTVS 12/Microsiga/Protheus/bin/smartclient_LG_QUALITA_REST/smartclient.exe",
-			"program": "SIGAMDI",
-			"programArguments": [],
-			"enableMultiThread": true,
-			"enableProfile": false,
-			"isMultiSession": true,
-			"isAccessibilityMode": false,
-			"doNotShowSplash": false,
-			"openglMode": false,
-			"dpiMode": false,
-			"language": "1",
-			"ignoreFiles": true,
-			"enableTableSync": true,
-			"logFile": "${workspaceFolder}\\dap.log",
-			
+			"label": "u_ufNunSeq"
+		},
+		{
+			"label": "U_ufCorrige"
+		},
+		{
+			"label": "WSCadCli"
 		}
-	]
+	],
+	"lastProgramExecuted": "sigamdi"
 }

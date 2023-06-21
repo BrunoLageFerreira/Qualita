@@ -9,6 +9,7 @@ Static Function AjNumSeq()
 
 	Local aTodas := {}
 	Local cQuery := ""
+    Local nX     := 0
 
 
 	//-----------------------------------------------------------------------------

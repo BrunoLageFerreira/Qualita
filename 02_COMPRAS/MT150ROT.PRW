@@ -59,7 +59,7 @@ User Function fMPWAAPP(cOpcao)
 *
 ****
 
-WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://192.168.1.101:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0025_V&cCotacao=' + SC8->C8_NUM +'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0025_V.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
+WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD99label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0025_V&cCotacao=' + SC8->C8_NUM +'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0025_V.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
 																				
 //Grupo de Faturamento Whatsapp
 //{"root":[{"id":"5527995295180-1587589523@g.us","descricao":"Q-Liberação Compras"},{"id":"5527995295180-1587589430@g.us","descricao":"Q-Liberação Faturamento"}]}

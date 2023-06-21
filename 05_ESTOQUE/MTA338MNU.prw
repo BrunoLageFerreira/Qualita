@@ -47,6 +47,9 @@ Aadd(aPerg,{cPerg,"Filial de Destino   ?"		,"C",06,00,"G","","SM0","","","","","
 Aadd(aPerg,{cPerg,"Dia do lançamento   ?" 	    ,"D",08,00,"G","","","","","","","",""})   
 Aadd(aPerg,{cPerg,"Último dia do Mês   ?" 	    ,"D",08,00,"G","","","","","","","",""})  
 Aadd(aPerg,{cPerg,"Grupo a ser Copiado ?" 	    ,"C",04,00,"G","","SBM","","","","","",""})  
+Aadd(aPerg,{cPerg,"Almoxarifado de Origem    ?"	,"C",02,00,"G","","","","","","","",""})
+Aadd(aPerg,{cPerg,"Almoxarifado de Destino   ?"	,"C",02,00,"G","","","","","","","",""})
+
 
 U_Testasx1(cPerg,aPerg,.T.)
 
@@ -89,6 +92,10 @@ IF !EMPTY(mv_par05)
     cQuery += " AND B1_GRUPO = '"+MV_PAR05+"'
 EndIf
 
+IF !EMPTY(mv_par06)
+    cQuery += " AND DQ_LOCAL = '"+MV_PAR06+"'
+EndIf
+
 cQuery += " ORDER BY DQ_COD
 
 TcQuery cQuery Alias TMPSDQ New
@@ -109,7 +116,15 @@ Do While !EOF()
         AAdd(aItem,{"DQ_FILIAL",MV_PAR02        ,Nil})                                                                                                                
     Else
         AAdd(aItem,{"DQ_FILIAL",TMPSDQ->DQ_FILIAL        ,Nil})                                                                                                                
-    EndIf                                                                                                   
+    EndIf     
+
+    IF nOpcao == 3
+        AAdd(aItem,{"DQ_LOCAL",MV_PAR07        ,Nil})                                                                                                                
+    Else
+        AAdd(aItem,{"DQ_LOCAL",MV_PAR06        ,Nil}) 
+    EndIf     
+    
+
     AAdd(aItem,{"DQ_COD"   ,TMPSDQ->DQ_COD  ,Nil})
     AAdd(aItem,{"DQ_LOCAL" ,TMPSDQ->DQ_LOCAL,Nil})
     IF nOpcao == 3

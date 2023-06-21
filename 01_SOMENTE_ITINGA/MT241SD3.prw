@@ -70,14 +70,14 @@ If !Empty(cEnvMail)
 	Geração do arquivo PDF na pasta destinada
 	Necessario para processo de envio de email.
 	*/
-	WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://192.168.1.101:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2fRIM0023&cFilDest='+AllTrim(cEnvMail)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RIM0023.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
+	WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD99label@192.168.1.104:10530/reportserver/Pages/ReportViewer.aspx?%2fItinga_reports%2fRIM0023&cFilDest='+AllTrim(cEnvMail)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RIM0023.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
 	
 	/*
 	Storage de procedure para envio de e-mails.
 	A procedure esta localizada no SQL e recebe os parametros para envio do email. Arquivo PDF
 	O envio do email automatico pelo Prothues apresentou falha e lentidão.
 	*/
-	TCSPExec("SP_SENDMAIL",'ITINGA',SX5->X5_DESCSPA,'Nova Transferência','Anexo relatório','D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RIM0023.pdf')
+	TCSPExec("SP_SENDMAIL",'ITINGA',SX5->X5_DESCSPA,'Nova Transferência','Anexo relatório','\\192.168.1.103\d$\TOTVS 12\Microsiga\protheus_data\RELINWEB\RIM0023.pdf')
 	
 	//U_SWENARWAP(SX5->X5_DESCENG,"Nova Transferência","Nova Transferência","RIM0023","PDF","D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RIM0023.pdf")
 	//U_SWENARWAP("5533984022125","Nova Transferência","Nova Transferência","RIM0023","PDF","\RELINWEB\RIM0023.pdf")

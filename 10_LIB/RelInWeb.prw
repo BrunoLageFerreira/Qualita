@@ -461,7 +461,7 @@ SetKey(VK_F11,{|| cLink := FwInputBox("Link:", cLink), oWebEngine:navigate(cLink
 
 
 
-If Upper(cTipo) == "[IE]"
+If Upper(cTipo) == "[IE]" .OR. "WEB_APP" $ upper(GetEnvServer())
 
 	//AVISO("Leia com Atenção!", "Os relatórios dinâmicos serão abertos em um modelo externo ao Protheus! Para Fechar use o (ALT)+[F4]!" , { "Fechar" }, 1)
 	ShellExecute( "Open", cLinkIe ,"","", 1 )

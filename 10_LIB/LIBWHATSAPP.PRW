@@ -701,10 +701,8 @@ Do While !EOF()
 				cArquivo := "\_LOGWHATSMNT\" + "MNT_DIST" + cCodigoSS + dToS(dDataBase) +'_'+ Replace(time(),':','_') + ".txt"
 				MemoWrite(cArquivo, cErroTemp )
 
-
 				cNumDist := "27997857938"
 				                
-
 				cProt := U_SWENARWAP(AllTrim(cNumDist),"Distribuir:" + cCodigoSS,"SS_"+cCodigoSS,"SS_"+cCodigoSS,"TXT",cArquivo)
 
 				If  RecLock("WAM",.T.) 

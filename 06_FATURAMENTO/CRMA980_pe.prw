@@ -147,7 +147,7 @@ If aParam <> NIL
             
        ElseIf cIdPonto == 'FORMCOMMITTTSPOS'
 
-             If aParam[4] == .t.
+             If aParam[4] == .t. .And.  SubString(CNUMEMP,1,2) <> "05"
                 //conta contabil
                 U_MCT1CLI()          
              EndIf

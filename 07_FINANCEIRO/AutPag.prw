@@ -92,6 +92,17 @@ User Function AutPag()
 
 Return
 
+User Function MNumSZ2()
+*******************************************************************************************
+*
+*
+***
+Local cNewNum := GetMv("MV_CNUMSZ2")
+cNewNum := Soma1(cNewNum)
+PutMv("MV_CNUMSZ2",cNewNum)
+
+Return(cNewNum)
+
 
 User Function REL0028()
 ************************************************************************************************

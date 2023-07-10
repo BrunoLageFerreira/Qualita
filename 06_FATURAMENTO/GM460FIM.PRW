@@ -37,13 +37,25 @@ IF SubString(CNUMEMP,1,2) == "01"
 	cQuery := " UPDATE SB8010
 	cQuery += "    SET B8_XDTMOVE ='',B8_XENDERE='',B8_XPUSUAR=''
 	cQuery += "   	FROM SB8010 SB8 INNER JOIN SD2010 SD2
-	cQuery += " 	  ON (B8_PRODUTO = D2_COD AND B8_LOTECTL = D2_LOTECTL AND B8_NUMLOTE = D2_NUMLOTE)
+	cQuery += " 	  ON (B8_PRODUTO = D2_COD  AND B8_YCAVALE = D2_NUMLOTE)
 	cQuery += "  WHERE SB8.D_E_L_E_T_ = ''
 	cQuery += "    AND SD2.D_E_L_E_T_ = ''
 	cQuery += "    AND LEFT(B8_PRODUTO,2) IN ('CH','AM') 
+	cQuery += "    AND B8_YCAVALE <> ''
 	cQuery += "    AND D2_DOC   = '"+SF2->F2_DOC  +"'
 	cQuery += "    AND D2_SERIE = '"+SF2->F2_SERIE+"'
 	
+	TcSQLExec(cQuery)
+
+    cQuery := " UPDATE ZG3010
+    cQuery += "    SET ZG3_XDTMOV='',ZG3_XENDER='',ZG3_XPUSUA=''  
+    cQuery += "    	FROM ZG3010 ZG3 INNER JOIN SD2010 SD2
+    cQuery += "  	  ON (ZG3_CODIGO = D2_NUMLOTE)
+    cQuery += "   WHERE ZG3.D_E_L_E_T_ = ''
+    cQuery += "     AND SD2.D_E_L_E_T_ = ''
+	cQuery += "    AND D2_DOC   = '"+SF2->F2_DOC  +"'
+	cQuery += "    AND D2_SERIE = '"+SF2->F2_SERIE+"'
+
 	TcSQLExec(cQuery)
 	
 	/*

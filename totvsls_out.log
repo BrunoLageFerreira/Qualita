@@ -96,7 +96,7 @@ Content-Length: 129
 
 Content-Length: 652
 
-{"jsonrpc":"2.0","id":1,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4NzM2NTE0MjowOjE6MQ==.UOvDbtEDUrN06LRqcOYzcrqFeWtB5qmppPRKukDtWjNn7Dm+uZohP9gaRsd/L8vaK+dbZNQtRBvvqRmliGmPTr4UmtpR3fYwH1C5g0eD3BHSJYyILbaGx+Ecoo5341gtQOKNt3d8YNnV2VrpupZTuXHkW8WvozC1MKiTcZpcX5pPk1I46NKh0NXzfxR104vtK8aszDTV1l3jfxuUcA5hPaFKodQdefp/vch04xCpSl4V5W9jvp9LF3sg86MwV3buI7LSKASwJ81gBMCyun7lOeUgvx08RcsBK8pk43Yc9XOWNQTseesSj3NofX/oif9o/o1YX9ywGdcjJ3HHOqRsBw==","environment":"BASETESTE","user":"Admin"}}
+{"jsonrpc":"2.0","id":1,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==","environment":"BASETESTE","user":"Admin"}}
 
 Content-Length: 83
 
@@ -194,6 +194,26 @@ Content-Length: 157
 
 {"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 
+Content-Length: 128
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting reconnection to the server 'DEV_COMPILA'"}}
+
+Content-Length: 103
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Secure authenticating..."}}
+
+Content-Length: 111
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"User authenticated successfully."}}
+
+Content-Length: 129
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Reconnection to the server 'DEV_COMPILA' finished."}}
+
+Content-Length: 653
+
+{"jsonrpc":"2.0","id":20,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==","environment":"COMPILA_Q","user":"Admin"}}
+
 Content-Length: 157
 
 {"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
@@ -202,6 +222,10 @@ Content-Length: 157
 
 {"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 
+Content-Length: 471
+
+{"jsonrpc":"2.0","id":21,"result":{"message":"OK","serverInformations":{"server":{"serverDetectedType":1,"environmentDetectedType":1},"permissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}}
+
 Content-Length: 157
 
 {"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
@@ -210,7 +234,175 @@ Content-Length: 157
 
 {"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 
-Content-Length: 1927
+Content-Length: 119
 
-{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/10_lib/wscadcli.prw","diagnostics":[{"range":{"start":{"line":47,"character":0},"end":{"line":48,"character":0}},"severity":2,"source":"Linter","message":"W0011 Variable LRET redefined"},{"range":{"start":{"line":49,"character":0},"end":{"line":50,"character":0}},"severity":2,"source":"Linter","message":"W0011 Variable CNUMCLI redefined"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CCIENTIFICO never used"},{"range":{"start":{"line":55,"character":0},"end":{"line":56,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CDESCERRO never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CDESCRICAO never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CGRUPO never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CNCM never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable COBS never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CORIGEM never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CTIPO never used"},{"range":{"start":{"line":56,"character":0},"end":{"line":57,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CUNIDADE never used"}]}}
+{"jsonrpc":"2.0","id":22,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 128
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting reconnection to the server 'DEV_COMPILA'"}}
+
+Content-Length: 653
+
+{"jsonrpc":"2.0","id":23,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==","environment":"BASETESTE","user":"Admin"}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 471
+
+{"jsonrpc":"2.0","id":24,"result":{"message":"OK","serverInformations":{"server":{"serverDetectedType":1,"environmentDetectedType":1},"permissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 119
+
+{"jsonrpc":"2.0","id":25,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 128
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting reconnection to the server 'DEV_COMPILA'"}}
+
+Content-Length: 653
+
+{"jsonrpc":"2.0","id":26,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==","environment":"COMPILA_Q","user":"Admin"}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 471
+
+{"jsonrpc":"2.0","id":27,"result":{"message":"OK","serverInformations":{"server":{"serverDetectedType":1,"environmentDetectedType":1},"permissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 119
+
+{"jsonrpc":"2.0","id":28,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 128
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting reconnection to the server 'DEV_COMPILA'"}}
+
+Content-Length: 653
+
+{"jsonrpc":"2.0","id":29,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==","environment":"BASETESTE","user":"Admin"}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 471
+
+{"jsonrpc":"2.0","id":30,"result":{"message":"OK","serverInformations":{"server":{"serverDetectedType":1,"environmentDetectedType":1},"permissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 119
+
+{"jsonrpc":"2.0","id":31,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 128
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting reconnection to the server 'DEV_COMPILA'"}}
+
+Content-Length: 653
+
+{"jsonrpc":"2.0","id":32,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==","environment":"COMPILA_Q","user":"Admin"}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 471
+
+{"jsonrpc":"2.0","id":33,"result":{"message":"OK","serverInformations":{"server":{"serverDetectedType":1,"environmentDetectedType":1},"permissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 119
+
+{"jsonrpc":"2.0","id":34,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 

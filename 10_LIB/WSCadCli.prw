@@ -1,8 +1,9 @@
-#INCLUDE "PROTHEUS.CH"
-#INCLUDE "RESTFUL.CH"
+#include "protheus.ch"
 #include "rwmake.ch"
-#include "tbiconn.ch"
-#INCLUDE "TOPCONN.CH"
+#include "tbiconn.ch"  
+#INCLUDE "TOTVS.CH"
+#INCLUDE "topconn.ch"
+#INCLUDE "RESTFUL.CH"
 
 //-------------------------------------------------------------------
 /*
@@ -43,15 +44,17 @@ Local cQuery := ""
 Local oJson
 
 Local aCli  := {}
+Local nX    := 0
 
 //Local nOpcAuto  := MODEL_OPERATION_INSERT
 Local lRet      := .T.
 
 Local cNumCli   := ""
+Local cLojaCli  := ""
 Local cCodMun   := ""
 
 Local aAI0Auto := {}
-Local nOpcAuto := 3//MODEL_OPERATION_INSERT
+Local nOpcAuto := 0//MODEL_OPERATION_INSERT
 
 Local   cDescErro   := ""
 Local   cDescricao,cCientifico,cTipo,cGrupo,cNCM,cUNIDADE,cOrigem,cOBS
@@ -59,7 +62,12 @@ Local   cDescricao,cCientifico,cTipo,cGrupo,cNCM,cUNIDADE,cOrigem,cOBS
 Local cJson     := Self:GetContent()
 Local cError    
 
+// variável de controle interno da rotina automatica que informa se houve erro durante o processamento
 Private lMsErroAuto := .F.
+// variável que define que o help deve ser gravado no arquivo de log e que as informações estão vindo à partir da rotina automática.
+Private lMsHelpAuto	:= .F.    
+// força a gravação das informações de erro em array para manipulação da gravação ao invés de gravar direto no arquivo temporário 
+Private lAutoErrNoFile := .T. 
 
 ConOut("[Importaçao de Clientes] INICIO!")
 
@@ -74,8 +82,6 @@ ConOut("[Importaçao de Clientes] INICIO!")
         lRet    := .F.
     Else
             ///////////////////////////////////////////////////////
-            cNumCli  := U_MCONTNUM("SA1","01")
-
             aCli := {}
 
             cQuery := "select CC2_MUN FROM CC2010 WHERE D_E_L_E_T_ = '' AND CC2_CODMUN = '"+EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CODMUN)))+"' AND CC2_EST = '"+EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:EST)))+"'"
@@ -83,49 +89,34 @@ ConOut("[Importaçao de Clientes] INICIO!")
 
             dbSelectArea("TRB_MUN")
             dbGoTop()
-            cCodMun := TRB_MUN->CC2_MUN
+            cCodMun := AllTrim(TRB_MUN->CC2_MUN)
             dbSelectArea("TRB_MUN")
             dbCloseArea()
 
-            /*
-            // EXEMPLO 
-
-            {
-                "CLIENTE": {
-                    "COD"   : "010101",
-                    "LOJA"  : "01",
-                    "PESSOA": "J",
-                    "CNPJ"  : "00000000000000",
-                    "NOME"  : "TESTE",
-                    "ENDER" : "TESTE",
-                    "TIPO"  : "X",
-                    "EST"   : "ES",
-                    "CODMUN": "121212",
-                    "MUNIC" : "VILA VELHA",
-                    "BAIRRO": "ITAPUA",
-                    "PAIS"  : "BRASIL",
-                    "INSCRI": "ISENTO",
-                    "VEND1" : "000001",
-                    "CDPAIS": "001",
-                    "LAT"   : "-20.3196644",
-                    "LONG"  : "-40.3384748",
-                    "IDMOB" : "TESTE",
-                    "DTINTE": "20221208",
-                    "DDD"   : "33",
-                    "DDI"   : "55",
-                    "TELL"  : "984022125",
-                    "EMAIL" : "bruno.lage@grupoqualita.com.br",
-                    "CEP"   : "29101565"
-                    }
-            }   
-            */
 
             aAdd(aCli, {"A1_FILIAL"  , xFilial("SA1")          	                              , Nil})
-            aAdd(aCli, {"A1_COD"     , cNumCli                 	                              , Nil})
-            aAdd(aCli, {"A1_LOJA"    , "01"   	                                              , Nil})
+
+            IF Alltrim(EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CODIGO)))) + AllTrim(EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:LOJA)))) == ''
+                nOpcAuto := 3
+                
+                cNumCli  := U_MCONTNUM("SA1","01")
+                cLojaCli := "01"
+
+                aAdd(aCli, {"A1_COD"     , cNumCli   , Nil})
+                aAdd(aCli, {"A1_LOJA"    , cLojaCli  , Nil})
+            Else
+                nOpcAuto := 4
+
+                aAdd(aCli, {"A1_COD"     , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CODIGO)))   , Nil})
+                aAdd(aCli, {"A1_LOJA"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:LOJA  )))   , Nil})
+
+                cNumCli  := EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CODIGO)))
+                cLojaCli := EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:LOJA  )))
+            EndIf
+
             aAdd(aCli, {"A1_PESSOA"  , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:PESSOA)))	      , Nil})
             aAdd(aCli, {"A1_NOME"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:NOME)))         , Nil})
-            aAdd(aCli, {"A1_NREDUZ"  , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:NOME)))         , Nil})
+            aAdd(aCli, {"A1_NREDUZ"  , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:NOMEFANT)))     , Nil})
             aAdd(aCli, {"A1_END"     , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:ENDER)))        , Nil})
             aAdd(aCli, {"A1_TIPO"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:TIPO)))         , NIL})
             aAdd(aCli, {"A1_EST"     , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:EST)))          , Nil})
@@ -134,14 +125,16 @@ ConOut("[Importaçao de Clientes] INICIO!")
             aAdd(aCli, {"A1_BAIRRO"  , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:BAIRRO)))       , Nil})
             aAdd(aCli, {"A1_CGC"     , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CNPJ)))         , Nil})
 
-            If "00000000000000" == EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CNPJ)))
+            aAdd(aCli, {"A1_XCONDPG" , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CONDPG)))       , Nil})
+
+            If "" == EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CNPJ)))
                 aAdd(aCli, {"A1_INSCR"   , "ISENTO"                                           , Nil})
             else
                 aAdd(aCli, {"A1_INSCR"   , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:INSCRI)))   , Nil})
             EndIf 
 
-            aAdd(aCli, {"A1_CODPAIS" , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CDPAIS)))       , Nil})
-          //aAdd(aCli, {"A1_PAIS"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CODMUN)))       , Nil})
+            aAdd(aCli, {"A1_PAIS"       , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CDPAIS)))    , Nil})
+            aAdd(aCli, {"A1_CODPAIS"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CDPAISERP))) , Nil})
             
             aAdd(aCli, {"A1_VEND"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:VEND1)))        , Nil})
             
@@ -149,13 +142,13 @@ ConOut("[Importaçao de Clientes] INICIO!")
             aAdd(aCli, {"A1_XLAT"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:LAT)))          , Nil})
             aAdd(aCli, {"A1_XLONG"   , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:LONG)))         , Nil})
 
-            If "00000000000000" == EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CNPJ)))
+            If "" == EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CNPJ)))
                 aAdd(aCli, {"A1_YMOEDA"  , 2                                                  , Nil})
             else
                 aAdd(aCli, {"A1_YMOEDA"  , 1                                                  , Nil})
             EndIf
 
-            If "00000000000000" == EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CNPJ)))
+            If "" == EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CNPJ)))
                 aAdd(aCli, {"A1_NATUREZ"  , "1.1.02.01 "                                      , Nil})
             else
                 aAdd(aCli, {"A1_NATUREZ"  , "1.1.01.01"                                       , Nil})
@@ -173,7 +166,6 @@ ConOut("[Importaçao de Clientes] INICIO!")
 
             MSExecAuto({|a,b,c| CRMA980(a,b,c)}, aCli, nOpcAuto, aAI0Auto)
 
-
             //////////////////////////////////////////////////////
             FreeObj(oJson)
             Self:SetContentType("application/json")
@@ -181,13 +173,20 @@ ConOut("[Importaçao de Clientes] INICIO!")
 
             IF lMsErroAuto
                 aLog        := GetAutoGRLog()
+                cErro       := '' 
                 //Aqui só me interessa a primeira linha do erro
-                cErro += RTRIM(aLog[1])
+                For nX := 1 To Len(aLog)							
+                    //cErro := cErro + ',"MESSAGE' + AllTrim(STR(nX)) + '":"' + SUBSTRING(REPLACE(AllTrim(EncodeUTF8(aLog[nX])),'--------------------------------------------------------------------------------',''),1,200) +'"'
+                    cErro := cErro + SUBSTRING(REPLACE(AllTrim(EncodeUTF8(aLog[nX])),'--------------------------------------------------------------------------------',''),1,200)
+                Next nX		
+
                 //Montando JSON de retorno
-                cJson := '{"RETURN":"FALSE"';
-                        + ',"MESSAGE":"'  + EncodeUTF8(substring(cErro,1,200)) +'"}'
+                //oJson['Erro 400:']               := JSonObject():New()
+                oJson['MsgErroErp'] := cErro 
             else
-                oJson['RETURN:'] := "Produto cadastrado com sucesso!"
+                //oJson['Ok 200:'] := JSonObject():New()
+                oJson['ChvCli'] := 'CLI-Q@' + cNumCli + cLojaCli + '@'
+                oJson['CodCli'] := cNumCli + cLojaCli 
             EndIf
             
             cJson:= FwJsonSerialize( oJson )

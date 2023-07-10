@@ -3,7 +3,7 @@
 
 /*
 {Protheus.doc} UGROA045
-@Author Nilton (TOTVS) / Bruno Lage/ Arlindo
+@Author  (TOTVS) / Bruno Lage/ Arlindo
 @since 04/11/2022
 @version 1.0
 */
@@ -64,26 +64,27 @@ If aParam <> NIL
 				//Local oModelZGL := oModel:GetModel("ZGLDETAIL") // Ferramenta
 				//Local oModelZHL := oModel:GetModel("ZGLDETAIL") // Operações x Produto Acabado
 
-				for nI := 1 to oModeLZGH:length()
+				For nI := 1 to oModeLZGH:length()
 					oModelZGH:GoLine(nI)
 						
 					oModelZGI := oModel:GetModel("ZGIDETAIL")
 					oView := FwViewactive()
-					for nX := 1 To oModeLZGI:Length()
+					For nX := 1 To oModeLZGI:Length()
 						oModeLZGI:GoLine(nX)
 						//Aqui estamos prercorrendo os insumos da operação
-
-						lRet := u_UGR045V(oModeLZGI:GetValue("ZGI_PRODUT"),oModeLZGI:GetValue("ZGI_LOCAL"),oModeLZGI:GetValue("ZGI_QTDE"))
-						If  lRet == .F.
-							//FwFldPut("ZGI_QTDE", 0,nX,oModeLZGI)
-							oModeLZGI:SetValue("ZGI_QTDE",0)
+						If !(oModelZGI:IsDeleted())
+							lRet := u_UGR045V(oModeLZGI:GetValue("ZGI_PRODUT"),oModeLZGI:GetValue("ZGI_LOCAL"),oModeLZGI:GetValue("ZGI_QTDE"))
+							If  lRet == .F.
+								//FwFldPut("ZGI_QTDE", 0,nX,oModeLZGI)
+								oModeLZGI:SetValue("ZGI_QTDE",0)
+							EndIf
 						EndIf
 						//cCodProd := oModeLZGI:GetValue("ZGI_PRODUT")
 						//Alert("Teste para mostrar os produtos de insumo"+cCodProd)
-					next
+					Next
 					oModeLZGI:GoLine(1)
 					oView:Refresh("ZGIDETAIL")
-				next
+				Next
 
 			//if MsgYesNo("Deseja cotinuar ?")
 			//	lRet := .f.

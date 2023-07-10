@@ -4,7 +4,7 @@
 {Protheus.doc} IPADCC
 Inicializador padrao do D3_cc 
 Trazer o centro de custos do recurso nas requisicoes do apontamento de insumos
-@author Nilton (TOTVS)
+@author  (TOTVS) Nilton
 @since 04/11/2022
 @version 1.0
 

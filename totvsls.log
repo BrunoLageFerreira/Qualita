@@ -1,318 +1,276 @@
 File verbosity level: 9
 date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
-2023-07-10 07:47:44.301 (   0.001s) [                ]             loguru.cpp:755   INFO| Logging to 'totvsls.log', mode: 'w', verbosity: 9
+2023-07-18 16:47:06.260 (   0.001s) [                ]             loguru.cpp:755   INFO| Logging to 'totvsls.log', mode: 'w', verbosity: 9
 (   0.001s) [main thread     ]             loguru.cpp:591   | arguments: c:\\Users\\Administrator\\.vscode\\extensions\\totvs.tds-vscode-1.3.18/node_modules/@totvs/tds-ls/bin/windows/advpls.exe language-server --enable-auto-complete=LS --notification-level=\"none\" --fs-encoding=cp1252 --includes=D:\\TOTVS\ 12\\Microsiga\\Protheus\\include --linter=enabled --log-file=totvsls.log --record=totvsls
 (   0.001s) [main thread     ]             loguru.cpp:594   | Current dir: d:\TOTVS 12\Microsiga\Protheus\ProjetoVSCode
 (   0.001s) [main thread     ]             loguru.cpp:596   | stderr verbosity: -2
 (   0.001s) [main thread     ]             loguru.cpp:597   | -----------------------------------
-(   0.001s) [main thread     ]    security_manager.cc:883   | lsRsaInit
-(   0.003s) [main thread     ]    security_manager.cc:1419  | lsAsymmDecrypt
-(   0.003s) [main thread     ]    security_manager.cc:1420  | plaintext 
-(   0.003s) [main thread     ]    security_manager.cc:1421  | ciphertext 660089F3AA887DBA19A87505A44F1C19F2E8B608EB03B6EC6E350E85EEC4B3F0AE9A39768DA88FDD126043DF378D3E174ACCA62706684B193C97DCAE9C4EC088875B79F5E11020B25DCEE7290D857C64325176C17BA75B401D03C1FAFC09BD0D09D36CA9D392554FE1E342FD30BFB2A64EE8EC6D6B07560BAE46B83C8B46DC7A661634E3B04702FEE35276847C112C53C31F1FA72BC31140C8C3CDBEA31170A1D5B3AFC0EA2B9F90B137ACD63E295C613AD01C6E5690B208EBB4B900B73489FA567149FA271B54C63DD86B007B38E96EAB8E810255D9B7359F9DF2AE9F3FC8D21CAD92935C67DC76035BC9E276EFF5E2FE5CD675C30F406712105164E64A4028
-(   0.003s) [main thread     ]    security_manager.cc:1422  | ciphertext_len 256
-(   0.012s) [main thread     ]    security_manager.cc:1099  | userRsaInit
-(   0.013s) [main thread     ]    security_manager.cc:1118  | Loading user prv key.
-(   0.013s) [main thread     ]    security_manager.cc:1149  | Loading user pub key.
-(   0.013s) [main thread     ]    security_manager.cc:1248  | Loading user symm key.
-(   0.022s) [main thread     ]               utils.cc:539   | Conversion::setCode to 'cp1252'
-(   0.024s) [querydb         ]msg_lsp_initialize_requ:496   | Start Running initialize
-(   0.024s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Initializing Language Server." took 0.1 ms
-(   0.024s) [querydb         ]msg_lsp_initialize_requ:502   | Init parameters: {"compilationDatabaseCommand":"","compilationDatabaseDirectory":"","cacheDirectory":"","cacheFormat":"json","resourceDirectory":"","discoverSystemIncludes":true,"extraClangArguments":[],"progressReportFrequencyMs":500,"emitQueryDbBlocked":false,"emitInactiveRegions":false,"showDocumentLinksOnIncludes":true,"codeLens":{"localVariables":true},"completion":{"enableSnippets":true,"detailedLabel":false,"dropOldRequests":true,"filterAndSort":true,"includeMaxPathSize":30,"includeSuffixWhitelist":[".h",".hpp",".hh",".ch"],"includeBlacklist":[],"includeWhitelist":[]},"formatting":{"enabled":false},"diagnostics":{"blacklist":[],"whitelist":[],"frequencyMs":0,"onParse":true,"onType":true},"highlight":{"enabled":false,"blacklist":[],"whitelist":[]},"index":{"attributeMakeCallsToCtor":true,"blacklist":[],"whitelist":[],"comments":2,"enabled":true,"logSkippedPaths":false,"threads":0},"workspaceSymbol":{"maxNum":1000,"sort":true},"xref":{"maxNum":2000},"enableIndexOnDidChange":false}
-(   0.024s) [querydb         ]msg_lsp_initialize_requ:517   | [querydb] Initialize in directory d:/totvs 12/microsiga/protheus/projetovscode with uri file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode
-(   0.024s) [querydb         ]msg_lsp_initialize_requ:574   | Using -resource-dir=d:/totvs 12/microsiga/protheus/projetovscode/default_resource_directory
-(   0.024s) [querydb         ]msg_lsp_initialize_requ:577   | Send initialization before starting indexers, so we don't send a status update too early.
-(   0.024s) [querydb         ]msg_lsp_initialize_requ:597   | Set project root.
-(   0.024s) [stdout          ]               timer.cc:42    | [e2e] Running initialize took 0.367 ms
-(   0.027s) [querydb         ]               timer.cc:42    | compile_commands.json advpllang time took 0.0 ms
-(   0.027s) [querydb         ]               timer.cc:42    | compile_commands.json our time took 0.0 ms
-(   0.027s) [querydb         ]               timer.cc:42    | [perf] Loaded compilation entries (0 files) took 0.102 ms
-(   0.027s) [querydb         ]msg_lsp_initialize_requ:640   | Starting 12 indexers
-(   0.028s) [querydb         ]               timer.cc:42    | [perf] Dispatched initial index requests took 0.0 ms
-(   0.028s) [querydb         ]msg_lsp_initialize_requ:669   | End Running initialize
-(   0.029s) [scan_includes   ]               timer.cc:42    | [perf] Scanning for includes took 1.1059 ms
-(   0.123s) [querydb         ]msg_lsp_initialized_not:22    | Got Initialized Notification
-(   0.124s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Language Server initialized." took 0.1 ms
-(   0.124s) [querydb         ]msg_totvsserver_reconne:48    | Start Running $totvsserver/reconnect
-(   0.124s) [querydb         ]msg_totvsserver_reconne:52    | Reconnecting server with connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODc1Mzc2MjowOjE6MQ==.rIhjqW9h2ju3PfEzO1/pujOTUy2ViS31yaEy3PaxUZ+LOIoktxhSt2vw+htpJRHyJGuD5SiILqNF1SNl4ntwxsOECpiML/uaXN/2jl/mwj3tHmaBHdZeupHvCEOBSJ89qeztkQdykm97yl4dor1LrSGlgiI63cjqtVMfCsNCPqcAZ8FQrOVGlSx2fn6Ulj//N0Lr6HebN8HOS1E7l37HRrz3B8byM99X1xKPx/3un2io8f4xvtUJvdA8FrV02NNIpdctxtRkknlgPXW3fkSD5BY/nqzNOLriucwX8L5V+qThgPxOQ+oF0ThCKjHYzne8umXEDwyXaBEMBzsxdJjMyg==
-(   0.124s) [querydb         ]  connection_manager.cc:470   | Starting reconnection to the server 'DEV_COMPILA'
-(   0.124s) [querydb         ]  connection_manager.cc:471   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODc1Mzc2MjowOjE6MQ==.rIhjqW9h2ju3PfEzO1/pujOTUy2ViS31yaEy3PaxUZ+LOIoktxhSt2vw+htpJRHyJGuD5SiILqNF1SNl4ntwxsOECpiML/uaXN/2jl/mwj3tHmaBHdZeupHvCEOBSJ89qeztkQdykm97yl4dor1LrSGlgiI63cjqtVMfCsNCPqcAZ8FQrOVGlSx2fn6Ulj//N0Lr6HebN8HOS1E7l37HRrz3B8byM99X1xKPx/3un2io8f4xvtUJvdA8FrV02NNIpdctxtRkknlgPXW3fkSD5BY/nqzNOLriucwX8L5V+qThgPxOQ+oF0ThCKjHYzne8umXEDwyXaBEMBzsxdJjMyg==
-(   0.124s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting reconnection to the server 'DEV_COMPILA'" took 0.1 ms
-(   0.124s) [querydb         ]    security_manager.cc:337   | authentic TRUE
-(   0.124s) [querydb         ]    security_manager.cc:520   | done EkfGZtvYgmhwz/+Iodemq3ImuDVXrz7z2MtgBFkOXlM=
-(   0.124s) [querydb         ]    security_manager.cc:530   | done password symmDecrypt (12)
-(   0.124s) [querydb         ]  connection_manager.cc:4527  | ConnectionManager::newConnection: 192.168.1.103:1236 (20210324103317) [1] {3}
-(   0.124s) [querydb         ]  connection_manager.cc:4531  | connected status: 0
-(   0.224s) [querydb         ]  connection_manager.cc:4534  | connected status: 2
-(   0.225s) [querydb         ]  connection_manager.cc:4542  | MS_DBGGETBUILD OK
-(   0.225s) [querydb         ]  connection_manager.cc:4552  | build: 7.00.210324P
-(   0.225s) [querydb         ]  connection_manager.cc:4561  | creating secureContext
-(   0.225s) [querydb         ]  connection_manager.cc:4563  | secureContext initialize
-(   0.493s) [querydb         ]  connection_manager.cc:4566  | asymmetric generateKeys
-(   0.493s) [querydb         ]  connection_manager.cc:4568  | secureContext initialized
-(   0.507s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Secure authenticating..." took 0.2 ms
-(   3.792s) [querydb         ]  connection_manager.cc:4875  | MS_DBGPSWADM_SEC OK
-(   3.792s) [querydb         ]  connection_manager.cc:4742  | checkAuthenticationError userCode: 0
-(   3.792s) [querydb         ]  connection_manager.cc:4879  | User authenticated successfully.
-(   3.792s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] User authenticated successfully." took 0.2 ms
-(   3.805s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager dbgGetServerType exec took 0.605 ms
-(   3.805s) [querydb         ]  connection_manager.cc:4969  | MS_DBGGETSERVERTYPE OK => TOTVSTEC
-(   3.805s) [querydb         ]    security_manager.cc:541   | encodedExtraInfo: djI6MTY4ODk4NjA2ODowOjE6MQ==
-(   3.811s) [querydb         ]    security_manager.cc:289   | signature V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-(   3.811s) [querydb         ]  connection_manager.cc:542   | Reconnection to the server 'DEV_COMPILA' finished.
-(   3.811s) [querydb         ]  connection_manager.cc:543   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Reconnect server for connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q== took 3686.3683113 ms
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Reconnection to the server 'DEV_COMPILA' finished." took 0.1 ms
-(   3.811s) [querydb         ]msg_totvsserver_reconne:112   | End Running $totvsserver/reconnect
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/reconnect took 3686.3683309 ms
-(   3.811s) [querydb         ]               utils.cc:539   | Conversion::setCode to 'cp1252'
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.17 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103255 ms
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103324 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103394 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103438 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
-(   3.811s) [querydb         ]               utils.cc:539   | Conversion::setCode to 'cp1252'
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.7 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103484 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103524 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103565 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103620 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
-(   3.811s) [querydb         ]               utils.cc:539   | Conversion::setCode to 'cp1252'
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.7 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103669 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103804 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 103.103860 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 104.103902 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
-(   3.811s) [querydb         ]               utils.cc:539   | Conversion::setCode to 'cp1252'
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.7 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 104.103951 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 104.103993 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
-(   3.811s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.811s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 104.104032 ms
-(   3.811s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.812s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
-(   3.812s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
-(   3.812s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.812s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 104.104077 ms
-(   3.820s) [querydb         ]msg_totvsserver_server_:47    | Start Running $totvsserver/serverInformations
-(   3.820s) [querydb         ]msg_totvsserver_server_:50    | Get server informations of: 
-(   3.820s) [querydb         ]  connection_manager.cc:4989  | Searching for connection token: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-(   3.820s) [querydb         ]  connection_manager.cc:4994  | Connections thread size: 1
-(   3.820s) [querydb         ]  connection_manager.cc:5004  | connection pointer address 0000018A5ADDF7D0
-(   3.820s) [querydb         ]  connection_manager.cc:7324  | retrievedConnectionThread status 2
-(   3.820s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager GetServerInformations => serverInformations.size: [] took 0.82 ms
-(   3.820s) [querydb         ]msg_totvsserver_server_:91    | End Running $totvsserver/serverInformations
-(   3.820s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/serverInformations took 0.230 ms
-(   3.850s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(   3.850s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key includes, value D:\TOTVS 12\Microsiga\Protheus\include;
-(   3.850s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
-(   3.850s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(   3.850s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.146 ms
-(  71.085s) [querydb         ]msg_totvsserver_reconne:48    | Start Running $totvsserver/reconnect
-(  71.085s) [querydb         ]msg_totvsserver_reconne:52    | Reconnecting server with connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODczMTMwMDowOjE6MQ==.uQYXQCDNyfdC2c1VfKGhDp9irtRGUYPsCOiErkjxiXY8AoHUAc+jML1nMWte+n/Ax63DTfn6iyPVeQAPFZuGyybck5iQhn6o7k+51kGT3yKheQ/2oEaskfgrkbavBWUQ4udiO5n4RIlKua70dCdxmOPTEtM3TQDyJZ1S0VRrhoQeOtahrq036jumNUtSNgjQlxhEdRs2hIFjI868b+2dT2vVIUCw3ddJuAFsmM8TOuy4/COhWLRqrR9ddsVOkebzoieAeKiluH5p4TQDrSCFBIj2eETmfbHqH9oW9eX6arpIpApD1hpban7AcHBZdRmmhCwKnkzEiN3aOQXFEz+lLA==
-(  71.085s) [querydb         ]  connection_manager.cc:470   | Starting reconnection to the server 'DEV_COMPILA'
-(  71.085s) [querydb         ]  connection_manager.cc:471   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODczMTMwMDowOjE6MQ==.uQYXQCDNyfdC2c1VfKGhDp9irtRGUYPsCOiErkjxiXY8AoHUAc+jML1nMWte+n/Ax63DTfn6iyPVeQAPFZuGyybck5iQhn6o7k+51kGT3yKheQ/2oEaskfgrkbavBWUQ4udiO5n4RIlKua70dCdxmOPTEtM3TQDyJZ1S0VRrhoQeOtahrq036jumNUtSNgjQlxhEdRs2hIFjI868b+2dT2vVIUCw3ddJuAFsmM8TOuy4/COhWLRqrR9ddsVOkebzoieAeKiluH5p4TQDrSCFBIj2eETmfbHqH9oW9eX6arpIpApD1hpban7AcHBZdRmmhCwKnkzEiN3aOQXFEz+lLA==
-(  71.085s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting reconnection to the server 'DEV_COMPILA'" took 0.2 ms
-(  71.085s) [querydb         ]    security_manager.cc:337   | authentic TRUE
-(  71.086s) [querydb         ]    security_manager.cc:520   | done mBGwzNnWtHkM8GaIxBcUf5gqfV4KwgYmSq6xLrf/1Bs=
-(  71.086s) [querydb         ]    security_manager.cc:530   | done password symmDecrypt (12)
-(  71.086s) [querydb         ]  connection_manager.cc:4527  | ConnectionManager::newConnection: 192.168.1.103:1236 (20210324103317) [1] {3}
-(  71.086s) [querydb         ]  connection_manager.cc:4531  | connected status: 0
-(  71.186s) [querydb         ]  connection_manager.cc:4534  | connected status: 2
-(  71.187s) [querydb         ]  connection_manager.cc:4542  | MS_DBGGETBUILD OK
-(  71.187s) [querydb         ]  connection_manager.cc:4552  | build: 7.00.210324P
-(  71.187s) [querydb         ]  connection_manager.cc:4561  | creating secureContext
-(  71.187s) [querydb         ]  connection_manager.cc:4563  | secureContext initialize
-(  71.187s) [querydb         ]  connection_manager.cc:4566  | asymmetric generateKeys
-(  71.187s) [querydb         ]  connection_manager.cc:4568  | secureContext initialized
-(  71.194s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Secure authenticating..." took 0.2 ms
-(  72.769s) [querydb         ]  connection_manager.cc:4875  | MS_DBGPSWADM_SEC OK
-(  72.769s) [querydb         ]  connection_manager.cc:4742  | checkAuthenticationError userCode: 0
-(  72.769s) [querydb         ]  connection_manager.cc:4879  | User authenticated successfully.
-(  72.769s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] User authenticated successfully." took 0.2 ms
-(  72.777s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager dbgGetServerType exec took 0.558 ms
-(  72.777s) [querydb         ]  connection_manager.cc:4969  | MS_DBGGETSERVERTYPE OK => TOTVSTEC
-(  72.777s) [querydb         ]    security_manager.cc:541   | encodedExtraInfo: djI6MTY4ODk4NjEzNzowOjE6MQ==
-(  72.783s) [querydb         ]    security_manager.cc:289   | signature rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-(  72.783s) [querydb         ]  connection_manager.cc:542   | Reconnection to the server 'DEV_COMPILA' finished.
-(  72.783s) [querydb         ]  connection_manager.cc:543   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-(  72.783s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Reconnect server for connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ== took 1698.1696594 ms
-(  72.783s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Reconnection to the server 'DEV_COMPILA' finished." took 0.1 ms
-(  72.784s) [querydb         ]msg_totvsserver_reconne:112   | End Running $totvsserver/reconnect
-(  72.784s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/reconnect took 1698.1696781 ms
-(  72.794s) [querydb         ]msg_totvsserver_server_:47    | Start Running $totvsserver/serverInformations
-(  72.794s) [querydb         ]msg_totvsserver_server_:50    | Get server informations of: 
-(  72.794s) [querydb         ]  connection_manager.cc:4989  | Searching for connection token: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-(  72.794s) [querydb         ]  connection_manager.cc:4994  | Connections thread size: 2
-(  72.794s) [querydb         ]  connection_manager.cc:5004  | connection pointer address 0000018A5ADDFAF0
-(  72.794s) [querydb         ]  connection_manager.cc:7324  | retrievedConnectionThread status 2
-(  72.794s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager GetServerInformations => serverInformations.size: [] took 0.82 ms
-(  72.794s) [querydb         ]msg_totvsserver_server_:91    | End Running $totvsserver/serverInformations
-(  72.794s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/serverInformations took 0.226 ms
-(  72.809s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(  72.809s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key includes, value D:\TOTVS 12\Microsiga\Protheus\include;
-(  72.809s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.4 ms
-(  72.809s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(  72.809s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.145 ms
-(  79.391s) [querydb         ]msg_totvsserver_reconne:48    | Start Running $totvsserver/reconnect
-(  79.391s) [querydb         ]msg_totvsserver_reconne:52    | Reconnecting server with connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-(  79.391s) [querydb         ]  connection_manager.cc:470   | Starting reconnection to the server 'DEV_COMPILA'
-(  79.391s) [querydb         ]  connection_manager.cc:471   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-(  79.391s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting reconnection to the server 'DEV_COMPILA'" took 0.1 ms
-(  79.391s) [querydb         ]    security_manager.cc:337   | authentic TRUE
-(  79.391s) [querydb         ]    security_manager.cc:520   | done EkfGZtvYgmhwz/+Iodemq3ImuDVXrz7z2MtgBFkOXlM=
-(  79.391s) [querydb         ]    security_manager.cc:530   | done password symmDecrypt (12)
-(  79.391s) [querydb         ]  connection_manager.cc:511   | Reconnection find server 'DEV_COMPILA
-(  79.391s) [querydb         ]  connection_manager.cc:512   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-(  79.391s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Reconnect server for connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q== took 0.499 ms
-(  79.391s) [querydb         ]msg_totvsserver_reconne:112   | End Running $totvsserver/reconnect
-(  79.391s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/reconnect took 0.655 ms
-(  79.399s) [querydb         ]msg_totvsserver_server_:47    | Start Running $totvsserver/serverInformations
-(  79.399s) [querydb         ]msg_totvsserver_server_:50    | Get server informations of: 
-(  79.399s) [querydb         ]  connection_manager.cc:4989  | Searching for connection token: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-(  79.399s) [querydb         ]  connection_manager.cc:4994  | Connections thread size: 2
-(  79.399s) [querydb         ]  connection_manager.cc:5004  | connection pointer address 0000018A5ADDF7D0
-(  79.399s) [querydb         ]  connection_manager.cc:7324  | retrievedConnectionThread status 2
-(  79.399s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager GetServerInformations => serverInformations.size: [] took 0.96 ms
-(  79.399s) [querydb         ]msg_totvsserver_server_:91    | End Running $totvsserver/serverInformations
-(  79.399s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/serverInformations took 0.319 ms
-(  79.408s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(  79.408s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key includes, value D:\TOTVS 12\Microsiga\Protheus\include;
-(  79.408s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
-(  79.408s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(  79.408s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.154 ms
-(  80.600s) [querydb         ]msg_totvsserver_reconne:48    | Start Running $totvsserver/reconnect
-(  80.600s) [querydb         ]msg_totvsserver_reconne:52    | Reconnecting server with connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-(  80.600s) [querydb         ]  connection_manager.cc:470   | Starting reconnection to the server 'DEV_COMPILA'
-(  80.600s) [querydb         ]  connection_manager.cc:471   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-(  80.600s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting reconnection to the server 'DEV_COMPILA'" took 0.0 ms
-(  80.600s) [querydb         ]    security_manager.cc:337   | authentic TRUE
-(  80.600s) [querydb         ]    security_manager.cc:520   | done mBGwzNnWtHkM8GaIxBcUf5gqfV4KwgYmSq6xLrf/1Bs=
-(  80.600s) [querydb         ]    security_manager.cc:530   | done password symmDecrypt (12)
-(  80.600s) [querydb         ]  connection_manager.cc:511   | Reconnection find server 'DEV_COMPILA
-(  80.600s) [querydb         ]  connection_manager.cc:512   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-(  80.600s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Reconnect server for connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ== took 0.505 ms
-(  80.601s) [querydb         ]msg_totvsserver_reconne:112   | End Running $totvsserver/reconnect
-(  80.601s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/reconnect took 0.688 ms
-(  80.607s) [querydb         ]msg_totvsserver_server_:47    | Start Running $totvsserver/serverInformations
-(  80.607s) [querydb         ]msg_totvsserver_server_:50    | Get server informations of: 
-(  80.607s) [querydb         ]  connection_manager.cc:4989  | Searching for connection token: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-(  80.607s) [querydb         ]  connection_manager.cc:4994  | Connections thread size: 2
-(  80.607s) [querydb         ]  connection_manager.cc:5004  | connection pointer address 0000018A5ADDFAF0
-(  80.607s) [querydb         ]  connection_manager.cc:7324  | retrievedConnectionThread status 2
-(  80.607s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager GetServerInformations => serverInformations.size: [] took 0.113 ms
-(  80.607s) [querydb         ]msg_totvsserver_server_:91    | End Running $totvsserver/serverInformations
-(  80.607s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/serverInformations took 0.309 ms
-(  80.614s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-(  80.614s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key includes, value D:\TOTVS 12\Microsiga\Protheus\include;
-(  80.614s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
-(  80.614s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-(  80.615s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.234 ms
-( 259.437s) [querydb         ]msg_totvsserver_reconne:48    | Start Running $totvsserver/reconnect
-( 259.437s) [querydb         ]msg_totvsserver_reconne:52    | Reconnecting server with connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-( 259.437s) [querydb         ]  connection_manager.cc:470   | Starting reconnection to the server 'DEV_COMPILA'
-( 259.437s) [querydb         ]  connection_manager.cc:471   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-( 259.437s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting reconnection to the server 'DEV_COMPILA'" took 0.1 ms
-( 259.437s) [querydb         ]    security_manager.cc:337   | authentic TRUE
-( 259.437s) [querydb         ]    security_manager.cc:520   | done EkfGZtvYgmhwz/+Iodemq3ImuDVXrz7z2MtgBFkOXlM=
-( 259.437s) [querydb         ]    security_manager.cc:530   | done password symmDecrypt (12)
-( 259.437s) [querydb         ]  connection_manager.cc:511   | Reconnection find server 'DEV_COMPILA
-( 259.437s) [querydb         ]  connection_manager.cc:512   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-( 259.437s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Reconnect server for connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q== took 0.376 ms
-( 259.437s) [querydb         ]msg_totvsserver_reconne:112   | End Running $totvsserver/reconnect
-( 259.437s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/reconnect took 0.551 ms
-( 259.447s) [querydb         ]msg_totvsserver_server_:47    | Start Running $totvsserver/serverInformations
-( 259.447s) [querydb         ]msg_totvsserver_server_:50    | Get server informations of: 
-( 259.447s) [querydb         ]  connection_manager.cc:4989  | Searching for connection token: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6QkFTRVRFU1RFOkFkbWluOkVrZkdadHZZZ21od3ovK0lvZGVtcTNJbXVEVlhyejd6Mk10Z0JGa09YbE09|djI6MTY4ODk4NjA2ODowOjE6MQ==.V97qDn28VKqeCh0FiFU7heCUS4JiAzbOd3k8n4pd5C2mfrKBENR/br5F2JzKLsQy5Zf0r+2JPG1On+GP9btOY79kSfJrU+JKWQNhgyLZwPPezLWsljIZJUw4MvqaQA61DaX9znT5iz1d48uklm+2HV7qMEL7WaBrr7qJ7+p+eLeTBR/E7HxsU95VBxtUtIKtfLGePEdjKS7NdfCdEf+J/RDUNS51mGJoHA977LdSpTmJ4nlDlupjBICsWyTXjPXqAzrS0ZAiZhlI5OOR8A4sh1+ng7JDr6w8umWjgoA+DOjh3BAvH3uSPptzKjsx+YvjxhTwfH+IKS8ZxJMVktCv4Q==
-( 259.447s) [querydb         ]  connection_manager.cc:4994  | Connections thread size: 2
-( 259.447s) [querydb         ]  connection_manager.cc:5004  | connection pointer address 0000018A5ADDF7D0
-( 259.447s) [querydb         ]  connection_manager.cc:7324  | retrievedConnectionThread status 2
-( 259.447s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager GetServerInformations => serverInformations.size: [] took 0.87 ms
-( 259.447s) [querydb         ]msg_totvsserver_server_:91    | End Running $totvsserver/serverInformations
-( 259.447s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/serverInformations took 0.261 ms
-( 259.457s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-( 259.457s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key includes, value D:\TOTVS 12\Microsiga\Protheus\include;
-( 259.457s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
-( 259.457s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-( 259.457s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.144 ms
-( 262.136s) [querydb         ]msg_totvsserver_reconne:48    | Start Running $totvsserver/reconnect
-( 262.136s) [querydb         ]msg_totvsserver_reconne:52    | Reconnecting server with connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-( 262.136s) [querydb         ]  connection_manager.cc:470   | Starting reconnection to the server 'DEV_COMPILA'
-( 262.136s) [querydb         ]  connection_manager.cc:471   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-( 262.136s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting reconnection to the server 'DEV_COMPILA'" took 0.1 ms
-( 262.137s) [querydb         ]    security_manager.cc:337   | authentic TRUE
-( 262.137s) [querydb         ]    security_manager.cc:520   | done mBGwzNnWtHkM8GaIxBcUf5gqfV4KwgYmSq6xLrf/1Bs=
-( 262.137s) [querydb         ]    security_manager.cc:530   | done password symmDecrypt (12)
-( 262.137s) [querydb         ]  connection_manager.cc:511   | Reconnection find server 'DEV_COMPILA
-( 262.137s) [querydb         ]  connection_manager.cc:512   | djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-( 262.137s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Reconnect server for connectionToken: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ== took 0.345 ms
-( 262.137s) [querydb         ]msg_totvsserver_reconne:112   | End Running $totvsserver/reconnect
-( 262.137s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/reconnect took 0.481 ms
-( 262.143s) [querydb         ]msg_totvsserver_server_:47    | Start Running $totvsserver/serverInformations
-( 262.143s) [querydb         ]msg_totvsserver_server_:50    | Get server informations of: 
-( 262.143s) [querydb         ]  connection_manager.cc:4989  | Searching for connection token: djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY4ODk4NjEzNzowOjE6MQ==.rIkna7t/AsKu7PY6wQQbzc62OHuEmNhECfnZtt8WYs67Qe01sMogPAfmoGffygExrSNlsxvp09HEAEk/9FfxBcgG+o70p5WeEBJb1O/An2Ypi63lYvrGjd3NovGPyWV4VGhyA60vUC/saN2d6bfa3tZIqoZNbZh0be6RPtO+vFB9fM2BxgzlDJxq0wxcQARK6Q4RY/QO8Gx2ALIOGyl1gJbuGD5iLHQdNxBuMucofgTDo4yOFwxD1STL9+UPKuvacDxJEZPdGEEIPikkrPIO2lAf4XLf7JRgiRfs2wVz6AOuZ197axsK/I9/8XJ0q6y6a50faExXivR1O32X+HRRaQ==
-( 262.143s) [querydb         ]  connection_manager.cc:4994  | Connections thread size: 2
-( 262.143s) [querydb         ]  connection_manager.cc:5004  | connection pointer address 0000018A5ADDFAF0
-( 262.143s) [querydb         ]  connection_manager.cc:7324  | retrievedConnectionThread status 2
-( 262.143s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager GetServerInformations => serverInformations.size: [] took 0.70 ms
-( 262.143s) [querydb         ]msg_totvsserver_server_:91    | End Running $totvsserver/serverInformations
-( 262.143s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/serverInformations took 0.194 ms
-( 262.150s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
-( 262.150s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key includes, value D:\TOTVS 12\Microsiga\Protheus\include;
-( 262.150s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.3 ms
-( 262.150s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
-( 262.150s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.139 ms
+(   0.002s) [main thread     ]    security_manager.cc:883   | lsRsaInit
+(   0.002s) [main thread     ]    security_manager.cc:1419  | lsAsymmDecrypt
+(   0.002s) [main thread     ]    security_manager.cc:1420  | plaintext 
+(   0.002s) [main thread     ]    security_manager.cc:1421  | ciphertext 660089F3AA887DBA19A87505A44F1C19F2E8B608EB03B6EC6E350E85EEC4B3F0AE9A39768DA88FDD126043DF378D3E174ACCA62706684B193C97DCAE9C4EC088875B79F5E11020B25DCEE7290D857C64325176C17BA75B401D03C1FAFC09BD0D09D36CA9D392554FE1E342FD30BFB2A64EE8EC6D6B07560BAE46B83C8B46DC7A661634E3B04702FEE35276847C112C53C31F1FA72BC31140C8C3CDBEA31170A1D5B3AFC0EA2B9F90B137ACD63E295C613AD01C6E5690B208EBB4B900B73489FA567149FA271B54C63DD86B007B38E96EAB8E810255D9B7359F9DF2AE9F3FC8D21CAD92935C67DC76035BC9E276EFF5E2FE5CD675C30F406712105164E64A4028
+(   0.002s) [main thread     ]    security_manager.cc:1422  | ciphertext_len 256
+(   0.014s) [main thread     ]    security_manager.cc:1099  | userRsaInit
+(   0.014s) [main thread     ]    security_manager.cc:1118  | Loading user prv key.
+(   0.014s) [main thread     ]    security_manager.cc:1149  | Loading user pub key.
+(   0.015s) [main thread     ]    security_manager.cc:1248  | Loading user symm key.
+(   0.026s) [main thread     ]               utils.cc:539   | Conversion::setCode to 'cp1252'
+(   0.029s) [querydb         ]msg_lsp_initialize_requ:496   | Start Running initialize
+(   0.029s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Initializing Language Server." took 0.2 ms
+(   0.029s) [querydb         ]msg_lsp_initialize_requ:502   | Init parameters: {"compilationDatabaseCommand":"","compilationDatabaseDirectory":"","cacheDirectory":"","cacheFormat":"json","resourceDirectory":"","discoverSystemIncludes":true,"extraClangArguments":[],"progressReportFrequencyMs":500,"emitQueryDbBlocked":false,"emitInactiveRegions":false,"showDocumentLinksOnIncludes":true,"codeLens":{"localVariables":true},"completion":{"enableSnippets":true,"detailedLabel":false,"dropOldRequests":true,"filterAndSort":true,"includeMaxPathSize":30,"includeSuffixWhitelist":[".h",".hpp",".hh",".ch"],"includeBlacklist":[],"includeWhitelist":[]},"formatting":{"enabled":false},"diagnostics":{"blacklist":[],"whitelist":[],"frequencyMs":0,"onParse":true,"onType":true},"highlight":{"enabled":false,"blacklist":[],"whitelist":[]},"index":{"attributeMakeCallsToCtor":true,"blacklist":[],"whitelist":[],"comments":2,"enabled":true,"logSkippedPaths":false,"threads":0},"workspaceSymbol":{"maxNum":1000,"sort":true},"xref":{"maxNum":2000},"enableIndexOnDidChange":false}
+(   0.029s) [querydb         ]msg_lsp_initialize_requ:517   | [querydb] Initialize in directory d:/totvs 12/microsiga/protheus/projetovscode with uri file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode
+(   0.029s) [querydb         ]msg_lsp_initialize_requ:574   | Using -resource-dir=d:/totvs 12/microsiga/protheus/projetovscode/default_resource_directory
+(   0.029s) [querydb         ]msg_lsp_initialize_requ:577   | Send initialization before starting indexers, so we don't send a status update too early.
+(   0.029s) [querydb         ]msg_lsp_initialize_requ:597   | Set project root.
+(   0.029s) [stdout          ]               timer.cc:42    | [e2e] Running initialize took 0.495 ms
+(   0.034s) [querydb         ]               timer.cc:42    | compile_commands.json advpllang time took 0.1 ms
+(   0.034s) [querydb         ]               timer.cc:42    | compile_commands.json our time took 0.1 ms
+(   0.034s) [querydb         ]               timer.cc:42    | [perf] Loaded compilation entries (0 files) took 0.151 ms
+(   0.034s) [querydb         ]msg_lsp_initialize_requ:640   | Starting 12 indexers
+(   0.035s) [querydb         ]               timer.cc:42    | [perf] Dispatched initial index requests took 0.1 ms
+(   0.035s) [querydb         ]msg_lsp_initialize_requ:669   | End Running initialize
+(   0.037s) [scan_includes   ]               timer.cc:42    | [perf] Scanning for includes took 1.1153 ms
+(   0.132s) [querydb         ]msg_lsp_initialized_not:22    | Got Initialized Notification
+(   0.132s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Language Server initialized." took 0.2 ms
+(   0.136s) [querydb         ]msg_text_document_did_o:54    | Start Running textDocument/didOpen
+(   0.136s) [querydb         ]       working_files.cc:483   | OnOpen
+(   0.136s) [querydb         ]msg_text_document_did_o:74    | cached_file_contents
+(   0.137s) [querydb         ]               timer.cc:42    | [querydb] Loading cached index file for DidOpen (blocks CodeLens) took 0.762 ms
+(   0.137s) [querydb         ]msg_text_document_did_o:93    | working_file->filename: d:/totvs 12/microsiga/protheus/projetovscode/10_lib/wscadcli.prw
+(   0.137s) [querydb         ]      totvs_complete.cc:905   | Flushed completion sessions for d:/totvs 12/microsiga/protheus/projetovscode/10_lib/wscadcli.prw
+(   0.137s) [querydb         ]      totvs_complete.cc:800   | AdvPLCompleteManager::NotifyView
+(   0.137s) [querydb         ]      totvs_complete.cc:856   | AdvPLCompleteManager::EnsureCompletionOrCreatePreloadSession
+(   0.137s) [querydb         ]msg_text_document_did_o:111   | End Running textDocument/didOpen
+(   0.137s) [comp-preload    ]      totvs_complete.cc:871   | AdvPLCompleteManager::TryGetSession
+(   0.137s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/10_lib/wscadcli.prw)
+(   0.297s) [comp-preload    ]        totvs_linter.cc:13    | linterParseDiagnostic: 
+WSCADCLI.PRW(50) warning W0011 Variable LRET redefined
+WSCADCLI.PRW(52) warning W0011 Variable CNUMCLI redefined
+WSCADCLI.PRW(60) warning W0003 Local variable CCIENTIFICO never used
+WSCADCLI.PRW(59) warning W0003 Local variable CDESCERRO never used
+WSCADCLI.PRW(60) warning W0003 Local variable CDESCRICAO never used
+WSCADCLI.PRW(60) warning W0003 Local variable CGRUPO never used
+WSCADCLI.PRW(60) warning W0003 Local variable CNCM never used
+WSCADCLI.PRW(60) warning W0003 Local variable COBS never used
+WSCADCLI.PRW(60) warning W0003 Local variable CORIGEM never used
+WSCADCLI.PRW(60) warning W0003 Local variable CTIPO never used
+WSCADCLI.PRW(60) warning W0003 Local variable CUNIDADE never used
+(   1.459s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(   1.459s) [querydb         ]               utils.cc:539   | Conversion::setCode to 'cp1252'
+(   1.459s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.23 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(   1.459s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.41 ms
+(   1.459s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   1.459s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.15 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(   1.459s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   1.459s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.24 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(   1.459s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(   1.459s) [querydb         ]               utils.cc:539   | Conversion::setCode to 'cp1252'
+(   1.459s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.9 ms
+(   1.459s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.61 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   1.459s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.117 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(   1.459s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   1.459s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.180 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(   1.459s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(   1.459s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(   1.459s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(   1.459s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.258 ms
+(   1.459s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.0 ms
+(   1.460s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(   1.460s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.374 ms
+(   9.318s) [querydb         ]msg_totvsserver_connect:55    | Start Running $totvsserver/connect
+(   9.318s) [querydb         ]msg_totvsserver_connect:67    | Connection to server connType: 3 at TSS(34c67yvcjetlk88mwnxv7q81rie6ne) (1) 192.168.1.103:5060 Secure:1 [7.00.210324P] for env: SPED (autoReconnect: 1)
+(   9.318s) [querydb         ]  connection_manager.cc:348   | Starting connection to the server 'TSS' (192.168.1.103@5060)
+(   9.318s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting connection to the server 'TSS' (192.168.1.103@5060)" took 0.2 ms
+(   9.318s) [querydb         ]    security_manager.cc:384   | encodedServerInfo: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=
+(   9.318s) [querydb         ]    security_manager.cc:471   | done password symmEncrypt (32)
+(   9.318s) [querydb         ]    security_manager.cc:474   | done SEXHfuIKWiNuOItmWnHKc2q4TSnmeZnFed7tQEuQzj0=
+(   9.318s) [querydb         ]    security_manager.cc:479   | encodedLoginInfo: djE6U1BFRDpub3VzZXI6U0VYSGZ1SUtXaU51T0l0bVduSEtjMnE0VFNubWVabkZlZDd0UUV1UXpqMD0=
+(   9.318s) [querydb         ]  connection_manager.cc:4527  | ConnectionManager::newConnection: 192.168.1.103:5060 (20210324103317) [1] {3}
+(   9.318s) [querydb         ]  connection_manager.cc:4531  | connected status: 0
+(   9.419s) [querydb         ]  connection_manager.cc:4534  | connected status: 2
+(   9.420s) [querydb         ]  connection_manager.cc:4542  | MS_DBGGETBUILD OK
+(   9.420s) [querydb         ]  connection_manager.cc:4552  | build: 7.00.210324P
+(   9.420s) [querydb         ]  connection_manager.cc:4561  | creating secureContext
+(   9.420s) [querydb         ]  connection_manager.cc:4563  | secureContext initialize
+(  10.352s) [querydb         ]  connection_manager.cc:4566  | asymmetric generateKeys
+(  10.352s) [querydb         ]  connection_manager.cc:4568  | secureContext initialized
+(  10.731s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager dbgcheckauth exec took 229.228814 ms
+(  10.731s) [querydb         ]  connection_manager.cc:4648  | MS_DBGCHECKAUTH OK
+(  10.731s) [querydb         ]  connection_manager.cc:4650  | authRequired 1 for SPED
+(  10.731s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager dbgcheckauth processed took 0.26 ms
+(  10.732s) [querydb         ]    security_manager.cc:541   | encodedExtraInfo: djI6MTY4OTcwOTYzNjoyOjE6MQ==
+(  10.738s) [querydb         ]    security_manager.cc:289   | signature jcOpkeOr4PKmjnJ1p3p8DqbPOnSCE1O+CdqMWtmPRuKuA/hOb9tbcvYAK3O7XhmCdOUNJW5XEfcwD0IGhhXn3QY4zdHha9qMynj0bSqx9CyYZOFcLdkxqTxXqwfOodlgPedDHG8UW9rf582q3t3F5JlHwol5DCRJFjs/CMooaK8iTE4Ndb63xveQRXm3jwHzQd/v2dUKLdr7CSMsH/GE0/nPKMhnNzS5xA1G6PoGMWv7sL2dbpi/D9yq6eVax5qTvqyq89SFKI7oNBPMPOeXk1c0Wu94hOaz87S0IzYIpV8vyZd5BTy5uH98YY81gzXdh9P27t5X8z1zytNnABvpCA==
+(  10.738s) [querydb         ]  connection_manager.cc:387   | Connection to the server 'TSS' finished.
+(  10.738s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Connect to server 34c67yvcjetlk88mwnxv7q81rie6ne [1] 192.168.1.103:5060 with environment: SPED => connectionToken: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6U0VYSGZ1SUtXaU51T0l0bVduSEtjMnE0VFNubWVabkZlZDd0UUV1UXpqMD0=|djI6MTY4OTcwOTYzNjoyOjE6MQ==.jcOpkeOr4PKmjnJ1p3p8DqbPOnSCE1O+CdqMWtmPRuKuA/hOb9tbcvYAK3O7XhmCdOUNJW5XEfcwD0IGhhXn3QY4zdHha9qMynj0bSqx9CyYZOFcLdkxqTxXqwfOodlgPedDHG8UW9rf582q3t3F5JlHwol5DCRJFjs/CMooaK8iTE4Ndb63xveQRXm3jwHzQd/v2dUKLdr7CSMsH/GE0/nPKMhnNzS5xA1G6PoGMWv7sL2dbpi/D9yq6eVax5qTvqyq89SFKI7oNBPMPOeXk1c0Wu94hOaz87S0IzYIpV8vyZd5BTy5uH98YY81gzXdh9P27t5X8z1zytNnABvpCA== and needAuthentication=1 took 1420.1418940 ms
+(  10.738s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Connection to the server 'TSS' finished." took 0.2 ms
+(  10.738s) [querydb         ]msg_totvsserver_connect:141   | End Running $totvsserver/connect
+(  10.738s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/connect took 1420.1419172 ms
+(  18.626s) [querydb         ]msg_totvsserver_authent:48    | Start Running $totvsserver/authentication
+(  18.626s) [querydb         ]msg_totvsserver_authent:56    | Authentication to server with connectionToken: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6U0VYSGZ1SUtXaU51T0l0bVduSEtjMnE0VFNubWVabkZlZDd0UUV1UXpqMD0=|djI6MTY4OTcwOTYzNjoyOjE6MQ==.jcOpkeOr4PKmjnJ1p3p8DqbPOnSCE1O+CdqMWtmPRuKuA/hOb9tbcvYAK3O7XhmCdOUNJW5XEfcwD0IGhhXn3QY4zdHha9qMynj0bSqx9CyYZOFcLdkxqTxXqwfOodlgPedDHG8UW9rf582q3t3F5JlHwol5DCRJFjs/CMooaK8iTE4Ndb63xveQRXm3jwHzQd/v2dUKLdr7CSMsH/GE0/nPKMhnNzS5xA1G6PoGMWv7sL2dbpi/D9yq6eVax5qTvqyq89SFKI7oNBPMPOeXk1c0Wu94hOaz87S0IzYIpV8vyZd5BTy5uH98YY81gzXdh9P27t5X8z1zytNnABvpCA== by Admin:******** for env: SPED
+(  18.626s) [querydb         ]  connection_manager.cc:400   | Starting user 'Admin' authentication.
+(  18.626s) [querydb         ]  connection_manager.cc:4989  | Searching for connection token: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6U0VYSGZ1SUtXaU51T0l0bVduSEtjMnE0VFNubWVabkZlZDd0UUV1UXpqMD0=|djI6MTY4OTcwOTYzNjoyOjE6MQ==.jcOpkeOr4PKmjnJ1p3p8DqbPOnSCE1O+CdqMWtmPRuKuA/hOb9tbcvYAK3O7XhmCdOUNJW5XEfcwD0IGhhXn3QY4zdHha9qMynj0bSqx9CyYZOFcLdkxqTxXqwfOodlgPedDHG8UW9rf582q3t3F5JlHwol5DCRJFjs/CMooaK8iTE4Ndb63xveQRXm3jwHzQd/v2dUKLdr7CSMsH/GE0/nPKMhnNzS5xA1G6PoGMWv7sL2dbpi/D9yq6eVax5qTvqyq89SFKI7oNBPMPOeXk1c0Wu94hOaz87S0IzYIpV8vyZd5BTy5uH98YY81gzXdh9P27t5X8z1zytNnABvpCA==
+(  18.626s) [querydb         ]  connection_manager.cc:4994  | Connections thread size: 1
+(  18.626s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting user 'Admin' authentication." took 0.2 ms
+(  18.626s) [querydb         ]  connection_manager.cc:5004  | connection pointer address 00000220602FB770
+(  18.626s) [querydb         ]  connection_manager.cc:410   | retrievedConnectionThread status 2
+(  18.626s) [querydb         ]    security_manager.cc:337   | authentic TRUE
+(  18.626s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Secure authenticating..." took 0.1 ms
+(  21.498s) [querydb         ]  connection_manager.cc:4875  | MS_DBGPSWADM_SEC OK
+(  21.498s) [querydb         ]  connection_manager.cc:4742  | checkAuthenticationError userCode: 2
+(  21.498s) [querydb         ]  connection_manager.cc:4757  | Authentication error: Could not authenticate. Invalid user and/or password.
+(  21.498s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Error] Authentication error: Could not authenticate. Invalid user and/or password." took 0.4 ms
+(  21.498s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Authenticate server error took 2872.2869422 ms
+(  21.498s) [querydb         ]msg_totvsserver_authent:118   | End Running $totvsserver/authentication
+(  21.498s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/authentication took 2872.2869660 ms
+(  25.371s) [querydb         ]msg_totvsserver_connect:55    | Start Running $totvsserver/connect
+(  25.371s) [querydb         ]msg_totvsserver_connect:67    | Connection to server connType: 3 at TSS(34c67yvcjetlk88mwnxv7q81rie6ne) (1) 192.168.1.103:5060 Secure:1 [7.00.210324P] for env: SPED (autoReconnect: 1)
+(  25.371s) [querydb         ]  connection_manager.cc:348   | Starting connection to the server 'TSS' (192.168.1.103@5060)
+(  25.371s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting connection to the server 'TSS' (192.168.1.103@5060)" took 0.2 ms
+(  25.371s) [querydb         ]    security_manager.cc:384   | encodedServerInfo: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=
+(  25.371s) [querydb         ]    security_manager.cc:471   | done password symmEncrypt (32)
+(  25.371s) [querydb         ]    security_manager.cc:474   | done vnEofRekL/ws064cAKtezuQIuJeTe60G52Tv528VInM=
+(  25.371s) [querydb         ]    security_manager.cc:479   | encodedLoginInfo: djE6U1BFRDpub3VzZXI6dm5Fb2ZSZWtML3dzMDY0Y0FLdGV6dVFJdUplVGU2MEc1MlR2NTI4VkluTT0=
+(  25.371s) [querydb         ]  connection_manager.cc:4527  | ConnectionManager::newConnection: 192.168.1.103:5060 (20210324103317) [1] {3}
+(  25.371s) [querydb         ]  connection_manager.cc:4531  | connected status: 0
+(  25.471s) [querydb         ]  connection_manager.cc:4534  | connected status: 2
+(  25.472s) [querydb         ]  connection_manager.cc:4542  | MS_DBGGETBUILD OK
+(  25.472s) [querydb         ]  connection_manager.cc:4552  | build: 7.00.210324P
+(  25.472s) [querydb         ]  connection_manager.cc:4561  | creating secureContext
+(  25.472s) [querydb         ]  connection_manager.cc:4563  | secureContext initialize
+(  25.472s) [querydb         ]  connection_manager.cc:4566  | asymmetric generateKeys
+(  25.472s) [querydb         ]  connection_manager.cc:4568  | secureContext initialized
+(  25.709s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager dbgcheckauth exec took 229.229125 ms
+(  25.709s) [querydb         ]  connection_manager.cc:4648  | MS_DBGCHECKAUTH OK
+(  25.709s) [querydb         ]  connection_manager.cc:4650  | authRequired 1 for SPED
+(  25.709s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager dbgcheckauth processed took 0.18 ms
+(  25.709s) [querydb         ]    security_manager.cc:541   | encodedExtraInfo: djI6MTY4OTcwOTY1MToyOjE6MQ==
+(  25.715s) [querydb         ]    security_manager.cc:289   | signature eJKtcwFJMiX23bFAHNxOjQ8PpVZ3tpR6/6Px1IC2CkLBIJVGLpVEiYgsADm9M4IXySH1g2gAMKxssJYQDoXx71TJVRMQQSINIvmTEfa+MHfCpl7GUF+ZVjyCgl62CkmtpAar4x3sUHnizfE437zNxviggHW2Hwnub6WNuJ2F5ASJ01DGjc5AQst6crQbNrTLYRsqkgc6vZHfMQnDzdIJz8QL1clMhpQreZCLBrTBz8zSt2V7sltFCJOqXn1nJTsSpSoCIAPUkT0osgo2AZl2EBzvSqI9s91Da5diLZ2sQNjno4JHYHz29neomualCreHU6YMMF3Ia9bGiwwDg6spag==
+(  25.715s) [querydb         ]  connection_manager.cc:387   | Connection to the server 'TSS' finished.
+(  25.715s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Connect to server 34c67yvcjetlk88mwnxv7q81rie6ne [1] 192.168.1.103:5060 with environment: SPED => connectionToken: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6dm5Fb2ZSZWtML3dzMDY0Y0FLdGV6dVFJdUplVGU2MEc1MlR2NTI4VkluTT0=|djI6MTY4OTcwOTY1MToyOjE6MQ==.eJKtcwFJMiX23bFAHNxOjQ8PpVZ3tpR6/6Px1IC2CkLBIJVGLpVEiYgsADm9M4IXySH1g2gAMKxssJYQDoXx71TJVRMQQSINIvmTEfa+MHfCpl7GUF+ZVjyCgl62CkmtpAar4x3sUHnizfE437zNxviggHW2Hwnub6WNuJ2F5ASJ01DGjc5AQst6crQbNrTLYRsqkgc6vZHfMQnDzdIJz8QL1clMhpQreZCLBrTBz8zSt2V7sltFCJOqXn1nJTsSpSoCIAPUkT0osgo2AZl2EBzvSqI9s91Da5diLZ2sQNjno4JHYHz29neomualCreHU6YMMF3Ia9bGiwwDg6spag== and needAuthentication=1 took 344.343768 ms
+(  25.715s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Connection to the server 'TSS' finished." took 0.2 ms
+(  25.715s) [querydb         ]msg_totvsserver_connect:141   | End Running $totvsserver/connect
+(  25.715s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/connect took 344.343961 ms
+(  27.952s) [querydb         ]msg_totvsserver_authent:48    | Start Running $totvsserver/authentication
+(  27.952s) [querydb         ]msg_totvsserver_authent:56    | Authentication to server with connectionToken: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6dm5Fb2ZSZWtML3dzMDY0Y0FLdGV6dVFJdUplVGU2MEc1MlR2NTI4VkluTT0=|djI6MTY4OTcwOTY1MToyOjE6MQ==.eJKtcwFJMiX23bFAHNxOjQ8PpVZ3tpR6/6Px1IC2CkLBIJVGLpVEiYgsADm9M4IXySH1g2gAMKxssJYQDoXx71TJVRMQQSINIvmTEfa+MHfCpl7GUF+ZVjyCgl62CkmtpAar4x3sUHnizfE437zNxviggHW2Hwnub6WNuJ2F5ASJ01DGjc5AQst6crQbNrTLYRsqkgc6vZHfMQnDzdIJz8QL1clMhpQreZCLBrTBz8zSt2V7sltFCJOqXn1nJTsSpSoCIAPUkT0osgo2AZl2EBzvSqI9s91Da5diLZ2sQNjno4JHYHz29neomualCreHU6YMMF3Ia9bGiwwDg6spag== by Admin:******** for env: SPED
+(  27.952s) [querydb         ]  connection_manager.cc:400   | Starting user 'Admin' authentication.
+(  27.952s) [querydb         ]  connection_manager.cc:4989  | Searching for connection token: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6dm5Fb2ZSZWtML3dzMDY0Y0FLdGV6dVFJdUplVGU2MEc1MlR2NTI4VkluTT0=|djI6MTY4OTcwOTY1MToyOjE6MQ==.eJKtcwFJMiX23bFAHNxOjQ8PpVZ3tpR6/6Px1IC2CkLBIJVGLpVEiYgsADm9M4IXySH1g2gAMKxssJYQDoXx71TJVRMQQSINIvmTEfa+MHfCpl7GUF+ZVjyCgl62CkmtpAar4x3sUHnizfE437zNxviggHW2Hwnub6WNuJ2F5ASJ01DGjc5AQst6crQbNrTLYRsqkgc6vZHfMQnDzdIJz8QL1clMhpQreZCLBrTBz8zSt2V7sltFCJOqXn1nJTsSpSoCIAPUkT0osgo2AZl2EBzvSqI9s91Da5diLZ2sQNjno4JHYHz29neomualCreHU6YMMF3Ia9bGiwwDg6spag==
+(  27.952s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting user 'Admin' authentication." took 0.2 ms
+(  27.952s) [querydb         ]  connection_manager.cc:4994  | Connections thread size: 2
+(  27.952s) [querydb         ]  connection_manager.cc:5004  | connection pointer address 00000220618F9FF0
+(  27.952s) [querydb         ]  connection_manager.cc:410   | retrievedConnectionThread status 2
+(  27.953s) [querydb         ]    security_manager.cc:337   | authentic TRUE
+(  27.953s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Secure authenticating..." took 0.1 ms
+(  29.504s) [querydb         ]  connection_manager.cc:4875  | MS_DBGPSWADM_SEC OK
+(  29.504s) [querydb         ]  connection_manager.cc:4742  | checkAuthenticationError userCode: 2
+(  29.504s) [querydb         ]  connection_manager.cc:4757  | Authentication error: Could not authenticate. Invalid user and/or password.
+(  29.504s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Error] Authentication error: Could not authenticate. Invalid user and/or password." took 0.3 ms
+(  29.504s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Authenticate server error took 1551.1550431 ms
+(  29.504s) [querydb         ]msg_totvsserver_authent:118   | End Running $totvsserver/authentication
+(  29.504s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/authentication took 1552.1550604 ms
+(  36.808s) [querydb         ]msg_totvsserver_connect:55    | Start Running $totvsserver/connect
+(  36.808s) [querydb         ]msg_totvsserver_connect:67    | Connection to server connType: 3 at TSS(34c67yvcjetlk88mwnxv7q81rie6ne) (1) 192.168.1.103:5060 Secure:1 [7.00.210324P] for env: SPED (autoReconnect: 1)
+(  36.808s) [querydb         ]  connection_manager.cc:348   | Starting connection to the server 'TSS' (192.168.1.103@5060)
+(  36.808s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting connection to the server 'TSS' (192.168.1.103@5060)" took 0.2 ms
+(  36.808s) [querydb         ]    security_manager.cc:384   | encodedServerInfo: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=
+(  36.809s) [querydb         ]    security_manager.cc:471   | done password symmEncrypt (32)
+(  36.809s) [querydb         ]    security_manager.cc:474   | done oIQdG9BUtJpEwdD6Z3T1dAGIsTwZfg8oTPDcRsF/Qzo=
+(  36.809s) [querydb         ]    security_manager.cc:479   | encodedLoginInfo: djE6U1BFRDpub3VzZXI6b0lRZEc5QlV0SnBFd2RENlozVDFkQUdJc1R3WmZnOG9UUERjUnNGL1F6bz0=
+(  36.809s) [querydb         ]  connection_manager.cc:4527  | ConnectionManager::newConnection: 192.168.1.103:5060 (20210324103317) [1] {3}
+(  36.809s) [querydb         ]  connection_manager.cc:4531  | connected status: 0
+(  36.909s) [querydb         ]  connection_manager.cc:4534  | connected status: 2
+(  36.910s) [querydb         ]  connection_manager.cc:4542  | MS_DBGGETBUILD OK
+(  36.910s) [querydb         ]  connection_manager.cc:4552  | build: 7.00.210324P
+(  36.910s) [querydb         ]  connection_manager.cc:4561  | creating secureContext
+(  36.910s) [querydb         ]  connection_manager.cc:4563  | secureContext initialize
+(  36.910s) [querydb         ]  connection_manager.cc:4566  | asymmetric generateKeys
+(  36.910s) [querydb         ]  connection_manager.cc:4568  | secureContext initialized
+(  37.162s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager dbgcheckauth exec took 245.244882 ms
+(  37.162s) [querydb         ]  connection_manager.cc:4648  | MS_DBGCHECKAUTH OK
+(  37.162s) [querydb         ]  connection_manager.cc:4650  | authRequired 1 for SPED
+(  37.162s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager dbgcheckauth processed took 0.25 ms
+(  37.162s) [querydb         ]    security_manager.cc:541   | encodedExtraInfo: djI6MTY4OTcwOTY2MzoyOjE6MQ==
+(  37.169s) [querydb         ]    security_manager.cc:289   | signature dNrECUxgG3Xw7ScqA4IvWhVbBBDf2lVLaXvskWT0Lt0MEjbpGnnijMr7FZ9GAsRc0buOkRRQNFXr+UvI+QcxcaDXxUlj+L1EvFwtmv8VHqVxqyY119Ym8Wc4W4F7PeyZr8WwT0GoyCd9zYfZHjV3i977D5aoJpiiNE36oi8IUn50P+jkS/GjrUFn1gwH07+Pbvm8J5cqPf19MqdFAJlr/ILJS2EpwO+cMBuXb/LbP3ieWBSgI9nf5mFsCTnSo0t2Q+TqSyuxV2nBll2PAw09/1elQRNxgpZfWPpflE3laetcW4N0KjJL03m7VQnmGSVd7sWMfxGdA3416aIMD+5BZg==
+(  37.169s) [querydb         ]  connection_manager.cc:387   | Connection to the server 'TSS' finished.
+(  37.169s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Connect to server 34c67yvcjetlk88mwnxv7q81rie6ne [1] 192.168.1.103:5060 with environment: SPED => connectionToken: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6b0lRZEc5QlV0SnBFd2RENlozVDFkQUdJc1R3WmZnOG9UUERjUnNGL1F6bz0=|djI6MTY4OTcwOTY2MzoyOjE6MQ==.dNrECUxgG3Xw7ScqA4IvWhVbBBDf2lVLaXvskWT0Lt0MEjbpGnnijMr7FZ9GAsRc0buOkRRQNFXr+UvI+QcxcaDXxUlj+L1EvFwtmv8VHqVxqyY119Ym8Wc4W4F7PeyZr8WwT0GoyCd9zYfZHjV3i977D5aoJpiiNE36oi8IUn50P+jkS/GjrUFn1gwH07+Pbvm8J5cqPf19MqdFAJlr/ILJS2EpwO+cMBuXb/LbP3ieWBSgI9nf5mFsCTnSo0t2Q+TqSyuxV2nBll2PAw09/1elQRNxgpZfWPpflE3laetcW4N0KjJL03m7VQnmGSVd7sWMfxGdA3416aIMD+5BZg== and needAuthentication=1 took 360.359905 ms
+(  37.169s) [querydb         ]msg_totvsserver_connect:141   | End Running $totvsserver/connect
+(  37.169s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Connection to the server 'TSS' finished." took 0.3 ms
+(  37.169s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/connect took 360.360163 ms
+(  44.864s) [querydb         ]msg_totvsserver_authent:48    | Start Running $totvsserver/authentication
+(  44.864s) [querydb         ]msg_totvsserver_authent:56    | Authentication to server with connectionToken: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6b0lRZEc5QlV0SnBFd2RENlozVDFkQUdJc1R3WmZnOG9UUERjUnNGL1F6bz0=|djI6MTY4OTcwOTY2MzoyOjE6MQ==.dNrECUxgG3Xw7ScqA4IvWhVbBBDf2lVLaXvskWT0Lt0MEjbpGnnijMr7FZ9GAsRc0buOkRRQNFXr+UvI+QcxcaDXxUlj+L1EvFwtmv8VHqVxqyY119Ym8Wc4W4F7PeyZr8WwT0GoyCd9zYfZHjV3i977D5aoJpiiNE36oi8IUn50P+jkS/GjrUFn1gwH07+Pbvm8J5cqPf19MqdFAJlr/ILJS2EpwO+cMBuXb/LbP3ieWBSgI9nf5mFsCTnSo0t2Q+TqSyuxV2nBll2PAw09/1elQRNxgpZfWPpflE3laetcW4N0KjJL03m7VQnmGSVd7sWMfxGdA3416aIMD+5BZg== by Admin:******** for env: SPED
+(  44.864s) [querydb         ]  connection_manager.cc:400   | Starting user 'Admin' authentication.
+(  44.864s) [querydb         ]  connection_manager.cc:4989  | Searching for connection token: djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6b0lRZEc5QlV0SnBFd2RENlozVDFkQUdJc1R3WmZnOG9UUERjUnNGL1F6bz0=|djI6MTY4OTcwOTY2MzoyOjE6MQ==.dNrECUxgG3Xw7ScqA4IvWhVbBBDf2lVLaXvskWT0Lt0MEjbpGnnijMr7FZ9GAsRc0buOkRRQNFXr+UvI+QcxcaDXxUlj+L1EvFwtmv8VHqVxqyY119Ym8Wc4W4F7PeyZr8WwT0GoyCd9zYfZHjV3i977D5aoJpiiNE36oi8IUn50P+jkS/GjrUFn1gwH07+Pbvm8J5cqPf19MqdFAJlr/ILJS2EpwO+cMBuXb/LbP3ieWBSgI9nf5mFsCTnSo0t2Q+TqSyuxV2nBll2PAw09/1elQRNxgpZfWPpflE3laetcW4N0KjJL03m7VQnmGSVd7sWMfxGdA3416aIMD+5BZg==
+(  44.864s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Starting user 'Admin' authentication." took 0.2 ms
+(  44.864s) [querydb         ]  connection_manager.cc:4994  | Connections thread size: 3
+(  44.864s) [querydb         ]  connection_manager.cc:5004  | connection pointer address 00000220618F9870
+(  44.865s) [querydb         ]  connection_manager.cc:410   | retrievedConnectionThread status 2
+(  44.865s) [querydb         ]    security_manager.cc:337   | authentic TRUE
+(  44.865s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Info] Secure authenticating..." took 0.1 ms
+(  46.446s) [querydb         ]  connection_manager.cc:4875  | MS_DBGPSWADM_SEC OK
+(  46.446s) [querydb         ]  connection_manager.cc:4742  | checkAuthenticationError userCode: 2
+(  46.446s) [querydb         ]  connection_manager.cc:4757  | Authentication error: Could not authenticate. Invalid user and/or password.
+(  46.446s) [stdout          ]               timer.cc:42    | [e2e] Message to Client: "[Error] Authentication error: Could not authenticate. Invalid user and/or password." took 0.4 ms
+(  46.446s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager Authenticate server error took 1582.1580499 ms
+(  46.446s) [querydb         ]msg_totvsserver_authent:118   | End Running $totvsserver/authentication
+(  46.446s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/authentication took 1582.1580695 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(  54.818s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(  54.818s) [querydb         ]               utils.cc:539   | Conversion::setCode to 'cp1252'
+(  54.818s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.22 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(  54.818s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(  54.818s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.10 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(  54.818s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(  54.818s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.45 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(  54.818s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(  54.818s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(  54.818s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.39 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(  54.818s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(  54.818s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(  54.818s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.102 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(  54.818s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key fsencoding, value cp1252
+(  54.818s) [querydb         ]               utils.cc:539   | Conversion::setCode to 'cp1252'
+(  54.818s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.14 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(  54.818s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.179 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(  54.818s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key autocomplete, value LS
+(  54.818s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(  54.818s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.250 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(  54.818s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key notificationlevel, value none
+(  54.818s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.2 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(  54.818s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.344 ms
+(  54.818s) [querydb         ]msg_totvsserver_change_:45    | Start Running $totvsserver/changeSetting
+(  54.818s) [querydb         ]msg_totvsserver_change_:50    | ChangeSetting : with scope advpls, key linter, value enabled
+(  54.818s) [querydb         ]               timer.cc:42    | [perf] ConnectionManager ChangeSetting server  took 0.1 ms
+(  54.819s) [querydb         ]msg_totvsserver_change_:94    | End Running $totvsserver/changeSetting
+(  54.819s) [stdout          ]               timer.cc:42    | [e2e] Running $totvsserver/changeSetting took 0.417 ms

@@ -133,8 +133,8 @@ ConOut("[Importaçao de Clientes] INICIO!")
                 aAdd(aCli, {"A1_INSCR"   , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:INSCRI)))   , Nil})
             EndIf 
 
-            aAdd(aCli, {"A1_PAIS"       , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CDPAIS)))    , Nil})
-            aAdd(aCli, {"A1_CODPAIS"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CDPAISERP))) , Nil})
+            aAdd(aCli, {"A1_PAIS"       , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CDPAIS)))    , Nil}) // 3 digitos
+            aAdd(aCli, {"A1_CODPAIS"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:CDPAISERP))) , Nil}) // 5 digitos
             
             aAdd(aCli, {"A1_VEND"    , EncodeUTF8(AllTrim(Upper(oJson:CLIENTE:VEND1)))        , Nil})
             
@@ -187,6 +187,8 @@ ConOut("[Importaçao de Clientes] INICIO!")
                 //oJson['Ok 200:'] := JSonObject():New()
                 oJson['ChvCli'] := 'CLI-Q@' + cNumCli + cLojaCli + '@'
                 oJson['CodCli'] := cNumCli + cLojaCli 
+                oJson['Codigo'] := cNumCli 
+                oJson['Loja']   := cLojaCli 
             EndIf
             
             cJson:= FwJsonSerialize( oJson )

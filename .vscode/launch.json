@@ -28,6 +28,12 @@
 		},
 		{
 			"label": "WSCadCli"
+		},
+		{
+			"label": "U_EXEC103"
+		},
+		{
+			"label": "mpsdu"
 		}
 	],
 	"lastProgramExecuted": "sigamdi"

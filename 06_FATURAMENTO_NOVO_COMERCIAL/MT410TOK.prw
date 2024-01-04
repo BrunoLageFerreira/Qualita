@@ -75,7 +75,8 @@ If SubString(CNUMEMP,1,2) == "01"
 			lRet := .F.
 		EndIf
 	EndIf
-	If SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",n))) ,1,2) $ 'CH' .AND. (Empty(GdFieldGet("C6_LOTECTL",n)) .OR. Empty(GdFieldGet("C6_NUMLOTE",n)))  
+	
+	If GdFieldGet("C6_TES",n) <> '699' .AND. SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",n))) ,1,2) $ 'CH' .AND. (Empty(GdFieldGet("C6_LOTECTL",n)) .OR. Empty(GdFieldGet("C6_NUMLOTE",n)))  
 		Alert("ERRO! CHAPA COM LOTE OU SUB-LOTE EM BRANCO!")
 		lRet := .F.
 

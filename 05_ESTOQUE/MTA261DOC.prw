@@ -149,7 +149,9 @@ For nX := 1 To Len(aCols)
 				aAdd(aGriCav , GdFieldGet("D3_YCAVALE",nX) + GdFieldGet("D3_LOTECTL",nX) + GdFieldGet("D3_NUMLOTE",nX)  )
 				aAdd(aGriLSPv, {GdFieldGet("D3_LOTECTL",nX) , GdFieldGet("D3_NUMLOTE",nX) } )
 			Else
-				aAdd(aGriCavDup, GdFieldGet("D3_YCAVALE",nX) + GdFieldGet("D3_LOTECTL",nX) + GdFieldGet("D3_NUMLOTE",nX)  )
+				If !Empty(GdFieldGet("D3_YCAVALE",nX) + GdFieldGet("D3_LOTECTL",nX) + GdFieldGet("D3_NUMLOTE",nX))
+					aAdd(aGriCavDup, GdFieldGet("D3_YCAVALE",nX) + GdFieldGet("D3_LOTECTL",nX) + GdFieldGet("D3_NUMLOTE",nX)  )
+				EndIf
 			EndIf
 		EndIf
 		
@@ -160,7 +162,7 @@ Next nX
 cMSG := ""
 For nX:=1 to Len(aGriCavDup)
 		If Empty(cMSG)
-			cMSG := "Duplicados no pedido atual:" + chr(13)+chr(10) 
+			cMSG := "Duplicados na tela atual:" + chr(13)+chr(10) 
 		EndIf
 		cMSG += "O item: " + aGriCavDup[nX] + chr(13)+chr(10)   
 Next nX

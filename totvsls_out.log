@@ -86,49 +86,61 @@ Content-Length: 157
 
 {"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 
-Content-Length: 157
+Content-Length: 128
 
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting reconnection to the server 'DEV_COMPILA'"}}
 
-Content-Length: 157
+Content-Length: 176
 
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/02_compras/mata110.prw","diagnostics":[]}}
 
-Content-Length: 1927
+Content-Length: 103
 
-{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/10_lib/wscadcli.prw","diagnostics":[{"range":{"start":{"line":49,"character":0},"end":{"line":50,"character":0}},"severity":2,"source":"Linter","message":"W0011 Variable LRET redefined"},{"range":{"start":{"line":51,"character":0},"end":{"line":52,"character":0}},"severity":2,"source":"Linter","message":"W0011 Variable CNUMCLI redefined"},{"range":{"start":{"line":59,"character":0},"end":{"line":60,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CCIENTIFICO never used"},{"range":{"start":{"line":58,"character":0},"end":{"line":59,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CDESCERRO never used"},{"range":{"start":{"line":59,"character":0},"end":{"line":60,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CDESCRICAO never used"},{"range":{"start":{"line":59,"character":0},"end":{"line":60,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CGRUPO never used"},{"range":{"start":{"line":59,"character":0},"end":{"line":60,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CNCM never used"},{"range":{"start":{"line":59,"character":0},"end":{"line":60,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable COBS never used"},{"range":{"start":{"line":59,"character":0},"end":{"line":60,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CORIGEM never used"},{"range":{"start":{"line":59,"character":0},"end":{"line":60,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CTIPO never used"},{"range":{"start":{"line":59,"character":0},"end":{"line":60,"character":0}},"severity":2,"source":"Linter","message":"W0003 Local variable CUNIDADE never used"}]}}
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Secure authenticating..."}}
+
+Content-Length: 111
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"User authenticated successfully."}}
+
+Content-Length: 129
+
+{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Reconnection to the server 'DEV_COMPILA' finished."}}
+
+Content-Length: 652
+
+{"jsonrpc":"2.0","id":1,"result":{"connectionToken":"djM6NjFxOWMxbzU3ZGFsNG1uYTZramNldjRqdHE3ZGdwOjE6MTkyLjE2OC4xLjEwMzoxMjM2OjA6Ny4wMC4yMTAzMjRQOjM=:djE6Q09NUElMQV9ROkFkbWluOm1CR3d6Tm5XdEhrTThHYUl4QmNVZjVncWZWNEt3Z1ltU3E2eExyZi8xQnM9|djI6MTY5MjYyNTU3NDowOjE6MQ==.WBE/7w9mrDUec30FolUO1BPqAvcN2lID1CFwe1hGIXsRNAKzkAZ7WdoHJUB2nVKLkvsjqlLgk0etDM6BiI3wlf56qJICauoPPqnRQSsQpuoh+o9NdoYMXRZe2lDVGKAI7hGD1wTOclJiyCCtZBNd9mnUszawGXXVTJOv9MvRasX0ltf5Fc8TcSGZSCd0sMvMP38EUnpKwVAb/q+rKaWLX/P3zwxihQhmnj42uSFL5zSgvYyWAQworXVP+7/kjK0ZwvGj0qeFsNx5NBt84u15/8iUXlegsqjeCi2HKO2FrNo6aWo0C97Jjy8sz/Qgu5p9jATJFLRQzv3/ujiVxwdo2g==","environment":"COMPILA_Q","user":"Admin"}}
 
 Content-Length: 83
 
-{"jsonrpc":"2.0","id":1,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+{"jsonrpc":"2.0","id":2,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
 
 Content-Length: 81
 
-{"jsonrpc":"2.0","id":2,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+{"jsonrpc":"2.0","id":3,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
 
 Content-Length: 88
 
-{"jsonrpc":"2.0","id":3,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+{"jsonrpc":"2.0","id":4,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
 
 Content-Length: 80
 
-{"jsonrpc":"2.0","id":4,"result":{"setting":{"key":"linter","value":"enabled"}}}
+{"jsonrpc":"2.0","id":5,"result":{"setting":{"key":"linter","value":"enabled"}}}
 
 Content-Length: 83
 
-{"jsonrpc":"2.0","id":5,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+{"jsonrpc":"2.0","id":6,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
 
 Content-Length: 81
 
-{"jsonrpc":"2.0","id":6,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+{"jsonrpc":"2.0","id":7,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
 
 Content-Length: 88
 
-{"jsonrpc":"2.0","id":7,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+{"jsonrpc":"2.0","id":8,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
 
 Content-Length: 80
 
-{"jsonrpc":"2.0","id":8,"result":{"setting":{"key":"linter","value":"enabled"}}}
+{"jsonrpc":"2.0","id":9,"result":{"setting":{"key":"linter","value":"enabled"}}}
 
 Content-Length: 157
 
@@ -138,129 +150,21 @@ Content-Length: 157
 
 {"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 
-Content-Length: 139
+Content-Length: 471
 
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting connection to the server 'TSS' (192.168.1.103@5060)"}}
+{"jsonrpc":"2.0","id":10,"result":{"message":"OK","serverInformations":{"server":{"serverDetectedType":1,"environmentDetectedType":1},"permissions":{"operation":["DISCONNECT_USER","SEND_MESSAGE","BLOCK_NEW_CONNECTION","STOP_SERVER","APPLY_PATCH","BUILD_PATCH","MONITOR","COMPILE","APPLY_TEMPLATE"],"text":["M:Disconnect User","M:Send Message to User","M:Block New Connection","M:Stop Server","S:Apply Patch","S:Build Patch","M:Monitor","S:Compile","S:Apply Template"]}}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 
 Content-Length: 119
 
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Connection to the server 'TSS' finished."}}
-
-Content-Length: 633
-
-{"jsonrpc":"2.0","id":9,"result":{"connectionToken":"djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6U0VYSGZ1SUtXaU51T0l0bVduSEtjMnE0VFNubWVabkZlZDd0UUV1UXpqMD0=|djI6MTY4OTcwOTYzNjoyOjE6MQ==.jcOpkeOr4PKmjnJ1p3p8DqbPOnSCE1O+CdqMWtmPRuKuA/hOb9tbcvYAK3O7XhmCdOUNJW5XEfcwD0IGhhXn3QY4zdHha9qMynj0bSqx9CyYZOFcLdkxqTxXqwfOodlgPedDHG8UW9rf582q3t3F5JlHwol5DCRJFjs/CMooaK8iTE4Ndb63xveQRXm3jwHzQd/v2dUKLdr7CSMsH/GE0/nPKMhnNzS5xA1G6PoGMWv7sL2dbpi/D9yq6eVax5qTvqyq89SFKI7oNBPMPOeXk1c0Wu94hOaz87S0IzYIpV8vyZd5BTy5uH98YY81gzXdh9P27t5X8z1zytNnABvpCA==","needAuthentication":true}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 116
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting user 'Admin' authentication."}}
-
-Content-Length: 103
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Secure authenticating..."}}
-
-Content-Length: 154
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":1,"message":"Authentication error: Could not authenticate. Invalid user and/or password."}}
-
-Content-Length: 135
-
-{"jsonrpc":"2.0","id":10,"error":{"code":4082,"message":"Authentication error: Could not authenticate. Invalid user and/or password."}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 139
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting connection to the server 'TSS' (192.168.1.103@5060)"}}
-
-Content-Length: 119
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Connection to the server 'TSS' finished."}}
-
-Content-Length: 634
-
-{"jsonrpc":"2.0","id":11,"result":{"connectionToken":"djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6dm5Fb2ZSZWtML3dzMDY0Y0FLdGV6dVFJdUplVGU2MEc1MlR2NTI4VkluTT0=|djI6MTY4OTcwOTY1MToyOjE6MQ==.eJKtcwFJMiX23bFAHNxOjQ8PpVZ3tpR6/6Px1IC2CkLBIJVGLpVEiYgsADm9M4IXySH1g2gAMKxssJYQDoXx71TJVRMQQSINIvmTEfa+MHfCpl7GUF+ZVjyCgl62CkmtpAar4x3sUHnizfE437zNxviggHW2Hwnub6WNuJ2F5ASJ01DGjc5AQst6crQbNrTLYRsqkgc6vZHfMQnDzdIJz8QL1clMhpQreZCLBrTBz8zSt2V7sltFCJOqXn1nJTsSpSoCIAPUkT0osgo2AZl2EBzvSqI9s91Da5diLZ2sQNjno4JHYHz29neomualCreHU6YMMF3Ia9bGiwwDg6spag==","needAuthentication":true}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 116
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting user 'Admin' authentication."}}
-
-Content-Length: 103
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Secure authenticating..."}}
-
-Content-Length: 154
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":1,"message":"Authentication error: Could not authenticate. Invalid user and/or password."}}
-
-Content-Length: 135
-
-{"jsonrpc":"2.0","id":12,"error":{"code":4082,"message":"Authentication error: Could not authenticate. Invalid user and/or password."}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 139
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting connection to the server 'TSS' (192.168.1.103@5060)"}}
-
-Content-Length: 119
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Connection to the server 'TSS' finished."}}
-
-Content-Length: 634
-
-{"jsonrpc":"2.0","id":13,"result":{"connectionToken":"djM6MzRjNjd5dmNqZXRsazg4bXdueHY3cTgxcmllNm5lOjE6MTkyLjE2OC4xLjEwMzo1MDYwOjE6Ny4wMC4yMTAzMjRQOjM=:djE6U1BFRDpub3VzZXI6b0lRZEc5QlV0SnBFd2RENlozVDFkQUdJc1R3WmZnOG9UUERjUnNGL1F6bz0=|djI6MTY4OTcwOTY2MzoyOjE6MQ==.dNrECUxgG3Xw7ScqA4IvWhVbBBDf2lVLaXvskWT0Lt0MEjbpGnnijMr7FZ9GAsRc0buOkRRQNFXr+UvI+QcxcaDXxUlj+L1EvFwtmv8VHqVxqyY119Ym8Wc4W4F7PeyZr8WwT0GoyCd9zYfZHjV3i977D5aoJpiiNE36oi8IUn50P+jkS/GjrUFn1gwH07+Pbvm8J5cqPf19MqdFAJlr/ILJS2EpwO+cMBuXb/LbP3ieWBSgI9nf5mFsCTnSo0t2Q+TqSyuxV2nBll2PAw09/1elQRNxgpZfWPpflE3laetcW4N0KjJL03m7VQnmGSVd7sWMfxGdA3416aIMD+5BZg==","needAuthentication":true}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 157
-
-{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
-
-Content-Length: 116
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Starting user 'Admin' authentication."}}
-
-Content-Length: 103
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":3,"message":"Secure authenticating..."}}
-
-Content-Length: 154
-
-{"jsonrpc":"2.0","method":"window/logMessage","params":{"type":1,"message":"Authentication error: Could not authenticate. Invalid user and/or password."}}
-
-Content-Length: 135
-
-{"jsonrpc":"2.0","id":14,"error":{"code":4082,"message":"Authentication error: Could not authenticate. Invalid user and/or password."}}
+{"jsonrpc":"2.0","id":11,"result":{"setting":{"key":"includes","value":"D:\\TOTVS 12\\Microsiga\\Protheus\\include;"}}}
 
 Content-Length: 157
 
@@ -272,35 +176,51 @@ Content-Length: 157
 
 Content-Length: 84
 
-{"jsonrpc":"2.0","id":15,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+{"jsonrpc":"2.0","id":12,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
 
 Content-Length: 82
 
-{"jsonrpc":"2.0","id":16,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+{"jsonrpc":"2.0","id":13,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
 
 Content-Length: 89
 
-{"jsonrpc":"2.0","id":17,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+{"jsonrpc":"2.0","id":14,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
 
 Content-Length: 81
 
-{"jsonrpc":"2.0","id":18,"result":{"setting":{"key":"linter","value":"enabled"}}}
+{"jsonrpc":"2.0","id":15,"result":{"setting":{"key":"linter","value":"enabled"}}}
 
 Content-Length: 84
 
-{"jsonrpc":"2.0","id":19,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
+{"jsonrpc":"2.0","id":16,"result":{"setting":{"key":"fsencoding","value":"cp1252"}}}
 
 Content-Length: 82
 
-{"jsonrpc":"2.0","id":20,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+{"jsonrpc":"2.0","id":17,"result":{"setting":{"key":"autocomplete","value":"LS"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 
 Content-Length: 89
 
-{"jsonrpc":"2.0","id":21,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+{"jsonrpc":"2.0","id":18,"result":{"setting":{"key":"notificationlevel","value":"none"}}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
+
+Content-Length: 157
+
+{"jsonrpc":"2.0","method":"$totvsserver/progress","params":{"indexRequestCount":0,"doIdMapCount":0,"onIdMappedCount":0,"onIndexedCount":0,"activeThreads":0}}
 
 Content-Length: 81
 
-{"jsonrpc":"2.0","id":22,"result":{"setting":{"key":"linter","value":"enabled"}}}
+{"jsonrpc":"2.0","id":19,"result":{"setting":{"key":"linter","value":"enabled"}}}
 
 Content-Length: 157
 

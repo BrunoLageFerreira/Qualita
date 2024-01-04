@@ -1035,10 +1035,11 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	
 	If LEN(aDadosGrv)>0
 		M->C5_XVALEXT := AllTrim(Extenso((aDadosGrv[4] + aDadosGrv[3]) ,.f.,M->C5_MOEDA,,"3",.t.,.f.))
-		M->C5_XTOTAL  := (aDadosGrv[4] + aDadosGrv[3]) -  M->C5_DESCONT 
+		M->C5_XTOTAL  := (aDadosGrv[4] + aDadosGrv[3])
 		M->C5_XDESCON := aDadosGrv[2]  + M->C5_DESCONT 
-		M->C5_XVLRFIN := (aDadosGrv[4] + aDadosGrv[3]) -  M->C5_DESCONT 
+		M->C5_XVLRFIN := (aDadosGrv[4] + aDadosGrv[3]) 
 		M->C5_XDESPES := aDadosGrv[4]
+		M->C5_XVLRIPI := aDadosGrv[5]
 		//M->C5_XSEGURO := aDadosGrv[5]
 	EndIf 
 	
@@ -1258,11 +1259,9 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	*/
 	If  "GROA014" $ funname() .And. INCLUI == .T.
 		
-		If !Empty(M->C5_XIDMOB)
+		/*	
+		If !Empty(M->C5_XIDMOB) .And. M->C5_TIPO = 'N'
 
-			/*
-			Verifica se existe a chave no mobgran.
-			*/
 			cQuery  := " SELECT * FROM ZSA010 WHERE D_E_L_E_T_ = '' AND ZSA_IDMOBP = '"+AllTrim(M->C5_XIDMOB)+"' AND ZSA_STATUS ='ATIVA'
 			
 			tcQuery cQuery alias TRB new
@@ -1279,11 +1278,10 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 			
 			If lRet == .F.
 				Alert("Chave não encontrada ou Status:(>>"+ TRB->ZSA_STATUS +"<<) no MobGran!")
+				dbSelectArea("TRB") 
+				dbCloseArea()	
 				Return(lRet)	
 			EndIf
-
-			dbSelectArea("TRB") 
-			dbCloseArea()	
 
 		Else
 			
@@ -1292,8 +1290,10 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 			Return(lRet)
 
 		EndIf
+		*/
 
 	ElseIf FunName() $ "GROA013" 
+		/*
 		If AllTrim(M->C5_XIDMOB) == '-'
 			lRet := .T.
 		else
@@ -1319,7 +1319,9 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 			dbSelectArea("TRB") 
 			dbCloseArea()	
 		EndIf
+		*/
 	EndIf
+	
 
 	/*
 	Envio de aviso de alteração de pedidos 
@@ -1654,11 +1656,19 @@ Local nItem:= 0
           _nIcmsRet += MaFisRet(nLo,"LF_ICMSRET") // Retorna valor da ST  
      Next nLo       
      */
-	   
+	If M->C5_DESCONT > 0
+		MaFisAlt("NF_DESCONTO", Min(MaFisRet(, "NF_VALMERC")-0.01, M->C5_DESCONT+MaFisRet(, "NF_DESCONTO")) )
+	EndIf
+	If M->C5_PDESCAB > 0
+		MaFisAlt("NF_DESCONTO", A410Arred(MaFisRet(, "NF_VALMERC")*M->C5_PDESCAB/100, "C6_VALOR") + MaFisRet(, "NF_DESCONTO"))
+	EndIf
+
 	 aAdd(_aTotalNF,MaFisRet(,"NF_TOTAL"))
 	 aAdd(_aTotalNF,nValDesc)
 	 aAdd(_aTotalNF,MaFisRet(,"NF_BASEDUP"))
- 	 aAdd(_aTotalNF,M->C5_DESPESA)
+ 	 aAdd(_aTotalNF,C5_DESPESA)
+	 aAdd(_aTotalNF,MaFisRet(,'NF_VALIPI'))
+
 	 //aAdd(_aTotalNF,MaFisRet(,"NF_SEGURO"))  
 	
 	 MaFisEnd() 	// Encerra rotina de calculo de impostos 

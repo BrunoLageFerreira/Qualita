@@ -57,8 +57,8 @@ If SubString(CNUMEMP,1,2) == "01"
 	If SE1->E1_MOEDA <> 1
 		If !dbSeek(xFilial("ZS5") + SE1->E1_PREFIXO + SE1->E1_NUM + SE1->E1_PARCELA + SE1->E1_CLIENTE + SE1->E1_LOJA + SE1->E1_TIPO)
 			Alert("Não existe transferência para este título!")
-			lRet := .F.
-			Return(lRet)
+			//lRet := .F.
+			//Return(lRet)
 		EndIf
 	EndIf
 EndIf
@@ -160,6 +160,7 @@ If SubString(CNUMEMP,1,2) == "01"
 		EndDo
 	
 	Else
+		/*
 		IF RecLock("SE1",.F.)
 			SE1->E1_XUSUTRA := SUBSTR(CUSUARIO,7,15)
 			SE1->E1_XDTTRAN := dDataBase
@@ -167,6 +168,7 @@ If SubString(CNUMEMP,1,2) == "01"
 			SE1->E1_XDESBCA := 0
 			MsUnLock()
 		EndIf
+		*/
 	EndIf
 	
 EndIf
@@ -192,6 +194,8 @@ Static Function fClickMark(nLinha)
 * 
 *
 ***/
+Local _NI := 0
+
 For _NI := 1 To Len(aListBoxFin)
 	If _NI == nLinha
 		aListBoxFin[_NI][1] := iif(aListBoxFin[_NI][1]==ONO,OOK,ONO)
@@ -211,6 +215,8 @@ Static Function fDelete()
 * 
 *
 ***/
+Local _NI := 0
+
 For _NI := 1 To Len(aListBoxFin)
 	If aListBoxFin[_NI][1] == OOK
 	
@@ -241,6 +247,7 @@ Static Function FTotais()
 Local nTotalTranf := 0
 Local nTotalDesp  := 0
 Local dUltData    
+Local nX          := 0
 
 For nX:=1 to  Len(aListBoxFin)
 	nTotalTranf := nTotalTranf + aListBoxFin[nX][6]

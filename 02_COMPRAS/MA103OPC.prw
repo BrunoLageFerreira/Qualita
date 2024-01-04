@@ -18,6 +18,8 @@ Local   aRet := {}
 	//Aadd(aRet ,{"COMPLEMENTOS FISCAIS"  ,"a910Compl"     , 0 , 4 ,0 ,NIL})	
 	Aadd(aRet ,{"PDF FINANCEIROS"       ,"u_MAddPDFTit()", 0 , 4 ,0 ,NIL})
 	
+	Aadd(aRet ,{"Reserva Lotes"         ,"u_ReservaLt()", 0 , 4 ,0 ,NIL})
+
 	Aadd(aRet ,{"Rateio Custo Serviço"  ,"U_GROA015"     , 0 , 2 ,0 ,NIL})
 	
 	
@@ -29,6 +31,25 @@ Local   aRet := {}
 
 
 Return(aRet)
+
+
+
+User Function ReservaLt()
+*******************************************************************************************
+*
+*
+***
+Local cValorLote := GetMv("MV_NLOTEQ")
+
+	
+cValorLote := Soma1(cValorLote)
+PutMv("MV_NLOTEQ",cValorLote)
+	
+
+AVISO("Reserva de Lote", "Gerado o lote Qualitá: ["+ cValorLote+ "]. Use o sublotes/chapas com 001,002,003... de maneira subsequente." , { "Fechar" }, 1)
+
+	
+Return()
 
 User Function MVALIDEST()
 **************************************************************************************

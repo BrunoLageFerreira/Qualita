@@ -29,7 +29,9 @@ User Function F070BTOK()
 Local lRet := .T.
 PRIVATE oListBoxFES
 
-lRet := fTransBx(nValEstrang,dBaixa,.F.)
+If AllTrim(cMotBx) <> "DACAO"
+	lRet := fTransBx(nValEstrang,dBaixa,.F.)
+EndIf 
 
 Return(lRet)
 
@@ -543,7 +545,7 @@ dbSelectArea("TMP_ZS5")
 dbSelectArea("TMP_ZS5")
 dbCloseArea()
 
-Return
+Return()
 
 
 Static Function fListFin1()

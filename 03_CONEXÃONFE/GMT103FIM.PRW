@@ -38,8 +38,15 @@ Local nOpcao    := PARAMIXB[1]   // Opção Escolhida pelo usuario no aRotina
 Local nConfirma := PARAMIXB[2]   // Se o usuario confirmou a operação de gravação da NFE
 Local Usuario   := ""
 Local xInvoice  := "          "
+Local xNatCC    := "          "
 Local oEdit1
+Local oEdit2
+Local aTpCC     := {} 
 
+aAdd(aTpCC , "")
+//aAdd(aTpCC , "1.2.13.52=[C.Credito]")
+aAdd(aTpCC , "1.2.13.56=[C.Brasil]")
+aAdd(aTpCC , "1.2.13.57=[C.Bradesco]")
 
 ConOut("*****************************")
 ConOut("GMT103FIM() - NÃO COMPILAR NO PORTAL GRPLUS Informativo dos parametros")
@@ -89,61 +96,61 @@ Inclui o nome do usuario que adicionou a nota fiscal
 /*
 Chamada para Conexção NFe
 */
-	U_GTPE002()
+U_GTPE002()
+
 
 /*
 Grava a forma de pagamento no titulo confome esta na condição de pagamento 
 */
-	IF !EMPTY(SF1->F1_COND) .And. INCLUI
-		cQuery := " SELECT R_E_C_N_O_ RECNO,
-		cQuery += " 	   E2_FILIAL       ,
-		cQuery += " 	   E2_PREFIXO      ,
-		cQuery += " 	   E2_TIPO         ,
-		cQuery += " 	   E2_NUM          ,
-		cQuery += " 	   E2_PARCELA      ,
-		cQuery += " 	   E2_EMISSAO      ,
-		cQuery += " 	   E2_VENCTO       ,
-		cQuery += " 	   E2_VENCREA      ,
-		cQuery += " 	   E2_BAIXA        ,
-		cQuery += " 	   E2_VALOR
-		cQuery += "   FROM " + RetSqlName("SE2") + " SE2
-		cQuery += "  WHERE E2_FORNECE = '"+ SF1->F1_FORNECE +"'
-		cQuery += "    AND E2_LOJA    = '"+ SF1->F1_LOJA    +"'
-		cQuery += "    AND E2_NUM     = '"+ SF1->F1_DOC     +"'
-		cQuery += "    AND E2_PREFIXO = '"+ SF1->F1_SERIE   +"'
-		cQuery += "    AND D_E_L_E_T_ = ''
-		cQuery += "    AND E2_BAIXA   = ''
+IF !EMPTY(SF1->F1_COND) .And. INCLUI
+	cQuery := " SELECT R_E_C_N_O_ RECNO,
+	cQuery += " 	   E2_FILIAL       ,
+	cQuery += " 	   E2_PREFIXO      ,
+	cQuery += " 	   E2_TIPO         ,
+	cQuery += " 	   E2_NUM          ,
+	cQuery += " 	   E2_PARCELA      ,
+	cQuery += " 	   E2_EMISSAO      ,
+	cQuery += " 	   E2_VENCTO       ,
+	cQuery += " 	   E2_VENCREA      ,
+	cQuery += " 	   E2_BAIXA        ,
+	cQuery += " 	   E2_VALOR
+	cQuery += "   FROM " + RetSqlName("SE2") + " SE2
+	cQuery += "  WHERE E2_FORNECE = '"+ SF1->F1_FORNECE +"'
+	cQuery += "    AND E2_LOJA    = '"+ SF1->F1_LOJA    +"'
+	cQuery += "    AND E2_NUM     = '"+ SF1->F1_DOC     +"'
+	cQuery += "    AND E2_PREFIXO = '"+ SF1->F1_SERIE   +"'
+	cQuery += "    AND D_E_L_E_T_ = ''
+	cQuery += "    AND E2_BAIXA   = ''
 
-		dbSelectArea("SE4")
-		dbSetOrder(1)
-		dbSeek(xFilial("SE4")+AllTrim(SF1->F1_COND))
+	dbSelectArea("SE4")
+	dbSetOrder(1)
+	dbSeek(xFilial("SE4")+AllTrim(SF1->F1_COND))
 
-		TcQuery cQuery Alias TMP_FIMPG New
-		dbSelectArea("TMP_FIMPG")
-		
-		Do While !EOF()
-			ConOut("*************************************************")
-			ConOut("*************************************************")
-			ConOut("***Atualização Forma de Pagamento********OK******")
-			ConOut("*************************************************")
-			ConOut("*************************************************")
+	TcQuery cQuery Alias TMP_FIMPG New
+	dbSelectArea("TMP_FIMPG")
+	
+	Do While !EOF()
+		ConOut("*************************************************")
+		ConOut("*************************************************")
+		ConOut("***Atualização Forma de Pagamento********OK******")
+		ConOut("*************************************************")
+		ConOut("*************************************************")
 
-			dbSelectArea("SE2")
-			dbGoto(TMP_FIMPG->RECNO)
-			SE2->(reclock("SE2", .F.))
-			//Alert("Apagou:" + SE2->E2_NUM)
-			//DbDelete()
-			Replace SE2->E2_FORMPAG  With AllTrim(SE4->E4_FORMA)
-			SE2->(msUnLock())
-
-			dbSelectArea("TMP_FIMPG")
-			dbSkip()
-		EndDo
+		dbSelectArea("SE2")
+		dbGoto(TMP_FIMPG->RECNO)
+		SE2->(reclock("SE2", .F.))
+		//Alert("Apagou:" + SE2->E2_NUM)
+		//DbDelete()
+		Replace SE2->E2_FORMPAG  With AllTrim(SE4->E4_FORMA)
+		SE2->(msUnLock())
 
 		dbSelectArea("TMP_FIMPG")
-		dbCloseArea()
-	EndIf
+		dbSkip()
+	EndDo
 
+	dbSelectArea("TMP_FIMPG")
+	dbCloseArea()
+EndIf
 
 /*
 Pergunta ao usuário se deseja inserir a Invoice no titulo a pagar.
@@ -168,20 +175,24 @@ Pergunta ao usuário se deseja inserir a Invoice no titulo a pagar.
 		cQuery += "    AND D_E_L_E_T_ = ''
 		cQuery += "    AND E2_BAIXA   = ''
 
-		DEFINE MSDIALOG _oDlg TITLE "Invoice no título a pagar: (Logística)." FROM U_MGETTELA(393),U_MGETTELA(670) TO U_MGETTELA(501),U_MGETTELA(1117) PIXEL
-		// Cria as Groups do Sistema
-		@ U_MGETTELA(001),U_MGETTELA(006) TO U_MGETTELA(044),U_MGETTELA(172) LABEL "" PIXEL OF _oDlg
+		DEFINE MSDIALOG _oDlg TITLE "Informações Financeiras Adicionais:" FROM U_MGETTELA(393),U_MGETTELA(670) TO U_MGETTELA(501),U_MGETTELA(1117) PIXEL
+			// Cria as Groups do Sistema
+			@ U_MGETTELA(001),U_MGETTELA(006) TO U_MGETTELA(050),U_MGETTELA(172) LABEL "" PIXEL OF _oDlg
 
-		// Cria Componentes Padroes do Sistema
-		@ U_MGETTELA(013),U_MGETTELA(011) Say "Informe o número da invoice fornecido pela Logística:" Size U_MGETTELA(129),U_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
-		@ U_MGETTELA(025),U_MGETTELA(012) MsGet oEdit1 Var xInvoice Size U_MGETTELA(060),U_MGETTELA(009) COLOR CLR_BLACK PIXEL OF _oDlg
-		@ U_MGETTELA(031),U_MGETTELA(177) Button "OK" Size U_MGETTELA(037),U_MGETTELA(012) ACTION (_oDlg:End()) PIXEL OF _oDlg
+			// Cria Componentes Padroes do Sistema
+			@ U_MGETTELA(005),U_MGETTELA(011) Say "Informe o número da invoice fornecido pela Logística:" Size U_MGETTELA(129),U_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
+			@ U_MGETTELA(013),U_MGETTELA(012) MsGet oEdit1 Var xInvoice Size U_MGETTELA(060),U_MGETTELA(009) COLOR CLR_BLACK PIXEL OF _oDlg
+
+			@ U_MGETTELA(024),U_MGETTELA(011) Say "Informe a natureza de C.Credito:"   Size U_MGETTELA(129),U_MGETTELA(008) COLOR CLR_BLACK PIXEL OF _oDlg
+			@ U_MGETTELA(032),U_MGETTELA(012) MSCOMBOBOX oEdit2 Var xNatCC ITEMS aTpCC Size U_MGETTELA(061),U_MGETTELA(100) COLOR CLR_BLACK PIXEL OF _oDlg
+
+			@ U_MGETTELA(031),U_MGETTELA(177) Button "OK" Size U_MGETTELA(037),U_MGETTELA(012) ACTION (_oDlg:End()) PIXEL OF _oDlg
 		ACTIVATE MSDIALOG _oDlg CENTERED
 
 		TcQuery cQuery Alias TMP_FIMINVO New
 		dbSelectArea("TMP_FIMINVO")
 
-		Do While !EOF()	.And. !Empty(xInvoice)
+		Do While !EOF()	.And. !Empty(AllTrim(xInvoice) + AllTrim(xNatCC))
 			ConOut("*************************************************")
 			ConOut("*************************************************")
 			ConOut("***Atualização E2_XINVOI         ********OK******")
@@ -191,9 +202,8 @@ Pergunta ao usuário se deseja inserir a Invoice no titulo a pagar.
 			dbSelectArea("SE2")
 			dbGoto(TMP_FIMINVO->RECNO)
 			SE2->(reclock("SE2", .F.))
-			//Alert("Apagou:" + SE2->E2_NUM)
-			//DbDelete()
-			Replace SE2->E2_XINVOI  With AllTrim(xInvoice)
+				Replace SE2->E2_XINVOI  With AllTrim(xInvoice)
+				Replace SE2->E2_NATCC   With AllTrim(xNatCC)
 			SE2->(msUnLock())
 
 			dbSelectArea("TMP_FIMINVO")
@@ -205,9 +215,9 @@ Pergunta ao usuário se deseja inserir a Invoice no titulo a pagar.
 	EndIf
 
 
-/*
-Chamada para verificar se existe provisões financeiras e solicitar que o usuario apague 
-*/
+	/*
+	Chamada para verificar se existe provisões financeiras e solicitar que o usuario apague 
+	*/
 	cQuery := " SELECT R_E_C_N_O_ RECNO,
 	cQuery += " 	   E2_FILIAL       ,
 	cQuery += " 	   E2_PREFIXO      ,

@@ -21,7 +21,7 @@ Local lRet		:= Paramixb[1]
 
 If l103Inclui
 	If Len(Alltrim(cNFiscal)) <> 9 .or. cNFiscal == "000000000"
-		MsgBox("Problema com a numeraÃ§Ã£o do documento fiscal. Favor verificar!!!","MT103TOK","STOP")
+		MsgBox("Problema com a numeração do documento fiscal. Favor verificar!!!","MT103TOK","STOP")
 		lRet := .F.
 	EndIf
 EndIf

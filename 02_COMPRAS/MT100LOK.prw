@@ -16,9 +16,6 @@ Local cLoteInterno := ""
 Local lRetBLFera   := .F. 
 Local iXD := AScan(aHeader, { |x| Alltrim(x[2]) == 'D1_CONTA'})
 
-
-
-
 /*
 SOMENTE PARA NOTA FISCAL 
 */
@@ -46,65 +43,64 @@ If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01"
 	/*
 	SOMENTE PARA QUALITA
 	*/
+
 	IF cTipo <> "C"
 		IF SubString(CNUMEMP,1,2) == "01" .And. lRetBLFera == .F. 
-			If SubString(gdFieldGet("D1_COD"),1,2) = "BL" .And. (AllTrim(cEspecie) <> 'CTE') 
-		
-				/*
-				Lote do fornecedor
-				D1_YCOMBRU,D1_YALTBRU,D1_YESPBRU,D1_YTOTBRU,D1_YCOMLIQ,D1_YALTLIQ,D1_YESPLIQ,D1_YTOTLIQ
-				*/
-				If 	EMPTY(gdFieldGet("D1_YPESOBR")) .Or.;
-					EMPTY(gdFieldGet("D1_YPESOLQ")) .Or.;
-					EMPTY(gdFieldGet("D1_YCOMBRU")) .Or.;
-					EMPTY(gdFieldGet("D1_YALTBRU")) .Or.; 
-					EMPTY(gdFieldGet("D1_YESPBRU")) .Or.;
-					EMPTY(gdFieldGet("D1_YTOTBRU")) .Or.; 
-					EMPTY(gdFieldGet("D1_YCOMLIQ")) .Or.;
-					EMPTY(gdFieldGet("D1_YALTLIQ")) .Or.;
-					EMPTY(gdFieldGet("D1_YESPLIQ")) .Or.;
-					EMPTY(gdFieldGet("D1_YTOTLIQ")) 
-					
-					Alert("Verifique os campos de Comprimento X Altura X Espessura, peso líquido e bruto. Não podem estar em branco!")
-					lRet := .F.
-					Return(lRet)
-				EndIf
-		
-				/*
-				Lote do Fornecedor
-				*/
-				If Empty(gdFieldGet("D1_LOTEFOR")) .And. AllTrim(CA100FOR) == '000165'
-					//GDFieldPut ( "D1_LOTEFOR", gdFieldGet("D1_LOTECTL") )
-					GDFieldPut ( "D1_LOTEFOR", "" )
-				ElseIf Empty(gdFieldGet("D1_LOTEFOR"))
-					Alert("Lote do Fornecedor não pode ficar em branco!")
-					lRet := .F.
-					Return(lRet)
-				EndIf
-				
-				dbSelectArea("SF4")
-				dbSetOrder(1)
-				If dbSeek(xFilial("SF4") + AllTrim(gdFieldGet("D1_TES")))
+			If gdFieldGet("D1_TES")<>'039' .And. gdFieldGet("D1_FORNECE")<>'000165' .And. gdFieldGet("D1_SERIE")<>'2' 			
+				If SubString(gdFieldGet("D1_COD"),1,2) = "BL" .And. (AllTrim(cEspecie) <> 'CTE') 
+			
 					/*
-					Somente tes que controla estoque
+					Lote do fornecedor
+					D1_YCOMBRU,D1_YALTBRU,D1_YESPBRU,D1_YTOTBRU,D1_YCOMLIQ,D1_YALTLIQ,D1_YESPLIQ,D1_YTOTLIQ
 					*/
-					If SF4->F4_ESTOQUE = "S"
-						/*
-						Lote sequencial Qualita
-						*/
-						If Empty(gdFieldGet("D1_LOTECTL"))
-							Processa({ || cLoteInterno := MCriaLote()}, "Gerando Lote Interno","Processando...", .T.)     
-							GDFieldPut ( "D1_LOTECTL", cLoteInterno  )
-							lRet := .T.
-						EndIf
+					If 	EMPTY(gdFieldGet("D1_YPESOBR")) .Or.;
+						EMPTY(gdFieldGet("D1_YPESOLQ")) .Or.;
+						EMPTY(gdFieldGet("D1_YCOMBRU")) .Or.;
+						EMPTY(gdFieldGet("D1_YALTBRU")) .Or.; 
+						EMPTY(gdFieldGet("D1_YESPBRU")) .Or.;
+						EMPTY(gdFieldGet("D1_YTOTBRU")) .Or.; 
+						EMPTY(gdFieldGet("D1_YCOMLIQ")) .Or.;
+						EMPTY(gdFieldGet("D1_YALTLIQ")) .Or.;
+						EMPTY(gdFieldGet("D1_YESPLIQ")) .Or.;
+						EMPTY(gdFieldGet("D1_YTOTLIQ")) 
 						
+						Alert("Verifique os campos de Comprimento X Altura X Espessura, peso líquido e bruto. Não podem estar em branco!")
+						lRet := .F.
+						Return(lRet)
+					EndIf					
+					/*
+					Lote do Fornecedor
+					*/
+					If Empty(gdFieldGet("D1_LOTEFOR")) .And. AllTrim(CA100FOR) == '000165'
+						//GDFieldPut ( "D1_LOTEFOR", gdFieldGet("D1_LOTECTL") )
+						GDFieldPut ( "D1_LOTEFOR", "" )
+					ElseIf Empty(gdFieldGet("D1_LOTEFOR"))
+						Alert("Lote do Fornecedor não pode ficar em branco!")
+						lRet := .F.
+						Return(lRet)
 					EndIf
-					
-				EndIf
 				
+					dbSelectArea("SF4")
+					dbSetOrder(1)
+					If dbSeek(xFilial("SF4") + AllTrim(gdFieldGet("D1_TES")))
+						/*
+						Somente tes que controla estoque
+						*/
+						If SF4->F4_ESTOQUE = "S"
+							/*
+							Lote sequencial Qualita
+							*/
+							If Empty(gdFieldGet("D1_LOTECTL"))
+								Processa({ || cLoteInterno := MCriaLote()}, "Gerando Lote Interno","Processando...", .T.)     
+								GDFieldPut ( "D1_LOTECTL", cLoteInterno  )
+								lRet := .T.
+							EndIf							
+						EndIf						
+					EndIf
+				EndIf
 			EndIF	
 		EndIF
-	ENDIF
+	EndIf
 	
 	IF SubString(CNUMEMP,1,2) == "01"  .AND. lRetBLFera == .T. .AND. ( EMPTY(gdFieldGet("D1_YCOMBRU")) .Or.;
 							 	 EMPTY(gdFieldGet("D1_YALTBRU")) .Or.; 
@@ -136,7 +132,11 @@ If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01"
 RestArea(aMT100LOK)
 
 EndIf
-	
+
+
+///Ponto de entrada ConexçãoNFe
+U_GTPE004()
+
 Return(lRet)
 
 

@@ -6807,7 +6807,7 @@ If !(cVerAmb >= "4.00") .And. !Empty(aNfVinc)
 	EndIf
 EndIf
 
-If(!Empty(aNfVinc)	.And. Empty(aExp[1])) .or.(!Empty(aNfVinc).And. !Empty(aExp[1]) .and. lEECFAT)
+If(!Empty(aNfVinc)	.And. Empty(aExp[1])) .or.(!Empty(aNfVinc).And. !Empty(aExp[1]) /*.and. lEECFAT*/) //Bruno Lage 
 	if !lChvCdd  //preenchimento da tag usando a tabela CDD
 		cString += '<NFRef>'
 		For nX := 1 To Len(aNfVinc)

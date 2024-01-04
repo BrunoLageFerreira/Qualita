@@ -17,14 +17,6 @@
 +----------+-----------+-------------------------------------------------------+
 |          |           |                                                       |
 +----------+-----------+-------------------------------------------------------+
-Q-Liberação Faturamento
-5527995295180-1587589430@g.us
-
-Q-N2 - Liberação Compras
-5527995295180-1594316108@g.us
-
-Q-N1 - Liberação Compras
-5527995295180-1587589523@g.us
 */
 
 User Function MT121BRW()
@@ -115,7 +107,6 @@ If  RecLock("WAM",.T.)
    MsUnLock()
 EndIf
 
-
 /*
 UPDATE NA SC8 ENVIANDO PARA APROVAÇÃO NO WHATSAPP
 */
@@ -136,7 +127,6 @@ User Function ImpPc(nTipo)
 * criação da tab temp do pedido de venda
 *
 ****/
-
 Local cQuery    := ""
 Local cAprov    := ""
 

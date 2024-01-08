@@ -19,6 +19,7 @@ Local nX        := 0
 Local nY        := 0
 Local cAvisoMsg := ""
 
+
 If !IsBlind()    
 	If !funname() $ "MNTA420/MNTA300/MNTA990/MNTA295/MNTA265/MNTA410/MNTA120/MNTA902/MNTA365"
 		If Len(aPesNota) <> 0
@@ -57,3 +58,16 @@ If !IsBlind()
 EndIf
 
 Return(lRet)
+
+User Function MT105FIM()
+*****************************************************************************************
+* //Chamado 5361 - ERRO NA HORA DE DA BAIXA
+*
+*****
+Local nOpcap := PARAMIXB
+
+IF TYPE ("aPesNota") == "A"
+	aPesNota := {}
+endif
+
+Return 

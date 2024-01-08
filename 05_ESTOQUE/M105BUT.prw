@@ -16,7 +16,6 @@ User Function M105BUT()
 ***    
 Local   aButNew  := {}
 
-
 Aadd(aButNew, {'Imp. Itens (NF)',{||ImpNfEntr()},"Imp. Itens (NF)","Imp. Itens (NF)"}) //"Explode 1o nivel da estrutura"	
 	
 Return(aButNew)
@@ -61,7 +60,6 @@ Private nEstru		:= 0
 
 
 //F1_FILIAL, F1_DOC, F1_SERIE, F1_FORNECE, F1_LOJA, F1_TIPO, R_E_C_N_O_, D_E_L_E_T_
-
 DEFINE MSDIALOG oDlg FROM  140,000 TO 300,400 TITLE OemToAnsi("Informe nota fiscal para importar itens") PIXEL //"Informe produto com estrutura"
 //@ 10,15 TO 63,185 LABEL Alltrim(RetTitle("CP_OP"))+" - "+Alltrim(RetTitle("CP_PRODUTO"))+" - "+Alltrim(RetTitle("CP_QUANT")) OF oDlg PIXEL
 @ 20,20 MSGET cNFENT F3 "USF1" Picture PesqPict("SF1","F1_DOC")   SIZE 70,9 OF oDlg PIXEL
@@ -73,7 +71,6 @@ DEFINE SBUTTON FROM 67,158 TYPE 2 ACTION (oDlg:End(),lOk:=.F.)  ENABLE OF oDlg
 ACTIVATE MSDIALOG oDlg CENTERED 
 
 //Alert(cNFENT)
-
 
 dbSelectArea("SD1")
 dbSetOrder(1)
@@ -152,6 +149,5 @@ aPesNota := aIteNota
 		// Restaura aCols
 		aCols := aClone(aSaveCols)
     EndIf
-
 
 Return  

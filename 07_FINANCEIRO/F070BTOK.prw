@@ -48,9 +48,8 @@ PRIVATE ONO	   := LoadBitmap(GetResources(), "LBNO")
 
 // Privates das ListBoxes
 PRIVATE aListBoxFES := {}
+
 //PRIVATE oListBoxFES
-
-
 cQuery := " SELECT R_E_C_N_O_ AS RECNO , ZS5_PREFIX,ZS5_NUM ,ZS5_TIPO ,ZS5_PAR  , ZS5_VLR   ,ZS5_DESPE    ,ZS5_DBAIXA, ZS5_TIME 
 cQuery += "   FROM ZS5010 
 cQuery += "  WHERE D_E_L_E_T_ = '' 
@@ -97,7 +96,6 @@ DEFINE MSDIALOG _oInforFin TITLE "Estorno de Transferências Compensadas:" FROM u
 		HEADER "","RECNO","PREFIXO","NUMERO","TIPO","PARCELA","VLR BAIXA","VLR DESPESA","DT BAIXA","DT EXECUÇÃO" ;
 		Size u_MGETTELA(383),u_MGETTELA(088) Of _oInforFin Pixel;
 		ColSizes 08,20,40,40,40,40,40,40,40,40
-		
 		
 	// Chamadas das ListBox do Sistema
 	fListFinEst()

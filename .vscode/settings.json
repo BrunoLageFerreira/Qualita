@@ -54,5 +54,6 @@
             "password": "xpacD99label"
         }
     ],
-    "totvsLanguageServer.workspaceServerConfig": true
+    "totvsLanguageServer.workspaceServerConfig": true,
+    "totvsLanguageServer.editor.linter.includes": "D:\\TOTVS 12\\Microsiga\\Protheus\\include"
 }

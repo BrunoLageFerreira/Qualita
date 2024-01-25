@@ -1,0 +1,40 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "totvs_language_debug",
+			"request": "launch",
+			"name": "Depuração do idioma TOTVS",
+			"program": "${command:AskForProgramName}",
+			"cwb": "${workspaceFolder}",
+			"smartclientBin": "D:/TOTVS 12/Microsiga/Protheus/bin/smartclient33/smartclient.exe",
+			"isMultiSession": true,
+			"enableTableSync": true,
+			"enableMultiThread": true
+		}
+	],
+	"lastPrograms": [
+		{
+			"label": "sigamdi"
+		},
+		{
+			"label": "XXXX"
+		},
+		{
+			"label": "u_ufNunSeq"
+		},
+		{
+			"label": "U_ufCorrige"
+		},
+		{
+			"label": "WSCadCli"
+		},
+		{
+			"label": "U_EXEC103"
+		},
+		{
+			"label": "mpsdu"
+		}
+	],
+	"lastProgramExecuted": "sigamdi"
+}

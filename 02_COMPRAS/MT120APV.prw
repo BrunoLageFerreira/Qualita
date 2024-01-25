@@ -1,4 +1,3 @@
-
 #Include "Protheus.ch"
 #Include "RwMake.ch"
 #Include "TbiConn.ch"

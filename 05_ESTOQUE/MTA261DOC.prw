@@ -88,8 +88,8 @@ aTam1 := TamSX3('D3_YCAVALE')
 aTam2 := TamSX3('D3_OBSERVA')  
 
 If AllTrim(FUNNAME()) <> "GROA038"
-	Aadd(aHeader, {'Cavalete' , 'D3_YCAVALE'   , PesqPict('SD3', 'D3_YCAVALE'), aTam1[1]  , aTam1[2], ''            , USADO, 'C', 'SD3', ''})
-	Aadd(aHeader, {'OBS' , 'D3_OBSERVA '   , PesqPict('SD3', 'D3_OBSERVA '), aTam2[1]  , aTam2[2], ''            , USADO, 'C', 'SD3', ''})
+	Aadd(aHeader, {'Cavalete' , 'D3_YCAVALE'   , PesqPict('SD3', 'D3_YCAVALE' ), aTam1[1]  , aTam1[2], '' , USADO, 'C', 'SD3', ''})
+	Aadd(aHeader, {'OBS'      , 'D3_OBSERVA '  , PesqPict('SD3', 'D3_OBSERVA '), aTam2[1]  , aTam2[2], '' , USADO, 'C', 'SD3', ''})
 EndIf
 
 Return Nil
@@ -108,9 +108,53 @@ Local nPosLOTE := aScan(aHeader, {|x| AllTrim(x[2]) == "D3_LOTECTL"}) //SubLote
 Local nPosSUBL := aScan(aHeader, {|x| AllTrim(x[2]) == "D3_NUMLOTE"}) //Lote
 Local cGPExec  := GetMv("MV_XGPEXE")
 
+
+If IsBlind() 
+	//COLOCADO PARA NAO VALIDAR NO MOMENTO DO ENCERRAMENTO DA OP NO GRPLUS
+	ConOut("IsBlind()=.T.")
+	Return(lRet)
+Else
+	ConOut("IsBlind()=.F. seguindo...")
+EndIf
+
 /*
 ****************************************************************
-Conferencia do cavaletes duplicados no proprio pedido 
+Validação para permitir que somente alguns usuários façam 
+transferencias entre materiais, lotes para outros lotes
+e sublotes para os mesmo outros sublotes.
+CHAMADO = #5443
+usuários liberados: Bruno/Arlindo/Eliana/Sara/Administrador
+****************************************************************
+*/
+IF FUNNAME() == "MATA261"
+	For nX := 1 To Len(aCols)
+		If !GDDeleted(nX) .And. !__cUserID $ "000000/000056/000057/000125/000059"
+			/*********************
+			Produto diferentes
+			Origem e Destino D3_COD
+			**********************/
+			If AllTrim(aCols[nX][1]) <> AllTrim(aCols[nX][6])
+				lRet 	   := .F.
+			Endif
+			/**********************
+			Lote e Sublotes diferentes
+			Origem e Destino D3_LOTE + D3_SUBLOTE
+			***********************/
+			If AllTrim(aCols[nX][12])+AllTrim(aCols[nX][13]) <> AllTrim(aCols[nX][20])+AllTrim(aCols[nX][23])
+				lRet 	   := .F.
+			EndIf
+		EndIf
+	Next nX
+
+	If lRet == .F.
+		Alert("Você está tentando realizar uma alteração não permitida para seu usuário! [PE_GR261TOK]")
+		Return(lRet)
+	EndIf 
+EndIf
+
+/*
+****************************************************************
+Conferência dos cavaletes duplicados no proprio formulário
 ****************************************************************
 */
 aNumCav 	:= {}		
@@ -120,14 +164,6 @@ aGriCavDup 	:= {}
 aGriLSPv    := {}
 aLSPvLoca   := {}	
 aCavZero    := {}
-
-If IsBlind() 
-	//COLOCADO PARA NAO VALIDAR NO MOMENTO DO ENCERRAMENTO DA OP NO GRPLUS
-	ConOut("IsBlind()=.T.")
-	Return(lRet)
-Else
-	ConOut("IsBlind()=.F. seguindo...")
-EndIf
 
 For nX := 1 To Len(aCols)
 

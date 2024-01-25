@@ -11,8 +11,15 @@ WSRESTFUL WSRESTA1 DESCRIPTION "Exemplo de serviço REST"
  WSDATA searchKey AS STRING OPTIONAL
  
  WSMETHOD GET customers DESCRIPTION "Retorna lista de clientes" WSSYNTAX "/customers " PATH 'customers' PRODUCES APPLICATION_JSON
+ WSMETHOD GET tester    DESCRIPTION "Teste de performance" 
 
 END WSRESTFUL
+
+WSMETHOD GET tester WSRECEIVE WSREST WSRESTA1
+
+ ::setResponse('[{"Status":"10"}]')
+
+Return(.t.)
 
 //-------------------------------------------------------------------
 /*/{Protheus.doc} GET / customers
@@ -50,7 +57,7 @@ WSMETHOD GET customers WSRECEIVE searchKey, page, pageSize WSREST WSRESTA1
  Default self:pageSize := 10 
 
 conout("Bruno")
- conout(Self:SearchKey)
+conout(Self:SearchKey)
  
  //-------------------------------------------------------------------
  // Tratativas para a chave de busca

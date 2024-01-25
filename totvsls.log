@@ -5934,3 +5934,11 @@ MT100TOK.PRW(20) warning W0003 Local variable NVRNF never used
 (91074.332s) [diag-query      ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/05_estoque/mta261doc.prw)
 (91074.333s) [comp-preload    ]      totvs_complete.cc:871   | AdvPLCompleteManager::TryGetSession
 (91074.333s) [comp-preload    ]        totvs_linter.cc:94    | TotvsLinter::callAdvplC (d:/totvs 12/microsiga/protheus/projetovscode/05_estoque/mta261doc.prw)
+(91131.660s) [querydb         ]msg_text_document_did_c:29    | Start Running textDocument/didClose
+(91131.660s) [querydb         ]       working_files.cc:539   | OnClose
+(91131.660s) [stdout          ]               timer.cc:42    | [e2e] Running textDocument/didClose took 0.193 ms
+(91131.660s) [querydb         ]      totvs_complete.cc:846   | Dropped preloaded-based code completion session for d:/totvs 12/microsiga/protheus/projetovscode/01_somente_itinga/mt100tok.prw
+(91131.660s) [querydb         ]msg_text_document_did_c:40    | End Running textDocument/didClose
+(91233.640s) [querydb         ]msg_lsp_shutdown_reques:26    | Start Running shutdown
+(91233.642s) [querydb         ]msg_lsp_shutdown_reques:30    | End Running shutdown
+(91233.642s) [stdout          ]               timer.cc:42    | [e2e] Running shutdown took 1.1749 ms

@@ -1212,3 +1212,7 @@ Content-Length: 76
 {"jsonrpc":"2.0","method":"$/setTraceNotification","params":{"value":"off"}}
 Content-Length: 181
 {"jsonrpc":"2.0","method":"textDocument/didSave","params":{"textDocument":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/05_ESTOQUE/MTA261DOC.prw","version":952}}}
+Content-Length: 174
+{"jsonrpc":"2.0","method":"textDocument/didClose","params":{"textDocument":{"uri":"file:///d%3A/TOTVS%2012/Microsiga/Protheus/ProjetoVSCode/01_SOMENTE_ITINGA/MT100TOK.PRW"}}}
+Content-Length: 59
+{"jsonrpc":"2.0","id":75,"method":"shutdown","params":null}

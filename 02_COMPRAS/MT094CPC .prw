@@ -1,6 +1,7 @@
 #Include 'Protheus.ch'
 
-/*/{Protheus.doc} MT094CPC.prw
+/*/
+{Protheus.doc} MT094CPC.prw
 @description 
 @author PAZZINI
 @since 07/03/16

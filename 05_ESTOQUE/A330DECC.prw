@@ -80,19 +80,22 @@ Trazer a quantidade encontrada como saldo final do MOD/CCUSTO
 @version 1.0
 */
 Static Function fQtdSB2(cCod)
-	Local aArea    := GetArea()
-	Local cSql     := ""
-	Local nret     := 0
-	csql := " SELECT SUM(B2_QFIM) TOTPESO"+CHR(10)
-	csql += " from " + RetSqlName("SB2")+" SB2 WITH (NOLOCK)"+CHR(10)
-	csql +=  " where SB2.B2_FILIAL =  '"+xFilial("SB2")+"' " +CHR(10)
-	csql +=  " and SB2.B2_COD = '"+cCod+"'"+CHR(10)
-	csql +=  " and SB2.D_E_L_E_T_ = ' '  "+CHR(10)
-	TcQuery csql New Alias "ctrabalho"
-	DbGotop()
-	If !eof()
-		nret := ctrabalho->TOTPESO
-	EndIf
-	ctrabalho->(DbCloseArea())
-	RestArea(aArea)
+Local aArea    := GetArea()
+Local cSql     := ""
+Local nret     := 0
+
+csql := " SELECT SUM(B2_QFIM) TOTPESO"+CHR(10)
+csql += " from " + RetSqlName("SB2")+" SB2 WITH (NOLOCK)"+CHR(10)
+csql +=  " where SB2.B2_FILIAL =  '"+xFilial("SB2")+"' " +CHR(10)
+csql +=  " and SB2.B2_COD = '"+cCod+"'"+CHR(10)
+csql +=  " and SB2.D_E_L_E_T_ = ' '  "+CHR(10)
+TcQuery csql New Alias "ctrabalho"
+DbGotop()
+
+If !eof()
+	nret := ctrabalho->TOTPESO
+EndIf
+
+ctrabalho->(DbCloseArea())
+RestArea(aArea)
 Return(nret)

@@ -70,4 +70,4 @@ IF TYPE ("aPesNota") == "A"
 	aPesNota := {}
 endif
 
-Return 
+Return

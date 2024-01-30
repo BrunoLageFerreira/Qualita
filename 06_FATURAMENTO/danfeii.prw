@@ -2573,7 +2573,15 @@ Static Function PrtDanfe(oDanfe,oNFE,cCodAutSef,cModalidade,oNfeDPEC,cCodAutDPEC
 
 		cLogoD := GetSrvProfString("Startpath","") + "DANFE" + cDescLogo + ".BMP"
 		If !File(cLogoD)
-			cLogoD	:= GetSrvProfString("Startpath","") + "DANFE" + cEmpAnt + ".BMP"
+			//Bruno Lage Ferreira
+			//sigawise 
+			//2024-01-30
+			//alteração para itinga para logo de varias empresas.
+			iF cEmpAnt=="05"
+				cLogoD	:= GetSrvProfString("Startpath","") + "DANFE" + cDescLogo + ".BMP"
+			Else
+				cLogoD	:= GetSrvProfString("Startpath","") + "DANFE" + cEmpAnt   + ".BMP"
+			EndIf
 			If !File(cLogoD)
 				lMv_Logod := .F.
 			EndIf

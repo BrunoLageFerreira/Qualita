@@ -31,7 +31,9 @@ If aParam <> NIL
 	oObj       := aParam[1]
 	cIdPonto   := aParam[2]
 	cIdModel   := aParam[3]
-	If cIdPonto == 'MODELCOMMITNTTS'
+
+
+If cIdPonto == 'MODELCOMMITNTTS'
 		DbSelectArea("ZGI")
 		DbSetOrder(1)
 		DbSeek(xFilial("ZGI")+ZH7->ZH7_NUM)
@@ -54,41 +56,55 @@ If aParam <> NIL
 			DbSkip()
 		EndDo
 	ElseIf cIdPonto == 'MODELPOS'
+		oModeLZGH := oModel:GetModel("ZGHDETAIL") 
 
-				oModeLZGH := oModel:GetModel("ZGHDETAIL") 
-				//Local oModelZGH := oModel:GetModel("ZGHDETAIL") // Operações
-				//Local oModelSH6 := oModel:GetModel("SH6DETAIL") // Paradas - Hora improdutiva
-				//Local oModelZGI := oModel:GetModel("ZGIDETAIL") // Insumos
-				//Local oModelMOD := oModel:GetModel("MODDETAIL") // Custo indireto
-				//Local oModelZGK := oModel:GetModel("ZGKDETAIL") // Mão-de-Obra
-				//Local oModelZGL := oModel:GetModel("ZGLDETAIL") // Ferramenta
-				//Local oModelZHL := oModel:GetModel("ZGLDETAIL") // Operações x Produto Acabado
+		//Local oModelZGH := oModel:GetModel("ZGHDETAIL") // Operações
+		//Local oModelSH6 := oModel:GetModel("SH6DETAIL") // Paradas - Hora improdutiva
+		//Local oModelZGI := oModel:GetModel("ZGIDETAIL") // Insumos
+		//Local oModelMOD := oModel:GetModel("MODDETAIL") // Custo indireto
+		//Local oModelZGK := oModel:GetModel("ZGKDETAIL") // Mão-de-Obra
+		//Local oModelZGL := oModel:GetModel("ZGLDETAIL") // Ferramenta
+		//Local oModelZHL := oModel:GetModel("ZGLDETAIL") // Operações x Produto Acabado
 
-				For nI := 1 to oModeLZGH:length()
-					oModelZGH:GoLine(nI)
-						
-					oModelZGI := oModel:GetModel("ZGIDETAIL")
-					oView := FwViewactive()
-					For nX := 1 To oModeLZGI:Length()
-						oModeLZGI:GoLine(nX)
-						//Aqui estamos prercorrendo os insumos da operação
-						If !(oModelZGI:IsDeleted())
-							lRet := u_UGR045V(oModeLZGI:GetValue("ZGI_PRODUT"),oModeLZGI:GetValue("ZGI_LOCAL"),oModeLZGI:GetValue("ZGI_QTDE"))
-							If  lRet == .F.
-								//FwFldPut("ZGI_QTDE", 0,nX,oModeLZGI)
-								oModeLZGI:SetValue("ZGI_QTDE",0)
-							EndIf
+		For nI := 1 to oModeLZGH:length()
+
+			//valida a primeira linha do apontamento para verificar a data do estoque
+			oModelZGH:GoLine(1)	
+			IF oModeLZGH:GetValue("ZGH_DATFIM")  > GETMV("MV_ULMES")
+				
+				//loop do linha conforme nI := ModeLZGH:length()
+				oModelZGH:GoLine(nI)
+					
+				oModelZGI := oModel:GetModel("ZGIDETAIL")
+				oView := FwViewactive()
+				For nX := 1 To oModeLZGI:Length()
+					oModeLZGI:GoLine(nX)
+					//Aqui estamos prercorrendo os insumos da operação
+					If !(oModelZGI:IsDeleted())
+						lRet := u_UGR045V(oModeLZGI:GetValue("ZGI_PRODUT"),oModeLZGI:GetValue("ZGI_LOCAL"),oModeLZGI:GetValue("ZGI_QTDE"))
+						If  lRet == .F.
+							//FwFldPut("ZGI_QTDE", 0,nX,oModeLZGI)
+							oModeLZGI:SetValue("ZGI_QTDE",0)
 						EndIf
-						//cCodProd := oModeLZGI:GetValue("ZGI_PRODUT")
-						//Alert("Teste para mostrar os produtos de insumo"+cCodProd)
-					Next
-					oModeLZGI:GoLine(1)
-					oView:Refresh("ZGIDETAIL")
+					EndIf
+					//cCodProd := oModeLZGI:GetValue("ZGI_PRODUT")
+					//Alert("Teste para mostrar os produtos de insumo"+cCodProd)
 				Next
+				oModeLZGI:GoLine(1)
+				oView:Refresh("ZGIDETAIL")
 
-			//if MsgYesNo("Deseja cotinuar ?")
-			//	lRet := .f.
-			//EndIF
+			Else
+				Alert("O formulário não pode ser alterado! O estoque já encontra-se fechado.")
+				oModel:GetModel("ZGHDETAIL"):SetOnlyView(.T.) 
+				oModel:GetModel("ZGHDETAIL"):SetNoDeleteLine(.T.) 
+				oModel:GetModel("ZGHDETAIL"):SetNoInsertLine(.T.) 
+				oModel:GetModel("ZGHDETAIL"):SetNoUpdateLine(.T.)
+				lRet := .f.
+			EndIf
+		Next
+		//if MsgYesNo("Deseja cotinuar ?")
+		//	lRet := .f.
+		//EndIF
 	EndIf
 
 EndIf

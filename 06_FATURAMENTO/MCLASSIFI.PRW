@@ -89,7 +89,7 @@ Local cQuery:=""
 Private aPerg := {}
 Private cPerg := "MGRAVCLASS"
 
-Aadd(aPerg,{cPerg,"Classificação  ?","N",01,00,"C","","","STANDARD","COMMERCIAL","PREMIUM","SAMPLE","",""})
+Aadd(aPerg,{cPerg,"Classificação  ?","N",01,00,"C","","","STANDARD","COMMERCIAL","PREMIUM","SAMPLE","SUPER PREMIUM","",""})
 
 U_Testasx1(cPerg,aPerg,.T.)
 
@@ -144,6 +144,9 @@ If MsgYesNo("Deseja alterar a classificação do produtos ?" )
 			ElseIf mv_par01 == 4
 				cCLassif := "SAMPLE"
 				cClassId := "A"
+			ElseIf mv_par01 == 5
+				cCLassif := "SUPER PREMIUM"
+				cClassId := "X"
 			EndIf
 			
 			If IsMark( 'OK', cMark )
@@ -199,6 +202,7 @@ User Function MfiltCLASS()
 Local cQuery := ""
 Local aLote    := {}
 Local aChapa   := {}
+Local nX       := 0
 
 Private aPerg := {}
 Private cPerg := "MALTCLASSI"

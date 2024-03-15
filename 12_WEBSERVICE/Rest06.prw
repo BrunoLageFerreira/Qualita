@@ -56,7 +56,7 @@ WSMETHOD GET customers WSRECEIVE searchKey, page, pageSize WSREST WSRESTA1
  Default self:page := 1
  Default self:pageSize := 10 
 
-conout("Bruno")
+//conout("Bruno")
 conout(Self:SearchKey)
  
  //-------------------------------------------------------------------

@@ -94,7 +94,9 @@ If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01"
 								Processa({ || cLoteInterno := MCriaLote()}, "Gerando Lote Interno","Processando...", .T.)     
 								GDFieldPut ( "D1_LOTECTL", cLoteInterno  )
 								lRet := .T.
-							EndIf							
+							EndIf	
+						Else
+							GDFieldPut ( "D1_LOTECTL", '' )								
 						EndIf						
 					EndIf
 				EndIf

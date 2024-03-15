@@ -72,6 +72,14 @@ If cIdPonto == 'MODELCOMMITNTTS'
 			oModelZGH:GoLine(1)	
 			IF oModeLZGH:GetValue("ZGH_DATFIM")  > GETMV("MV_ULMES")
 				
+				IF Alltrim(M->ZH7_PROCES) == 'S'
+					IF Empty(oModeLZGH:GetValue("ZGH_HRINI")) .OR.  Empty(oModeLZGH:GetValue("ZGH_HRFIM"))
+						Alert("O horímetro inicial e final devem ser prenchidos!")
+						lRet := .f.
+						Return(lRet)
+					EndIf
+				EndIf 
+
 				//loop do linha conforme nI := ModeLZGH:length()
 				oModelZGH:GoLine(nI)
 					

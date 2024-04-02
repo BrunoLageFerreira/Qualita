@@ -2073,3 +2073,14 @@ GROA015.PRW(767) warning W0003 Local variable CCOR never used
 (61257.825s) [languageServer  ]  connection_manager.cc:1425  | All files compiled successfully.
 (61257.827s) [languageServer  ]      message_handler.h:75    | < [$totvsserver/compilation] (finish)  (458 ms)
 (61257.827s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$totvsserver/compilation'
+(61271.210s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method 'textDocument/codeLens'
+(61271.210s) [languageServer  ]      message_handler.h:70    | > [textDocument/codeLens] (start) 
+(61271.211s) [languageServer  ]      message_handler.h:75    | < [textDocument/codeLens] (finish)  (0 ms)
+(61271.211s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method 'textDocument/codeLens'
+(61280.080s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method 'textDocument/codeLens'
+(61280.080s) [languageServer  ]      message_handler.h:70    | > [textDocument/codeLens] (start) 
+(61280.080s) [languageServer  ]      message_handler.h:75    | < [textDocument/codeLens] (finish)  (0 ms)
+(61280.080s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method 'textDocument/codeLens'
+(61287.627s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(61287.627s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for off
+(61287.627s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'

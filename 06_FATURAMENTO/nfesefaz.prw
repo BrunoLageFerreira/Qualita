@@ -6822,8 +6822,10 @@ If(!Empty(aNfVinc)	.And. Empty(aExp[1])) .or.(!Empty(aNfVinc).And. !Empty(aExp[1
 					If !(aNfVinc[Nx][7] $ cChvDupli)
 						if !Empty(aNfVinc[Nx][6]) .and. "CTE" == UPPER(Alltrim(aNfVinc[Nx][6]))
 							cString += '<refCTe>'+aNfVinc[Nx][7]+'</refCTe>'				
-						else				
-							cString += '<refNFe>'+aNfVinc[Nx][7]+'</refNFe>'   
+						else			
+							If ! '<refNFe>'+aNfVinc[Nx][7]+'</refNFe>' $ cString 	//Bruno Lage
+								cString += '<refNFe>'+aNfVinc[Nx][7]+'</refNFe>'
+							EndIf   
 						endif
 					cChvDupli += aNfVinc[Nx][7]+'-'
 					EndIf
@@ -6990,11 +6992,13 @@ ElseIf !Empty(aExp[1]) .and. !lEECFAT .and. (aNota[04] == "1" .or. (aNota[04] ==
 			next
 		Endif	
 	Next nX
-	If !Empty(cChaveRef)
-		cString += '<NFRef>'
-		cString += cChaveRef
-		cString += '</NFRef>'
-	EndIf
+	If ! cChaveRef $ cString 	//Bruno Lage
+		If !Empty(cChaveRef)
+			cString += '<NFRef>'
+			cString += cChaveRef
+			cString += '</NFRef>'
+		EndIf
+	EndIF
 EndIf
 
 cTPNota := NfeTpNota(aNota,aNfVinc,cVerAmb,aNfVincRur,aRefECF,aProd[1,7])

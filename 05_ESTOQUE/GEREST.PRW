@@ -651,6 +651,8 @@ Return
 	@return 
 /*/
 Static Function MarcaTodos(lMark)
+Local nI := 0
+
 	For nI:= 1 To Len(aFolder)
 	  aFolder[nI,1] := IIF(lMark,.T.,.F.)
 	Next
@@ -1038,6 +1040,9 @@ Return
 	@return 
 /*/
 Static Function fMontaSB8(lFiltro)
+Local J := 0
+Local I := 0
+
 	IF Len(aDetSD5) = 0 .OR. Empty(aDetSD5[1,1])
 	   Return
 	Endif
@@ -1127,6 +1132,9 @@ Return
 	@return 
 /*/
 Static Function fMontaSD5()
+
+Local I := 0
+
 	IF Len(aDetSB8) = 0 .OR. Empty(aDetSB8[1,1])
 	   Return
 	Endif
@@ -1362,6 +1370,9 @@ Return
 	@return 
 /*/
 Static Function fMontaSBF(lFiltro)
+Local J := 0
+Local I := 0
+
 	IF Len(aDetSDB) = 0 .OR. Empty(aDetSDB[1,1])
 	   Return
 	Endif
@@ -1463,6 +1474,9 @@ Return
 	@return 
 /*/
 Static Function fMontaSDB()
+
+Local I := 0
+
 	IF Len(aDetSBF) = 0 .OR. Empty(aDetSBF[1,1])
 	   Return
 	Endif
@@ -1559,6 +1573,8 @@ Return
 	@return 
 /*/
 Static Function fDetaB8BF()
+Local I := 0
+
 	IncProc("Processando Detalhe - SB8xSBF")
 	cMensB8BF   := ""
 	
@@ -1637,6 +1653,8 @@ Return
 	@return 
 /*/
 Static Function fDetaBJBK()
+Local I := 0
+
 	IncProc("Processando Detalhe - SBJxSBK")
 	
 	cMensBJBK   := ""
@@ -1789,6 +1807,8 @@ Return
 	@return 
 /*/
 Static Function fDetaSDA()
+Local I := 0
+
 	IncProc("Processando Detalhe - SDA")
 	
 	cMensDocto  := ""
@@ -2032,6 +2052,8 @@ Return
 	@return 
 /*/
 Static Function fDetaDASB8()
+Local I := 0
+
 	IncProc("Processando Detalhe - SDAxSB8")
 	
 	cMensDAB8   := ""
@@ -2101,6 +2123,7 @@ Return
 	@return 
 /*/
 Static Function fKardLocal()
+Local I := 0
 	IncProc("Processando Kardex - Almoxarifado")
 	
 	aSize(aKarLocal, 0)
@@ -2189,6 +2212,8 @@ Return
 	@return 
 /*/
 Static Function fKardLote()
+Local I := 0
+
 	IncProc("Processando Kardex - Lote")
 	
 	aSize(aKarLote, 0)
@@ -2288,6 +2313,7 @@ Return
 	@return 
 /*/
 Static Function fKardEnde()
+Local I := 0
 	IncProc("Processando Kardex - Endereco")
 	
 	aSize(aKarEnde, 0)
@@ -2578,6 +2604,7 @@ Return
 	@return 
 /*/
 Static Function fSoNumseq()
+Local I := 0
 	Local aArray := {}
 	For I:= 1 To Len(aNumseq)
 	   IF aNumseq[I,11] = "Analisar"
@@ -3404,7 +3431,9 @@ Return
 	@return 
 /*/
 Static Function fAjusta(cOpcao,cLoteCtl,cDoc,dData,nQuant,cEndereco,cNumSeq,cTipoMov,cNumLote,cSerie,cCliFor,cLoja,dDtValid,cFolder)
-	Local aArea  := GetArea()
+Local I := 0
+Local aArea  := GetArea()
+
 	Do Case
 	  Case cOpcao == "SALDO_SB2"  // Saldo do SB2
 	     DBSelectArea("SB2")
@@ -4356,11 +4385,12 @@ Return (_Return)
 	@return 
 /*/
 Static Function fPesquisa(cOpcao,oBrowse)
-	Local oDlgPesq
-	Local aArea   := GetArea()
-	Local cCampos := Space(20)          
-	Local cSeek   := Space(20)   
-	Local aCampos := {}
+Local I := 0
+Local oDlgPesq
+Local aArea   := GetArea()
+Local cCampos := Space(20)          
+Local cSeek   := Space(20)   
+Local aCampos := {}
 	
 	For I:= 1 To Len(oBrowse:AHEADERS)
 	   IF Valtype(oBrowse:AARRAY[1,I]) = "C" .AND. !UPPER(Alltrim(oBrowse:AHEADERS[I])) $ "STATUS/TM/SERIE/LOJA/CLIE.FOR/ORIGEM"
@@ -4492,7 +4522,9 @@ Return
 	@return 
 /*/
 Static Function fPesqDifLote(cOpcao)
-	Local lAchou := .F.       
+Local nPos := 0
+Local lAchou := .F.       
+
 	IF cOpcao = "Prox"
 	   nIni := (oKarLote:nAT + 1)
 	   For nPos := nIni To Len(aKarLote)
@@ -4529,7 +4561,8 @@ Return
 	@return 
 /*/
 Static Function fPesqDifEnde(cOpcao)
-	Local lAchou := .F.       
+Local nPos   := 0
+Local lAchou := .F.       
 	IF cOpcao = "Prox"
 	   nIni := (oKarEnde:nAT + 1)
 	   For nPos := nIni To Len(aKarEnde)

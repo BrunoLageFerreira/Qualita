@@ -158,15 +158,15 @@ If MsgYesNo("Deseja alterar a classificação do produtos ?" )
 				MSUNLOCK()
 				
 				cQuery:=" UPDATE SB8010
-				cQuery+="   SET B8_XDTMOVE ='"+dToS(dDataBase)+"',B8_YCLASSI='"+Alltrim(cClassId)+"',B8_XPUSUAR='"+SUBSTR(CUSUARIO,7,15)+"'
+				cQuery+="    SET B8_XDTMOVE ='"+dToS(dDataBase)+"',B8_YCLASSI='"+Alltrim(cClassId)+"',B8_XPUSUAR='"+SUBSTR(CUSUARIO,7,15)+"',B8_SFDH = CAST(CAST(GETDATE() AS datetime2) AS varchar(25)) ,B8_DTVALID = ''
 				cQuery+="  	FROM SB8010 SB8 
-				cQuery+=" WHERE SB8.D_E_L_E_T_ = ''
-				cQuery+="   AND B8_PRODUTO = '"+TRB->PRODUTO+"'
-				cQuery+="   AND B8_LOTECTL = '"+TRB->LOTE   +"'
-				cQuery+="   AND B8_NUMLOTE = '"+TRB->CHAPA  +"'
-				cQuery+="   AND LEFT(B8_PRODUTO,2) IN ('CH','AM') 
-				cQuery+="   AND B8_SALDO <> 0
-				cQuery+="   AND B8_ORIGLAN <> 'BD'
+				cQuery+="  WHERE SB8.D_E_L_E_T_ = ''
+				cQuery+="    AND B8_PRODUTO = '"+TRB->PRODUTO+"'
+				cQuery+="    AND B8_LOTECTL = '"+TRB->LOTE   +"'
+				cQuery+="    AND B8_NUMLOTE = '"+TRB->CHAPA  +"'
+				cQuery+="    AND LEFT(B8_PRODUTO,2) IN ('CH','AM') 
+				cQuery+="    AND B8_SALDO <> 0
+				cQuery+="    AND B8_ORIGLAN <> 'BD'
 			
 				TcSQLExec(cQuery)
 			EndIf
@@ -273,7 +273,7 @@ If Len(aChapa)>0
 EndIf
 
 cQuery += " 	AND LEFT(B8_PRODUTO,2) IN ('CH','AM') 
-cQuery += " 	AND B8_SALDO <> 0
+cQuery += " 	AND B8_SALDO   <>  0
 cQuery += "     AND B8_ORIGLAN <> 'BD'
 cQuery += " ORDER BY B8_YCAVALE,B8_LOTECTL,B8_NUMLOTE
 

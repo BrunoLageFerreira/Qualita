@@ -10,7 +10,7 @@ SIGAWISE
 
 User Function GM460FIM()
 *****************************************************************************************
-* Gravar o Numero da Carga no Contas a Receber SE1
+* Gravar o dados no (SB8/ZG3)  (SD2/SF2)  (SC6)
 *
 ****
 Local aM460FIM := GetArea()
@@ -70,7 +70,57 @@ IF SubString(CNUMEMP,1,2) == "01"
     cQuery += "    AND D2_EMISSAO ='"+ dtoS(SF2->F2_EMISSAO) +"'
 	
 	TcSQLExec(cQuery)
-	
+
+	/*
+	Define a descrição do produto no momento do faturamento 
+	Foi enviado email de orientação 
+	Determinado pelo Diego 2024/04/25
+	*/
+	If AllTrim(SF2->F2_EST) <> 'EX'
+		If (xRet := ApMsgYesNo("Deseja alterar a descrição de [CHAPA] para [CHAPA/PLACA].")  )
+
+			//COLOCA A DESCRIÇÃO ORIGINAL 
+			//SOMENTE CHAPAS PORQUE NÃO É PARA EXECUTAR NO PRODUTO INICIADOS COM 77
+			//CHAPAS GENERICAS = 77
+			//PARA TRIANGULAÇÃO A DESCIÇÃO VEM DO SF.
+			cQuery := " UPDATE SC6010 
+			cQuery += "    SET C6_DESCRI = B1_DESC
+  			cQuery := "   FROM SC6010 SC6 INNER JOIN SB1010 SB1 ON (B1_COD = C6_PRODUTO)
+ 			cQuery := "  WHERE SC6.D_E_L_E_T_     = '' 
+   			cQuery := "    AND SB1.D_E_L_E_T_     = ''
+			cQuery += "    AND LEFT(C6_PRODUTO,2) = 'CH'
+		   	cQuery := "    AND C6_FILIAL + C6_NUM IN (
+			cQuery := " 							   SELECT DISTINCT D2_FILIAL + D2_PEDIDO 
+			cQuery := "  								 FROM SD2010 
+			cQuery := "               				    WHERE D_E_L_E_T_ = '' 
+			cQuery := " 								  AND D2_DOC     = '"+ SF2->F2_DOC           +"' 
+			cQuery := " 								  AND D2_SERIE   = '"+ SF2->F2_SERIE         +"' 
+			cQuery := " 								  AND D2_EMISSAO = '"+ dtoS(SF2->F2_EMISSAO) +"'
+			cQuery := " 								  AND D2_FILIAL  = '"+ xFilial("SF2")        +"' 
+			cQuery := "				                  )
+
+			TcSQLExec(cQuery)
+
+			//TROCA A DESCRIÇÃO 
+			//TROCA CH E 77 CASO VENHA DO SALES FORCE 
+			cQuery := " UPDATE SC6010 
+			cQuery += "    SET C6_DESCRI = REPLACE(C6_DESCRI,'CHAPA','CHAPA/PLACA')
+			cQuery += "   FROM SC6010 
+			cQuery += "  WHERE D_E_L_E_T_         = '' 
+			cQuery += "    AND LEFT(C6_PRODUTO,2) IN ('CH','77')
+			cQuery += "    AND C6_FILIAL + C6_NUM IN (
+			cQuery += "    								SELECT DISTINCT D2_FILIAL + D2_PEDIDO 
+			cQuery += "    								  FROM SD2010 
+			cQuery += "    								 WHERE D_E_L_E_T_ = '' 
+			cQuery += "    								   AND D2_DOC     = '"+ SF2->F2_DOC           +"' 
+			cQuery += "    								   AND D2_SERIE   = '"+ SF2->F2_SERIE         +"' 
+			cQuery += "    								   AND D2_EMISSAO = '"+ dtoS(SF2->F2_EMISSAO) +"' 
+			cQuery += " 								   AND D2_FILIAL  = '"+ xFilial("SF2")        +"' 
+			cQuery += "  							  )
+			
+			TcSQLExec(cQuery)
+		EndIf 
+	EndIf
 	/*
 	PREENCHE O VOLUME 2  DA NOTA FISCAL DE SAIDA
 	

@@ -21,6 +21,7 @@ Local nPosXTipo   := aScan(aHeader,{|x| AllTrim(x[2]) == 'C1_XTIPO'  })
 Local nPosProdu   := aScan(aHeader,{|x| AllTrim(x[2]) == 'C1_PRODUTO'})
 Local nPosDescr   := aScan(aHeader,{|x| AllTrim(x[2]) == 'C1_DESCRI' })
 Local nPosObser   := aScan(aHeader,{|x| AllTrim(x[2]) == 'C1_OBS'    })
+Local nX          := 0
 
 Local lValido     := .T.
 Local nNumAlert   := ""

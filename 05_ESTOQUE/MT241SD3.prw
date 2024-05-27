@@ -165,6 +165,27 @@ IF SubString(CNUMEMP,1,2) == "05"
 					Alert("A filial/empresa de destino na linha ," + AllTrim(str(nX))+ " não esta igual da primeira linha." )
 			EndIf
 		Next nX
+
+		// Validação da linha de combustivel.
+		For nX := 1 to Len(aCols)
+			if AllTrim(gdFieldGet("D3_COD",nX)) $ "000188/000189" .And. EMPRTY(gdFieldGet("D3_XHORA",nX))
+					lRet := .F.
+					Alert("Na linha ," + AllTrim(str(nX))+ " é obrigatório preencher o [Horimetro]!" )
+			EndIf
+		Next nX
+
+		For nX := 1 to Len(aCols)
+
+			dbSelectArea("SB1")
+			dbSetOrder(1)
+			dbSeek(xFilial("SB1")+gdFieldGet("D3_COD",nX))
+
+			if (AllTrim(B1_GRUPO)=='0021' .And. EMPRTY(gdFieldGet("D3_FOGO",nX)) .and. EMPRTY(gdFieldGet("D3_XHORA",nX)) )
+					lRet := .F.
+					Alert("Na linha ," + AllTrim(str(nX))+ " é obrigatório preencher o [Nº de Fogo] e [Horimetro] !" )
+			EndIf
+		Next nX
+
 	Endif
 Else
 	If Empty(m->CCC) .And. (FUNNAME() == "MATA241") .AND. !IsBlind() 

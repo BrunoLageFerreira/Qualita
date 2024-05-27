@@ -17,6 +17,7 @@ User function MT103FIN()
 Local lRet       := .t.
 Local lDuplic    := .F.
 Local aMT103FIN  := GetArea()
+Local nX         := 0
 
 Private aLocHead := PARAMIXB[1]      // aHeader do getdados apresentado no folter Financeiro.
 Private aLocCols := PARAMIXB[2]      // aCols do getdados apresentado no folter Financeiro.

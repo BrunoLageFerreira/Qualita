@@ -37,23 +37,7 @@
     "search.useGlobalIgnoreFiles": true,
     "advpl.debug_multiThread": true,
     "advpl.workspaceFolders": "d:\\TOTVS 12\\Microsiga\\Protheus\\ProjetoVSCode;",
-    "sqltools.connections": [
-        {
-            "mssqlOptions": {
-                "appName": "SQLTools",
-                "useUTC": true,
-                "encrypt": true
-            },
-            "previewLimit": 50,
-            "server": "localhost",
-            "port": 1433,
-            "driver": "MSSQL",
-            "name": "sqlserver",
-            "database": "DADOSADV_Q",
-            "username": "sa",
-            "password": "xpacD99label"
-        }
-    ],
+    "sqltools.connections": [],
     "totvsLanguageServer.workspaceServerConfig": true,
     "totvsLanguageServer.editor.linter.includes": "D:\\TOTVS 12\\Microsiga\\Protheus\\include"
 }

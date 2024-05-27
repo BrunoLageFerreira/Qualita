@@ -239,7 +239,8 @@ cQuery += "			C7_PRECO,
 cQuery += "			C7_TOTAL,
 cQuery += "			CAST(C7_DATPRF AS DATE)  PREVISAO_ENTREGA,
 If SubString(CNUMEMP,1,2) == "01"
-	cQuery += "			RTRIM(LTRIM(C7_OBSM)) OBS,
+	cQuery += "			RTRIM(LTRIM(C7_OBSM)) OBS  ,
+	cQuery += "			C7_XHORA              XHORA,
 Else
 	cQuery += "			RTRIM(LTRIM(ISNULL(CONVERT(VARCHAR(2047), CONVERT(VARBINARY(2047), C7_OBS)),'') )) OBS,
 EndIf

@@ -21,11 +21,10 @@ Local nX           := 0
 Local oModel       := FWModelActive()
 Local oModeLZGH 
 Local oModelZGI 
+Local oModelSH6
 Private oObj       := ''
 Private cIdPonto   := ''
 Private cIdModel   := ''
-
-
 
 If aParam <> NIL
 	oObj       := aParam[1]
@@ -33,7 +32,7 @@ If aParam <> NIL
 	cIdModel   := aParam[3]
 
 
-If cIdPonto == 'MODELCOMMITNTTS'
+	If cIdPonto == 'MODELCOMMITNTTS'
 		DbSelectArea("ZGI")
 		DbSetOrder(1)
 		DbSeek(xFilial("ZGI")+ZH7->ZH7_NUM)
@@ -56,8 +55,6 @@ If cIdPonto == 'MODELCOMMITNTTS'
 			DbSkip()
 		EndDo
 	ElseIf cIdPonto == 'MODELPOS'
-		oModeLZGH := oModel:GetModel("ZGHDETAIL") 
-
 		//Local oModelZGH := oModel:GetModel("ZGHDETAIL") // Operações
 		//Local oModelSH6 := oModel:GetModel("SH6DETAIL") // Paradas - Hora improdutiva
 		//Local oModelZGI := oModel:GetModel("ZGIDETAIL") // Insumos
@@ -66,12 +63,33 @@ If cIdPonto == 'MODELCOMMITNTTS'
 		//Local oModelZGL := oModel:GetModel("ZGLDETAIL") // Ferramenta
 		//Local oModelZHL := oModel:GetModel("ZGLDETAIL") // Operações x Produto Acabado
 
+		oModeLZGH := oModel:GetModel("ZGHDETAIL") 
+		oModelSH6 := oModel:GetModel("SH6DETAIL") 
+		/*
+		Validação do SH6 na Confirmação do apontamento
+		Motivo das paradas improdutivas.
+		*/		
+		For nI := 1 to oModelSH6:length()
+			oModelSH6:GoLine(nI)
+			If !(oModelSH6:IsDeleted()) // se a linha não estiver deletada
+				If !Empty(oModelSH6:GetValue("H6_TEMPO")) // se existe tempo de parada calculado
+					If Empty(oModelSH6:GetValue("H6_MOTIVO")) // se o motivo estive em branco 
+						Alert("O motivo da parada deve ser sempre preenchido!")
+						lRet := .f.
+						Return(lRet)
+					EndIf
+				EndIf
+			EndIf
+		Next
+
+
 		For nI := 1 to oModeLZGH:length()
 
 			//valida a primeira linha do apontamento para verificar a data do estoque
 			oModelZGH:GoLine(1)	
-			IF oModeLZGH:GetValue("ZGH_DATFIM")  > GETMV("MV_ULMES")
-				
+			
+			IF ZH7->ZH7_EMISSA > GETMV("MV_ULMES") .Or. oModeLZGH:GetValue("ZGH_DATFIM")  > GETMV("MV_ULMES")
+				//ZH7->ZH7_EMISSA
 				IF Alltrim(M->ZH7_PROCES) == 'S'
 					IF Empty(oModeLZGH:GetValue("ZGH_HRINI")) .OR.  Empty(oModeLZGH:GetValue("ZGH_HRFIM"))
 						Alert("O horímetro inicial e final devem ser prenchidos!")

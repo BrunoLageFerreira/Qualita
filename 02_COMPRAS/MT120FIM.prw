@@ -53,11 +53,23 @@ cQuery += "   	FROM
 cQuery += "   		"+RetSqlName("SC7")+" SC7 WITH(NOLOCK) LEFT JOIN SYS_USR WITH(NOLOCK)  						
 cQuery += "   		             ON(C7_USER) =(SYS_USR.USR_ID)   														
 cQuery += "   	WHERE SC7.D_E_L_E_T_ = '' 
-cQuery += "   	  AND C7_NUM    = '"+cA120Num+"' 
+cQuery += "   	  AND C7_NUM    = '"+cA120Num  +"' 
 cQuery += "   	  AND C7_FILIAL = '"+cSC7Filial+"'
 
 TcSQLExec(cQuery)
-				
+
+//GRAVA O CAMPO HORA NO PEDIDO 
+If INCLUI
+    cQuery := " UPDATE " + RetSqlName("SC7")
+    cQuery += "    SET C7_XHORA = '"+ LEFT(TIME(),5)+"'" 				
+    cQuery += "   FROM "+RetSqlName("SC7")+" SC7 WITH(NOLOCK)   														
+    cQuery += "  WHERE SC7.D_E_L_E_T_ = '' 
+    cQuery += "    AND C7_NUM    = '"+cA120Num  +"' 
+    cQuery += "    AND C7_FILIAL = '"+cSC7Filial+"'
+
+    TcSQLExec(cQuery)
+EndIf
+
 RestArea(aArea)
 
 Return()

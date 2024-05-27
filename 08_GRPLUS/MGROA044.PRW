@@ -13,10 +13,11 @@ USER FUNCTION MGROA044()
 *****
 Local aArea        := GetArea()
 Local aParam       := PARAMIXB
-Local lRet         := .T.
-Local nret         := 0
+Local xRet         := .T.
+//Local nret         := 0
 Local nI           := 0
-Local nX           := 0
+//Local nX           := 0
+Local cMsgErro     := ""
 Local oModel       := FWModelActive()
 Local oModeLZGM
 
@@ -39,15 +40,22 @@ If aParam <> NIL
 			//valida a primeira linha do apontamento para verificar a data do estoque
 			oModeLZGM:GoLine(nI)
 			IF Empty(oModeLZGM:GetValue("ZGM_CLASSI") )
-				Alert("Existe classificação em branco! Favor informar uma classificação antes de salvar!")
-				lRet := .f.
+				//Alert("Existe classificação em branco! Favor informar uma classificação antes de salvar!")
+				cMsgErro := cMsgErro + AllTrim(oModeLZGM:GetValue("ZGM_LOTECT")) + '-' + AllTrim(oModeLZGM:GetValue("ZGM_NUMLOT")) + ', '
+				//lRet := .f.
 			EndIf
 		Next
 
+		If !Empty(cMsgErro)
+			cMsgErro := "Existe classificação em branco! Favor informar uma classificação antes de salvar! " + cMsgErro + " Deseja continuar mesmo assim?"
+			If !( xRet := ApMsgYesNo( cMsgErro  ) )
+				Help( ,, 'Help',, 'Erro de classificação de produtos.', 1, 0 )
+			EndIf 
+		EndIf 
 	EndIf
 
 EndIf
 
 RestArea(aArea)
-//Final deo programa
-Return(lRet)
+
+Return(xRet)

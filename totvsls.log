@@ -6454,3 +6454,14 @@ MT410TOK.PRW(459) warning W0003 Local variable AMSGPRC never used
 (64948.556s) [languageServer  ]               timer.cc:42    | [perf] End build took 95.95544 ms
 (64948.556s) [languageServer  ]      message_handler.h:75    | < [$totvsserver/compilation] (finish)  (603 ms)
 (64948.556s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$totvsserver/compilation'
+(343537.203s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method 'textDocument/hover'
+(343537.203s) [languageServer  ]      message_handler.h:70    | > [textDocument/hover] (start) 
+(343537.204s) [languageServer  ]      message_handler.h:75    | < [textDocument/hover] (finish)  (0 ms)
+(343537.204s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method 'textDocument/hover'
+(343538.838s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method 'textDocument/codeLens'
+(343538.839s) [languageServer  ]      message_handler.h:70    | > [textDocument/codeLens] (start) 
+(343538.839s) [languageServer  ]      message_handler.h:75    | < [textDocument/codeLens] (finish)  (0 ms)
+(343538.839s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method 'textDocument/codeLens'
+(343540.966s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(343540.966s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for off
+(343540.966s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'

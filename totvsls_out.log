@@ -4542,3 +4542,11 @@ Content-Length: 237
 
 {"jsonrpc":"2.0","id":536,"result":{"returnCode":0,"compileInfos":[{"status":"SUCCESS","filePath":"d:/totvs 12/microsiga/protheus/projetovscode/13_gestao_de_projetos/cta100mnu.prw","message":"Source compiled successfully","detail":""}]}}
 
+Content-Length: 51
+
+{"jsonrpc":"2.0","id":537,"result":{"contents":[]}}
+
+Content-Length: 324
+
+{"jsonrpc":"2.0","id":538,"result":[{"range":{"start":{"line":7,"character":0},"end":{"line":15,"character":0}},"command":{"title":"0 reference","command":"advpl.showXrefs","arguments":["function","file:///d%3A/totvs%2012/microsiga/protheus/projetovscode/13_gestao_de_projetos/cta100mnu.prw",{"line":7,"character":0},[]]}}]}
+

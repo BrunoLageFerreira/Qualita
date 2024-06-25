@@ -68,14 +68,14 @@ IF !IsBlind()
 
             EndIf
                 /* Adiciono a pergunta do Parambox */
-              //  aAdd(aPergs, {1, "NOVO GRUPO : " , cNewGRP  , aCombo[], ".T.", "", ".T.", 80, .F.})
+                //  aAdd(aPergs, {1, "NOVO GRUPO : " , cNewGRP  , aCombo[], ".T.", "", ".T.", 80, .F.})
 
                 /* Se a pergunta for confirmada */
                 //aAdd( aPergs ,{9,"Abaixo escolha uma opção",200, 40,.T.})                 
                 //aAdd( aPergs ,{2,"Tipo 2 - Escolha:",01,aCombo,50,"",.T.})
 
 
-               // aPergs := {}
+                // aPergs := {}
                 cPergs := "MT120APV01"
 
                 Aadd(aPergs,{cPergs,"Grupo de aprovadores?","C",06,00,"G","","SAL","","","","","",""})

@@ -233,7 +233,7 @@ Pergunta ao usuário se deseja inserir a Invoice no titulo a pagar.
 	cQuery += "  WHERE E2_FORNECE = '"+SF1->F1_FORNECE+"'
 	cQuery += "    AND E2_LOJA    = '"+SF1->F1_LOJA+"'
 	cQuery += "    AND D_E_L_E_T_ = ''
-	cQuery += "    AND E2_TIPO    = 'PRO'
+	cQuery += "    AND E2_TIPO    IN ('PRO','PR')
 
 	TcQuery cQuery Alias TMP_FIM New
 	dbSelectArea("TMP_FIM")

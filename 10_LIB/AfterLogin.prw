@@ -12,6 +12,19 @@ Copyright @1998-2001,2021
 */
 
 User Function AfterLogin()
-    SetKey(K_SH_F7,  { || u_relin() })     //Shift + F7
-Return
+Local cId := ParamIXB[1]
+Local cNome := ParamIXB[2]
+
+//ApMsgAlert("Usuário "+ cId + " - " + Alltrim(cNome)+" efetuou login às "+Time())
+
+Return()
+
+
+User Function PSWDATE()
+    Local _aParixb := PARAMIXB
+    Local _lRet := .T.
+ 
+ //   VarInfo('_aParixb', _aParixb , , .F. )
+     
+Return(_lRet)
 

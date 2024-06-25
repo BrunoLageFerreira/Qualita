@@ -11,6 +11,6 @@ User Function CTA100MNU()
 *
 ****/
 
-aAdd(aRotina, {"Relatório [RQ0146]"     ,"Processa({|| u_BIinweb('RQ_BI_0002','Contratos')}, 'Copiando...')"      , 0 , 3, 0,nil})
+aAdd(aRotina, {"Relatório [RQ0146]"     ,"Processa({|| u_BIinweb('RQ_BI_0001','Contratos')}, 'Copiando...')"      , 0 , 3, 0,nil})
 
 Return()

@@ -8,6 +8,9 @@
 Criado por: Bruno
 Data......: 12/01/2018
 Uso.......: 
+
+EXEMPLO GUILHERME PARAMETROS
+http://srv-bdados:10530/Report/powerbi/BI/RQ_BI_0001?filter=DADOS_GERAIS/NOMEBEM in ('POLITRIZ','SERRARIA')
 */
 
 Static Function MUSRRP(cIdUsuario,cEndEmail)

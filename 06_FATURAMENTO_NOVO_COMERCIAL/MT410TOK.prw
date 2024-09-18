@@ -2672,6 +2672,7 @@ IF dbSeek(xFilial("SF2") + M->C5_CLIENTE + M->C5_LOJACLI + M->C5_NOTA + M->C5_SE
 	If Len(aRetAva) <> 0
 		If Len(aRetAva) <> Len(aTPadv)
 			Alert("Verifique a condição de pagamento: (" + AllTrim(cSetCodPG) + "). O campo tp. avançado está diferente das quantidade de parcelas." )
+			Return()
 		EndIf
 	EndIf
 

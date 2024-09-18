@@ -18,7 +18,7 @@ User Function GMT100OK()
 *  
 *
 ***    
-Local lRet        := .t.
+Local lRet        := ParamIxb[1]
 Local nVRNF       := MaFisRet(,"NF_TOTAL")              
 Local nVlr        := 0
 Local nPVlr       := 0
@@ -159,6 +159,8 @@ Local cTesFora := SuperGetMV("MV_TESPCNF", ," ")
 		
 		If lRet 
 			lRet := U_GTPE005()
+		Else
+			U_GTPE005()
 		EndIf
 		
 	EndIf

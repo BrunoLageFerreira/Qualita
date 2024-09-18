@@ -123,12 +123,12 @@ Validação para permitir que somente alguns usuários façam
 transferencias entre materiais, lotes para outros lotes
 e sublotes para os mesmo outros sublotes.
 CHAMADO = #5443
-usuários liberados: Bruno/Arlindo/Eliana/Sara/Administrador
+usuários liberados: Bruno/Arlindo/Eliana/Sara/Administrador/Joice/Walkiria
 ****************************************************************
 */
 IF FUNNAME() == "MATA261"
 	For nX := 1 To Len(aCols)
-		If !GDDeleted(nX) .And. !__cUserID $ "000000/000056/000057/000125/000059"
+		If !GDDeleted(nX) .And. !__cUserID $ "000000/000056/000057/000125/000059/000238/000151"
 			/*********************
 			Produto diferentes
 			Origem e Destino D3_COD

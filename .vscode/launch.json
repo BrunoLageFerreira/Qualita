@@ -37,6 +37,9 @@
 		},
 		{
 			"label": "sigaadv"
+		},
+		{
+			"label": "sigafat"
 		}
 	],
 	"lastProgramExecuted": "sigamdi",

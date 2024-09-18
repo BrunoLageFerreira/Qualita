@@ -53,13 +53,13 @@ PRIVATE aListBoxFES := {}
 cQuery := " SELECT R_E_C_N_O_ AS RECNO , ZS5_PREFIX,ZS5_NUM ,ZS5_TIPO ,ZS5_PAR  , ZS5_VLR   ,ZS5_DESPE    ,ZS5_DBAIXA, ZS5_TIME 
 cQuery += "   FROM ZS5010 
 cQuery += "  WHERE D_E_L_E_T_ = '' 
-cQuery += "    AND ZS5_NUM    = '"+SE1->E1_NUM+"'  
+cQuery += "    AND ZS5_NUM    = '"+SE1->E1_NUM    +"'  
 cQuery += "    AND ZS5_PREFIX = '"+SE1->E1_PREFIXO+"'
-cQuery += "    AND ZS5_FILIAL = '"+SE1->E1_FILIAL+"'
+cQuery += "    AND ZS5_FILIAL = '"+SE1->E1_FILIAL +"'
 cQuery += "    AND ZS5_PAR    = '"+SE1->E1_PARCELA+"'
-cQuery += "    AND ZS5_TIPO   = '"+SE1->E1_TIPO+"'
+cQuery += "    AND ZS5_TIPO   = '"+SE1->E1_TIPO   +"'
 cQuery += "    AND ZS5_CLIENT = '"+SE1->E1_CLIENTE+"'
-cQuery += "    AND ZS5_LOJA   = '"+SE1->E1_LOJA+"'
+cQuery += "    AND ZS5_LOJA   = '"+SE1->E1_LOJA   +"'
 cQuery += "    AND ZS5_COMPES = 'S' 
 cQuery += " ORDER BY ZS5_NUM
 

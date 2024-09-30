@@ -16,14 +16,13 @@ Local cLoteInterno := ""
 Local lRetBLFera   := .F. 
 Local iXD := AScan(aHeader, { |x| Alltrim(x[2]) == 'D1_CONTA'})
 
-/*
-SOMENTE PARA NOTA FISCAL 
-*/
+
+//SOMENTE PARA NOTA FISCAL 
 If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01" 
-	/*
-	NOTAS DE BLOCOS NA QUALITA NAO USA IMPORTADOR XML
-	porem pode ser usados no gpplus 
-	*/
+	
+	//NOTAS DE BLOCOS NA QUALITA NAO USA IMPORTADOR XML
+	//porem pode ser usados no gpplus 
+	
 	If SubString(CNUMEMP,1,2) == "01" .And. l103Auto == .T. .And. SubString(gdFieldGet("D1_COD"),1,2) = "BL" .And. (AllTrim(CA100FOR) <> '000165') .And. (AllTrim(cEspecie) <> 'CTE')
 	//If SubString(CNUMEMP,1,2) == "01" .And. SubString(gdFieldGet("D1_COD"),1,2) = "BL" .And. AllTrim(CA100FOR) <> '000165'
 	
@@ -40,19 +39,19 @@ If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01"
 		EndIf
 	EndIf
 
-	/*
-	SOMENTE PARA QUALITA
-	*/
+	
+	//SOMENTE PARA QUALITA
+	
 
 	IF cTipo <> "C"
 		IF SubString(CNUMEMP,1,2) == "01" .And. lRetBLFera == .F. 
 			If gdFieldGet("D1_TES")<>'039' .And. gdFieldGet("D1_FORNECE")<>'000165' .And. gdFieldGet("D1_SERIE")<>'2' 			
 				If SubString(gdFieldGet("D1_COD"),1,2) = "BL" .And. (AllTrim(cEspecie) <> 'CTE') 
 			
-					/*
-					Lote do fornecedor
-					D1_YCOMBRU,D1_YALTBRU,D1_YESPBRU,D1_YTOTBRU,D1_YCOMLIQ,D1_YALTLIQ,D1_YESPLIQ,D1_YTOTLIQ
-					*/
+					
+					//Lote do fornecedor
+					//D1_YCOMBRU,D1_YALTBRU,D1_YESPBRU,D1_YTOTBRU,D1_YCOMLIQ,D1_YALTLIQ,D1_YESPLIQ,D1_YTOTLIQ
+					
 					If 	EMPTY(gdFieldGet("D1_YPESOBR")) .Or.;
 						EMPTY(gdFieldGet("D1_YPESOLQ")) .Or.;
 						EMPTY(gdFieldGet("D1_YCOMBRU")) .Or.;
@@ -68,9 +67,9 @@ If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01"
 						lRet := .F.
 						Return(lRet)
 					EndIf					
-					/*
-					Lote do Fornecedor
-					*/
+					
+					//Lote do Fornecedor
+					
 					If Empty(gdFieldGet("D1_LOTEFOR")) .And. AllTrim(CA100FOR) == '000165'
 						//GDFieldPut ( "D1_LOTEFOR", gdFieldGet("D1_LOTECTL") )
 						GDFieldPut ( "D1_LOTEFOR", "" )
@@ -83,13 +82,13 @@ If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01"
 					dbSelectArea("SF4")
 					dbSetOrder(1)
 					If dbSeek(xFilial("SF4") + AllTrim(gdFieldGet("D1_TES")))
-						/*
-						Somente tes que controla estoque
-						*/
+						
+						//Somente tes que controla estoque
+						
 						If SF4->F4_ESTOQUE = "S"
-							/*
-							Lote sequencial Qualita
-							*/
+							
+							//Lote sequencial Qualita
+							
 							If Empty(gdFieldGet("D1_LOTECTL"))
 								Processa({ || cLoteInterno := MCriaLote()}, "Gerando Lote Interno","Processando...", .T.)     
 								GDFieldPut ( "D1_LOTECTL", cLoteInterno  )

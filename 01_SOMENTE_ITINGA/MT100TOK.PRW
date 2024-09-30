@@ -26,26 +26,28 @@ Local aMT100TOK   := GetArea()
 Local nVTC        := 0
 Local nX          := 0
                      
-/*
-Parametro foi  customizado 
-para Itinga 
-*/
+
+//Parametro foi  customizado 
+//para Itinga 
 Local cProFora := SuperGetMV("MV_EXCPROD", ," ")   
  
-/*
-Parametro para definir quais tes nao devem ser consideradas 
-para exigir o pedido de compras         
-Trabalha em conjunto com MV_PCNFE
-*/
+
+//Parametro para definir quais tes nao devem ser consideradas 
+//para exigir o pedido de compras         
+//Trabalha em conjunto com MV_PCNFE
 Local cTesFora := SuperGetMV("MV_TESPCNF", ," ") 
 	
-	/*
-	Nota fiscal manual de saída
-	*/
+
+
+// Restrição para validações não serem chamadas duas vezes ao utilizar o importador da ConexãoNF-e,
+// mantendo a chamada apenas no final do processo, quando a variavel l103Auto estiver .F.
+If !FwIsInCallStack('U_GATI001') .Or. IIf(Type('l103Auto') == 'U',.T.,!l103Auto)
+
+	
+	//Nota fiscal manual de saída	
 	IF FUNNAME() <> "MATA920"
-		/*
-		Obriga o usuario a lançar um centro de custos na janela de rateios
-		*/
+		
+		//Obriga o usuario a lançar um centro de custos na janela de rateios
 		IF gdFieldGet("D1_COD") <> NIL
 		
 			If (!SubString(gdFieldGet("D1_COD"),1,2) $ "BL/CH" .And. AllTrim(CA100FOR) <> '000165') .Or. (cEspecie=="CTE")
@@ -77,9 +79,8 @@ Local cTesFora := SuperGetMV("MV_TESPCNF", ," ")
 				If !AllTrim(acols[nX][aScan(aHeader,{|x|alltrim(x[2])=="D1_COD"})]) $ AllTrim(cProFora) 
 					If !AllTrim(acols[nX][aScan(aHeader,{|x|alltrim(x[2])=="D1_TES"})]) $ AllTrim(cTesFora)
 		
-						/*
-						Validação de quantidade
-						*/
+						
+						//Validação de quantidade				
 						If !Empty(acols[nX][aScan(aHeader,{|x|alltrim(x[2])=="D1_PEDIDO"})] )
 							dbSelectArea("SC7")	                       
 							dbSetOrder(4)
@@ -111,11 +112,10 @@ Local cTesFora := SuperGetMV("MV_TESPCNF", ," ")
 		
 			Next nX
 		
-			/*
-			Validação de Total da Nota Fiscal
-			MV_ALTPRCC estava como 1 abilitado 
-			e foi alterado para 0 desabilitado
-			*/        
+			
+			//Validação de Total da Nota Fiscal
+			//MV_ALTPRCC estava como 1 abilitado 
+			//e foi alterado para 0 desabilitado      
 			lRepet := .T.
 		
 			For nX:=1 to Len(aCols) 
@@ -154,12 +154,17 @@ Local cTesFora := SuperGetMV("MV_TESPCNF", ," ")
 			Next nX   
 			
 		EndIf
-		
-		If lRet 
-			lRet := U_GTPE005()
-		EndIf
-		
+				
 	EndIf
+	
+
+EndIf
+
+If lRet
+	// Ponto de chamada ConexãoNF-e sempre como última instrução.
+	lRet := U_GTPE005()
+EndIf
+
 	
 RestArea(aMT100TOK)
 	

@@ -20,6 +20,7 @@ WSRESTFUL WSTOTVSXRS DESCRIPTION "Api de segurança entre Protheus e Report Serve
 *
 ****
     WSDATA cPSWRET    AS STRING  OPTIONAL
+
 	WSMETHOD POST RSXUSER  DESCRIPTION 'Consulta Usuários para RServer'   WSSYNTAX '/RSXUSER'   PATH 'RSXUSER'    PRODUCES APPLICATION_JSON
 
 END WSRESTFUL
@@ -164,6 +165,7 @@ If 	lPSWBlank == .T. .And.;
 	lPSWTaman == .T.
 	
 	For nX := 1 to Len(cSenhaPSW)
+
 		If	lPSWMaius == .F. .and.;
 			ISUPPER(SubStr(cSenhaPSW,nX,1)) == .T.
 			lPSWMaius := .T.
@@ -178,6 +180,7 @@ If 	lPSWBlank == .T. .And.;
 			IsDigit(SubStr(cSenhaPSW,nX,1)) == .T.
 			lPSWNumer := .T.
 		EndIf
+
 	Next nX
 
 EndIf
@@ -294,7 +297,7 @@ Private aRethora   := {}
 
 	If !Eof()
 		cSenhas := AllTrim(cQryUSR->DADOS)
-	Else
+	else
 		MUSRRP(AllTrim(aInfUsr[1][2]) , AllTrim(aInfUsr[1][14]) )
 
 		Return()
@@ -321,8 +324,8 @@ Private aRethora   := {}
 	//Alert(GetServerIp())
 
 	If "COMPI" $ upper(GetEnvServer())
-		cLink		:= 'http://' + cSenhas + '@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
-		cLinkIe   	:= 'http://' + cSenhas + '@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLink		:= 'http://'+cSenhas+'@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkIe   	:= 'http://'+cSenhas+'@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
 	EndIf
 	
 	/*
@@ -456,15 +459,18 @@ EndIf
 SetKey(VK_F12,{|| MUSRRP(AllTrim(aInfUsr[1][2]) , AllTrim(aInfUsr[1][14]) )} )
 SetKey(VK_F11,{|| cLink := FwInputBox("Link:", cLink), oWebEngine:navigate(cLink)} )
 
-If Upper(cTipo) == "[IE]" .OR. "WEB_APP" $ upper(GetEnvServer())
+
+
+If Upper(cTipo) == "[IE]" .OR. "PRODUCAO_WEBAPP" $ upper(GetEnvServer())
 
 	//AVISO("Leia com Atenção!", "Os relatórios dinâmicos serão abertos em um modelo externo ao Protheus! Para Fechar use o (ALT)+[F4]!" , { "Fechar" }, 1)
-	ShellExecute( "Open", cLinkIe ,"","", 1 )
+	WinExec("C:\relinweb\RELINWEB.EXE " + cLinkIe + ' "'+ UppER(cPrograma) +'   "')
 	
 Else
 
 	DEFINE MSDIALOG oDlg1 TITLE "RELATÓRIO "+ cDescri From aSize[7],0 to aSize[6],aSize[5] of oMainWnd PIXEL
 		//oTIBrw := TIBrowser():New( aPObj[1,1],aPObj[1,2],aPObj[1,4],aPObj[1,3], cLink, oDlg1 )
+		
 		//PRIVATE oWebChannel := TWebChannel():New()
 	 	//nPort 			  := oWebChannel::connect()
 	 	 	
@@ -479,6 +485,7 @@ Else
 		//oWebEngine:setHtml(cHtml, cBaseUrl)
 		oWebEngine:Align := CONTROL_ALIGN_ALLCLIENT
 		//oWebEngine:bLoadFinished := {|self,url| conout("Termino da carga do pagina: " + url) }
+
 	Activate MsDialog oDlg1
 
 EndIf
@@ -586,4 +593,3 @@ endif
 
 
 Return()
-

@@ -95,7 +95,8 @@ Local cPergunte := Padr("GROR015",10)
 		cSql += "        												    AND SB8.B8_LOTECTL BETWEEN '" + MV_PAR03 + "' AND '" + MV_PAR04 + "' " + CHR(10) 
 		cSql += "        												    AND SB8.B8_NUMLOTE BETWEEN '" + MV_PAR05 + "' AND '" + MV_PAR06 + "' " + CHR(10) 
 		cSql += "        												GROUP BY B8_LOTECTL,B8_NUMLOTE 
-		cSql += "        												)
+		cSql += "        												)							   
+		cSql += "        												ORDER BY B8_LOTECTL,B8_NUMLOTE 
 
 		TCQUERY cSQL NEW ALIAS qQUERY
 	

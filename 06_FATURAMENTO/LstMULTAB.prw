@@ -18,6 +18,7 @@ LOCAL _CSQL 			:= ""
 LOCAL _NOPC 			:= 0
 LOCAL _CNOME			:= Space(30)
 LOCAL lRet              := .F.
+LOCAL _NI               := 0
 
 PRIVATE CINDEXNAME		:= ''
 PRIVATE CINDEXKEY 		:= ''

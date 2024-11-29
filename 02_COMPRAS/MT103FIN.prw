@@ -23,27 +23,30 @@ Private aLocHead := PARAMIXB[1]      // aHeader do getdados apresentado no folte
 Private aLocCols := PARAMIXB[2]      // aCols do getdados apresentado no folter Financeiro.
 Private lLocRet  := PARAMIXB[3]      // Flag de validações anteriores padrões do sistema. 
 
+IF lLocRet==.F.
+	return(.F.)	
+EndIf
 
-	For nX:=1 to Len(aCols) 
-		dbSelectArea("SF4")
-		dbSetOrder(1)
-		dbSeek(xFilial("SF4")+AllTrim(acols[nX][aScan(aHeader,{|x|alltrim(x[2])=="D1_TES"})]))
+For nX:=1 to Len(aCols) 
+	dbSelectArea("SF4")
+	dbSetOrder(1)
+	dbSeek(xFilial("SF4")+AllTrim(acols[nX][aScan(aHeader,{|x|alltrim(x[2])=="D1_TES"})]))
 
-		IF SF4->F4_DUPLIC == "S" .OR. lDuplic == .T. 
-			lDuplic := .T.
-		EndIf
-
-	Next nX
-
-	IF lDuplic == .T.
-		/*
-		Validacao padrao
-		*/
-		IF u_mXdtVal("MT103FIN") == .F.
-			Alert("Data do vencimento e menor que 05 dias!")
-			lRet := .F.
-		EndIf
+	IF SF4->F4_DUPLIC == "S" .OR. lDuplic == .T. 
+		lDuplic := .T.
 	EndIf
+
+Next nX
+
+IF lDuplic == .T.
+	/*
+	Validacao padrao
+	*/
+	IF u_mXdtVal("MT103FIN") == .F.
+		Alert("Data do vencimento e menor que 05 dias!")
+		lRet := .F.
+	EndIf
+EndIf
 
 RestArea(aMT103FIN)
 

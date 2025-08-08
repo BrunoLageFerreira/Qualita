@@ -456,7 +456,7 @@ Local cGPExec  := GetMv("MV_XGPEXE")
 
 Local fTPBLQ   := .F.
 
-Local aMsgPrc  := {}
+//Local aMsgPrc  := {}
 Loca  nX       := 0
 
 If !IsBlind()     
@@ -1050,12 +1050,15 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	*******************************************
 	*/
 	If !IsBlind()  
-		oProcess:IncRegua1("[5-8] - Validação do peso para Amostras!")
+		oProcess:IncRegua1("[5-8] - Validação do peso para amostras e retrabalhos e mudança de acabamento.")
 	EndIf
 
 	cMSG := ""
 	lAmostra := .F.
-	
+
+	cMSGRet  := ""
+	lRetrab  := .F.
+
 	For nX := 1 To Len(aCols)
 		
 		If !Empty(AllTrim(GdFieldGet("C6_YCAVALE",nX))) .And. IsBlind() 
@@ -1073,26 +1076,24 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		
 		IF AllTrim(SB1->B1_GRUPO) $ cGPExec
 	
-			If Empty(GdFieldGet("C6_XPESO",nX)) .and. !GDDeleted(nX) .and. SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",nX))) ,1,2) == 'AM'
+			If Empty(GdFieldGet("C6_XPESO",nX)) .and. !GDDeleted(nX) .and. SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",nX))) ,1,2) $ 'AM/BL'
 			
 				If Empty(cMSG)
-					cMSG := "Amostras sem Peso:" + chr(13)+chr(10) 
+					cMSG := "Amostras ou Bloco sem Peso:" + chr(13)+chr(10) 
 				EndIf
 				cMSG += "  -> Item do PV:" + GdFieldGet("C6_ITEM",nX) + " Prod.:" + AllTrim(GdFieldGet("C6_DESCRI",nX)) + chr(13)+chr(10)  							
 			EndIf
 			
-			/*
-			If !GDDeleted(nX) .and. SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",nX))) ,1,2) == 'AM'
-				lAmostra := .T.								
-			EndIf
+			
+			If !GDDeleted(nX) .and. SubStr(AllTrim(AllTrim(GdFieldGet("C6_RETRAB",nX))) ,1,2) == 'S'
+				lRetrab := .F.			
 
-			If !GDDeleted(nX) .and. (SubStr(AllTrim(AllTrim(GdFieldGet("C6_PRODUTO",nX))) ,1,2) == 'AM' .Or. AllTrim(GdFieldGet("C6_YCLASSI",nX)) == "A")
-				M->C5_BLQ  := '1'
-				GdFieldPut("C6_XMOTBLQ","Produto Amostra! Requer aprovação." ,nX)
-				M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim("Produto Amostra! Requer aprovação.") + chr(13)+chr(10)
-				cMSG := AllTrim(cMSG) + AllTrim("Produto Amostra! Requer aprovação.") + chr(13)+chr(10)
+				If Empty(cMSGRet)
+					cMSGRet := "Retrabalho ou mudança de acabamento." + chr(13)+chr(10) 
+				EndIf
+				cMSGRet += "  -> Item do PV:" + GdFieldGet("C6_ITEM",nX) + " Prod.:" + AllTrim(GdFieldGet("C6_DESCRI",nX)) + " -> [" + AllTrim(AllTrim(GdFieldGet("C6_YCAVALE",nX))) + "] - " + AllTrim("Cavalete com trava no SalesForce!") +  chr(13)+chr(10)  					
 			EndIf
-			*/
+			
 		EndIf
 	Next nX
 	/*
@@ -1116,6 +1117,24 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		
 		If !IsBlind()  
 			If MsgYesNo(cMSG + chr(13)+chr(10)+ "Deseja continuar?" )
+				lRet := .t.
+			Else
+				lRet := .F.
+				IF lRet == .F. .and. !IsBlind()  
+					Return(lRet)
+				EndIf 
+			EndIf
+		EndIf
+
+	EndIf
+
+
+	IF !EMPTY(cMSGRet)
+
+		lRet := lRetrab
+		
+		If !IsBlind()  
+			If MsgYesNo(cMSGRet + chr(13)+chr(10)+ "Deseja continuar?" )
 				lRet := .t.
 			Else
 				lRet := .F.
@@ -1228,32 +1247,38 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	*******************************************
 	*/
 	If !IsBlind()
-		oProcess:IncRegua1("[8-8] - Validação dos dados de condição de pagamento!")
+		oProcess:IncRegua1("[8-8] - Validação dos bundles com chapas sem peso!")
 	EndIf
-	/*
-	M->C5_CONDPAG := u_ClintToMob("PG")
 
-	If ! M->C5_TIPO $ "D/B"
-		dbSelectArea("SA1")
-		dbSetOrder(1)
-		If dbSeek(xFilial("SA1")+M->C5_CLIENTE+M->C5_LOJACLI)
-			If ! AllTrim(M->C5_CONDPAG) $ AllTrim(SA1->A1_XCONDPG)
+	cResult := ""
 
-				If Empty(cMSG)
-					cMSG := "Pedido bloqueado! Condição de pagamento não permitida. Cond. Pag:["+ M->C5_CONDPAG +"]." + chr(13)+chr(10) 
-				EndIf
-
+	For nX := 1 To Len(aCols)
+		If !GDDeleted(nX)
+			cResult += "'" + AllTrim(StrTran( AllTrim(GdFieldGet("C6_YCAVALE",nX)), "'", "''")) + "'"
+			If nX < Len(aCols)
+				cResult += ","
 			EndIf
-		EndIf 
+		EndIf
+	Next nX
 
-	EndIf
+	cResult := iif(right(trim(cResult),1) == ',' ,subStr(Trim(cResult),1,len(trim(cResult))-1) ,Trim(cResult))
 
+	if !Empty(cResult)
+		cMSG := trim(u_MChSemPesos(cResult))
+	Endif
+	
 	If !Empty(cMSG)
 		Alert(cMSG)
 		M->C5_XMOTBLQ := AllTrim(M->C5_XMOTBLQ) + AllTrim(cMSG) + chr(13)+chr(10) + "***************************************" + chr(13)+chr(10)
-		M->C5_BLQ     := "1"
+		
+		lRet := .F.
+
+		IF lRet == .F. .and. !IsBlind()  
+			Return(lRet)
+		EndIf 
 	EndIf
-	*/
+	
+
 	/*
 	VALIDAÇÃO DO MOBGRAN
 	*/
@@ -1334,9 +1359,9 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		EMAIL
 		*/
 		If SC5->C5_YTIPO == "ME"
-			WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD99label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
+			WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD95label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
 		Else
-			WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD99label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003_P&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
+			WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD95label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003_P&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003a.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
 		EndIf
 		
 		ConOut("Gerando relatório! Ped. Venda:" + AllTrim(SC5->C5_NUM) )
@@ -1391,6 +1416,64 @@ IF (lRet == .F. .and. IsBlind())
 EndIf 
 
 Return(lRet)
+
+
+User Function MChSemPesos(cCodBundle)
+********************************************************************************************************************
+* /* Codigo do bundle para verificar se ele esta na lista de bundle com chapas sem peso. */
+* /**/
+* //
+***
+Local cQuery := ""
+Local cQureyResult := "" 
+
+cQuery := " SELECT B8_YCAVALE CAVALETE,
+cQuery += " 		ZG3_QCHAPA QTDCH_TOTAL,
+cQuery += " 		COUNT(*)   QTD_CH_SEM_PESO 
+cQuery += "    FROM ZPB010 ZPB 
+cQuery += "                INNER JOIN 
+cQuery += " 		ZG3010 ZG3
+cQuery += " 			   ON (ZPB_CAVALE = ZG3_CODIGO)
+cQuery += " 			   INNER JOIN 
+cQuery += " 		SB8010 SB8
+cQuery += " 			   ON (    B8_PRODUTO = ZPB_PRODUT 
+cQuery += " 			       AND B8_LOCAL   = ZPB_LOCAL 
+cQuery += " 				   AND ZPB_FILIAL = B8_FILIAL 
+cQuery += " 				   AND B8_LOTECTL = TRIM(ZPB_LOTECT)+TRIM(ZPB_CLASSI) 
+cQuery += " 				   AND B8_NUMLOTE = ZPB_CAVALE 
+cQuery += " 				   )
+cQuery += "   WHERE ZPB.D_E_L_E_T_ = '' 
+cQuery += "     AND ZG3.D_E_L_E_T_ = ''
+cQuery += " 	AND SB8.D_E_L_E_T_ = ''
+cQuery += "     AND ZG3.ZG3_XPERDA <> 'S'
+cQuery += " 	AND B8_SALDO   > 0
+cQuery += " 	AND ZPB_PESOLQ = 0
+cQuery += "     AND B8_YCAVALE IN ("+cCodBundle+")
+cQuery += " GROUP BY B8_YCAVALE,
+cQuery += " 		 ZG3_QCHAPA
+cQuery += " ORDER BY CAVALETE
+
+
+TcQuery cQuery Alias TMP_BUNDLE New
+dbSelectArea("TMP_BUNDLE")
+
+Do While !EOF()
+
+	cQureyResult := cQureyResult + "," + TRIM(TMP_BUNDLE->CAVALETE)
+
+	dbSelectArea("TMP_BUNDLE")
+	dbSkip()
+EndDo
+
+dbSelectArea("TMP_BUNDLE")
+dbCloseArea()
+
+If !Empty(cQureyResult )
+	cQureyResult := "Foi encontrado chapas sem peso nos seguintes bundles: " + cQureyResult 
+EndIf
+
+Return(cQureyResult)
+
 
 
 User Function MIntMGLib(cPedido,XIdMobP,_cTabela, xMotBlq, cMobFilial , nXtotal , fTPBLQ)
@@ -1597,10 +1680,10 @@ Local nItem:= 0
 	     	IIf(M->C5_TIPO$"DB","F","C"),;                    		// 3-C:Cliente , F:Fornecedor 
 	     	M->C5_TIPO,;                    						// 4-Tipo da NF 
 	     	M->C5_TIPOCLI,;          								// 5-Tipo do Cliente/Fornecedor 
+	     	MaFisRelImp("MT100", {"SF2", "SD2"}),; 
 	     	Nil,; 
 	     	Nil,; 
-	     	Nil,; 
-	     	Nil,; 
+	     	"SB1",; 
 	     	"GROA014") 
 	
      If (Inclui .Or. Altera) 
@@ -1619,25 +1702,34 @@ Local nItem:= 0
                          
                          nItem:= nItem + 1 						// Quantidade para recalcular 
                          
+
+						SB1->(MsSeek(FWxFilial("SB1")+GdFieldGet("C6_PRODUTO",nX)))
+						SF4->(MsSeek(FWxFilial("SF4")+GdFieldGet("C6_TES"    ,nX)))
                          // Adiciona dados dos produtos na rotina de calculo de impostos       
-                         MaFisAdd( GdFieldGet("C6_PRODUTO",nX),; 
-                                   GdFieldGet("C6_TES"    ,nX),; 
-                                   GdFieldGet("C6_QTDVEN" ,nX),; 
-                                   GdFieldGet("C6_PRCVEN" ,nX),; 
-                                   0,; //GdFieldGet("C6_VALDESC",nX)
-                                   "",; 
-                                   "",; 
-                                   0,; 
-                                   0,; 
-                                   0,; 
-                                   0,; 
-                                   0,; 
-                                   GdFieldGet("C6_VALOR",nX),; 
-                                   0,; 
-                                   0,; 
-                                   0)
-                               
-                         nValDesc := nValDesc + Round(GdFieldGet("C6_VALDESC",nX),2)
+
+						IF SF4->F4_DUPLIC = "S"
+							MaFisAdd(  GdFieldGet("C6_PRODUTO",nX),; 
+									GdFieldGet("C6_TES"    ,nX),; 
+									GdFieldGet("C6_QTDVEN" ,nX),; 
+									GdFieldGet("C6_PRCVEN" ,nX),; 
+									0,; //GdFieldGet("C6_VALDESC",nX)
+									"",; 
+									"",; 
+									0,; 
+									0,; 
+									0,; 
+									0,; 
+									0,; 
+									GdFieldGet("C6_VALOR",nX),; 
+									0,; 
+									SB1->(RecNo()),; 
+									0)
+								
+							nValDesc := nValDesc + Round(GdFieldGet("C6_VALDESC",nX),2)
+
+							MaFisLoad("IT_VALMERC", GdFieldGet("C6_VALOR",nX), nItem)
+
+						EndIF
 						 
 						 If !IsBlind()  
                          	oProcess:IncRegua2("Cavalete ["+GdFieldGet("C6_YCAVALE",nX)+"] Lote-Chapa: "+AllTrim(GdFieldGet("C6_LOTECTL",nX))+"-"+GdFieldGet("C6_NUMLOTE",nX)  )
@@ -1656,6 +1748,12 @@ Local nItem:= 0
           _nIcmsRet += MaFisRet(nLo,"LF_ICMSRET") // Retorna valor da ST  
      Next nLo       
      */
+
+	MaFisAlt("NF_FRETE"   , SC5->C5_FRETE   )  
+	MaFisAlt("NF_SEGURO"  , SC5->C5_SEGURO  )
+	MaFisAlt("NF_DESPESA" , SC5->C5_DESPESA ) 
+	MaFisAlt("NF_AUTONOMO", SC5->C5_FRETAUT )
+
 	If M->C5_DESCONT > 0
 		MaFisAlt("NF_DESCONTO", Min(MaFisRet(, "NF_VALMERC")-0.01, M->C5_DESCONT+MaFisRet(, "NF_DESCONTO")) )
 	EndIf
@@ -1688,6 +1786,7 @@ User Function GMA410MNU()
 Local aButtons := {}
 
 IF  "GROA014" $ funname()
+	/*
 	//Gerando invoice
 	aRotina[16][1] := "Gerar Invoice"
 	aRotina[16][2] := 'Processa({|| u_MNumInv()},,"Gravando....")'
@@ -1716,24 +1815,31 @@ IF  "GROA014" $ funname()
 	aRotina[17][2][2][1] := "Imprime Invoice (BLOCOS)"
 	aRotina[17][2][2][2] := "u_RelInWeb('RQ0004_BLOCK','Imprime Invoice (BLOCOS) [RQ0004_BLOCK]'    ,'u_fParAut(4)')"
 	//aadd(aRotina,{'Imprime Invoice (BLOCOS)',"u_RelInWeb('RQ0004_BLOCK','Imprime Invoice (BLOCOS) [RQ0004_BLOCK]'    ,'u_fParAut(4)')" , 0 , 3,0,NIL})
-	
+	*/
+
+	aadd(aRotina,{'Gerar Invoice',"Processa({|| u_MNumInv()},,'Gravando....')" , 0 , 3,0,NIL})
+	aadd(aRotina,{'Imprime Packing List [RQ0002]',"u_RelInWeb('RQ0002','Imprime Packing List [RQ0002]','u_fParAut(2)')" , 0 , 3,0,NIL})
+	aadd(aRotina,{'Ficha de Amostras',"u_RelInWeb('RQ0096','Ficha de Amotras [RQ0096]','u_fParAut(2)')" , 0 , 3,0,NIL})
+	aadd(aRotina,{'Imprime Commercial Invoice',"u_RelInWeb('RQ0004','Imprime Invoice (CH/AM)[RQ0004]','u_fParAut(4)')" , 0 , 3,0,NIL})
+	aadd(aRotina,{'Imprime Proforma Invoice',"u_RelInWeb('RQ0003','Imprime Proforma Invoice [RQ0003]','u_fParAut(2)')" , 0 , 3,0,NIL})
+	aadd(aRotina,{'Imprime Pedido de Venda',"u_MATR730Q()" , 0 , 3,0,NIL})
+	aadd(aRotina,{'Imprime Invoice (BLOCOS)',"u_RelInWeb('RQ0004_BLOCK','Imprime Invoice (BLOCOS) [RQ0004_BLOCK]'    ,'u_fParAut(4)')" , 0 , 3,0,NIL})
+
 ElseIf "GROA013" $ FunName()  
 
-	aRotina[16][2][1][2] := "u_RelInWeb('RQ0003_P','Imprime Proforma Invoice [RQ0003_P]','u_fParAut(2)')"
-	aRotina[16][2][2][2] := "u_RelInWeb('RQ0002_P','Imprime Packing List [RQ0002_P]','u_fParAut(2)')"
+	//aRotina[16][2][1][2] := "u_RelInWeb('RQ0003_P','Imprime Proforma Invoice [RQ0003_P]','u_fParAut(2)')"
+	//aRotina[16][2][2][2] := "u_RelInWeb('RQ0002_P','Imprime Packing List [RQ0002_P]','u_fParAut(2)')"
 
+	aadd(aRotina,{'Proforma Invoice [RQ0003_P]' ,"u_RelInWeb('RQ0003_P','Imprime Proforma Invoice [RQ0003_P]','u_fParAut(2)')" 											  					, 0 , 3,0,NIL})	
+	aadd(aRotina,{'Packing List [RQ0002_P]'     ,"u_RelInWeb('RQ0002_P','Imprime Packing List [RQ0002_P]','u_fParAut(2)')" 											  					, 0 , 3,0,NIL})	
 	//aadd(aRotina,{'Imp. Packing List',"u_RelInWeb('RQ0002_P','Imprime Packing List [RQ0002_P]'    ,'u_fParAut(2)')" , 0 , 3,0,NIL})
 	//aadd(aRotina,{'Imp. Proforma'    ,"u_RelInWeb('RQ0003_P','Imprime Proforma Invoice [RQ0003_P]','u_fParAut(2)')" , 0 , 3,0,NIL})	
-	aadd(aRotina,{'Pre-Nota'    	 ,"u_MATR730Q()" 											  					, 0 , 3,0,NIL})	
+	aadd(aRotina,{'Pre-Nota'    	 ,"u_MATR730Q()"  , 0 , 3,0,NIL})	
 	
 EndIf
 
-
-
 aadd(aRotina,{'Ajustes Gerais {P.Venda}',"u_AjuGerais()" , 0 , 3,0,NIL})
-
 aadd(aRotina,{'Aprovação WhatsApp ',"u_WAppAprov()" , 0 , 3,0,NIL})
-
 aadd(aRotina,{'Limpar FollowUp' ,"u_ClearFol()"  , 0 , 3,0,NIL})	
 
 Return aButtons
@@ -1819,9 +1925,9 @@ dbSelectArea("TRBE")
 dbCloseArea()
 
 IF "GROA014" $ funname()
-	WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD99label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
+	WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD95label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
 ElseIf FunName() == Alltrim("GROA013")
-	WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD99label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003_P&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
+	WaitRunSrv( '"D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\wget.exe" -t 1 "http://Administrator:xpacD95label@192.168.1.104:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0003_P&FILIAL='+AllTrim(SC5->C5_FILIAL)+'&NUMPED='+AllTrim(SC5->C5_NUM)+'&rs:Format=pdf" -O "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\RQ0003.PDF"' , .t. , "D:\TOTVS 12\Microsiga\protheus_data\RELINWEB\wget\" )
 EndIf
 
 sleep(4000)

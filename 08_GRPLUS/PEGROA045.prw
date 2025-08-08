@@ -1,11 +1,18 @@
-#include "topconn.ch"
-#include "totvs.ch"
+#INCLUDE "protheus.CH"
+#INCLUDE "FWMVCDEF.CH"
+#Include "Parmtype.ch"
+#INCLUDE "TOTVS.CH"
+#INCLUDE "FWEditPanel.CH"
+#INCLUDE "TOPCONN.CH"
 
 /*
 {Protheus.doc} UGROA045
-@Author  (TOTVS) / Bruno Lage/ Arlindo
+@Author  (TOTVS) / Bruno Lage/ 
 @since 04/11/2022
-@version 1.0
+@version 2.0
+
+Atualizado Bruno Lage 
+04-08-2025
 */
 User Function UGROA045()
 /**************************************************************************************************************
@@ -22,9 +29,15 @@ Local oModel       := FWModelActive()
 Local oModeLZGH 
 Local oModelZGI 
 Local oModelSH6
+Local cQuery       := ''
+
+Local cPerg1  := "XAPPAPONTA"
+
 Private oObj       := ''
 Private cIdPonto   := ''
 Private cIdModel   := ''
+
+
 
 If aParam <> NIL
 	oObj       := aParam[1]
@@ -51,9 +64,32 @@ If aParam <> NIL
 
 				EndIf
 			EndIf
+			/*
+			Pergunte(cPerg1,.F.)	
+			if !EMPTY(mv_par01)
+
+				cQuery := " UPDATE SIGAEIS..APP005_OP_CAB
+				cQuery += "    SET CAB_NUMOP = '"+ AllTrim(ZH7->ZH7_NUM) + "'"
+				cQuery += "  FROM SIGAEIS..APP005_OP_CAB WHERE CAB_D_E_L_E_T_ = '' AND CAB_ID = "+AllTrim(Str(mv_par01))
+				
+				TcSQLExec(cQuery)
+			EndIf
+			*/
 			DbSelectArea("ZGI")
 			DbSkip()
 		EndDo
+
+	ElseIf cIdPonto == 'MODELVLDACTIVE'
+		/*
+		cQuery := "DELETE FROM MP_SYSTEM_PROFILE WHERE D_E_L_E_T_ = '' AND P_PROG = 'XAPPAPONTA'"
+		TcSQLExec(cQuery)
+		cQuery := "DELETE FROM SX1010 WHERE D_E_L_E_T_ = '' AND X1_GRUPO = 'XAPPAPONTA'"
+		TcSQLExec(cQuery)
+		*/
+		//Private nIDGlob := 0
+	ElseIf cIdPonto == 'BUTTONBAR'
+			//ApMsgInfo('Adicionando Botao na Barra de Botoes (BUTTONBAR).' + CRLF + 'ID ' + cIdModel )
+		lRet := { {'Import. Apontamento', 'Import. Apontamento', { || u_APPApont()}, 'Import. Apontamento' } }
 	ElseIf cIdPonto == 'MODELPOS'
 		//Local oModelZGH := oModel:GetModel("ZGHDETAIL") // Operações
 		//Local oModelSH6 := oModel:GetModel("SH6DETAIL") // Paradas - Hora improdutiva
@@ -62,7 +98,6 @@ If aParam <> NIL
 		//Local oModelZGK := oModel:GetModel("ZGKDETAIL") // Mão-de-Obra
 		//Local oModelZGL := oModel:GetModel("ZGLDETAIL") // Ferramenta
 		//Local oModelZHL := oModel:GetModel("ZGLDETAIL") // Operações x Produto Acabado
-
 		oModeLZGH := oModel:GetModel("ZGHDETAIL") 
 		oModelSH6 := oModel:GetModel("SH6DETAIL") 
 		/*
@@ -74,7 +109,10 @@ If aParam <> NIL
 			If !(oModelSH6:IsDeleted()) // se a linha não estiver deletada
 				If !Empty(oModelSH6:GetValue("H6_TEMPO")) // se existe tempo de parada calculado
 					If Empty(oModelSH6:GetValue("H6_MOTIVO")) // se o motivo estive em branco 
-						Alert("O motivo da parada deve ser sempre preenchido!")
+						//Alert("O motivo da parada deve ser sempre preenchido!")
+						
+						oModel:SetErrorMessage("",,oModel:GetId(),"","GROA044","O motivo da parada deve ser sempre preenchido!")
+
 						lRet := .f.
 						Return(lRet)
 					EndIf
@@ -92,11 +130,17 @@ If aParam <> NIL
 				//ZH7->ZH7_EMISSA
 				IF Alltrim(M->ZH7_PROCES) == 'S'
 					IF Empty(oModeLZGH:GetValue("ZGH_HRINI")) .OR.  Empty(oModeLZGH:GetValue("ZGH_HRFIM"))
-						Alert("O horímetro inicial e final devem ser prenchidos!")
+						//Alert("O horímetro inicial e final devem ser prenchidos!")
+						oModel:SetErrorMessage("",,oModel:GetId(),"","GROA044","O horímetro inicial e final devem ser prenchidos!")
 						lRet := .f.
 						Return(lRet)
 					EndIf
 				EndIf 
+
+				If Empty(oModeLZGH:GetValue("ZGH_TOTHOR"))
+					oModeLZH7 := oModel:GetModel("ZH7MASTER") 
+					oModelZH7:SetValue("ZH7_XID",0)
+				EndIf
 
 				//loop do linha conforme nI := ModeLZGH:length()
 				oModelZGH:GoLine(nI)
@@ -107,7 +151,7 @@ If aParam <> NIL
 					oModeLZGI:GoLine(nX)
 					//Aqui estamos prercorrendo os insumos da operação
 					If !(oModelZGI:IsDeleted())
-						lRet := u_UGR045V(oModeLZGI:GetValue("ZGI_PRODUT"),oModeLZGI:GetValue("ZGI_LOCAL"),oModeLZGI:GetValue("ZGI_QTDE"))
+						lRet := u_UGR045V(oModeLZGI:GetValue("ZGI_PRODUT"),oModeLZGI:GetValue("ZGI_LOCAL"),oModeLZGI:GetValue("ZGI_QTDE"),oModel)
 						If  lRet == .F.
 							//FwFldPut("ZGI_QTDE", 0,nX,oModeLZGI)
 							oModeLZGI:SetValue("ZGI_QTDE",0)
@@ -117,10 +161,14 @@ If aParam <> NIL
 					//Alert("Teste para mostrar os produtos de insumo"+cCodProd)
 				Next
 				oModeLZGI:GoLine(1)
-				oView:Refresh("ZGIDETAIL")
+				//oView:Refresh("ZGIDETAIL")
+				If !isBlind()
+					oView:Refresh("ZGIDETAIL")
+				EndIf
 
 			Else
-				Alert("O formulário não pode ser alterado! O estoque já encontra-se fechado.")
+				//Alert("O formulário não pode ser alterado! O estoque já encontra-se fechado.")
+				oModel:SetErrorMessage("",,oModel:GetId(),"","GROA044","O formulário não pode ser alterado! O estoque já encontra-se fechado.")
 				oModel:GetModel("ZGHDETAIL"):SetOnlyView(.T.) 
 				oModel:GetModel("ZGHDETAIL"):SetNoDeleteLine(.T.) 
 				oModel:GetModel("ZGHDETAIL"):SetNoInsertLine(.T.) 
@@ -140,7 +188,126 @@ RestArea(aArea)
 Return(lRet)
 
 
-User Function UGR045V(cCodPro,cCodDep,nQtd)
+User Function APPApont()
+/****************************************************************************************************************
+*
+*
+*
+***/
+Local oModel := FWModelActive()
+Local cQuery := ""
+Local cCodId := 0
+Local lValid := .F.
+Local nRegZGH:= 0
+Local nRegSH6:= 0
+Local oView  
+Local nX     := 0
+Local oModeLZH7
+Private aPerg  := {}
+Private cPerg  := "XAPPAPONTA"
+
+
+Aadd(aPerg,{cPerg,"Digite o número ID?","N",9,00,"G","","","","","","","",""})     
+
+U_Testasx1(cPerg,aPerg,.F.) 
+
+If ! Pergunte(cPerg,.t.)
+	Return
+EndIf
+
+iF !Empty(mv_par01)
+    cCodId    := mv_par01    
+	nIdGlobal := mv_par01
+	//ZGH
+    cQuery := "SELECT * FROM SIGAEIS..APP005_OP_CAB WHERE CAB_D_E_L_E_T_ = '' AND CAB_ID     = "+Trim(Str(cCodId))
+    TCQUERY cQuery NEW ALIAS OP_CAB
+
+	dbSelectArea("OP_CAB")
+	dbGoTop()
+	If !EOF() 
+		oModeLZGH := oModel:GetModel("ZGHDETAIL")
+		nRegZGH   := oModelZGH:Length()
+
+		oView := FwViewactive()
+
+		//If oModel:getOperation() == MODEL_OPERATION_UPDATE
+			For nX := 1 To nRegZGH
+				oModelZGH:GoLine(nX)
+
+				oModelZGH:SetValue("ZGH_DATAPO",sToD(OP_CAB->CAB_DT_EMISSAO) )
+				oModelZGH:SetValue("ZGH_DATINI",sToD(OP_CAB->CAB_DTINI) )
+				oModelZGH:SetValue("ZGH_HORINI",AllTrim(OP_CAB->CAB_HORINI))
+				oModelZGH:SetValue("ZGH_DATFIM",sToD(OP_CAB->CAB_DTFIM) )
+				oModelZGH:SetValue("ZGH_HORFIM",AllTrim(OP_CAB->CAB_HORFIM))
+
+			
+			Next
+		//EndIf
+			oModeLZH7 := oModel:GetModel("ZH7MASTER") 
+			oModelZH7:SetValue("ZH7_XID",cCodId)
+			oView:Refresh("ZH7MASTER")
+
+			oModelZGH:GoLine(1)
+			If !isBlind()
+				oView:Refresh("ZGHDETAIL")
+			EndIf
+	Endif
+
+
+    cQuery := "SELECT * FROM SIGAEIS..APP005_OP_PAR WHERE PAR_D_E_L_E_T_ = '' AND PAR_ID_CAB = "+Trim(Str(cCodId))+ " ORDER BY PAR_ID"
+    TCQUERY cQuery NEW ALIAS OP_PAR
+
+	dbSelectArea("OP_PAR")
+	dbGoTop()
+
+	If !EOF() 
+		oModeLSH6 := oModel:GetModel("SH6DETAIL")
+		nRegSH6   := oModelSH6:Length()
+
+		oView := FwViewactive()
+		Do While !Eof()
+
+			nX := oModelSH6:Length()
+		
+			if Empty(oModelSH6:GetValue("H6_MOTIVO"))
+				oModelSH6:GoLine(nX)
+			Else
+				oModelSH6:AddLine()
+			EndIf
+			
+			oModelSH6:SetValue("H6_RECURSO", AllTrim(OP_PAR->PAR_RECURSO))
+			oModelSH6:SetValue("H6_MOTIVO" , AllTrim(OP_PAR->PAR_CODMOTIVO))
+			oModelSH6:SetValue("H6_DTAPONT", sTod(AllTrim(OP_PAR->PAR_DTAPONT)) )
+			oModelSH6:SetValue("H6_DATAINI", sTod(AllTrim(OP_PAR->PAR_DATAINI)) )
+			oModelSH6:SetValue("H6_HORAINI", AllTrim(OP_PAR->PAR_HORAINI))
+			oModelSH6:SetValue("H6_DATAFIN", StoD(AllTrim(OP_PAR->PAR_DATAFIN)) )
+			oModelSH6:SetValue("H6_HORAFIN", AllTrim(OP_PAR->PAR_HORAFIN)) 
+			oModelSH6:SetValue("H6_OPERADO", AllTrim(OP_PAR->PAR_OPERADOR))
+			//oModelSH6:SetValue("H6_OBSERVA", AllTrim(OP_PAR->PAR_RECURSO))
+
+			dbSelectArea("OP_PAR")
+			dbSkip()
+
+			oModelSH6:GoLine(1)
+			If !isBlind()
+				oView:Refresh("SH6DETAIL")
+			EndIf
+
+		EndDo 
+	EndIf
+
+	OP_CAB->(DbCloseArea())
+    OP_PAR->(DbCloseArea())
+
+    lValid := .T.
+Else
+    Alert("Código em Branco, ação não executada!")
+EndIf 
+
+Return(lValid)
+
+
+User Function UGR045V(cCodPro,cCodDep,nQtd,oModel)
 /**************************************************************************************************************
 *  VALIDAÇÃO = ZGI_QTDE ZGI_PRODUT ZGI_LOCAL // 
 *  Esta validação é chamada no campo ZGI_QTDE  para validar o estoque.
@@ -156,7 +323,8 @@ nSaldoAtu := CalcEst( cCodPro,cCodDep,dDataBASE,xFilial("SB2")) [1]
 
 If nSaldoAtu < nQtd
 	lRet := .F.
-	Alert("Quantidade indisponível!")
+	//Alert("Quantidade indisponível!")
+	oModel:SetErrorMessage("",,oModel:GetId(),"","GROA044","Quantidade indisponível!")
 	//VALOR ENCONTRADO NO SALDO
 	FwFldPut("ZGI_QTDE", nSaldoAtu)
 

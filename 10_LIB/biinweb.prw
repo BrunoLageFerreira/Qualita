@@ -286,11 +286,12 @@ Private aRethora   := {}
 SetKey(VK_F12,{|| MUSRRP(AllTrim(aInfUsr[1][2]) , AllTrim(aInfUsr[1][14]) )} )
 SetKey(VK_F11,{|| cLink := FwInputBox("Link:", cLink), oWebEngine:navigate(cLink)} )
 
+Private  cLib
+Private cRmtType := GetRemoteType(@cLib)
 
+If "HTML" $ UPPER(cLib)
 
-If Upper(cTipo) == "[IE]" .OR. "WEB_APP" $ upper(GetEnvServer())
-
-	ShellExecute( "Open", cLinkIe ,"","", 1 )
+	WinExec("C:\relinweb\RELINWEB.EXE " + cLinkIe + ' "'+ UppER(cPrograma) +'   "')
 
 Else
 

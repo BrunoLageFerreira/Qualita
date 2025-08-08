@@ -46,3 +46,20 @@ If !Empty(nNumAlert)
 EndIf
 
 Return(lValido)
+
+User Function MTA110MNU()
+/********************************************************************************************
+*
+*
+*
+****/
+
+//Somente para Qualita
+If SubString(CNUMEMP,1,2) == "01"     
+    If !(RetCodUsr() $ GetMV("MV_USRSOLC"))
+        Alert("Usuário sem permissão para cadastrar Solicitação de Compras! [MV_USRSOLC]")
+        aRotina := {}
+    EndIf
+EndIf
+
+Return aRotina

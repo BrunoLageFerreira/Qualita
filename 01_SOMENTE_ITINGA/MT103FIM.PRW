@@ -22,7 +22,7 @@ Local Usuario   := ""
 U_GTPE002()
 
 ConOut("*****************************")
-ConOut("MT103FIM() NÃO USAR NO GRPLUS Informativo dos parametros")
+ConOut("MT103FIM()")
 ConOut(CNUMEMP)
 ConOut(SUBSTR(CUSUARIO,7,15)+" "+TRIM(DTOC(DATE()))+" "+TRIM(TIME())+" "+TRIM(COMPUTERNAME()))
 ConOut(nConfirma )

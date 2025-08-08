@@ -51,7 +51,7 @@
             "name": "sqlserver",
             "database": "DADOSADV_Q",
             "username": "sa",
-            "password": "xpacD99label"
+            "password": "xpacD95label"
         }
     ],
     "totvsLanguageServer.workspaceServerConfig": true,

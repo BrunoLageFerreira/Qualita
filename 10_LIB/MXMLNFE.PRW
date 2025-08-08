@@ -61,7 +61,7 @@ Default lMostra    := .F.
                     
                 //Se for para mostrar, será mostrado um aviso com o conteúdo
                 If lMostra
-                    Aviso("zSpedXML", cTextoXML, {"Ok"}, 3)
+                    //Aviso("zSpedXML", cTextoXML, {"Ok"}, 3)
                 EndIf
                     
             //Caso não encontre as notas, mostra mensagem

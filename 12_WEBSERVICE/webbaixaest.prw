@@ -138,6 +138,7 @@ Local cJsonCC           := ""
 
 Default self:cPesqCC    := ''
 
+
 cQuery := "   SELECT RTRIM(LTRIM(CTT_CUSTO)) CODIGO,
 cQuery += "		  RTRIM(LTRIM(CTT_DESC01)) DESCRICAO	
 cQuery += "	     FROM CTT010 
@@ -149,6 +150,7 @@ cQuery += "		  AND CTT_CUSTO + CTT_DESC01 LIKE '%" + upper(Self:cPesqCC) + "%'
 tcQuery cQuery alias TBWSCC new
 dbSelectArea("TBWSCC")
 dbgotop()
+
 
 //cJsonCC := ''
 Do While !EOF()

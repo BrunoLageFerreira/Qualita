@@ -12,12 +12,13 @@ Feito por ..: Bruno Lage Ferreira
 
 User Function GR056MEN()
 ********************************************************************************************************
-* /*MENU*/
+* 
 *
 ****
 Local aRotina := PARAMIXB
 
-aAdd(aRotina, {"Rel. Rastreiro Bundles" ,"U_RELINWEB('RQ0143','Rel. Rastreiro Bundles','u_fParR143()')" , 0 , 3, 0,nil})
+aAdd(aRotina, {"Rel. Rastreiro Bundles" ,"U_RELINWEB('RQ0143','Rel. Rastreio Bundles','u_fParR143()')" , 0 , 3, 0,nil})
+
 
 Return(aRotina)
 

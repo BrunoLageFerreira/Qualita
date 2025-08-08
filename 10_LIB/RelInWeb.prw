@@ -454,14 +454,15 @@ Else
 
 EndIf
    
-// Prepara o conector WebSocket
-
+//Prepara o conector WebSocket
 SetKey(VK_F12,{|| MUSRRP(AllTrim(aInfUsr[1][2]) , AllTrim(aInfUsr[1][14]) )} )
 SetKey(VK_F11,{|| cLink := FwInputBox("Link:", cLink), oWebEngine:navigate(cLink)} )
 
+Private  cLib
+Private cRmtType := GetRemoteType(@cLib)
 
-
-If Upper(cTipo) == "[IE]" .OR. "PRODUCAO_WEBAPP" $ upper(GetEnvServer())
+//If Upper(cTipo) == "[IE]" .OR. "PRODUCAO_WEBAPP" $ upper(GetEnvServer())
+If "HTML" $ UPPER(cLib)
 
 	//AVISO("Leia com Atenção!", "Os relatórios dinâmicos serão abertos em um modelo externo ao Protheus! Para Fechar use o (ALT)+[F4]!" , { "Fechar" }, 1)
 	WinExec("C:\relinweb\RELINWEB.EXE " + cLinkIe + ' "'+ UppER(cPrograma) +'   "')

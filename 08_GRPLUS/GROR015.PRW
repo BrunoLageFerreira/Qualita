@@ -6,7 +6,7 @@
 
 //-------------------------------------------------------------------
 /*/ { Protheus.doc } GROR015
-Impressão de Etiqueta
+Impressão de Etiqueta Fiscal Etiqueta 
 
 @author Kenny Roger Martins
 @since 11/04/2017

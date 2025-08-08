@@ -3091,7 +3091,7 @@ If cTipo == "1"
 						Alert(SC5->C5_NUM)
 						*/
 
-                        If SubString(CNUMEMP,1,2) == "05" .OR. !SubString(AllTrim(SB1->B1_COD),1,2) $  'CH/AM' .OR. SC5->C5_YTIPO $ "MI/TF"
+                        If SubString(CNUMEMP,1,2) == "05" .OR. !SubString(AllTrim(SB1->B1_COD),1,2) $  'CH/AM/BL' .OR. SC5->C5_YTIPO $ "MI/TF"
                             aadd(aProd,	{Len(aProd)+1,;
                                 cCodProd,;
                                 IIf(Val(SB1->B1_CODBAR)==0,"",StrZero(Val(SB1->B1_CODBAR),Len(Alltrim(SB1->B1_CODBAR)),0)),;

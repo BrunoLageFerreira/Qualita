@@ -16,7 +16,6 @@ Local cLoteInterno := ""
 Local lRetBLFera   := .F. 
 Local iXD := AScan(aHeader, { |x| Alltrim(x[2]) == 'D1_CONTA'})
 
-
 //SOMENTE PARA NOTA FISCAL 
 If FUNNAME() <> "MATA116" .And. SubString(CNUMEMP,1,2) == "01" 
 	

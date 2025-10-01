@@ -81,7 +81,7 @@ DEFINE MSDIALOG _oDlg TITLE "Pesquisa de Produtos" FROM U_MGETTELA(219),U_MGETTE
 																		"Filial"    ,;
 																		"Nome"      ,;
 																		"End.Aproximado";
-		Size U_MGETTELA(376+100),U_MGETTELA(145) ON DBLCLICK (FLocaArr(aGrd[oBoxLib:nAt,3])) Pixel Of _oDlg
+		FIELDSIZES 10,10,30,280,40,40,40,30,35,20,20 Size U_MGETTELA(376+100),U_MGETTELA(145) ON DBLCLICK (FLocaArr(aGrd[oBoxLib:nAt,3])) Pixel Of _oDlg
 	  	
 		oBoxLib:SetArray(aGrd)
 		oBoxLib:bLine := {|| {  aGrd[oBoxLib:nAt,01],;
@@ -373,6 +373,20 @@ oBoxLib:bLine := {|| {	aGrd[oBoxLib:nAt,01],;
 						aGrd[oBoxLib:nAt,10],;
 						aGrd[oBoxLib:nAt,11];
 						}}  
+/*
+oBoxLib:SetColSizes :=  {|| {	10,;
+								10,;
+								10,;
+								10,;
+								10,;
+								10,;
+								10,;
+								10,;
+								10,;
+								10,;
+								10;
+						}}  
+*/
 oBoxLib:Refresh()             
 	
 Return

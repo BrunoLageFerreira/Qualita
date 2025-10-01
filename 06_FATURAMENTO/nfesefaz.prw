@@ -493,6 +493,11 @@ Local cDscIcms 		:= SuperGetMv("MV_DSCICMS",, .F.,"")
 Local cTpNf 		:= ""
 Local nValIcmsC 	:= 0 
 Local cNcmProd      := ""
+//bruno lage sigawise
+Local lGeraCob		:= .F.
+Local lCobValida   	:= .T.
+Local dCrtNT2025 	:= CtoD("01/09/2025")
+
 local lAchouSL1		:= .F. // Indica se achou o registra da venda na SL1 (SIGALOJA)
 Local lC110			:= .F. // Indica se F4_FORINFC foi utilizado para preenchimento do SPED C110
 Local lLJPRFPad	 	:=	SuperGetMv("MV_LJPREF", ," ") == "SF2->F2_SERIE" // Define o prefixo da SE1
@@ -6995,6 +7000,42 @@ If !Empty(aNota)
 		cString += NfeCob(aDupl)
 	EndIf
 
+
+	IF cVeramb >= "4.00"
+		//Obrigatório o preenchimento do Grupo Informações de Pagamento para NF-e e NFC-e. Para as notas com finalidade de Ajuste ou Devolução o
+		//campo Forma de Pagamento deve ser preenchido com 90=Sem Pagamento.
+		//Retirado o grupo de duplicata para não ocorrer a Rejeição 867: Grupo duplicata informado e forma de pagamento não é Duplicata Mercantil.
+		
+       //If aScan( aDetPag,{ |x|x[1] == "14"} ) > 0			
+		/*If lGrupCob
+			cString += NfeCob(aDupl, aFat, (Alltrim(cSerie)+ Alltrim(cNota)), lBonifica, @nValBDup)
+		EndIf
+		// EndIf
+		cString += NfePag(aDetPag, lBonifica, nValBDup)
+		EndIf
+		cString += infIntermed(cIntermediador, cIndIntermed)*/
+		//Obrigatório o preenchimento do Grupo Informações de Pagamento para NF-e e NFC-e. Para as notas com finalidade de Ajuste ou Devolução o
+			//campo Forma de Pagamento deve ser preenchido com 90=Sem Pagamento.
+			//Retirado o grupo de duplicata para não ocorrer a Rejeição 867: Grupo duplicata informado e forma de pagamento não é Duplicata Mercantil.
+		
+       //If aScan( aDetPag,{ |x|x[1] == "14"} ) > 0		
+		If ( (cAmbiente == "2") .Or. (cAmbiente == "1" .And. Date() >= dCrtNT2025) )
+			If Len(aDupl) == 1 .And. aDupl[1][2] == aNota[3]
+				lCobValida := .F.
+			EndIf
+		EndIf
+
+		lGeraCob := lGrupCob .And. lCobValida
+
+		If lGeraCob
+			cString += NfeCob(aDupl, aFat, (Alltrim(cSerie)+ Alltrim(cNota)), lBonifica, @nValBDup)
+		EndIf
+		// EndIf
+		cString += NfePag(aDetPag, lBonifica, nValBDup)
+	EndIf
+	cString += infIntermed(cIntermediador, cIndIntermed)
+
+	/*
 	IF cVeramb >= "4.00"
 		//Obrigatório o preenchimento do Grupo Informações de Pagamento para NF-e e NFC-e. Para as notas com finalidade de Ajuste ou Devolução o
 		//campo Forma de Pagamento deve ser preenchido com 90=Sem Pagamento.
@@ -7008,7 +7049,8 @@ If !Empty(aNota)
 		cString += NfePag(aDetPag, lBonifica, nValBDup)
 	EndIf
 	cString += infIntermed(cIntermediador, cIndIntermed)
-	
+	*/
+
 	nA := 0
 	For nA:=1 to Len(aMensAux)
 		cMensFis += " " + aMensAux[nA] + CRLF

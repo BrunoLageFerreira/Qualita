@@ -203,6 +203,9 @@ Local nRegSH6:= 0
 Local oView  
 Local nX     := 0
 Local oModeLZH7
+Local oModelZGI
+Local nRegZGI
+Local nI 
 Private aPerg  := {}
 Private cPerg  := "XAPPAPONTA"
 
@@ -234,13 +237,12 @@ iF !Empty(mv_par01)
 			For nX := 1 To nRegZGH
 				oModelZGH:GoLine(nX)
 
-				oModelZGH:SetValue("ZGH_DATAPO",sToD(OP_CAB->CAB_DT_EMISSAO) )
-				oModelZGH:SetValue("ZGH_DATINI",sToD(OP_CAB->CAB_DTINI) )
-				oModelZGH:SetValue("ZGH_HORINI",AllTrim(OP_CAB->CAB_HORINI))
-				oModelZGH:SetValue("ZGH_DATFIM",sToD(OP_CAB->CAB_DTFIM) )
-				oModelZGH:SetValue("ZGH_HORFIM",AllTrim(OP_CAB->CAB_HORFIM))
+				oModelZGH:SetValue("ZGH_DATAPO",sToD(OP_CAB->CAB_DT_EMISSAO))
+				oModelZGH:SetValue("ZGH_DATINI",sToD(OP_CAB->CAB_DTINI     ))
+				oModelZGH:SetValue("ZGH_HORINI",AllTrim(OP_CAB->CAB_HORINI ))
+				oModelZGH:SetValue("ZGH_DATFIM",sToD(OP_CAB->CAB_DTFIM     ))
+				oModelZGH:SetValue("ZGH_HORFIM",AllTrim(OP_CAB->CAB_HORFIM ))
 
-			
 			Next
 		//EndIf
 			oModeLZH7 := oModel:GetModel("ZH7MASTER") 
@@ -296,8 +298,112 @@ iF !Empty(mv_par01)
 		EndDo 
 	EndIf
 
+	//INSUMOS
+	cQuery := "SELECT * FROM SIGAEIS..APP005_OP_INS WHERE INS_ID_CAB = "+Alltrim(Str(cCodId))+ " AND INS_D_E_L_E_T_='' ORDER BY INS_ID"
+    TCQUERY cQuery NEW ALIAS OP_INS
+
+	dbSelectArea("OP_INS")
+	dbGoTop()
+
+	If !EOF() 
+
+		// Monta um array com os produtos retornados pela query
+		aProdutos := {}
+
+		While !EOF()
+			AAdd(aProdutos, {AllTrim(OP_INS->INS_PRODUTO),OP_INS->INS_QTDTOT,.F.}) // campo do produto em OP_INS
+
+			dbSelectArea("OP_INS")
+			dbSkip()
+		EndDo
+
+		// Pega o modelo da grid
+		oModelZGI := oModel:GetModel("ZGIDETAIL")
+		nRegZGI   := oModelZGI:Length()
+
+		iF nRegZGI == 1 .AND. AllTrim(oModelZGI:GetValue("ZGI_PRODUT")) == "" .And. Len(aProdutos) <> 0
+
+			For nI := 1 To Len(aProdutos)
+				If nI == 1
+					oModelZGI:SetValue("ZGI_PRODUT", aProdutos[nI][1] )
+					oModelZGI:SetValue("ZGI_QTDE"  , aProdutos[nI][2] )
+					//oModelZGI:SetValue("ZGI_LOCAL" , "20"             )
+				Else
+					oModelZGI:AddLine()
+					//ModelZGI:GoLine(nI)
+					oModelZGI:SetValue("ZGI_PRODUT", aProdutos[nI][1] )
+					oModelZGI:SetValue("ZGI_QTDE"  , aProdutos[nI][2] )
+					//oModelZGI:SetValue("ZGI_LOCAL" , "20"             )
+				EndIf
+			Next
+			oModelZGI:GoLine(1)
+		Else
+			// Percorre a grid de trás para frente
+			For nI := nRegZGI To 1 Step -1
+				oModelZGI:GoLine(nI)
+
+				If !oModelZGI:IsDeleted()
+					cProdGrid := AllTrim(oModelZGI:GetValue("ZGI_PRODUT"))
+
+					// Busca o produto da grid dentro do array
+					nPos := AScan(aProdutos, {|x| x[1] == cProdGrid })
+
+					If nPos == 0
+						// Produto não existe na query ? deletar linha
+						oModelZGI:DeleteLine()
+					Else
+						// Produto existe ? atualizar quantidade
+						oModelZGI:SetValue("ZGI_QTDE", aProdutos[nPos][2])
+						aProdutos[nPos][3] := .T.
+					EndIf
+				EndIf
+			Next
+
+			// Depois de percorrer a grid, verifica se existe produto no array que não está na grid
+			For nI := 1 To Len(aProdutos)
+				// Procura o produto do array na grid
+				If aProdutos[nI][3] == .F.
+					// Se não encontrou na grid, precisa adicionar
+					oModelZGI:AddLine()
+					oModelZGI:SetValue("ZGI_PRODUT", aProdutos[nI][1])
+					oModelZGI:SetValue("ZGI_QTDE"  , aProdutos[nI][2])
+				EndIf
+			Next
+			oModelZGI:GoLine(1)
+
+		EndIf
+
+		// Atualiza a tela se não estiver em modo cego
+		oView := FwViewActive()
+		If !IsBlind()
+			oView:Refresh("ZGIDETAIL")
+		EndIf
+
+	Else
+		//SE NÃO HOUVER NENHUM INSUMO APONTADO NA OP 
+		//O SISTEMA DEVE DELETAR TODAS AS LINHAS
+		oModelZGI := oModel:GetModel("ZGIDETAIL") // Grid de Insumos
+		nRegZGI   := oModelZGI:Length()           // Número de linhas
+
+		// Loop de trás para frente para evitar problemas ao deletar linhas
+		For nI := nRegZGI TO 1 STEP -1
+			oModelZGI:GoLine(nI)
+			If !oModelZGI:IsDeleted()
+				oModelZGI:DeleteLine()  // Deleta a linha atual
+			EndIf
+		Next
+
+		// Atualiza a tela se não estiver em modo cego
+		oView := FwViewActive()
+		If !IsBlind()
+			oView:Refresh("ZGIDETAIL")
+		EndIf
+
+	EndIf
+
 	OP_CAB->(DbCloseArea())
     OP_PAR->(DbCloseArea())
+	OP_INS->(DbCloseArea())
 
     lValid := .T.
 Else

@@ -57,8 +57,11 @@
 				".T."
 			],
 			"label": "FWRebuildIndex"
+		},
+		{
+			"label": "SIGAESP"
 		}
 	],
-	"lastProgramExecuted": "sigamdi",
+	"lastProgramExecuted": "SIGAESP",
 	"lastProgramArguments": []
 }

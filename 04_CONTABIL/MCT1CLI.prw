@@ -138,6 +138,7 @@ User Function MCT1CLI()
 			CT1_NORMAL	:= '1'
 			CT1_NTSPED	:= '01'
 			CT1_NATCTA	:= '01'
+			CT1_INDNAT  := '1'
 			MsUnlock("CT1")
 			
 			//+----------------------------------------------------------+
@@ -148,13 +149,13 @@ User Function MCT1CLI()
 				CVD->CVD_CONTA 	:= cUltCTA     
 				CVD->CVD_ENTREF := PadR('10',TamSx3('CVD_ENTREF')[1])         
 				CVD->CVD_CTAREF	:= cCtaRef 
-				CVD->CVD_TPUTIL := 'A' 	
+				CVD->CVD_TPUTIL := 'A'
+				CVD->CVD_VERSAO := '0001'
 				CVD->CVD_CODPLA := PadR('001',TamSx3('CVD_CODPLA')[1])       
 				CVD->CVD_CLASSE := '2'
-				CVD->CVD_NATCTA := '02'
+				CVD->CVD_NATCTA := '01'
 				CVD->CVD_CTASUP := cCtaSup
 				CVD->CVD_CUSTO	:= '' 
-
 				MsUnlock("CVD")
 			Else
 				cMsgStop := "Não conseguiu gravar amarracao plano de contas x referencial" 

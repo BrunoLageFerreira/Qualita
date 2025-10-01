@@ -104,3 +104,26 @@ If nOper == MODEL_OPERATION_INSERT .Or. nOper == MODEL_OPERATION_UPDATE
 Endif
 
 Return aRetExIn
+
+User Function MGTAPP006(nIDAPP)
+********************************************************************************
+*
+*
+***
+Local cQuery       := ""
+Local oModelZPB    := FWModelActive()
+
+cQuery := "SELECT TRIM(LIC_LOTE) LOTE, TRIM(LIC_CHAPACAPA) CHAPA_CAPA FROM SIGAEIS..APP006_LIC_CAB CAB (NOLOCK) WHERE CAB.LIC_ID =" + AllTrim(Str(nIDAPP))
+
+TcQuery cQuery Alias TRB_LIC New
+
+dbSelectArea("TRB_LIC")
+dbGoTop()
+
+FwFldPut("ZG3_LOTFOT", AllTrim(TRB_LIC->LOTE))
+FwFldPut("ZG3_CHFOTO", AllTrim(TRB_LIC->CHAPA_CAPA))
+
+dbSelectArea("TRB_LIC")
+dbCloseArea()
+     
+Return(.t.)

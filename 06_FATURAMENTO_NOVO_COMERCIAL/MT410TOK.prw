@@ -1032,7 +1032,16 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 	ENDIF
 
 	aDadosGrv := FCalImp(@oProcess)
-	
+	If LEN(aDadosGrv)>0
+		M->C5_XVALEXT := AllTrim(Extenso(If(aDadosGrv[3]<aDadosGrv[1], (aDadosGrv[4] + aDadosGrv[3]),aDadosGrv[3]),.f.,M->C5_MOEDA,,"3",.t.,.f.))
+		M->C5_XTOTAL  := If(aDadosGrv[3]<aDadosGrv[1], (aDadosGrv[4] + aDadosGrv[3]),aDadosGrv[3])
+		M->C5_XDESCON := aDadosGrv[2]  + M->C5_DESCONT 
+		M->C5_XVLRFIN := (If(aDadosGrv[3]<aDadosGrv[1], (aDadosGrv[4] + aDadosGrv[3]),aDadosGrv[3])) 
+		M->C5_XDESPES := aDadosGrv[4]
+		M->C5_XVLRIPI := aDadosGrv[5]
+		//M->C5_XSEGURO := aDadosGrv[5]
+	EndIf 
+	/*
 	If LEN(aDadosGrv)>0
 		M->C5_XVALEXT := AllTrim(Extenso((aDadosGrv[4] + aDadosGrv[3]) ,.f.,M->C5_MOEDA,,"3",.t.,.f.))
 		M->C5_XTOTAL  := (aDadosGrv[4] + aDadosGrv[3])
@@ -1042,7 +1051,7 @@ If SubString(CNUMEMP,1,2) == "01" .And. (INCLUI == .T. .Or. ALTERA == .T.) .AND.
 		M->C5_XVLRIPI := aDadosGrv[5]
 		//M->C5_XSEGURO := aDadosGrv[5]
 	EndIf 
-	
+	*/
 		
 	/*
 	*******************************************
@@ -1661,12 +1670,13 @@ Static Function FCalImp(oProcess)
 ************************************** 
 * Calculo totais e Impostos
 ************************************** 
-Local aArea     := GetArea() 
-Local nX        := 0 
-//Local nPrcTot   := 0
-Local _aTotalNF := {} 
-Local nValDesc  := 0
-Local nItem:= 0                             
+Local aArea     	:= GetArea() 
+Local nX        	:= 0 
+//Local nPrcTot   	:= 0
+Local _aTotalNF 	:= {} 
+Local nValDesc  	:= 0
+Local nValNfTotal  	:= 0
+Local nItem			:= 0                             
 
 //IF FunName() == Alltrim("GROA014")
 
@@ -1748,6 +1758,7 @@ Local nItem:= 0
           _nIcmsRet += MaFisRet(nLo,"LF_ICMSRET") // Retorna valor da ST  
      Next nLo       
      */
+	nValNfTotal := MaFisRet(,"NF_TOTAL")
 
 	MaFisAlt("NF_FRETE"   , SC5->C5_FRETE   )  
 	MaFisAlt("NF_SEGURO"  , SC5->C5_SEGURO  )
@@ -1761,7 +1772,8 @@ Local nItem:= 0
 		MaFisAlt("NF_DESCONTO", A410Arred(MaFisRet(, "NF_VALMERC")*M->C5_PDESCAB/100, "C6_VALOR") + MaFisRet(, "NF_DESCONTO"))
 	EndIf
 
-	 aAdd(_aTotalNF,MaFisRet(,"NF_TOTAL"))
+	 //aAdd(_aTotalNF,MaFisRet(,"NF_TOTAL"))
+	 aAdd(_aTotalNF,nValNfTotal)
 	 aAdd(_aTotalNF,nValDesc)
 	 aAdd(_aTotalNF,MaFisRet(,"NF_BASEDUP"))
  	 aAdd(_aTotalNF,C5_DESPESA)

@@ -10,12 +10,11 @@ User Function Dtcusto()
 	**************************************************************************************
 	* P.E.p/ grav.dos campos: SF1->F1_OBSERV, F1_PESOLIQ,F1_PESOBRU,F1_VOLUME E F1_ESPECIE
 	**************************************************************************************
-
-
+	
 	dDtCusto := M->DdEmissao
 	@ 100,000 TO 200,500 DIALOG oDlg1 TITLE "Dados adicionais para Nota Fiscal de Entrada"
 
-	@ 010,010 SAY "Data Referência Para Custo" SIZE 100,30
+	@ 010,010 SAY "Data Referï¿½ncia Para Custo" SIZE 100,30
 	@ 020,010 SAY "Data Custo:" SIZE 100,30
 
 
@@ -29,7 +28,7 @@ Return(.T.)
 
 /*
 *********************************
-* FUNÇÃO PARA GRAVAÇÃO DOS DADOS
+* FUNï¿½ï¿½O PARA GRAVAï¿½ï¿½O DOS DADOS
 *********************************
 */
 

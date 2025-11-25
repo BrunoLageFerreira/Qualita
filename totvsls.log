@@ -1,0 +1,762 @@
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2025-11-25 10:20:54.726 (   0.001s) [                ]             loguru.cpp:755   INFO| Logging to 'totvsls.log', mode: 'w', verbosity: 9
+2025-11-25 10:20:54.726 (   0.001s) [main thread     ]             loguru.cpp:591   INFO| arguments: c:\\Users\\Administrator\\.vscode\\extensions\\totvs.tds-vscode-2.0.13/node_modules/@totvs/tds-ls/bin/windows/advpls.exe language-server --notification-level=\"none\" --log-file=totvsls.log --record=totvsls
+2025-11-25 10:20:54.726 (   0.001s) [main thread     ]             loguru.cpp:594   INFO| Current dir: d:\TOTVS 12\Microsiga\Protheus\ProjetoVSCode
+2025-11-25 10:20:54.726 (   0.001s) [main thread     ]             loguru.cpp:596   INFO| stderr verbosity: -2
+2025-11-25 10:20:54.726 (   0.001s) [main thread     ]             loguru.cpp:597   INFO| -----------------------------------
+2025-11-25 10:20:54.729 (   0.003s) [main thread     ]            totvsls.cpp:46    INFO| LanguageServerMain: start
+2025-11-25 10:20:54.729 (   0.003s) [main thread     ]       queue_manager.cc:226   INFO| LaunchStdinLoop: start
+2025-11-25 10:20:54.729 (   0.003s) [main thread     ]       queue_manager.cc:283   INFO| LaunchStdoutThread: start
+2025-11-25 10:20:54.729 (   0.003s) [main thread     ]       queue_manager.cc:164   INFO| LaunchMainLoopThread: start
+2025-11-25 10:20:54.730 (   0.004s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'initialize'
+2025-11-25 10:20:54.730 (   0.004s) [languageServer  ]      message_handler.h:70       9| > [initialize] (start) 
+2025-11-25 10:20:54.730 (   0.004s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [advpls], key: [fsencoding], value: [cp1252]
+2025-11-25 10:20:54.730 (   0.004s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [advpls], key: [notificationlevel], value: [none]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [server], key: [usageInfo], value: [disabled]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [linter], key: [behavior], value: [enableOnlyOpenFiles]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [linter], key: [includes], value: [D:\TOTVS 12\Microsiga\Protheus\include]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [editor], key: [hoverMode], value: [markDown]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [editor], key: [indexCache], value: [off]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [editor], key: [codeLens], value: [true]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [editor], key: [signatureHelp], value: [true]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [editor], key: [autocomplete], value: [LS]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]msg_lsp_initialize_requ:1494  INFO| Client: Visual Studio Code version 1.106.2 - TDS Extension version 2.0.13
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               config.h:276   INFO| ChangeSetting: with scope: [extension], key: [tdsversion], value: [2.0.13]
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]msg_lsp_initialize_requ:1813  INFO| Loading workspace folders.
+2025-11-25 10:20:54.730 (   0.005s) [languageServer  ]               utils.cc:553   INFO| Conversion::setCode to 'cp1252 [old value: ]'
+2025-11-25 10:20:54.734 (   0.008s) [languageServer  ]      message_handler.h:75       9| < [initialize] (finish)  (0 ms)
+2025-11-25 10:20:54.734 (   0.008s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'initialize'
+2025-11-25 10:20:54.738 (   0.013s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'initialized'
+2025-11-25 10:20:54.738 (   0.013s) [languageServer  ]     dbcode_manager.cpp:40       9| > [DBCodeManager::initializeCache] (start) Load cache from disk. Folder: ALL
+2025-11-25 10:20:54.738 (   0.013s) [languageServer  ]     dbcode_manager.cpp:600      9| > [LoadBinaryDefinitions] (start) Load Binary Definitions.
+2025-11-25 10:20:54.753 (   0.028s) [languageServer  ]     dbcode_manager.cpp:610      9| < [LoadBinaryDefinitions] (finish) Load Binary Definitions. (1 ms)
+2025-11-25 10:20:54.754 (   0.028s) [languageServer  ]     dbcode_manager.cpp:74       9| < [DBCodeManager::initializeCache] (finish) Load cache from disk. Folder: ALL (1 ms)
+2025-11-25 10:20:54.754 (   0.028s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'initialized'
+2025-11-25 10:20:54.765 (   0.039s) [                ]workspace_file_task.cpp:72       9| > [FileTask] (start) Indexing folder: ProjetoVSCode (Not Open/Not Temp)
+2025-11-25 10:20:54.765 (   0.039s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) .vscode/.advpl/_binary_class.prw (Not Open/Temp)
+2025-11-25 10:20:54.825 (   0.099s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/didOpen'
+2025-11-25 10:20:54.825 (   0.099s) [languageServer  ]      message_handler.h:70       9| > [textDocument/didOpen] (start) 
+2025-11-25 10:20:54.825 (   0.099s) [languageServer  ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/PEGROA045.prw (Open/Not Temp)
+2025-11-25 10:20:55.126 (   0.400s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/.vscode/.advpl/_binary_class.prw (36 ms)
+2025-11-25 10:20:55.126 (   0.400s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) .vscode/.advpl/_binary_functions.prw (Not Open/Temp)
+2025-11-25 10:20:55.138 (   0.412s) [languageServer  ]        totvs_linter.cc:16    INFO| linterParseDiagnostic: 
+PEGROA045.PRW(34) warning W0003 Local variable CPERG1 never used
+PEGROA045.PRW(32) warning W0003 Local variable CQUERY never used
+PEGROA045.PRW(199) warning W0003 Local variable I never used
+PEGROA045.PRW(200) warning W0003 Local variable OMODEL never used
+PEGROA045.PRW(261) warning W0003 Local variable ADADOSOP never used
+PEGROA045.PRW(255) warning W0003 Local variable OMODELZGK never used
+PEGROA045.PRW(256) warning W0003 Local variable OMODELZGL never used
+2025-11-25 10:20:55.142 (   0.416s) [languageServer  ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/PEGROA045.prw (31 ms)
+2025-11-25 10:20:55.142 (   0.416s) [languageServer  ]      message_handler.h:75       9| < [textDocument/didOpen] (finish)  (31 ms)
+2025-11-25 10:20:55.142 (   0.416s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/didOpen'
+2025-11-25 10:20:55.142 (   0.416s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$totvsserver/reconnect'
+2025-11-25 10:20:55.142 (   0.416s) [languageServer  ]      message_handler.h:70       9| > [$totvsserver/reconnect] (start) 
+2025-11-25 10:20:55.142 (   0.416s) [languageServer  ]msg_totvsserver_reconne:55    INFO| Reconnecting server with connectionToken: djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6Q09NUElMQV9ROkFkbWluOlJYWEUwWDRyeTdTSlhZYVlNaUdxYWFPOGd5SDdoMDZ5U1pDNUlnM1NHdjA9|djI6MTc2NDA3Mjg1NjowOjE6MQ==.ReyKeMYnfFd/FTu+wxKmjmEcotHtzpUZJZy8ujBE1X37xEHXCmPzUFAW2U6thW3GmNkUt5whStA+L30gHngVSNxTx8jeo5rhT6BbcAJtvY0HlVYt0Ok80amPIN9TPkJrtWECEggwXBYMrAI3LYSFmHcfy/Vbfxi7KhLzqYptRBmXvoWC8vQi25vxI76Bj4lMl6/dPhcQGxaYpC56DGooij91VUE8EbROtm5s4+dL7HHL3qjIBMecv6dek8OX/wFNJWAbc9AQWMM3qC45XBT7Bbn7bIjRn12yEhU65jqzfqI19GYCf5619JmlAJxDodf1KtfPGgPXXtF4O0asl5BqFw==
+2025-11-25 10:20:55.142 (   0.416s) [languageServer  ]  connection_manager.cc:525   INFO| Starting reconnection to the server 'COMPILA'
+2025-11-25 10:20:55.142 (   0.416s) [languageServer  ]  connection_manager.cc:526   INFO| djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6Q09NUElMQV9ROkFkbWluOlJYWEUwWDRyeTdTSlhZYVlNaUdxYWFPOGd5SDdoMDZ5U1pDNUlnM1NHdjA9|djI6MTc2NDA3Mjg1NjowOjE6MQ==.ReyKeMYnfFd/FTu+wxKmjmEcotHtzpUZJZy8ujBE1X37xEHXCmPzUFAW2U6thW3GmNkUt5whStA+L30gHngVSNxTx8jeo5rhT6BbcAJtvY0HlVYt0Ok80amPIN9TPkJrtWECEggwXBYMrAI3LYSFmHcfy/Vbfxi7KhLzqYptRBmXvoWC8vQi25vxI76Bj4lMl6/dPhcQGxaYpC56DGooij91VUE8EbROtm5s4+dL7HHL3qjIBMecv6dek8OX/wFNJWAbc9AQWMM3qC45XBT7Bbn7bIjRn12yEhU65jqzfqI19GYCf5619JmlAJxDodf1KtfPGgPXXtF4O0asl5BqFw==
+2025-11-25 10:20:55.142 (   0.417s) [languageServer  ]    security_manager.cc:872   INFO| lsRsaInit
+2025-11-25 10:20:55.142 (   0.417s) [languageServer  ]    security_manager.cc:1408  INFO| lsAsymmDecrypt
+2025-11-25 10:20:55.142 (   0.417s) [languageServer  ]    security_manager.cc:1409  INFO| plaintext 
+2025-11-25 10:20:55.142 (   0.417s) [languageServer  ]    security_manager.cc:1410  INFO| ciphertext 660089F3AA887DBA19A87505A44F1C19F2E8B608EB03B6EC6E350E85EEC4B3F0AE9A39768DA88FDD126043DF378D3E174ACCA62706684B193C97DCAE9C4EC088875B79F5E11020B25DCEE7290D857C64325176C17BA75B401D03C1FAFC09BD0D09D36CA9D392554FE1E342FD30BFB2A64EE8EC6D6B07560BAE46B83C8B46DC7A661634E3B04702FEE35276847C112C53C31F1FA72BC31140C8C3CDBEA31170A1D5B3AFC0EA2B9F90B137ACD63E295C613AD01C6E5690B208EBB4B900B73489FA567149FA271B54C63DD86B007B38E96EAB8E810255D9B7359F9DF2AE9F3FC8D21CAD92935C67DC76035BC9E276EFF5E2FE5CD675C30F406712105164E64A4028
+2025-11-25 10:20:55.142 (   0.417s) [languageServer  ]    security_manager.cc:1411  INFO| ciphertext_len 256
+2025-11-25 10:20:55.148 (   0.422s) [languageServer  ]    security_manager.cc:1088  INFO| userRsaInit
+2025-11-25 10:20:55.148 (   0.422s) [languageServer  ]    security_manager.cc:1107  INFO| Loading user prv key.
+2025-11-25 10:20:55.148 (   0.422s) [languageServer  ]    security_manager.cc:1138  INFO| Loading user pub key.
+2025-11-25 10:20:55.148 (   0.422s) [languageServer  ]    security_manager.cc:1237  INFO| Loading user symm key.
+2025-11-25 10:20:55.153 (   0.427s) [languageServer  ]    security_manager.cc:326   INFO| authentic TRUE
+2025-11-25 10:20:55.153 (   0.428s) [languageServer  ]    security_manager.cc:509   INFO| done RXXE0X4ry7SJXYaYMiGqaaO8gyH7h06ySZC5Ig3SGv0=
+2025-11-25 10:20:55.153 (   0.428s) [languageServer  ]    security_manager.cc:519   INFO| done password symmDecrypt (12)
+2025-11-25 10:20:55.153 (   0.428s) [languageServer  ]  connection_manager.cc:4806  INFO| ConnectionManager::newConnection: 192.168.1.103:1236 (20240223033430) [1] {3}
+2025-11-25 10:20:55.153 (   0.428s) [languageServer  ]  connection_manager.cc:4810  INFO| connected status: 0
+2025-11-25 10:20:55.254 (   0.529s) [languageServer  ]  connection_manager.cc:4813  INFO| connected status: 2
+2025-11-25 10:20:55.254 (   0.529s) [languageServer  ]  connection_manager.cc:4822  INFO| MS_GETSERVERVERSION OK
+2025-11-25 10:20:55.254 (   0.529s) [languageServer  ]  connection_manager.cc:4839  INFO| Build Version: 24.3.1.1
+2025-11-25 10:20:55.254 (   0.529s) [languageServer  ]  connection_manager.cc:4846  INFO| MS_DBGGETBUILD OK
+2025-11-25 10:20:55.255 (   0.529s) [languageServer  ]  connection_manager.cc:4857  INFO| build: 7.00.240223P
+2025-11-25 10:20:55.255 (   0.529s) [languageServer  ]  connection_manager.cc:4866  INFO| creating secureContext
+2025-11-25 10:20:55.255 (   0.529s) [languageServer  ]  connection_manager.cc:4868  INFO| secureContext initialize
+2025-11-25 10:20:55.460 (   0.735s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/.vscode/.advpl/_binary_functions.prw (33 ms)
+2025-11-25 10:20:55.460 (   0.735s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) .vscode/.vscode/.advpl/_binary_class.prw (Not Open/Temp)
+2025-11-25 10:20:55.500 (   0.774s) [languageServer  ]  connection_manager.cc:4871  INFO| asymmetric generateKeys
+2025-11-25 10:20:55.500 (   0.774s) [languageServer  ]  connection_manager.cc:4873  INFO| secureContext initialized
+2025-11-25 10:20:55.823 (   1.097s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/.vscode/.vscode/.advpl/_binary_class.prw (36 ms)
+2025-11-25 10:20:55.823 (   1.097s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) .vscode/.vscode/.advpl/_binary_functions.prw (Not Open/Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/.vscode/.vscode/.advpl/_binary_functions.prw (31 ms)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 00_REMOVER/exemplo.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/00_REMOVER/exemplo.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 00_REMOVER/GROA038.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/00_REMOVER/GROA038.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 00_REMOVER/GROA045.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/00_REMOVER/GROA045.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 00_REMOVER/GROXFUN.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/00_REMOVER/GROXFUN.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 00_REMOVER/teste.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/00_REMOVER/teste.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 00_REMOVER/utilProducao.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/00_REMOVER/utilProducao.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 01_SOMENTE_ITINGA/M460FIM.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/01_SOMENTE_ITINGA/M460FIM.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 01_SOMENTE_ITINGA/MT100TOK.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/01_SOMENTE_ITINGA/MT100TOK.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 01_SOMENTE_ITINGA/MT103FIM.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.413s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/01_SOMENTE_ITINGA/MT103FIM.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 01_SOMENTE_ITINGA/MT140LOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/01_SOMENTE_ITINGA/MT140LOK.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 01_SOMENTE_ITINGA/MT241SD3.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/01_SOMENTE_ITINGA/MT241SD3.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 01_SOMENTE_ITINGA/MTA103MNU.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/01_SOMENTE_ITINGA/MTA103MNU.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/A093ACOD.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/A093ACOD.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/A100DEL.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/A100DEL.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/dtcusto.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/dtcusto.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/IMPNFE.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/IMPNFE.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/IMPPC.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/IMPPC.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/ImpSDQ.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/ImpSDQ.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/ITMmatr110.prx (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/ITMmatr110.prx (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MA103OPC.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MA103OPC.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MATA110.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MATA110.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MSGDECRETO.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MSGDECRETO.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT094CPC .prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT094CPC .prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT100LOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT100LOK.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT100TOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT100TOK.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT103DCF.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT103DCF.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT103FIN.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT103FIN.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT103NFE.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT103NFE.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT103TOK.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT103TOK.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT103VCC.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT103VCC.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT116TOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT116TOK.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT120APV.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT120APV.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT120FIM.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT120FIM.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/MT150ROT.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/MT150ROT.PRW (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/mXdtVal.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/mXdtVal.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/NFORC7.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/NFORC7.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/NFORE2.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/NFORE2.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/NFORZ2.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/NFORZ2.prw (0 ms)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/NMFORN.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.139 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/NMFORN.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 02_COMPRAS/RelPedC.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/02_COMPRAS/RelPedC.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/A103CND2.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/A103CND2.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/A140EXC.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/A140EXC.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/FISMNTNFE.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/FISMNTNFE.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/GMT103FIM.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/GMT103FIM.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/M145ARDEL.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/M145ARDEL.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MT103CPS.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MT103CPS.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MT103CWH.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MT103CWH.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MT103IP2.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MT103IP2.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MT116AGR.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MT116AGR.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MT116GRV.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MT116GRV.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MT140CAB.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MT140CAB.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MT140LOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MT140LOK.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MT140SAI.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MT140SAI.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MT140TOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MT140TOK.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MTA103MNU.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MTA103MNU.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 03_CONEXÃONFE/MTCOLSE2.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/03_CONEXÃONFE/MTCOLSE2.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 04_CONTABIL/LCD530S1.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/04_CONTABIL/LCD530S1.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 04_CONTABIL/LCD530S7.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/04_CONTABIL/LCD530S7.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 04_CONTABIL/LCD650S16.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/04_CONTABIL/LCD650S16.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 04_CONTABIL/LHI530S1.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/04_CONTABIL/LHI530S1.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 04_CONTABIL/MCARGACT2.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/04_CONTABIL/MCARGACT2.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 04_CONTABIL/MCT1CLI.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/04_CONTABIL/MCT1CLI.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 04_CONTABIL/MLPNAT.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/04_CONTABIL/MLPNAT.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 04_CONTABIL/MLPTESNF.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/04_CONTABIL/MLPTESNF.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 04_CONTABIL/RCTBM001.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/04_CONTABIL/RCTBM001.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/A330DECC.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/A330DECC.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/analise.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/analise.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/BUSCALOTE.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/BUSCALOTE.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/BUSCAQTD.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/BUSCAQTD.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/CCUSTO_MVC.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/CCUSTO_MVC.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/cmatr285.prx (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/cmatr285.prx (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/CRIASB2.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/CRIASB2.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/CRIASB9.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/CRIASB9.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/GEREST.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/GEREST.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/IMPINVSB9.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/IMPINVSB9.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/IPADCC.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/IPADCC.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/ITM_MEST010.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/ITM_MEST010.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/M105BUT.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/M105BUT.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/M185GRV.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/M185GRV.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MATR300.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MATR300.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/Matr910.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/Matr910.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MESTNOTA.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MESTNOTA.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MMOVESTEND.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MMOVESTEND.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MPFEST.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MPFEST.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.414s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MREAVCM.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MREAVCM.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MREVEST.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MREVEST.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MT110TOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MT110TOK.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MT241SD3.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MT241SD3.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MTA105OK.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MTA105OK.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MTA261DOC.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MTA261DOC.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/MTA338MNU.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/MTA338MNU.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/PR106AUTO.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/PR106AUTO.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/Relcusto.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/Relcusto.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/RelMod.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/RelMod.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/SEQLOTE.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/SEQLOTE.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 05_ESTOQUE/ZE1CAD.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/05_ESTOQUE/ZE1CAD.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/CADPAIS.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/CADPAIS.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/ChkSc2.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/ChkSc2.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/ChkSc6.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/ChkSc6.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/CRMA980_pe.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/CRMA980_pe.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/DAMDFE.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/DAMDFE.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/danfeii.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/danfeii.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/DESCPDV.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/DESCPDV.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/GM460FIM.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/GM460FIM.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/LstMULTAB.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/LstMULTAB.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/MA030TOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/MA030TOK.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/MATR730Q.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/MATR730Q.prw (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/MCLASSIFI.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/MCLASSIFI.PRW (0 ms)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/MDFESEFAZ.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.140 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/MDFESEFAZ.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/MPREVEND.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/MPREVEND.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/MT440GR.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/MT440GR.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/MTROCVEN.Prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/MTROCVEN.Prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/MUDAVEND.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/MUDAVEND.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/nfesefaz.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/nfesefaz.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/RelPdv.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/RelPdv.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/RelPrd.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/RelPrd.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/RelVenBE.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/RelVenBE.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/RelVend.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/RelVend.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/RelVenSCli.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/RelVenSCli.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/RETPESOFAT.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/RETPESOFAT.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO/SF2460I.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO/SF2460I.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO_NOVO_COMERCIAL/ListMULTPag.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO_NOVO_COMERCIAL/ListMULTPag.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO_NOVO_COMERCIAL/MA410Leg.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO_NOVO_COMERCIAL/MA410Leg.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 06_FATURAMENTO_NOVO_COMERCIAL/MT410TOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/06_FATURAMENTO_NOVO_COMERCIAL/MT410TOK.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/AutPag.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/AutPag.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/AutPagR.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/AutPagR.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/AxCadZGN.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/AxCadZGN.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/AxCadZGR.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/AxCadZGR.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/AXCLILIMIT.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/AXCLILIMIT.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/AXLIMITGR.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/AXLIMITGR.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/AXSEGURAR.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/AXSEGURAR.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/BLQFINA.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/BLQFINA.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/F040PCO.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/F040PCO.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/F050BROW.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/F050BROW.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/F050MDVC.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/F050MDVC.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/F060ACT.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/F060ACT.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/F070BROW.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/F070BROW.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/F070BTOK.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/F070BTOK.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/F380CPOS.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/F380CPOS.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/F380RECO.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/F380RECO.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/F580CHAV.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/F580CHAV.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/FA040DEL.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/FA040DEL.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/FA040INC.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/FA040INC.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/FA450BUT.Prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/FA450BUT.Prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/FA60FIL.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/FA60FIL.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/IMPORT.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/IMPORT.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/ITMMFIN010.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/ITMMFIN010.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/ITMRFIN010.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/ITMRFIN010.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/ITM_MFIN020.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/ITM_MFIN020.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/LstMoeda.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/LstMoeda.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/MANUTSEGUROS.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/MANUTSEGUROS.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/MVALIDMOED.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/MVALIDMOED.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/Rel0036.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/Rel0036.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 07_FINANCEIRO/SE5FI070.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/07_FINANCEIRO/SE5FI070.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/APIGR038.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/APIGR038.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/APIGR044.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.415s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/APIGR044.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/APIGR045.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/APIGR045.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/APIGRPOST.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/APIGRPOST.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/execmob.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/execmob.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/EXEMPLO_IMP.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/EXEMPLO_IMP.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GMOVPOSP.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GMOVPOSP.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GR002COL.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GR002COL.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GR002SQL.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GR002SQL.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GR045MEN.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GR045MEN.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GR056MEN.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GR056MEN.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GR056SQL.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GR056SQL.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GR058SQL.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GR058SQL.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GR37ACPO.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GR37ACPO.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GROA0311.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GROA0311.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GROA064.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GROA064.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GROA56IN.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GROA56IN.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GROR002.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GROR002.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GROR015.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GROR015.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/GRSQL056.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/GRSQL056.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/MarkCalend.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/MarkCalend.prw (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/MAUTPESO.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/MAUTPESO.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/MCONLANMED.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/MCONLANMED.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/MCONTROFIO.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/MCONTROFIO.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/MDIAUTIL.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/MDIAUTIL.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/MGROA044.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/MGROA044.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/MPROPCP.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/MPROPCP.PRW (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/proformaInvoice.prx (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/proformaInvoice.prx (0 ms)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/testegr/AJNUMSEQ.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.141 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/testegr/AJNUMSEQ.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 08_GRPLUS/testegr/GROA015.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/08_GRPLUS/testegr/GROA015.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 09_LIVROS_FISCAIS/ATUALCDL.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/09_LIVROS_FISCAIS/ATUALCDL.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 09_LIVROS_FISCAIS/MA900MNU.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/09_LIVROS_FISCAIS/MA900MNU.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 09_LIVROS_FISCAIS/matr930a.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/09_LIVROS_FISCAIS/matr930a.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 09_LIVROS_FISCAIS/SPDFIS001.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/09_LIVROS_FISCAIS/SPDFIS001.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/AfterLogin.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/AfterLogin.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/AjNumSD1.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/AjNumSD1.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/biinweb.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/biinweb.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/ContAlert.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/ContAlert.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/dolar.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/dolar.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/fGeraMail.Prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/fGeraMail.Prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/FONTE_GR/GROA056.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/FONTE_GR/GROA056.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/LIBWHATSAPP.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/LIBWHATSAPP.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/MArqExpoB.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/MArqExpoB.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/MArqForSrv.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/MArqForSrv.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/MCONTNUM.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/MCONTNUM.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/MGETTELA.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/MGETTELA.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/MLIMPAMASK.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/MLIMPAMASK.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/MSupPesq.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/MSupPesq.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/MWHASTSSEND.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/MWHASTSSEND.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/MXMLNFE.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/MXMLNFE.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/RelInWeb.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/RelInWeb.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/RelVenSCli.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/RelVenSCli.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/RetEstCF.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/RetEstCF.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/SWCLASSWP.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/SWCLASSWP.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/SWWINWP.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/SWWINWP.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/Testasx1.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/Testasx1.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/testepdf.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/testepdf.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/WFMobGran.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/WFMobGran.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/WSCadCli.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/WSCadCli.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 10_LIB/zIsMVC.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/10_LIB/zIsMVC.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 11_MNT/MNTA4206.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/11_MNT/MNTA4206.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 11_MNT/MNTA420P.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/11_MNT/MNTA420P.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 11_MNT/MNTA990A.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/11_MNT/MNTA990A.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 11_MNT/MNTNGAPP.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/11_MNT/MNTNGAPP.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 11_MNT/PLANTA.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/11_MNT/PLANTA.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 11_MNT/xMNTR676.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/11_MNT/xMNTR676.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 12_WEBSERVICE/MOBALTARR.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/12_WEBSERVICE/MOBALTARR.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 12_WEBSERVICE/MOBPEDIV.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/12_WEBSERVICE/MOBPEDIV.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 12_WEBSERVICE/PrdAdapter.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/12_WEBSERVICE/PrdAdapter.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 12_WEBSERVICE/Rest06.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/12_WEBSERVICE/Rest06.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 12_WEBSERVICE/webbaixaest.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/12_WEBSERVICE/webbaixaest.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 12_WEBSERVICE/WSCadPrd.prw (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/12_WEBSERVICE/WSCadPrd.prw (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start) 13_GESTAO_DE_PROJETOS/CTA100MNU.PRW (Not Open/Not Temp)
+2025-11-25 10:20:56.142 (   1.416s) [                ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/13_GESTAO_DE_PROJETOS/CTA100MNU.PRW (0 ms)
+2025-11-25 10:20:56.142 (   1.416s) [                ]workspace_file_task.cpp:141      9| < [FileTask] (finish) Indexed folder: ProjetoVSCode (232 files) in 01s 377ms (avg. 5 ms) (137 ms)
+2025-11-25 10:20:56.910 (   2.184s) [languageServer  ]  connection_manager.cc:5323  INFO| MS_DBGPSWADM_SEC OK
+2025-11-25 10:20:56.910 (   2.184s) [languageServer  ]  connection_manager.cc:5047  INFO| checkAuthenticationError userCode: 0
+2025-11-25 10:20:56.910 (   2.184s) [languageServer  ]  connection_manager.cc:5327  INFO| User authenticated successfully.
+2025-11-25 10:20:56.918 (   2.192s) [languageServer  ]               timer.cc:42    INFO| [perf] ConnectionManager dbgGetServerType exec took 0.329 ms
+2025-11-25 10:20:56.918 (   2.192s) [languageServer  ]  connection_manager.cc:5417  INFO| MS_DBGGETSERVERTYPE OK => TOTVSTEC
+2025-11-25 10:20:56.918 (   2.192s) [languageServer  ]    security_manager.cc:530   INFO| encodedExtraInfo: djI6MTc2NDA3Njg1NjowOjE6MQ==
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]    security_manager.cc:278   INFO| signature FB6Kh/JZIhCW7qqPJHaYBPlKGvIvZgp6m/85Bti23C3j9G5FsFQCZYZHly+ageEuijpKufH/JMMmB34CyHR2WkEnDKwIP5+SenIBdN891hWhHJtOvxeFvd7NiqScyH/LQZr00qUGfuA5u18IzICQGOA0oNQDEj1VJiAHt/A5DthcA0wLTtia2GEM1qaIFK9KvbNeqhSd1G3M/EK5vrLfvcbK2tqRQQlxYXG4PI+JY3YVe3PhYiISLwLj91t1CSnV/eksSfGBo0KrEz1DMjVrJn/BbYajBtrlz6YidGSMd80UhxNLqgN5hiRFoy9GrILerUecTI1RaHJsT6WTDc5QIA==
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]  connection_manager.cc:597   INFO| Reconnection to the server 'COMPILA' finished.
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]  connection_manager.cc:598   INFO| djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6Q09NUElMQV9ROkFkbWluOlJYWEUwWDRyeTdTSlhZYVlNaUdxYWFPOGd5SDdoMDZ5U1pDNUlnM1NHdjA9|djI6MTc2NDA3Njg1NjowOjE6MQ==.FB6Kh/JZIhCW7qqPJHaYBPlKGvIvZgp6m/85Bti23C3j9G5FsFQCZYZHly+ageEuijpKufH/JMMmB34CyHR2WkEnDKwIP5+SenIBdN891hWhHJtOvxeFvd7NiqScyH/LQZr00qUGfuA5u18IzICQGOA0oNQDEj1VJiAHt/A5DthcA0wLTtia2GEM1qaIFK9KvbNeqhSd1G3M/EK5vrLfvcbK2tqRQQlxYXG4PI+JY3YVe3PhYiISLwLj91t1CSnV/eksSfGBo0KrEz1DMjVrJn/BbYajBtrlz6YidGSMd80UhxNLqgN5hiRFoy9GrILerUecTI1RaHJsT6WTDc5QIA==
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]               timer.cc:42    INFO| [perf] ConnectionManager Reconnect server for connectionToken: djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6Q09NUElMQV9ROkFkbWluOlJYWEUwWDRyeTdTSlhZYVlNaUdxYWFPOGd5SDdoMDZ5U1pDNUlnM1NHdjA9|djI6MTc2NDA3Njg1NjowOjE6MQ==.FB6Kh/JZIhCW7qqPJHaYBPlKGvIvZgp6m/85Bti23C3j9G5FsFQCZYZHly+ageEuijpKufH/JMMmB34CyHR2WkEnDKwIP5+SenIBdN891hWhHJtOvxeFvd7NiqScyH/LQZr00qUGfuA5u18IzICQGOA0oNQDEj1VJiAHt/A5DthcA0wLTtia2GEM1qaIFK9KvbNeqhSd1G3M/EK5vrLfvcbK2tqRQQlxYXG4PI+JY3YVe3PhYiISLwLj91t1CSnV/eksSfGBo0KrEz1DMjVrJn/BbYajBtrlz6YidGSMd80UhxNLqgN5hiRFoy9GrILerUecTI1RaHJsT6WTDc5QIA== took 1779.1777962 ms
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]      message_handler.h:75       9| < [$totvsserver/reconnect] (finish)  (177 ms)
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$totvsserver/reconnect'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$/setTrace'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]   msg_lsp_set_trace.cc:25    INFO| SetTrace notification received for off
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$/setTrace'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$/setTrace'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]   msg_lsp_set_trace.cc:25    INFO| SetTrace notification received for off
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$/setTrace'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentLink'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentLink] (start) 
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentLink] (finish)  (0 ms)
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentLink'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$/cancelRequest'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]msg_lsp_cancel_notifica:26    INFO| Cancel notification received for id 2
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$/cancelRequest'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentLink'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentLink] (start) 
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentLink] (finish)  (0 ms)
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentLink'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentSymbol'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentSymbol] (start) 
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentSymbol] (finish)  (0 ms)
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentSymbol'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/semanticTokens/full'
+2025-11-25 10:20:56.922 (   2.196s) [languageServer  ]      message_handler.h:70       9| > [textDocument/semanticTokens/full] (start) 
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]      message_handler.h:75       9| < [textDocument/semanticTokens/full] (finish)  (0 ms)
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/semanticTokens/full'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/codeLens'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]      message_handler.h:70       9| > [textDocument/codeLens] (start) 
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]      message_handler.h:75       9| < [textDocument/codeLens] (finish)  (0 ms)
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/codeLens'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$/setTrace'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]   msg_lsp_set_trace.cc:25    INFO| SetTrace notification received for off
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$/setTrace'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$/cancelRequest'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]msg_lsp_cancel_notifica:26    INFO| Cancel notification received for id 3
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$/cancelRequest'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentLink'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentLink] (start) 
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentLink] (finish)  (0 ms)
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentLink'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$/cancelRequest'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]msg_lsp_cancel_notifica:26    INFO| Cancel notification received for id 6
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$/cancelRequest'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentSymbol'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentSymbol] (start) 
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentSymbol] (finish)  (0 ms)
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentSymbol'
+2025-11-25 10:20:56.922 (   2.197s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/codeLens'
+2025-11-25 10:20:56.923 (   2.197s) [languageServer  ]      message_handler.h:70       9| > [textDocument/codeLens] (start) 
+2025-11-25 10:20:56.923 (   2.197s) [languageServer  ]      message_handler.h:75       9| < [textDocument/codeLens] (finish)  (0 ms)
+2025-11-25 10:20:56.923 (   2.197s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/codeLens'
+2025-11-25 10:20:56.931 (   2.205s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$totvsserver/serverInformations'
+2025-11-25 10:20:56.931 (   2.205s) [languageServer  ]      message_handler.h:70       9| > [$totvsserver/serverInformations] (start) 
+2025-11-25 10:20:56.931 (   2.205s) [languageServer  ]msg_totvsserver_server_:48    INFO| Get server informations of: djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6Q09NUElMQV9ROkFkbWluOlJYWEUwWDRyeTdTSlhZYVlNaUdxYWFPOGd5SDdoMDZ5U1pDNUlnM1NHdjA9|djI6MTc2NDA3Njg1NjowOjE6MQ==.FB6Kh/JZIhCW7qqPJHaYBPlKGvIvZgp6m/85Bti23C3j9G5FsFQCZYZHly+ageEuijpKufH/JMMmB34CyHR2WkEnDKwIP5+SenIBdN891hWhHJtOvxeFvd7NiqScyH/LQZr00qUGfuA5u18IzICQGOA0oNQDEj1VJiAHt/A5DthcA0wLTtia2GEM1qaIFK9KvbNeqhSd1G3M/EK5vrLfvcbK2tqRQQlxYXG4PI+JY3YVe3PhYiISLwLj91t1CSnV/eksSfGBo0KrEz1DMjVrJn/BbYajBtrlz6YidGSMd80UhxNLqgN5hiRFoy9GrILerUecTI1RaHJsT6WTDc5QIA==
+2025-11-25 10:20:56.931 (   2.205s) [languageServer  ]  connection_manager.cc:5437  INFO| Searching for connection token: djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6Q09NUElMQV9ROkFkbWluOlJYWEUwWDRyeTdTSlhZYVlNaUdxYWFPOGd5SDdoMDZ5U1pDNUlnM1NHdjA9|djI6MTc2NDA3Njg1NjowOjE6MQ==.FB6Kh/JZIhCW7qqPJHaYBPlKGvIvZgp6m/85Bti23C3j9G5FsFQCZYZHly+ageEuijpKufH/JMMmB34CyHR2WkEnDKwIP5+SenIBdN891hWhHJtOvxeFvd7NiqScyH/LQZr00qUGfuA5u18IzICQGOA0oNQDEj1VJiAHt/A5DthcA0wLTtia2GEM1qaIFK9KvbNeqhSd1G3M/EK5vrLfvcbK2tqRQQlxYXG4PI+JY3YVe3PhYiISLwLj91t1CSnV/eksSfGBo0KrEz1DMjVrJn/BbYajBtrlz6YidGSMd80UhxNLqgN5hiRFoy9GrILerUecTI1RaHJsT6WTDc5QIA==
+2025-11-25 10:20:56.931 (   2.205s) [languageServer  ]  connection_manager.cc:5442  INFO| Connections thread size: 1
+2025-11-25 10:20:56.931 (   2.205s) [languageServer  ]  connection_manager.cc:5452  INFO| connection pointer address 000002AB15B36580
+2025-11-25 10:20:56.931 (   2.205s) [languageServer  ]  connection_manager.cc:7568  INFO| retrievedConnectionThread status 2
+2025-11-25 10:20:56.931 (   2.205s) [languageServer  ]               timer.cc:42    INFO| [perf] ConnectionManager GetServerInformations => serverInformations.size: [] took 0.52 ms
+2025-11-25 10:20:56.931 (   2.206s) [languageServer  ]      message_handler.h:75       9| < [$totvsserver/serverInformations] (finish)  (0 ms)
+2025-11-25 10:20:56.931 (   2.206s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$totvsserver/serverInformations'
+2025-11-25 10:21:01.973 (   7.248s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/hover'
+2025-11-25 10:21:01.973 (   7.248s) [languageServer  ]      message_handler.h:70       9| > [textDocument/hover] (start) 
+2025-11-25 10:21:01.974 (   7.248s) [languageServer  ]      message_handler.h:75       9| < [textDocument/hover] (finish)  (0 ms)
+2025-11-25 10:21:01.974 (   7.248s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/hover'
+2025-11-25 10:21:02.542 (   7.816s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/hover'
+2025-11-25 10:21:02.542 (   7.816s) [languageServer  ]      message_handler.h:70       9| > [textDocument/hover] (start) 
+2025-11-25 10:21:02.542 (   7.816s) [languageServer  ]      message_handler.h:75       9| < [textDocument/hover] (finish)  (0 ms)
+2025-11-25 10:21:02.542 (   7.816s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/hover'
+2025-11-25 10:21:02.872 (   8.147s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/hover'
+2025-11-25 10:21:02.872 (   8.147s) [languageServer  ]      message_handler.h:70       9| > [textDocument/hover] (start) 
+2025-11-25 10:21:02.873 (   8.147s) [languageServer  ]      message_handler.h:75       9| < [textDocument/hover] (finish)  (0 ms)
+2025-11-25 10:21:02.873 (   8.147s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/hover'
+2025-11-25 10:21:03.406 (   8.680s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/codeLens'
+2025-11-25 10:21:03.406 (   8.680s) [languageServer  ]      message_handler.h:70       9| > [textDocument/codeLens] (start) 
+2025-11-25 10:21:03.406 (   8.680s) [languageServer  ]      message_handler.h:75       9| < [textDocument/codeLens] (finish)  (0 ms)
+2025-11-25 10:21:03.406 (   8.680s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/codeLens'
+2025-11-25 10:21:04.311 (   9.585s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$totvsserver/compilation'
+2025-11-25 10:21:04.311 (   9.585s) [languageServer  ]      message_handler.h:70       9| > [$totvsserver/compilation] (start) 
+2025-11-25 10:21:04.311 (   9.585s) [languageServer  ]  connection_manager.cc:5437  INFO| Searching for connection token: djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6Q09NUElMQV9ROkFkbWluOlJYWEUwWDRyeTdTSlhZYVlNaUdxYWFPOGd5SDdoMDZ5U1pDNUlnM1NHdjA9|djI6MTc2NDA3Njg1NjowOjE6MQ==.FB6Kh/JZIhCW7qqPJHaYBPlKGvIvZgp6m/85Bti23C3j9G5FsFQCZYZHly+ageEuijpKufH/JMMmB34CyHR2WkEnDKwIP5+SenIBdN891hWhHJtOvxeFvd7NiqScyH/LQZr00qUGfuA5u18IzICQGOA0oNQDEj1VJiAHt/A5DthcA0wLTtia2GEM1qaIFK9KvbNeqhSd1G3M/EK5vrLfvcbK2tqRQQlxYXG4PI+JY3YVe3PhYiISLwLj91t1CSnV/eksSfGBo0KrEz1DMjVrJn/BbYajBtrlz6YidGSMd80UhxNLqgN5hiRFoy9GrILerUecTI1RaHJsT6WTDc5QIA==
+2025-11-25 10:21:04.311 (   9.585s) [languageServer  ]  connection_manager.cc:5442  INFO| Connections thread size: 1
+2025-11-25 10:21:04.311 (   9.585s) [languageServer  ]  connection_manager.cc:5452  INFO| connection pointer address 000002AB15B36580
+2025-11-25 10:21:04.311 (   9.585s) [languageServer  ]  connection_manager.cc:863   INFO| retrievedConnectionThread status 2
+2025-11-25 10:21:04.311 (   9.585s) [languageServer  ]  connection_manager.cc:4599  INFO| Starting build for environment COMPILA_Q.
+2025-11-25 10:21:07.486 (  12.760s) [languageServer  ]  connection_manager.cc:906   INFO| MS_DBGGETCOMPPARS OK
+2025-11-25 10:21:07.486 (  12.760s) [languageServer  ]  connection_manager.cc:909   INFO| params  /dTOP /uPRTOPDEF.CH 
+2025-11-25 10:21:07.486 (  12.760s) [languageServer  ]  connection_manager.cc:967   INFO| includeList: d:/totvs 12/microsiga/protheus/include
+2025-11-25 10:21:07.486 (  12.761s) [languageServer  ]               timer.cc:42    INFO| [perf] Before compile process finished. took 3175.3172349 ms
+2025-11-25 10:21:07.487 (  12.761s) [languageServer  ]  connection_manager.cc:1028  INFO| cFile=d:/totvs 12/microsiga/protheus/projetovscode/08_grplus/pegroa045.prw, drive=d:, dir=/totvs 12/microsiga/protheus/projetovscode/08_grplus/, name=pegroa045, ext=.prw
+2025-11-25 10:21:07.487 (  12.761s) [languageServer  ]  connection_manager.cc:1118  INFO| nCheckSum 3174774579 / FileSize 44579
+2025-11-25 10:21:07.487 (  12.761s) [languageServer  ]               timer.cc:42    INFO| [perf] Before preprocessing file d:/totvs 12/microsiga/protheus/projetovscode/08_grplus/pegroa045.prw took 0.159 ms
+2025-11-25 10:21:07.487 (  12.761s) [languageServer  ]  connection_manager.cc:825   INFO| preCompilerFullCommand: totvsls @EdummyForX64 @Fd:/totvs 12/microsiga/protheus/projetovscode/08_grplus/pegroa045.prw -Id:/totvs 12/microsiga/protheus/include;d:/totvs 12/microsiga/protheus/projetovscode/08_grplus/ @DC:/Users/Administrator/AppData/Local/Temp/3 @I41 /N /S /P /dPROTHEUS /DAP-101 /dTOP /uPRTOPDEF.CH @OC:/Users/Administrator/AppData/Local/Temp/3/tds-ls.ljdbobsdev 
+2025-11-25 10:21:07.582 (  12.856s) [languageServer  ]               timer.cc:42    INFO| [perf] File d:/totvs 12/microsiga/protheus/projetovscode/08_grplus/pegroa045.prw preprocessed took 94.94444 ms
+2025-11-25 10:21:07.595 (  12.870s) [languageServer  ]  connection_manager.cc:1259  INFO| MS_DBGCOMPILE_SEC OK
+2025-11-25 10:21:07.595 (  12.870s) [languageServer  ]  connection_manager.cc:1260  INFO| sMessage: 
+PEGROA045.PRW(34) warning W0003 Local variable CPERG1 never used
+PEGROA045.PRW(32) warning W0003 Local variable CQUERY never used
+PEGROA045.PRW(199) warning W0003 Local variable I never used
+PEGROA045.PRW(200) warning W0003 Local variable OMODEL never used
+PEGROA045.PRW(261) warning W0003 Local variable ADADOSOP never used
+PEGROA045.PRW(255) warning W0003 Local variable OMODELZGK never used
+PEGROA045.PRW(256) warning W0003 Local variable OMODELZGL never used
+2025-11-25 10:21:07.595 (  12.870s) [languageServer  ]               timer.cc:42    INFO| [perf] Compiled d:/TOTVS 12/Microsiga/Protheus/ProjetoVSCode/08_GRPLUS/PEGROA045.prw took 109.109211 ms
+2025-11-25 10:21:07.596 (  12.870s) [languageServer  ]               timer.cc:42    INFO| [perf] Compile took 0.261 ms
+2025-11-25 10:21:07.596 (  12.870s) [languageServer  ]  connection_manager.cc:4757  INFO| Committing end build. This could take a while...
+2025-11-25 10:21:07.640 (  12.914s) [languageServer  ]  connection_manager.cc:4762  INFO| MS_DBGENDBUILD OK with abort set to FALSE
+2025-11-25 10:21:07.640 (  12.914s) [languageServer  ]               timer.cc:42    INFO| [perf] End build took 43.43761 ms
+2025-11-25 10:21:07.640 (  12.914s) [languageServer  ]      message_handler.h:75       9| < [$totvsserver/compilation] (finish)  (332 ms)
+2025-11-25 10:21:07.640 (  12.914s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$totvsserver/compilation'
+2025-11-25 10:21:15.096 (  20.370s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$totvsserver/reconnect'
+2025-11-25 10:21:15.096 (  20.370s) [languageServer  ]      message_handler.h:70       9| > [$totvsserver/reconnect] (start) 
+2025-11-25 10:21:15.096 (  20.370s) [languageServer  ]msg_totvsserver_reconne:55    INFO| Reconnecting server with connectionToken: djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6QkFTRVRFU1RFOkFkbWluOlVjS3hrd0tNSk9OM2VlNlFHVktiVi9yNTliYmFIQTBObVkxM1RZbFZQRjg9|djI6MTc2Mjk2MTY2MjowOjE6MQ==.LtDjMjzs4LaGNZphbw+aoQ6YL758GDQq4OqvT+NFzRHD++Zg5ePVtDeGwPl+EoTNy4WpG/sMHTAbP6FR/aRXuIoSEO/EOGzFc7RWf5uPMQP14xJZqkBo+bwzDADcPdbgZGZkhYRlVYOm9ZVIfrGl+i5VN96DQhOBOSZyoaodGVYEcYX59IXi9fv2FmJkYlQFUNqDhJl3x5ujqUrqdjt/gj/XssOxRK0AZeCZ+Zybsvqns1jTLMKvwtpcUYzQYuXcNiJDljm0D3p111Cw4wyM7bOuqv5ZZmuJJJxS4R5M8yLPjjT8SfIEKFoXlecAtUFs0k6cw5oYTuEQBSy6DyL4rg==
+2025-11-25 10:21:15.096 (  20.370s) [languageServer  ]  connection_manager.cc:525   INFO| Starting reconnection to the server 'COMPILA'
+2025-11-25 10:21:15.096 (  20.370s) [languageServer  ]  connection_manager.cc:526   INFO| djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6QkFTRVRFU1RFOkFkbWluOlVjS3hrd0tNSk9OM2VlNlFHVktiVi9yNTliYmFIQTBObVkxM1RZbFZQRjg9|djI6MTc2Mjk2MTY2MjowOjE6MQ==.LtDjMjzs4LaGNZphbw+aoQ6YL758GDQq4OqvT+NFzRHD++Zg5ePVtDeGwPl+EoTNy4WpG/sMHTAbP6FR/aRXuIoSEO/EOGzFc7RWf5uPMQP14xJZqkBo+bwzDADcPdbgZGZkhYRlVYOm9ZVIfrGl+i5VN96DQhOBOSZyoaodGVYEcYX59IXi9fv2FmJkYlQFUNqDhJl3x5ujqUrqdjt/gj/XssOxRK0AZeCZ+Zybsvqns1jTLMKvwtpcUYzQYuXcNiJDljm0D3p111Cw4wyM7bOuqv5ZZmuJJJxS4R5M8yLPjjT8SfIEKFoXlecAtUFs0k6cw5oYTuEQBSy6DyL4rg==
+2025-11-25 10:21:15.096 (  20.371s) [languageServer  ]    security_manager.cc:326   INFO| authentic TRUE
+2025-11-25 10:21:15.096 (  20.371s) [languageServer  ]    security_manager.cc:509   INFO| done UcKxkwKMJON3ee6QGVKbV/r59bbaHA0NmY13TYlVPF8=
+2025-11-25 10:21:15.096 (  20.371s) [languageServer  ]    security_manager.cc:519   INFO| done password symmDecrypt (12)
+2025-11-25 10:21:15.096 (  20.371s) [languageServer  ]  connection_manager.cc:4806  INFO| ConnectionManager::newConnection: 192.168.1.103:1236 (20240223033430) [1] {3}
+2025-11-25 10:21:15.096 (  20.371s) [languageServer  ]  connection_manager.cc:4810  INFO| connected status: 0
+2025-11-25 10:21:15.197 (  20.472s) [languageServer  ]  connection_manager.cc:4813  INFO| connected status: 2
+2025-11-25 10:21:15.197 (  20.472s) [languageServer  ]  connection_manager.cc:4822  INFO| MS_GETSERVERVERSION OK
+2025-11-25 10:21:15.197 (  20.472s) [languageServer  ]  connection_manager.cc:4839  INFO| Build Version: 24.3.1.1
+2025-11-25 10:21:15.197 (  20.472s) [languageServer  ]  connection_manager.cc:4846  INFO| MS_DBGGETBUILD OK
+2025-11-25 10:21:15.197 (  20.472s) [languageServer  ]  connection_manager.cc:4857  INFO| build: 7.00.240223P
+2025-11-25 10:21:15.197 (  20.472s) [languageServer  ]  connection_manager.cc:4866  INFO| creating secureContext
+2025-11-25 10:21:15.197 (  20.472s) [languageServer  ]  connection_manager.cc:4868  INFO| secureContext initialize
+2025-11-25 10:21:15.197 (  20.472s) [languageServer  ]  connection_manager.cc:4871  INFO| asymmetric generateKeys
+2025-11-25 10:21:15.198 (  20.472s) [languageServer  ]  connection_manager.cc:4873  INFO| secureContext initialized
+2025-11-25 10:21:18.203 (  23.477s) [languageServer  ]  connection_manager.cc:5323  INFO| MS_DBGPSWADM_SEC OK
+2025-11-25 10:21:18.203 (  23.477s) [languageServer  ]  connection_manager.cc:5047  INFO| checkAuthenticationError userCode: 0
+2025-11-25 10:21:18.203 (  23.477s) [languageServer  ]  connection_manager.cc:5327  INFO| User authenticated successfully.
+2025-11-25 10:21:18.207 (  23.482s) [languageServer  ]               timer.cc:42    INFO| [perf] ConnectionManager dbgGetServerType exec took 0.243 ms
+2025-11-25 10:21:18.207 (  23.482s) [languageServer  ]  connection_manager.cc:5417  INFO| MS_DBGGETSERVERTYPE OK => TOTVSTEC
+2025-11-25 10:21:18.207 (  23.482s) [languageServer  ]    security_manager.cc:530   INFO| encodedExtraInfo: djI6MTc2NDA3Njg3ODowOjE6MQ==
+2025-11-25 10:21:18.212 (  23.486s) [languageServer  ]    security_manager.cc:278   INFO| signature dE+4qLuFUANj3r0WJOaTiHcRj9yr+Y689bYb/h2EAu2ARY64UP6T03UVgXwYqffzIKBORUjn36rbM8fqvzYA4ilD+kNdtab+OUhvMdSnPIgLrbezFT72WpHqnzC/BBq88K8kzts5klwldqV5ZYgFT0Q9FSQrbyUe44qy6FxOfUtcI/IRTGxAuk4QuJnqZGO7/vuDVeqRfOeia7El8I7U/ZhrlWJzQ/e6UObocENpr+hQQQmXd8GB9In1LUpp9nCINr+40SImDAYUVIaz6SdHgjlMJACzE30H6PJlWocfpZ2edO/D88sgZuZobDo09cX56nMIAah6WgnVCydCr8+1xQ==
+2025-11-25 10:21:18.212 (  23.486s) [languageServer  ]  connection_manager.cc:597   INFO| Reconnection to the server 'COMPILA' finished.
+2025-11-25 10:21:18.212 (  23.486s) [languageServer  ]  connection_manager.cc:598   INFO| djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6QkFTRVRFU1RFOkFkbWluOlVjS3hrd0tNSk9OM2VlNlFHVktiVi9yNTliYmFIQTBObVkxM1RZbFZQRjg9|djI6MTc2NDA3Njg3ODowOjE6MQ==.dE+4qLuFUANj3r0WJOaTiHcRj9yr+Y689bYb/h2EAu2ARY64UP6T03UVgXwYqffzIKBORUjn36rbM8fqvzYA4ilD+kNdtab+OUhvMdSnPIgLrbezFT72WpHqnzC/BBq88K8kzts5klwldqV5ZYgFT0Q9FSQrbyUe44qy6FxOfUtcI/IRTGxAuk4QuJnqZGO7/vuDVeqRfOeia7El8I7U/ZhrlWJzQ/e6UObocENpr+hQQQmXd8GB9In1LUpp9nCINr+40SImDAYUVIaz6SdHgjlMJACzE30H6PJlWocfpZ2edO/D88sgZuZobDo09cX56nMIAah6WgnVCydCr8+1xQ==
+2025-11-25 10:21:18.212 (  23.486s) [languageServer  ]               timer.cc:42    INFO| [perf] ConnectionManager Reconnect server for connectionToken: djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6QkFTRVRFU1RFOkFkbWluOlVjS3hrd0tNSk9OM2VlNlFHVktiVi9yNTliYmFIQTBObVkxM1RZbFZQRjg9|djI6MTc2NDA3Njg3ODowOjE6MQ==.dE+4qLuFUANj3r0WJOaTiHcRj9yr+Y689bYb/h2EAu2ARY64UP6T03UVgXwYqffzIKBORUjn36rbM8fqvzYA4ilD+kNdtab+OUhvMdSnPIgLrbezFT72WpHqnzC/BBq88K8kzts5klwldqV5ZYgFT0Q9FSQrbyUe44qy6FxOfUtcI/IRTGxAuk4QuJnqZGO7/vuDVeqRfOeia7El8I7U/ZhrlWJzQ/e6UObocENpr+hQQQmXd8GB9In1LUpp9nCINr+40SImDAYUVIaz6SdHgjlMJACzE30H6PJlWocfpZ2edO/D88sgZuZobDo09cX56nMIAah6WgnVCydCr8+1xQ== took 3115.3112488 ms
+2025-11-25 10:21:18.212 (  23.486s) [languageServer  ]      message_handler.h:75       9| < [$totvsserver/reconnect] (finish)  (311 ms)
+2025-11-25 10:21:18.212 (  23.486s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$totvsserver/reconnect'
+2025-11-25 10:21:18.221 (  23.496s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$totvsserver/serverInformations'
+2025-11-25 10:21:18.221 (  23.496s) [languageServer  ]      message_handler.h:70       9| > [$totvsserver/serverInformations] (start) 
+2025-11-25 10:21:18.221 (  23.496s) [languageServer  ]msg_totvsserver_server_:48    INFO| Get server informations of: djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6QkFTRVRFU1RFOkFkbWluOlVjS3hrd0tNSk9OM2VlNlFHVktiVi9yNTliYmFIQTBObVkxM1RZbFZQRjg9|djI6MTc2NDA3Njg3ODowOjE6MQ==.dE+4qLuFUANj3r0WJOaTiHcRj9yr+Y689bYb/h2EAu2ARY64UP6T03UVgXwYqffzIKBORUjn36rbM8fqvzYA4ilD+kNdtab+OUhvMdSnPIgLrbezFT72WpHqnzC/BBq88K8kzts5klwldqV5ZYgFT0Q9FSQrbyUe44qy6FxOfUtcI/IRTGxAuk4QuJnqZGO7/vuDVeqRfOeia7El8I7U/ZhrlWJzQ/e6UObocENpr+hQQQmXd8GB9In1LUpp9nCINr+40SImDAYUVIaz6SdHgjlMJACzE30H6PJlWocfpZ2edO/D88sgZuZobDo09cX56nMIAah6WgnVCydCr8+1xQ==
+2025-11-25 10:21:18.221 (  23.496s) [languageServer  ]  connection_manager.cc:5437  INFO| Searching for connection token: djM6b3lvZmQ4em8ybW1jcDc4aDdheHVpYnR4Zjdyd3A6MToxOTIuMTY4LjEuMTAzOjEyMzY6MDo3LjAwLjI0MDIyM1A6Mw==:djE6QkFTRVRFU1RFOkFkbWluOlVjS3hrd0tNSk9OM2VlNlFHVktiVi9yNTliYmFIQTBObVkxM1RZbFZQRjg9|djI6MTc2NDA3Njg3ODowOjE6MQ==.dE+4qLuFUANj3r0WJOaTiHcRj9yr+Y689bYb/h2EAu2ARY64UP6T03UVgXwYqffzIKBORUjn36rbM8fqvzYA4ilD+kNdtab+OUhvMdSnPIgLrbezFT72WpHqnzC/BBq88K8kzts5klwldqV5ZYgFT0Q9FSQrbyUe44qy6FxOfUtcI/IRTGxAuk4QuJnqZGO7/vuDVeqRfOeia7El8I7U/ZhrlWJzQ/e6UObocENpr+hQQQmXd8GB9In1LUpp9nCINr+40SImDAYUVIaz6SdHgjlMJACzE30H6PJlWocfpZ2edO/D88sgZuZobDo09cX56nMIAah6WgnVCydCr8+1xQ==
+2025-11-25 10:21:18.221 (  23.496s) [languageServer  ]  connection_manager.cc:5442  INFO| Connections thread size: 2
+2025-11-25 10:21:18.221 (  23.496s) [languageServer  ]  connection_manager.cc:5452  INFO| connection pointer address 000002AB15B37660
+2025-11-25 10:21:18.222 (  23.496s) [languageServer  ]  connection_manager.cc:7568  INFO| retrievedConnectionThread status 2
+2025-11-25 10:21:18.222 (  23.496s) [languageServer  ]               timer.cc:42    INFO| [perf] ConnectionManager GetServerInformations => serverInformations.size: [] took 0.55 ms
+2025-11-25 10:21:18.222 (  23.496s) [languageServer  ]      message_handler.h:75       9| < [$totvsserver/serverInformations] (finish)  (0 ms)
+2025-11-25 10:21:18.222 (  23.496s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$totvsserver/serverInformations'
+2025-11-25 10:46:12.001 (1517.275s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/hover'
+2025-11-25 10:46:12.001 (1517.275s) [languageServer  ]      message_handler.h:70       9| > [textDocument/hover] (start) 
+2025-11-25 10:46:12.001 (1517.276s) [languageServer  ]      message_handler.h:75       9| < [textDocument/hover] (finish)  (0 ms)
+2025-11-25 10:46:12.001 (1517.276s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/hover'
+2025-11-25 10:46:45.644 (1550.918s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentLink'
+2025-11-25 10:46:45.644 (1550.918s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentLink] (start) 
+2025-11-25 10:46:45.644 (1550.919s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentLink] (finish)  (0 ms)
+2025-11-25 10:46:45.644 (1550.919s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentLink'
+2025-11-25 10:46:45.866 (1551.140s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/codeLens'
+2025-11-25 10:46:45.866 (1551.140s) [languageServer  ]      message_handler.h:70       9| > [textDocument/codeLens] (start) 
+2025-11-25 10:46:45.866 (1551.140s) [languageServer  ]      message_handler.h:75       9| < [textDocument/codeLens] (finish)  (0 ms)
+2025-11-25 10:46:45.866 (1551.140s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/codeLens'
+2025-11-25 10:46:45.907 (1551.181s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentSymbol'
+2025-11-25 10:46:45.907 (1551.181s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentSymbol] (start) 
+2025-11-25 10:46:45.907 (1551.182s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentSymbol] (finish)  (0 ms)
+2025-11-25 10:46:45.907 (1551.182s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentSymbol'
+2025-11-25 10:46:47.489 (1552.763s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/semanticTokens/full'
+2025-11-25 10:46:47.489 (1552.763s) [languageServer  ]      message_handler.h:70       9| > [textDocument/semanticTokens/full] (start) 
+2025-11-25 10:46:47.489 (1552.763s) [languageServer  ]      message_handler.h:75       9| < [textDocument/semanticTokens/full] (finish)  (0 ms)
+2025-11-25 10:46:47.489 (1552.763s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/semanticTokens/full'
+2025-11-25 10:46:56.787 (1562.062s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$/setTrace'
+2025-11-25 10:46:56.787 (1562.062s) [languageServer  ]   msg_lsp_set_trace.cc:25    INFO| SetTrace notification received for off
+2025-11-25 10:46:56.787 (1562.062s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$/setTrace'
+2025-11-25 10:46:56.829 (1562.103s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/codeLens'
+2025-11-25 10:46:56.829 (1562.103s) [languageServer  ]      message_handler.h:70       9| > [textDocument/codeLens] (start) 
+2025-11-25 10:46:56.829 (1562.104s) [languageServer  ]      message_handler.h:75       9| < [textDocument/codeLens] (finish)  (0 ms)
+2025-11-25 10:46:56.829 (1562.104s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/codeLens'
+2025-11-25 10:47:00.612 (1565.886s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method '$/setTrace'
+2025-11-25 10:47:00.612 (1565.886s) [languageServer  ]   msg_lsp_set_trace.cc:25    INFO| SetTrace notification received for off
+2025-11-25 10:47:00.612 (1565.886s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method '$/setTrace'
+2025-11-25 10:47:03.973 (1569.248s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/didOpen'
+2025-11-25 10:47:03.973 (1569.248s) [languageServer  ]      message_handler.h:70       9| > [textDocument/didOpen] (start) 
+2025-11-25 10:47:03.974 (1569.248s) [languageServer  ]     workspace_file.cpp:303      9| > [WorkspaceFile] (start)  (Open/Not Temp)
+2025-11-25 10:47:03.996 (1569.270s) [languageServer  ]     workspace_file.cpp:429      9| < [WorkspaceFile] (finish) d:/totvs 12/microsiga/protheus/projetovscode/ (2 ms)
+2025-11-25 10:47:03.996 (1569.270s) [languageServer  ]      message_handler.h:75       9| < [textDocument/didOpen] (finish)  (2 ms)
+2025-11-25 10:47:03.996 (1569.270s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/didOpen'
+2025-11-25 10:47:04.074 (1569.348s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentLink'
+2025-11-25 10:47:04.074 (1569.348s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentLink] (start) 
+2025-11-25 10:47:04.074 (1569.348s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentLink] (finish)  (0 ms)
+2025-11-25 10:47:04.074 (1569.348s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentLink'
+2025-11-25 10:47:04.076 (1569.350s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentLink'
+2025-11-25 10:47:04.076 (1569.350s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentLink] (start) 
+2025-11-25 10:47:04.076 (1569.350s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentLink] (finish)  (0 ms)
+2025-11-25 10:47:04.076 (1569.350s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentLink'
+2025-11-25 10:47:04.302 (1569.576s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentSymbol'
+2025-11-25 10:47:04.302 (1569.576s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentSymbol] (start) 
+2025-11-25 10:47:04.302 (1569.576s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentSymbol] (finish)  (0 ms)
+2025-11-25 10:47:04.302 (1569.576s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentSymbol'
+2025-11-25 10:47:04.309 (1569.583s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/documentSymbol'
+2025-11-25 10:47:04.309 (1569.583s) [languageServer  ]      message_handler.h:70       9| > [textDocument/documentSymbol] (start) 
+2025-11-25 10:47:04.309 (1569.583s) [languageServer  ]      message_handler.h:75       9| < [textDocument/documentSymbol] (finish)  (0 ms)
+2025-11-25 10:47:04.309 (1569.583s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/documentSymbol'
+2025-11-25 10:47:04.823 (1570.097s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/semanticTokens/full'
+2025-11-25 10:47:04.823 (1570.097s) [languageServer  ]      message_handler.h:70       9| > [textDocument/semanticTokens/full] (start) 
+2025-11-25 10:47:04.823 (1570.097s) [languageServer  ]      message_handler.h:75       9| < [textDocument/semanticTokens/full] (finish)  (0 ms)
+2025-11-25 10:47:04.823 (1570.097s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/semanticTokens/full'
+2025-11-25 10:47:04.943 (1570.217s) [languageServer  ]       queue_manager.cc:187   INFO| Handler found for message method 'textDocument/semanticTokens/full'
+2025-11-25 10:47:04.943 (1570.217s) [languageServer  ]      message_handler.h:70       9| > [textDocument/semanticTokens/full] (start) 
+2025-11-25 10:47:04.943 (1570.217s) [languageServer  ]      message_handler.h:75       9| < [textDocument/semanticTokens/full] (finish)  (0 ms)
+2025-11-25 10:47:04.943 (1570.217s) [languageServer  ]       queue_manager.cc:195   INFO| Run finishied message method 'textDocument/semanticTokens/full'

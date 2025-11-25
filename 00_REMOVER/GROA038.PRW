@@ -38,9 +38,11 @@ User Function GROA038()
 	//---------------------------------------------------------------
 	DbSelectArea("ZH7")
 	ZH7->(DbGoTop())
+	/*
 	If ZH7->(RECCOUNT()) <= 0
-		u_LoadZH7()
+	//	u_LoadZH7()
 	EndIf
+	*/
 	ZH7->(DbCloseArea())
 
 	oBrowse := FWMBrowse():New()
@@ -95,7 +97,7 @@ Static Function ModelDef()
 	Local aAuxGat  := {}
 	Local lSugQtde := GetNewPar("GR_SUGQTCH", .F.) // Habilita sugestão de quantidade de chapas na serrada.
 
-	Local aRet     :={}
+	Local aRet     := {}
 
 	//Instanciando o modelo, não é recomendado colocar nome da user function (por causa do u_), respeitando 10 caracteres
 	oModel := MPFormModel():New("MGROA038",/*bPre*/,/*bPos*/,{|oModel| SaveModel(oModel)},/*bCancel*/)
@@ -104,9 +106,11 @@ Static Function ModelDef()
 	oStZH7:SetProperty('ZH7_PROCES', MODEL_FIELD_WHEN,  FwBuildFeature(STRUCT_FEATURE_WHEN,  'INCLUI'))
 	oStZH7:SetProperty('ZH7_EMISSA', MODEL_FIELD_WHEN,  FwBuildFeature(STRUCT_FEATURE_WHEN,  'INCLUI'))
 
+	oStZH7:SetProperty('ZH7_RECURS', MODEL_FIELD_VALID, FwBuildFeature(STRUCT_FEATURE_VALID, 'U_GR38CORT()'))
+
 	// Validações de campos
-	oStZH8:SetProperty('ZH8_CODMAT', MODEL_FIELD_VALID, FwBuildFeature(STRUCT_FEATURE_VALID, 'U_GRA038V1() .And. IIF(__lAutoOp,.T.,ExistCpo("SB1", FwFldGet("ZH8_CODMAT")))'))
-	oStZH8:SetProperty('ZH8_ENGENH', MODEL_FIELD_VALID, FwBuildFeature(STRUCT_FEATURE_VALID, 'U_GRA038V2() .And. IIF(__lAutoOp,.T.,ExistCpo("ZG7", FwFldGet("ZH8_ENGENH")))'))
+	oStZH8:SetProperty('ZH8_CODMAT', MODEL_FIELD_VALID, FwBuildFeature(STRUCT_FEATURE_VALID, 'If(isBlind(), .T., U_GRA038V1()) .And. IIF(__lAutoOp,.T.,ExistCpo("SB1", FwFldGet("ZH8_CODMAT")))'))
+	oStZH8:SetProperty('ZH8_ENGENH', MODEL_FIELD_VALID, FwBuildFeature(STRUCT_FEATURE_VALID, 'If(isBlind(), .T., U_GRA038V2()) .And. IIF(__lAutoOp,.T.,ExistCpo("ZG7", FwFldGet("ZH8_ENGENH")))'))
 	oStZH9:SetProperty('ZH9_CODPA' , MODEL_FIELD_VALID, FwBuildFeature(STRUCT_FEATURE_VALID, 'U_GRA038V3() .And. IIF(__lAutoOp,.T.,ExistCpo("SB1", FwFldGet("ZH9_CODPA")))'))
 	oStZH9:SetProperty('ZH9_UM'    , MODEL_FIELD_VALID, FwBuildFeature(STRUCT_FEATURE_VALID, 'U_GRA038V5() .And. IIF(__lAutoOp,.T.,ExistCpo("SAH", FwFldGet("ZH9_UM")))'))
 	oStZH9:SetProperty('ZH9_LOTECT', MODEL_FIELD_VALID, FwBuildFeature(STRUCT_FEATURE_VALID, 'U_GRA038V6()'))
@@ -153,6 +157,45 @@ Static Function ModelDef()
 	oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
 	aAuxGat := FwStruTrigger("ZH8_ENGENH", "ZH8_DESCEN", 'POSICIONE("ZG7", 1, XFILIAL("ZG7") + M->ZH8_ENGENH, "ZG7_DESCRI")',.F.,NIL,NIL,NIL)
 	oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+
+	If isBlind()
+
+		aAuxGat := FwStruTrigger("ZH8_CODMAT", "ZH8_COMLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YCOMLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_CODMAT", "ZH8_ALTLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YALTLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_CODMAT", "ZH8_ESPLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YESPLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+
+		aAuxGat := FwStruTrigger("ZH8_CODMAT", "ZH8_COMBRU", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YCOMBRU")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_CODMAT", "ZH8_ALTBRU", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YALTBRU")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_CODMAT", "ZH8_ESPBRU", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YESPBRU")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+
+		aAuxGat := FwStruTrigger("ZH8_LOCAL", "ZH8_COMLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YCOMLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_LOCAL", "ZH8_ALTLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YALTLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_LOCAL", "ZH8_ESPLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YESPLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+
+		aAuxGat := FwStruTrigger("ZH8_LOTECT", "ZH8_COMLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YCOMLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_LOTECT", "ZH8_ALTLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YALTLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_LOTECT", "ZH8_ESPLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YESPLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+
+		aAuxGat := FwStruTrigger("ZH8_NUMLOT", "ZH8_COMLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YCOMLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_NUMLOT", "ZH8_ALTLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YALTLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+		aAuxGat := FwStruTrigger("ZH8_NUMLOT", "ZH8_ESPLIQ", 'POSICIONE("SB8", 3, XFILIAL("SB8") + M->(ZH8_CODMAT + ZH8_LOCAL + ZH8_LOTECT + ZH8_NUMLOT), "B8_YESPLIQ")',.F.,NIL,NIL,NIL)
+		oStZH8:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+
+	EndIf
 
 	// Gatilho para atualizar o TOTAL LIQUIDO M2
 	aAuxGat := FwStruTrigger("ZH8_COMLIQ","ZH8_TOTLIQ","ROUND(M->ZH8_COMLIQ * M->ZH8_ALTLIQ, TAMSX3('ZH8_TOTLIQ')[2])",.F.,NIL,NIL,NIL,"AllTrim(M->ZH8_UM) == 'M2'")
@@ -206,6 +249,8 @@ Static Function ModelDef()
 	aAuxGat := FwStruTrigger("ZH9_CODPA",  "ZH9_ESPLIQ", 'POSICIONE("SB5", 1, XFILIAL("SB5") + M->ZH9_CODPA,  "B5_ESPESS")',.F.,NIL,NIL,NIL,"AlLTrim(M->ZH9_UM) == 'M2'")
 	oStZH9:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
 	aAuxGat := FwStruTrigger("ZH9_CODPA",  "ZH9_ESPBRU", 'POSICIONE("SB5", 1, XFILIAL("SB5") + M->ZH9_CODPA,  "B5_ESPESS")',.F.,NIL,NIL,NIL,"AlLTrim(M->ZH9_UM) == 'M2'")
+	oStZH9:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
+	aAuxGat := FwStruTrigger("ZH9_CODPA",  "ZH9_SEGUM", 'POSICIONE("SB1", 1, XFILIAL("SB1") + M->ZH9_CODPA,  "B1_SEGUM")',.F.,NIL,NIL,NIL)
 	oStZH9:AddTrigger(aAuxGat[1],aAuxGat[2],aAuxGat[3],aAuxGat[4])
 
 	// Gatilho para atualizar o TOTAL LIQUIDO M2
@@ -389,6 +434,7 @@ Static Function ViewDef()
 	oStZH9:SetProperty('ZH9_ALTLIQ', MVC_VIEW_CANCHANGE, __cProcess $ "E/S/D")
 	oStZH9:SetProperty('ZH9_ESPLIQ', MVC_VIEW_CANCHANGE, __cProcess $ "E/S/D")
 	oStZH9:SetProperty('ZH9_TOTLIQ', MVC_VIEW_CANCHANGE, __cProcess $ "R")
+
 	//Remove obrigatoriedade quando for Recortado // https://projetostotvses.freshdesk.com/a/tickets/2745
 
 	oStZH9:SetProperty('ZH9_COMBRU', MVC_VIEW_CANCHANGE, __cProcess $ "E/S/D")
@@ -401,149 +447,150 @@ Static Function ViewDef()
 	oStZH7:RemoveField('ZH7_DESCEN')
 	oStZH7:RemoveField('ZH7_BLOCO')
 
-	If(ZH7->(FieldPos("ZH7_ROTINA")) > 0 , oStZH7:RemoveField('ZH7_ROTINA'),"")
+	If ZH7->(FieldPos("ZH7_ROTINA")) > 0
+		oStZH7:RemoveField('ZH7_ROTINA')
+	EndIf
 
+	If __cProcess == "E"
 
-		If __cProcess == "E"
+		// Remove campos do cabeçalho
+		oStZH7:RemoveField('ZH7_CODMOT')
+		oStZH7:RemoveField('ZH7_DESMOT')
+		oStZH7:RemoveField('ZH7_COECOR')
+		// Remove campos da grid de matéria-prima
+		oStZH8:RemoveField('ZH8_LOTECT')
+		oStZH8:RemoveField('ZH8_NUMLOT')
+		oStZH8:RemoveField('ZH8_LOCAL')
+		oStZH8:RemoveField('ZH8_COMLIQ')
+		oStZH8:RemoveField('ZH8_ALTLIQ')
+		oStZH8:RemoveField('ZH8_ESPLIQ')
+		oStZH8:RemoveField('ZH8_TOTLIQ')
+		oStZH8:RemoveField('ZH8_COMBRU')
+		oStZH8:RemoveField('ZH8_ALTBRU')
+		oStZH8:RemoveField('ZH8_ESPBRU')
+		oStZH8:RemoveField('ZH8_TOTBRU')
+		// Remove campos da grid de produto acabado
+		oStZH9:RemoveField('ZH9_QUANTI')
+		oStZH9:RemoveField('ZH9_NUMLOT')
+		// oStZH9:RemoveField('ZH9_LOCAL')
+		// Altera a consulta padrão para Pedreira
+		oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8C')
 
-			// Remove campos do cabeçalho
-			oStZH7:RemoveField('ZH7_CODMOT')
-			oStZH7:RemoveField('ZH7_DESMOT')
-			oStZH7:RemoveField('ZH7_COECOR')
-			// Remove campos da grid de matéria-prima
-			oStZH8:RemoveField('ZH8_LOTECT')
-			oStZH8:RemoveField('ZH8_NUMLOT')
-			oStZH8:RemoveField('ZH8_LOCAL')
-			oStZH8:RemoveField('ZH8_COMLIQ')
-			oStZH8:RemoveField('ZH8_ALTLIQ')
-			oStZH8:RemoveField('ZH8_ESPLIQ')
-			oStZH8:RemoveField('ZH8_TOTLIQ')
-			oStZH8:RemoveField('ZH8_COMBRU')
-			oStZH8:RemoveField('ZH8_ALTBRU')
-			oStZH8:RemoveField('ZH8_ESPBRU')
-			oStZH8:RemoveField('ZH8_TOTBRU')
-			// Remove campos da grid de produto acabado
-			oStZH9:RemoveField('ZH9_QUANTI')
-			oStZH9:RemoveField('ZH9_NUMLOT')
-			// oStZH9:RemoveField('ZH9_LOCAL')
-			// Altera a consulta padrão para Pedreira
-			oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8C')
+	ElseIf __cProcess $ "S"
 
-		ElseIf __cProcess $ "S"
+		oStZH7:RemoveField('ZH7_FRENTE')
+		oStZH7:RemoveField('ZH7_DESCFR')
+		oStZH7:RemoveField('ZH7_CODMOT')
+		oStZH7:RemoveField('ZH7_DESMOT')
+		// Altera a consulta padrão para Estoque
+		oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
+		// Remove campos da grid de produto acabado
+		//oStZH9:RemoveField('ZH9_LOTECT')
+		oStZH9:RemoveField('ZH9_NUMLOT')
+		// oStZH9:RemoveField('ZH9_LOCAL')
 
-			oStZH7:RemoveField('ZH7_FRENTE')
-			oStZH7:RemoveField('ZH7_DESCFR')
-			oStZH7:RemoveField('ZH7_CODMOT')
-			oStZH7:RemoveField('ZH7_DESMOT')
-			// Altera a consulta padrão para Estoque
-			oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
-			// Remove campos da grid de produto acabado
-			//oStZH9:RemoveField('ZH9_LOTECT')
-			oStZH9:RemoveField('ZH9_NUMLOT')
-			// oStZH9:RemoveField('ZH9_LOCAL')
+	ElseIf __cProcess $ "D"
 
-		ElseIf __cProcess $ "D"
+		oStZH7:RemoveField('ZH7_FRENTE')
+		oStZH7:RemoveField('ZH7_DESCFR')
+		oStZH7:RemoveField('ZH7_CODMOT')
+		oStZH7:RemoveField('ZH7_DESMOT')
+		// Altera a consulta padrão para Estoque
+		oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
 
-			oStZH7:RemoveField('ZH7_FRENTE')
-			oStZH7:RemoveField('ZH7_DESCFR')
-			oStZH7:RemoveField('ZH7_CODMOT')
-			oStZH7:RemoveField('ZH7_DESMOT')
-			// Altera a consulta padrão para Estoque
-			oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
+		oStZH9:RemoveField('ZH9_QUANTI')
 
-			oStZH9:RemoveField('ZH9_QUANTI')
+	ElseIf __cProcess == "B"
 
-		ElseIf __cProcess == "B"
+		oStZH7:RemoveField('ZH7_FRENTE')
+		oStZH7:RemoveField('ZH7_DESCFR')
+		//oStZH7:RemoveField('ZH7_CODMOT') //https://totvsleste.freshdesk.com/a/tickets/1386
+		//oStZH7:RemoveField('ZH7_DESMOT')
+		oStZH7:RemoveField('ZH7_COECOR')
+		// Altera a consulta padrão para Estoque
+		oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
+		// Remove campos da grid de produto acabado
+		oStZH9:RemoveField('ZH9_QUANTI')
 
-			oStZH7:RemoveField('ZH7_FRENTE')
-			oStZH7:RemoveField('ZH7_DESCFR')
-			//oStZH7:RemoveField('ZH7_CODMOT') //https://totvsleste.freshdesk.com/a/tickets/1386
-			//oStZH7:RemoveField('ZH7_DESMOT')
-			oStZH7:RemoveField('ZH7_COECOR')
-			// Altera a consulta padrão para Estoque
-			oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
-			// Remove campos da grid de produto acabado
-			oStZH9:RemoveField('ZH9_QUANTI')
+	ElseIf __cProcess == "R"
 
-		ElseIf __cProcess == "R"
+		oStZH7:RemoveField('ZH7_FRENTE')
+		oStZH7:RemoveField('ZH7_DESCFR')
+		oStZH7:RemoveField('ZH7_CODMOT')
+		oStZH7:RemoveField('ZH7_DESMOT')
+		oStZH7:RemoveField('ZH7_COECOR')
+		// Altera a consulta padrão para Estoque
+		oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
+		// Remove campos da grid de produto acabado
+		// oStZH9:RemoveField('ZH9_LOTECT')
+		// oStZH9:RemoveField('ZH9_NUMLOT')
+		oStZH9:RemoveField('ZH9_QUANTI')
+		oStZH9:RemoveField('ZH9_COMLIQ')
+		oStZH9:RemoveField('ZH9_ALTLIQ')
+		oStZH9:RemoveField('ZH9_ESPLIQ')
+		// oStZH9:RemoveField('ZH9_TOTLIQ')
+		oStZH9:RemoveField('ZH9_COMBRU')
+		oStZH9:RemoveField('ZH9_ALTBRU')
+		oStZH9:RemoveField('ZH9_ESPBRU')
+		oStZH9:RemoveField('ZH9_TOTBRU')
 
-			oStZH7:RemoveField('ZH7_FRENTE')
-			oStZH7:RemoveField('ZH7_DESCFR')
-			oStZH7:RemoveField('ZH7_CODMOT')
-			oStZH7:RemoveField('ZH7_DESMOT')
-			oStZH7:RemoveField('ZH7_COECOR')
-			// Altera a consulta padrão para Estoque
-			oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
-			// Remove campos da grid de produto acabado
-			// oStZH9:RemoveField('ZH9_LOTECT')
-			// oStZH9:RemoveField('ZH9_NUMLOT')
-			oStZH9:RemoveField('ZH9_QUANTI')
-			oStZH9:RemoveField('ZH9_COMLIQ')
-			oStZH9:RemoveField('ZH9_ALTLIQ')
-			oStZH9:RemoveField('ZH9_ESPLIQ')
-			// oStZH9:RemoveField('ZH9_TOTLIQ')
-			oStZH9:RemoveField('ZH9_COMBRU')
-			oStZH9:RemoveField('ZH9_ALTBRU')
-			oStZH9:RemoveField('ZH9_ESPBRU')
-			oStZH9:RemoveField('ZH9_TOTBRU')
+	ElseIf __cProcess == "T"
 
-		ElseIf __cProcess == "T"
+		oStZH7:RemoveField('ZH7_FRENTE')
+		oStZH7:RemoveField('ZH7_DESCFR')
+		//oStZH7:RemoveField('ZH7_CODMOT') //https://totvsleste.freshdesk.com/a/tickets/1386
+		//oStZH7:RemoveField('ZH7_DESMOT')
+		// Altera a consulta padrão para Estoque
+		oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
+		// Remove campos da grid de produto acabado
+		oStZH9:RemoveField('ZH9_QUANTI')
 
-			oStZH7:RemoveField('ZH7_FRENTE')
-			oStZH7:RemoveField('ZH7_DESCFR')
-			//oStZH7:RemoveField('ZH7_CODMOT') //https://totvsleste.freshdesk.com/a/tickets/1386
-			//oStZH7:RemoveField('ZH7_DESMOT')
-			// Altera a consulta padrão para Estoque
-			oStZH8:SetProperty('ZH8_CODMAT', MVC_VIEW_LOOKUP, 'GRZH8B')
-			// Remove campos da grid de produto acabado
-			oStZH9:RemoveField('ZH9_QUANTI')
+	EndIf
 
-		EndIf
+	// NÃO ALTERAR O VALOR PELA VIEW, UMA VEZ QUE ELE JÁ VEM PREENCHIDO
+	oStZH7:SetProperty('ZH7_PROCES', MVC_VIEW_CANCHANGE, .F.)
 
-		// NÃO ALTERAR O VALOR PELA VIEW, UMA VEZ QUE ELE JÁ VEM PREENCHIDO
-		oStZH7:SetProperty('ZH7_PROCES', MVC_VIEW_CANCHANGE, .F.)
+	// Altera o tamanho da conluna na GRID
+	oStZH8:SetProperty("ZH8_DESCEN", MVC_VIEW_WIDTH, 200)
+	oStZH8:SetProperty("ZH8_DESCMT", MVC_VIEW_WIDTH, 200)
 
-		// Altera o tamanho da conluna na GRID
-		oStZH8:SetProperty("ZH8_DESCEN", MVC_VIEW_WIDTH, 200)
-		oStZH8:SetProperty("ZH8_DESCMT", MVC_VIEW_WIDTH, 200)
+	//Atribuindo campos de calculos
+	oView:AddField('VIEW_CALC', oStBorda,'CALC_BORDETAIL')
 
-		//Atribuindo campos de calculos
-		oView:AddField('VIEW_CALC', oStBorda,'CALC_BORDETAIL')
+	//Atribuindo formulários para interface
+	oView:AddField("VIEW_ZH7", oStZH7, "ZH7MASTER")
+	oView:AddGrid("VIEW_ZH8",  oStZH8, "ZH8DETAIL")
+	oView:AddGrid("VIEW_ZH9",  oStZH9, "ZH9DETAIL")
 
-		//Atribuindo formulários para interface
-		oView:AddField("VIEW_ZH7", oStZH7, "ZH7MASTER")
-		oView:AddGrid("VIEW_ZH8",  oStZH8, "ZH8DETAIL")
-		oView:AddGrid("VIEW_ZH9",  oStZH9, "ZH9DETAIL")
+	oView:CreateHorizontalBox("SUPERIOR", 30)
+	oView:CreateHorizontalBox("CENTRO", 30)
+	oView:CreateHorizontalBox("INFERIOR", 30)
+	oView:CreateHorizontalBox("BORDA", 10)
 
-		oView:CreateHorizontalBox("SUPERIOR", 30)
-		oView:CreateHorizontalBox("CENTRO", 30)
-		oView:CreateHorizontalBox("INFERIOR", 30)
-		oView:CreateHorizontalBox("BORDA", 10)
+	//Força o fechamento da janela na confirmação
+	oView:SetCloseOnOk({||.T.})
 
-		//Força o fechamento da janela na confirmação
-		oView:SetCloseOnOk({||.T.})
+	//Adicione o incremental
+	oView:AddIncrementField('VIEW_ZH8', 'ZH8_ITEM')
+	oView:AddIncrementField('VIEW_ZH9', 'ZH9_SEQUEN')
 
-		//Adicione o incremental
-		oView:AddIncrementField('VIEW_ZH8', 'ZH8_ITEM')
-		oView:AddIncrementField('VIEW_ZH9', 'ZH9_SEQUEN')
+	oStZH8:RemoveField('ZH8_NUM')
+	oStZH9:RemoveField('ZH9_NUM')
+	oStZH9:RemoveField('ZH9_ITEM')
+	oStZH9:RemoveField('ZH9_ENGENH')
+	oStZH9:RemoveField('ZH9_CODMAT')
 
-		oStZH8:RemoveField('ZH8_NUM')
-		oStZH9:RemoveField('ZH9_NUM')
-		oStZH9:RemoveField('ZH9_ITEM')
-		oStZH9:RemoveField('ZH9_ENGENH')
-		oStZH9:RemoveField('ZH9_CODMAT')
+	//Colocando título do formulário
+	oView:EnableTitleView('VIEW_ZH7', 'Ordem de Produção')
+	oView:EnableTitleView('VIEW_ZH8', 'Matéria-Prima')
+	oView:EnableTitleView('VIEW_ZH9', 'Produto Acabado')
 
-		//Colocando título do formulário
-		oView:EnableTitleView('VIEW_ZH7', 'Ordem de Produção')
-		oView:EnableTitleView('VIEW_ZH8', 'Matéria-Prima')
-		oView:EnableTitleView('VIEW_ZH9', 'Produto Acabado')
+	oView:SetOwnerView("VIEW_ZH7","SUPERIOR")
+	oView:SetOwnerView("VIEW_ZH8","CENTRO")
+	oView:SetOwnerView("VIEW_ZH9","INFERIOR")
+	oView:SetOwnerView("VIEW_CALC","BORDA")
 
-		oView:SetOwnerView("VIEW_ZH7","SUPERIOR")
-		oView:SetOwnerView("VIEW_ZH8","CENTRO")
-		oView:SetOwnerView("VIEW_ZH9","INFERIOR")
-		oView:SetOwnerView("VIEW_CALC","BORDA")
-
-		Return oView
+Return oView
 
 /*/{Protheus.doc} AskProcess
 Parambox para definiar o processo.
@@ -697,6 +744,7 @@ Static Function RecSub(oViewPai,oMdlActive,oModel)
 					oMdlActive:SetValue('ZH9DETAIL', 'ZH9_COMLIQ', oModelZGA:GetValue("B5_COMPR"))
 					oMdlActive:SetValue('ZH9DETAIL', 'ZH9_ALTLIQ', oModelZGA:GetValue("B5_ALTURA"))
 					oMdlActive:SetValue('ZH9DETAIL', 'ZH9_ESPLIQ', oModelZGA:GetValue("B5_ESPESS"))
+					oMdlActive:SetValue('ZH9DETAIL', 'ZH9_SEGUM' , Posicione("SB1", 1, xFilial("SB1") + oModelZGA:GetValue("B1_COD")))
 
 				End If
 			Next
@@ -799,7 +847,11 @@ User Function GRA038F2(cEngenhar,cMatPrima,cDetail,cCampEng,cCampMap)
 		cSql += " 		AND ZGA.ZGA_PRODMP = '" + cMatPrima + "' "
 	EndIF
 
-	aReturn := U_GROCGEN("SB1", cExpSB1, "Produtos Acabados - [Engenharia: " + AllTrim(cEngenhar) + "]", cSql, {"B1_COD"})[2]
+	If isBlind()
+		Return .T.
+	Else
+		aReturn := U_GROCGEN("SB1", cExpSB1, "Produtos Acabados - [Engenharia: " + AllTrim(cEngenhar) + "]", cSql, {"B1_COD"})[2]
+	EndIf
 
 	If Len(aReturn) > 0
 		SB1->(DbSetOrder(1))
@@ -940,17 +992,50 @@ Retorna apenas recursos do tipo de engenharia.
 User Function GRA038F5(cGrupo)
 
 	Local oModel    := FWModelActive()
+	Local oModelZH8 := Nil
 	Local cProcesso := ""
 	Local cSql      := ""
 	Local qQUERY    := ""
 	Local lRet      := .F.
 	Local aAreaSH1  := SH1->(GetArea())
+	Local nX        := 0
+	Local cEngenha  := ""
+	Local cEngAuxi  := ""
 
 	iF oModel != NIL
 		cProcesso := oModel:Getvalue('ZH7MASTER','ZH7_PROCES')
 	ENDIF
 
 	if !empty(cProcesso)
+
+		//Pega os recursos com base nas engenharias informadas.
+		if(funname() == 'GROA045')
+			if inclui
+				oModelZH8 := oModel:GetModel("ZH8DETAIL")
+				For nX := 1 To oModelZH8:Length()
+
+					oModelZH8:GoLine(nX)
+
+					If oModelZH8:IsDeleted()
+						Loop
+					EndIf
+
+					cEngAuxi := oModelZH8:GetValue("ZH8_ENGENH")
+
+				Next
+
+				If cEngAuxi $ cEngenha
+					if !empty(cEngenha)
+						cEngenha += ","
+					EndIf
+
+					cEngenha += "'"+cEngAuxi+"'"
+					cEngAuxi := ""
+
+				EndIf
+
+			EndIf
+		EndIF
 
 		//O sistema so traz os processos que estão adicionados na engenharia que foi adicionado na op.
 		//com base nesses processos ele verifica o recurso e apresenta em tela.
@@ -972,14 +1057,24 @@ User Function GRA038F5(cGrupo)
 		cSql += "        AND ZG7.ZG7_TIPO   = '" + cProcesso + "' "
 		cSql += "        AND ZG7.D_E_L_E_T_ = ' ' "
 
+		//Pega os recursos com base nas engenharias informadas.
 		if(funname() == 'GROA045')
-			cSql += "        AND ZG8.ZG8_OPERAC   = '" + FWFldGet("ZGH_OPERAC") + "' "
-			cSql += "        AND ZG7_CODIGO IN( "
-			cSql += "       select ZH8_ENGENH "
-			cSql += "            FROM " + RetSqlName("ZH8") + " ZH8 "
-			cSql += "        WHERE ZH8_NUM= '" + ZH7->ZH7_NUM + "' "
-			cSql += "            AND D_E_L_E_T_ = ' ' "
-			cSql += "        ) "
+
+			if inclui
+				if !empty(cEngenha)
+					cSql += "        AND ZG7_CODIGO IN( "
+					cSql += "   		" + cEngenha
+					cSql += "        ) "
+				EndIf
+			Else
+				cSql += "        AND ZG8.ZG8_OPERAC   = '" + FWFldGet("ZGH_OPERAC") + "' "
+				cSql += "        AND ZG7_CODIGO IN( "
+				cSql += "       select ZH8_ENGENH "
+				cSql += "            FROM " + RetSqlName("ZH8") + " ZH8 "
+				cSql += "        WHERE ZH8_NUM= '" + ZH7->ZH7_NUM + "' "
+				cSql += "            AND D_E_L_E_T_ = ' ' "
+				cSql += "        ) "
+			EndIf
 		EndIF
 
 		If ExistBlock("GRSQL504")
@@ -1656,20 +1751,15 @@ Static Function SaveModel(oModel)
 	Local lRet := .T.
 	Local cMsgErro := "Desculpe, ocorreu um problema na gravação do registro!"
 
-	if !IsBlind()
-		FWMsgRun(, {|oSay| lRet := GravaExe(oSay,oModel)}, "Processando", "Processando ordem de produção...")
-	Else
-		lRet := GravaExe(NIL,oModel)	 
-	EndIf
+	FWMsgRun(, {|oSay| lRet := GravaExe(oSay, oModel, @cMsgErro)}, "Processando", "Processando ordem de produção...")
 
 	If !lRet
 		oModel:SetErrorMessage("",,oModel:GetId(),"","GROA038",cMsgErro)
-		ConOut(cMsgErro)
 	EndIf
 
 Return lRet
 
-Static Function GravaExe(oSay,oModel)
+Static Function GravaExe(oSay, oModel, cMsgErro)
 
 	Local lReturn    := .T.
 	Local nOperation := oModel:GetOperation()
@@ -1688,14 +1778,14 @@ Static Function GravaExe(oSay,oModel)
 	Local nY         := 0
 	Local aLotes     := {}
 	Local cLotes     := ""
-	Local cMsgErro   := ""
 	Local aArraySC2	 := {}
 	Local aArraySD4  := {}
 	Local oUtil      := util():new()
 	Local lDelete    := .F.
 	Local lHabOpPa   := GETNEWPAR("GR_HABOPPA", .F.) // Habilita aba para vincular Operação ao Produto Acabado.
 	Local lDesgIns   := GETNEWPAR("GR_DESAINS", .F.) // .F. os insumos iguais são agrupados, .T. não agrupa os insumos
-	Local lHabOtOp   := GETNEWPAR("GR_HABOTP", 0) // Habilita outros tipos de op para o bloco k. 0 = somente o tipo interna. 1 = tipo interna e retrabalha(Dependendo da Engenharia de retrabalho).
+	Local lHabOtOp   := GETNEWPAR("GR_HABOTP",  0)   // Habilita outros tipos de op para o bloco k. 0 = somente o tipo interna. 1 = tipo interna e retrabalha(Dependendo da Engenharia de retrabalho).
+	Local cHabCorte  := GETNEWPAR("GR_HABCORT", "0") // Habilita controle de corte.
 	Local cNumAgru   := GETNEWPAR("GR_LOTINSD", "DUPLI000") // Numero do lote inicial para insumo duplicado. Necessario para o cliente que deseja que o sistema crie os insumos de L/s Iguais a engenharia.
 	Local cLoteIns   := ""
 	Local lHAltZH8   := GETNEWPAR("GR_HALTZH8", .F.) // Habilita para o sistema alterar a ZH8 quando encontrar divergencia de saldo com a SB8.https://totvsleste.freshdesk.com/a/tickets/2660
@@ -1718,21 +1808,24 @@ Static Function GravaExe(oSay,oModel)
 	Local cCondLoop  := ".F."
 	Local cSiglaRet  := AllTrim(GetNewPar("GR_SIGLARE", "R"))
 	Local cProdRet   := ""
-	Local lGeraSH6   :=  .F. //superGetMv("GR_GERASH6", .F., .F.)
-	Local aRetSH6	 := {.T.,""}
+	Local cGruRec    := ""
+	Local cTipRec    := ""
+	Local cSeqLan    := "000"
+	Local lCampo22   := .F.
+	Local aRet		 := {}
+	Local cNumReser  := ""
 
-	Private lMsErroAuto := .F.
-	Private lGrPlus     := .T.
+	Private lGrPlus        := .T.
+	Private lMsErroAuto    := .F.
+
+	If isBlind()
+		Private lMsHelpAuto    := .T.
+		Private lAutoErrNoFile := .T.
+	EndIf
 
 	IF (ZH7->(FieldPos("ZH7_ROTINA"))> 0)
 		cRotCria   := oModelZH7:GetValue("ZH7_ROTINA")
 	EndIF
-
-	If lGeraSH6 .and. EMPTY(oModel:GetValue('ZH7MASTER','ZH7_RECURS'))
-		cMsgErro  := "Para salvar a op e necessário informar um recurso(ZH7_RECURS) na criação da Op."
-		MsgStop(cMsgErro)
-		Return .F.
-	EndIf
 
 	lRotNova  :=  alltrim(cRotCria) $ "GROA060/GROA062"
 
@@ -1797,13 +1890,17 @@ Static Function GravaExe(oSay,oModel)
 
 			NEXT
 
-			If !Empty(cMensage)
+			if !Empty(cMensage) .And. !lHAltZH8 .And. isblind()
+				cMsgErro := cMensage
+				Return .f.
+			ElseIf !Empty(cMensage)
 
 				If lHAltZH8
 					MSGSTOP(cMensage,"1)Sistema encontrou divergencia e ajustou a quantidade entre a materia prima(ZH8_TOTLIQ) e o saldo da chapas (B8_SALDO) ")
 				Else
 					//Se não altera automatico, e para o sistema retornar para alteração da Op
 					MSGSTOP(cMensage,"2)Sistema encontrou divergencia entre a quantidade  da materia prima(ZH8_TOTLIQ) e o saldo da chapas (B8_SALDO),Favor deletar os itens e incluir novamente ")
+					cMsgErro := cMensage
 					Return .f.
 				EndIf
 			EndIF
@@ -1812,7 +1909,7 @@ Static Function GravaExe(oSay,oModel)
 
 	//Op gerada pela industrialização com lote estava apresentando a mensagem no momento de excluir.
 	//https://totvsleste.freshdesk.com/a/tickets/2153
-	if(INCLUI .or. ALTERA)
+	if(INCLUI .or. ALTERA) .And. !IsBlind()
 		//validando se o produto esta sem lote na ZH9 e na SB1 informando para usar lote
 		If (cProcesso $ 'R')
 			If(!VALIDALOTR(oModel))
@@ -1825,6 +1922,13 @@ Static Function GravaExe(oSay,oModel)
 			EndIF
 		EndIf
 	EndIF
+
+	aRet := GRLIDSB8(oModel)
+
+	If !(aRet[1])
+		cMsgErro := "GRLIDSB8 " + CHR(13)+ CHR(13) + aRet[2]
+		Return .f.
+	EndIf
 
 	Begin Transaction
 
@@ -1843,7 +1947,7 @@ Static Function GravaExe(oSay,oModel)
 		If nOperation == MODEL_OPERATION_DELETE
 			lDelete := .T.
 		ElseIf nOperation == MODEL_OPERATION_UPDATE
-			If !(type("lRoti06")=="L".and. lRoti06) .AND. !isBlind() .AND. MsgYesNo("Deseja refazer as operações, insumos, mão de obra e ferramentas?")
+			If isBlind() .Or. (!(type("lRoti06")=="L".and. lRoti06) .AND. MsgYesNo("Deseja refazer as operações, insumos, mão de obra e ferramentas?"))
 				lDelete := .T.
 			EndIf
 		EndIf
@@ -1884,18 +1988,18 @@ Static Function GravaExe(oSay,oModel)
 				cCondLoop := CVALTOCHAR(IIF(lRotNova,.T.,.F.))
 			EndIf
 
-			U_DelTabZG("ZGH", cNumOp,cCondLoop)
+			U_DelTabZG("ZGH", cNumOp, cCondLoop)
 
 			//-----------------------------------------------------------
 			// ZGI Apontamento x Insumos
 			//-----------------------------------------------------------
-			//Validar para a nota tela
+			//Validar para a nova tela
 			cCondLoop  := ".F."
 			if( nOperation == MODEL_OPERATION_UPDATE )
 				cCondLoop := "alltrim(&(cTabela)->(ZGI_ORIGEM)) $ 'GROA060/GROA062'"
 			EndIf
 
-			U_DelTabZG("ZGI", cNumOp,cCondLoop)
+			U_DelTabZG("ZGI", cNumOp, cCondLoop)
 
 			//-----------------------------------------------------------
 			// ZGK	Apontamento x Mão de Obra
@@ -1906,9 +2010,20 @@ Static Function GravaExe(oSay,oModel)
 			// ZGL	Apontamento x Ferramentas
 			//-----------------------------------------------------------
 			U_DelTabZG("ZGL", cNumOp)
+
+			//-----------------------------------------------------------
+			// ZS3	Conferência do Corte
+			//-----------------------------------------------------------
+			U_DelTabZG("ZS3", cNumOp,, "_NUM")
+
+			//-----------------------------------------------------------
+			// ZS7	Insumos do Corte
+			//-----------------------------------------------------------
+			U_DelTabZG("ZS7", cNumOp,, "_NUM")
+
 		EndIf
 
-		If !isBlind()	
+		If !isBlind()
 			oSay:SetText("Excluindo Empenhos...")
 			ProcessMessage()
 		Else
@@ -1971,20 +2086,24 @@ Static Function GravaExe(oSay,oModel)
 
 				cDadoPes := xFilial("SB2")+qQuerySd4->D4_COD+qQuerySd4->D4_LOCAL
 				If U_REGBLQ("SB2",1,cDadoPes,"")
-					DisarmTransaction()
 					dDataBase := dDataOld
 					qQuerySd4->(DBCLOSEAREA())
+					DisarmTransaction()
 					Return .F.
 				EndIF
 
 				MSExecAuto({|x,y| MATA380(x,y)}, aArraySD4, 5)
 
 				If lMsErroAuto
-					ConOut(cValToChar(ProcLine()))
-					DisarmTransaction()
-					MostraErro()
+					ConOut("GrPlusMVC => [GROA038][ERROR][LINHA][" + cValToChar(ProcLine()) + "]")
+					If isBlind()
+						cMsgErro := U_GetError(.T.)
+					Else
+						MostraErro()
+					EndIf
 					dDataBase := dDataOld
 					qQuerySd4->(DBCLOSEAREA())
+					DisarmTransaction()
 					Return .F.
 				EndIf
 
@@ -2022,9 +2141,9 @@ Static Function GravaExe(oSay,oModel)
 
 				If lMsErroAuto
 					cMsgErro  := oUtil:getAutoError()
+					dDataBase := dDataOld
 					DisarmTransaction()
 					MsgStop(cMsgErro)
-					dDataBase := dDataOld
 					Return .F.
 				EndIf
 			Else
@@ -2047,9 +2166,13 @@ Static Function GravaExe(oSay,oModel)
 						SC2->C2_NUM + SC2->C2_ITEM + SC2->C2_SEQUEN})
 
 					If lMsErroAuto
-						DisarmTransaction()
 						dDataBase := dDataOld
-						MostraErro()
+						If isBlind()
+							cMsgErro := U_GetError(.T.)
+						Else
+							MostraErro()
+						EndIf
+						DisarmTransaction()
 						Return .F.
 					EndIf
 
@@ -2060,6 +2183,70 @@ Static Function GravaExe(oSay,oModel)
 		EndDo
 
 		If nOperation == MODEL_OPERATION_DELETE
+
+			ZPA->(DbSetOrder(5))
+			ZPA->(DbSeek(xFilial("ZPA") + cNumOp))
+			While ZPA->(!Eof()) .And. ZPA->(ZPA_FILIAL + ZPA_OP) == xFilial("ZPA") + cNumOp
+
+				cNumReser  := ZPA->(ZPA_NUMERO)
+
+				SC0->(DbSetOrder(1))
+				SC0->(DbSeek(xFilial("SC0") + ZPA->(ZPA_NUMRES + ZPA_PRODUT + ZPA_LOCAL + ZPA_LOTECT + ZPA_NUMLOT)))
+
+				While SC0->(!Eof()) .And. SC0->(C0_FILIAL + C0_NUM + C0_PRODUTO + C0_LOCAL + C0_LOTECTL + C0_NUMLOTE)  == xFilial("SC0") + ZPA->(ZPA_NUMRES + ZPA_PRODUT + ZPA_LOCAL + ZPA_LOTECT + ZPA_NUMLOT)
+
+					RecLock("SC0", .F.)
+					SC0->C0_QUANT  := ZPA->ZPA_QUANTI
+					SC0->C0_QTDPED := 0
+					SC0->(MsUnLock())
+
+					If  !IntDL(SC0->C0_PRODUTO)
+						lCampo22 := !Empty(SC0->C0_LOTECTL+SC0->C0_NUMLOTE).Or.Localiza(SC0->C0_PRODUTO)
+					Else
+						lCampo22 := !Empty(SC0->C0_LOTECTL+SC0->C0_NUMLOTE+SC0->C0_LOCALIZ+SC0->C0_NUMSERI)
+					EndIf
+
+					GravaEmp(SC0->C0_PRODUTO,; //-- 1
+					SC0->C0_LOCAL,; //-- 2
+					SC0->C0_QUANT,; //-- 3
+					NIL,; //-- 4
+					SC0->C0_LOTECTL,; //-- 5
+					SC0->C0_NUMLOTE,; //-- 6
+					SC0->C0_LOCALIZ,; //-- 7
+					SC0->C0_NUMSERI,; //-- 8
+					Nil,; //-- 9
+					Nil,; //-- 10
+					SC0->C0_NUM,; //-- 11
+					Nil,; //-- 12
+					"SC0",; //-- 13
+					Nil,; //-- 14
+					Nil,; //-- 15
+					Nil,; //-- 16
+					.F.,; //-- 17 Remove reserva
+					.F.,; //-- 18
+					.T.,; //-- 19
+					.F.,; //-- 20
+					Nil,; //-- 21
+					lCampo22) //-- 22
+
+					SC0->(DbSkip())
+
+				EndDo
+
+				RecLock("ZPA", .F.)
+				ZPA->ZPA_OP = ""
+				ZPA->(MsUnLock())
+				ZPA->(DbSeek(xFilial("ZPA") + cNumOp))
+
+			EndDo
+
+			//A reserva estava ficando como encerrada. Porem precisa ser aberta.
+			ZP9->(DbSetOrder(1))
+			If ZP9->(DbSeek(xFilial("ZP9") + cNumReser))
+				RecLock("ZP9", .F.)
+				ZP9->ZP9_STATUS := "A"
+				ZP9->(MsUnLock())
+			EndIf
 
 			//Atualiza o Cavalete sem os produtos retrabalho a partir do número da OP antes de deleta-la na SC2.
 			u_ATCAVZPB(cNumOp)
@@ -2096,8 +2283,12 @@ Static Function GravaExe(oSay,oModel)
 				MSExecAuto({|x,y| MATA650(x,y)}, aArraySC2, 5)
 
 				If lMsErroAuto
-					ConOut(cValToChar(ProcLine()))
-					MostraErro()
+					ConOut("GrPlusMVC => [GROA038][ERROR][LINHA][" + cValToChar(ProcLine()) + "]")
+					If isBlind()
+						cMsgErro := U_GetError(.T.)
+					Else
+						MostraErro()
+					EndIf
 					dDataBase := dDataOld
 					DisarmTransaction()
 					Return .F.
@@ -2173,8 +2364,12 @@ Static Function GravaExe(oSay,oModel)
 						MSExecAuto({|x,y| MATA650(x,y)}, aArraySC2, 5)
 
 						If lMsErroAuto
-							ConOut(cValToChar(ProcLine()))
-							MostraErro()
+							ConOut("GrPlusMVC => [GROA038][ERROR][LINHA][" + cValToChar(ProcLine()) + "]")
+							If isBlind()
+								cMsgErro := U_GetError(.T.)
+							Else
+								MostraErro()
+							EndIf
 							dDataBase := dDataOld
 							DisarmTransaction()
 							Return .F.
@@ -2273,8 +2468,12 @@ Static Function GravaExe(oSay,oModel)
 									MSExecAuto({|x,y| MATA650(x,y)}, aArraySC2, 5)
 
 									If lMsErroAuto
-										ConOut(cValToChar(ProcLine()))
-										MostraErro()
+										ConOut("GrPlusMVC => [GROA038][ERROR][LINHA][" + cValToChar(ProcLine()) + "]")
+										If isBlind()
+											cMsgErro := U_GetError(.T.)
+										Else
+											MostraErro()
+										EndIf
 										dDataBase := dDataOld
 										DisarmTransaction()
 										Return .F.
@@ -2289,6 +2488,9 @@ Static Function GravaExe(oSay,oModel)
 								aAdd(aArraySC2, {"C2_LOCAL",   oModelZH9:GetValue('ZH9_LOCAL'),  NIL})
 								aAdd(aArraySC2, {"C2_UM",      oModelZH9:GetValue('ZH9_UM'),     NIL})
 								aAdd(aArraySC2, {"C2_YQTDUNI", oModelZH9:GetValue('ZH9_QUANTI'), NIL})
+								aAdd(aArraySC2, {"C2_SEGUM",   oModelZH9:GetValue('ZH9_SEGUM'),  NIL})
+								aAdd(aArraySC2, {"C2_QTSEGUM", oModelZH9:GetValue('ZH9_QTDSEG'), NIL})
+
 								//https://projetostotvses.freshdesk.com/a/tickets/2571
 								If cProcesso $ "B/T"
 									aAdd(aArraySC2, {"C2_QUANT", oModelZH9:GetValue('ZH9_TOTLIQ'), NIL})
@@ -2308,18 +2510,6 @@ Static Function GravaExe(oSay,oModel)
 								If cProcesso $ "E/R"
 									aAdd(aArraySC2, {"C2_YLOTECT", oModelZH9:GetValue('ZH9_LOTECT'), NIL})
 									aAdd(aArraySC2, {"C2_YNUMLOT", oModelZH9:GetValue('ZH9_NUMLOT'), NIL})
-								EndIf
-
-								If lGeraSH6
-									aRetSH6 :=  U_GRROTE(oModelZH8:GetValue('ZH8_ENGENH'),oModelZH9:GetValue('ZH9_CODPA'))
-									IF aRetSH6[1]
-										aAdd(aArraySC2, {"C2_ROTEIRO",aRetSH6[2], NIL})
-									Else
-										cMsgErro  := "Sistema não encontrou uma operação para essa engenharia(SVI). Favor alterar a engenharia. Com esse processo de somentente alterar, o sistema cria uma operação."
-										DisarmTransaction()
-										MsgStop(cMsgErro)
-										Return .F.
-									EndIf
 								EndIf
 
 								If __cProcess == "R"
@@ -2399,7 +2589,7 @@ Static Function GravaExe(oSay,oModel)
 
 									elseIf lContTer
 										If !MsgYesNo("1 - Não foi encontrado o campo C2_YCLITER/C2_YLOJTER necessário para os dados do bloco k. Favor executar o udponline para criar o campo. Deseja continuar a operação ?")
-											ConOut(cValToChar(ProcLine()))
+											ConOut("GrPlusMVC => [GROA038][ERROR][LINHA][" + cValToChar(ProcLine()) + "]")
 											dDataBase := dDataOld
 											DisarmTransaction()
 											Return .F.
@@ -2421,8 +2611,12 @@ Static Function GravaExe(oSay,oModel)
 								EndIf
 
 								If lMsErroAuto
-									ConOut(cValToChar(ProcLine()))
-									MostraErro()
+									ConOut("GrPlusMVC => [GROA038][ERROR][LINHA][" + cValToChar(ProcLine()) + "]")
+									If isBlind()
+										cMsgErro := U_GetError(.T.)
+									Else
+										MostraErro()
+									EndIf
 									dDataBase := dDataOld
 									DisarmTransaction()
 									Return .F.
@@ -2493,8 +2687,12 @@ Static Function GravaExe(oSay,oModel)
 							MSExecAuto({|x,y| MATA650(x,y)}, aArraySC2, 5)
 
 							If lMsErroAuto
-								ConOut(cValToChar(ProcLine()))
-								MostraErro()
+								ConOut("GrPlusMVC => [GROA038][ERROR][LINHA][" + cValToChar(ProcLine()) + "]")
+								If isBlind()
+									cMsgErro := U_GetError(.T.)
+								Else
+									MostraErro()
+								EndIf
 								dDataBase := dDataOld
 								DisarmTransaction()
 								Return .F.
@@ -2522,20 +2720,8 @@ Static Function GravaExe(oSay,oModel)
 						aAdd(aArraySC2, {"C2_YSITUAC", "P", NIL})
 						aAdd(aArraySC2, {"C2_YLOTECT", oModelZH9:GetValue('ZH9_LOTECT'), NIL})
 						aAdd(aArraySC2, {"C2_YNUMLOT", oModelZH9:GetValue('ZH9_NUMLOT'), NIL})
-
-						If lGeraSH6
-
-							aRetSH6 :=  U_GRROTE(oModelZH8:GetValue('ZH8_ENGENH'),oModelZH9:GetValue('ZH9_CODPA'))
-
-							IF aRetSH6[1]
-								aAdd(aArraySC2, {"C2_ROTEIRO",aRetSH6[2], NIL})
-							Else
-								cMsgErro  := "Sistema não encontrou uma operação para essa engenharia(SVI). Favor alterar a engenharia. Com esse processo de somente alterar, o sistema cria uma operação."
-								DisarmTransaction()
-								MsgStop(cMsgErro)
-								Return .F.
-							EndIf
-						EndIf
+						aAdd(aArraySC2, {"C2_SEGUM",   oModelZH9:GetValue('ZH9_SEGUM'),  NIL})
+						aAdd(aArraySC2, {"C2_QTSEGUM", oModelZH9:GetValue('ZH9_QTDSEG'), NIL})
 
 						cItemOp   := "01"
 						cSequenOp := oModelZH9:GetValue('ZH9_SEQUEN')
@@ -2564,8 +2750,12 @@ Static Function GravaExe(oSay,oModel)
 						EndIf
 
 						If lMsErroAuto
-							ConOut(cValToChar(ProcLine()))
-							MostraErro()
+							ConOut("GrPlusMVC => [GROA038][ERROR][LINHA][" + cValToChar(ProcLine()) + "]")
+							If isBlind()
+								cMsgErro := U_GetError(.T.)
+							Else
+								MostraErro()
+							EndIf
 							dDataBase := dDataOld
 							DisarmTransaction()
 							Return .F.
@@ -2598,10 +2788,10 @@ Static Function GravaExe(oSay,oModel)
 			aRetAuto := u_execautoZgm(cNumOp)
 
 			If !(aRetAuto[1])
-				DisarmTransaction()
-				cMsgErro := decodeUTF8(aRetAuto[2])
-				MsgStop(cMsgErro)
+				cMsgErro  := decodeUTF8(aRetAuto[2])
 				dDataBase := dDataOld
+				DisarmTransaction()
+				MsgStop(cMsgErro)
 				Return .F.
 			EndIf
 
@@ -2615,10 +2805,10 @@ Static Function GravaExe(oSay,oModel)
 			aRetAuto := u_GeraEmpenho(cNumOp, oModel)
 
 			If !(aRetAuto[1])
-				DisarmTransaction()
-				cMsgErro := decodeUTF8(aRetAuto[2])
-				MsgStop(cMsgErro)
+				cMsgErro  := decodeUTF8(aRetAuto[2])
 				dDataBase := dDataOld
+				DisarmTransaction()
+				MsgStop(cMsgErro)
 				Return .F.
 			EndIf
 
@@ -2648,7 +2838,7 @@ Static Function GravaExe(oSay,oModel)
 			cSequencia := "00"
 			While SC2->(!eof()) .and. SC2->C2_FILIAL + SC2->C2_NUM == xFilial("SC2") + cNumOp
 
-				cRecurso   := SC2->C2_YTEAR
+				cRecurso := SC2->C2_YTEAR
 				//cSequencia := "00"
 
 				ZG8->(DbSetOrder(4))
@@ -2659,7 +2849,7 @@ Static Function GravaExe(oSay,oModel)
 					If nPosReg == 0
 						cSequencia := soma1(cSequencia)
 						cSeqOperac := cSequencia
-						aAdd(aOperacao, {cSequencia, alltrim(ZG8->ZG8_OPERAC)})
+						aAdd(aOperacao, {cSequencia, alltrim(ZG8->ZG8_OPERAC), alltrim(ZG8->ZG8_OPEREP)})
 					Else
 						cSeqOperac := aOperacao[nPosReg,1]
 					EndIf
@@ -2678,9 +2868,9 @@ Static Function GravaExe(oSay,oModel)
 						cMsgErro	:= oUtil:setExecAuto('SGF', aRegistro, 'GF_PRODUTO+GF_ROTEIRO+GF_OPERAC', 3)
 
 						If !Empty(cMsgErro)
+							dDataBase := dDataOld
 							DisarmTransaction()
 							MsgStop(cMsgErro)
-							dDataBase := dDataOld
 							Return .F.
 						Else
 							RecLock("SC2", .F.)
@@ -2754,7 +2944,7 @@ Static Function GravaExe(oSay,oModel)
 						nPosReg := aScan(aInsumo, {|x| x[1] + x[3] + x[4] + x[8] == cSeqOperac + ZG8->ZG8_OPERAC + ZGB->ZGB_PRODUT + cLoteIns})
 
 						If nPosReg == 0
-							aAdd(aInsumo, {cSeqOperac, ZGB->ZGB_ROTEIR, ZG8->ZG8_OPERAC, ZGB->ZGB_PRODUT, U_QTDRECUR(ZGB->ZGB_FIXVAR,ZGB->ZGB_QTDE,SC2->C2_QUANT,SC2->C2_YTEAR) , ZGB->ZGB_UM, ZGB->ZGB_LOCAL,cLoteIns})
+							aAdd(aInsumo, {cSeqOperac, ZGB->ZGB_ROTEIR, ZG8->ZG8_OPERAC, ZGB->ZGB_PRODUT, U_QTDRECUR(ZGB->ZGB_FIXVAR, ZGB->ZGB_QTDE, SC2->C2_QUANT, SC2->C2_YTEAR), ZGB->ZGB_UM, ZGB->ZGB_LOCAL, cLoteIns, ZGB->ZGB_FIXVAR})
 						Else
 							aInsumo[nPosReg, 5] += U_QTDRECUR(ZGB->ZGB_FIXVAR,ZGB->ZGB_QTDE,SC2->C2_QUANT,SC2->C2_YTEAR)
 						EndIf
@@ -2770,7 +2960,6 @@ Static Function GravaExe(oSay,oModel)
 
 			nOperacao := len(aOperacao)
 
-
 			For nW := 1 to nOperacao
 
 				aAutoCab := {}
@@ -2779,19 +2968,24 @@ Static Function GravaExe(oSay,oModel)
 				aAdd(aAutoCab, {"ZGH_SEQUEN", aOperacao[nW,1]})
 				aAdd(aAutoCab, {"ZGH_ORDEM",  aOperacao[nW,1]})
 				aAdd(aAutoCab, {"ZGH_OPERAC", aOperacao[nW,2]})
+				aAdd(aAutoCab, {"ZGH_OPEREP", aOperacao[nW,3]})
 				aAdd(aAutoCab, {"ZGH_RECURS", cRecurso})
 				aAdd(aAutoCab, {"ZGH_STATUS", "P"})
 
 				cMsgErro := oUtil:setExecAuto('ZGH', aAutoCab, 'ZGH_OP+ZGH_SEQUEN', 3)
 
 				If !Empty(cMsgErro)
+					dDataBase := dDataOld
 					DisarmTransaction()
 					MsgStop(cMsgErro)
-					dDataBase := dDataOld
 					Return .F.
 				EndIf
 
 			Next
+
+			cGruRec := Posicione("SH1", 1, xFilial("SH1") + oModelZH7:GetValue('ZH7_RECURS'), "H1_YGRUPO")
+			cTipRec := Posicione("ZGF", 1, xFilial("ZGF") + cGruRec, "ZGF_TIPO")
+			cSeqLan := "000"
 
 			For nW := 1 to len(aInsumo)
 
@@ -2799,32 +2993,84 @@ Static Function GravaExe(oSay,oModel)
 				IF ExistBlock('GRLOCINS')
 					aInsumo[nW,7] := U_GRLOCINS('IDOP',aInsumo[nW])
 					If !(ExistCpo("NNR",xFilial("NNR")+aInsumo[nW,7]))
-						cMsgErro := "P.E - U_GRLOCINS - Armazem não esta cadastrado"
+						cMsgErro  := "P.E - U_GRLOCINS - Armazem não esta cadastrado"
+						dDataBase := dDataOld
 						DisarmTransaction()
 						MsgStop(cMsgErro)
-						dDataBase := dDataOld
 						Return .F.
 					EndIf
 				EndIf
 
-				aAutoCab := {}
+				If cHabCorte == "0"
 
-				aAdd(aAutoCab, {"ZGI_FILIAL", xFilial("ZGI"), NIL})
-				aAdd(aAutoCab, {"ZGI_OP",     cNumOp,         NIL})
-				aAdd(aAutoCab, {"ZGI_SEQUEN", aInsumo[nW,1],  NIL})
-				aAdd(aAutoCab, {"ZGI_PRODUT", aInsumo[nW,4],  NIL})
-				aAdd(aAutoCab, {"ZGI_QTDE",   aInsumo[nW,5],  NIL})
-				aAdd(aAutoCab, {"ZGI_UM",     aInsumo[nW,6],  NIL})
-				aAdd(aAutoCab, {"ZGI_LOCAL",  aInsumo[nW,7],  NIL})
-				aAdd(aAutoCab, {"ZGI_LOTECT", aInsumo[nW,8],  NIL})
-				aAdd(aAutoCab, {"ZGI_ORIGEM", cRotCria	   ,  NIL})
+					aAutoCab := {}
 
-				cMsgErro := oUtil:setExecAuto('ZGI', aAutoCab, 'ZGI_OP+ZGI_SEQUEN+ZGI_PRODUT+ZGI_LOTECT', 3,2)
+					aAdd(aAutoCab, {"ZGI_FILIAL", xFilial("ZGI"), NIL})
+					aAdd(aAutoCab, {"ZGI_OP",     cNumOp,         NIL})
+					aAdd(aAutoCab, {"ZGI_SEQUEN", aInsumo[nW,1],  NIL})
+					aAdd(aAutoCab, {"ZGI_PRODUT", aInsumo[nW,4],  NIL})
+					aAdd(aAutoCab, {"ZGI_QTDE",   aInsumo[nW,5],  NIL})
+					aAdd(aAutoCab, {"ZGI_UM",     aInsumo[nW,6],  NIL})
+					aAdd(aAutoCab, {"ZGI_LOCAL",  aInsumo[nW,7],  NIL})
+					aAdd(aAutoCab, {"ZGI_LOTECT", aInsumo[nW,8],  NIL})
+					aAdd(aAutoCab, {"ZGI_ORIGEM", cRotCria	   ,  NIL})
+
+					cMsgErro := oUtil:setExecAuto('ZGI', aAutoCab, 'ZGI_OP+ZGI_SEQUEN+ZGI_PRODUT+ZGI_LOCAL+ZGI_LOTECT', 3, 2)
+
+				ElseIf aInsumo[nW, 9] $ "V/F" .And. !(cTipRec $ "M/N/B") // Fio diamantado não usa insumo.
+
+					aAutoCab := {}
+
+					aAdd(aAutoCab, {"ZGI_FILIAL", xFilial("ZGI"), NIL})
+					aAdd(aAutoCab, {"ZGI_OP",     cNumOp,         NIL})
+					aAdd(aAutoCab, {"ZGI_SEQUEN", aInsumo[nW,1],  NIL})
+					aAdd(aAutoCab, {"ZGI_PRODUT", aInsumo[nW,4],  NIL})
+					aAdd(aAutoCab, {"ZGI_QTDE",   aInsumo[nW,5],  NIL})
+					aAdd(aAutoCab, {"ZGI_UM",     aInsumo[nW,6],  NIL})
+					aAdd(aAutoCab, {"ZGI_LOCAL",  aInsumo[nW,7],  NIL})
+					aAdd(aAutoCab, {"ZGI_LOTECT", aInsumo[nW,8],  NIL})
+					aAdd(aAutoCab, {"ZGI_ORIGEM", cRotCria	   ,  NIL})
+
+					cMsgErro := oUtil:setExecAuto('ZGI', aAutoCab, 'ZGI_OP+ZGI_SEQUEN+ZGI_PRODUT+ZGI_LOCAL+ZGI_LOTECT', 3, 2)
+
+				ElseIf aInsumo[nW, 9] $ "D" .And. cTipRec $ "M/N/B"
+
+					aAutoCab := {}
+					cSeqLan  := Soma1(cSeqLan)
+
+					aAdd(aAutoCab, {"ZS7_FILIAL", xFilial("ZS7"), NIL})
+					aAdd(aAutoCab, {"ZS7_NUM",    cNumOp,         NIL})
+					aAdd(aAutoCab, {"ZS7_SEQUEN", aInsumo[nW,1],  NIL})
+					aAdd(aAutoCab, {"ZS7_SEQLAN", cSeqLan,        NIL})
+					aAdd(aAutoCab, {"ZS7_PRODUT", aInsumo[nW,4],  NIL})
+					aAdd(aAutoCab, {"ZS7_UM",     aInsumo[nW,6],  NIL})
+					aAdd(aAutoCab, {"ZS7_LOCAL",  aInsumo[nW,7],  NIL})
+					aAdd(aAutoCab, {"ZS7_LOTECT", aInsumo[nW,8],  NIL})
+
+					cMsgErro := oUtil:setExecAuto('ZS7', aAutoCab, 'ZS7_NUM+ZS7_SEQUEN+ZS7_SEQLAN', 3, 1)
+
+				ElseIf aInsumo[nW, 9] $ "L" .And. cTipRec $ "T"
+
+					aAutoCab := {}
+					cSeqLan  := Soma1(cSeqLan)
+
+					aAdd(aAutoCab, {"ZS7_FILIAL", xFilial("ZS7"), NIL})
+					aAdd(aAutoCab, {"ZS7_NUM",    cNumOp,         NIL})
+					aAdd(aAutoCab, {"ZS7_SEQUEN", aInsumo[nW,1],  NIL})
+					aAdd(aAutoCab, {"ZS7_SEQLAN", cSeqLan,        NIL})
+					aAdd(aAutoCab, {"ZS7_PRODUT", aInsumo[nW,4],  NIL})
+					aAdd(aAutoCab, {"ZS7_UM",     aInsumo[nW,6],  NIL})
+					aAdd(aAutoCab, {"ZS7_LOCAL",  aInsumo[nW,7],  NIL})
+					aAdd(aAutoCab, {"ZS7_LOTECT", aInsumo[nW,8],  NIL})
+
+					cMsgErro := oUtil:setExecAuto('ZS7', aAutoCab, 'ZS7_NUM+ZS7_SEQUEN+ZS7_SEQLAN', 3, 1)
+
+				EndIf
 
 				If !Empty(cMsgErro)
-					DisarmTransaction()
-					MsgStop(cMsgErro)
 					dDataBase := dDataOld
+					DisarmTransaction()
+					MsgStop(DecodeUTF8(cMsgErro))
 					Return .F.
 				EndIf
 
@@ -2843,6 +3089,18 @@ Static Function GravaExe(oSay,oModel)
 			//Return .F.
 		EndIf
 
+		//----------------------------------------------------------
+		// Caso o número de corte seja maior que o do cadastro
+		// de recurso, atualiza.
+		//----------------------------------------------------------
+		SH1->(DbSetOrder(1))
+		If SH1->(DbSeek(xFilial("SH1") + oModelZH7:GetValue('ZH7_RECURS')))
+			If oModelZH7:GetValue('ZH7_NUMCOR') > SH1->H1_YNUMCOR
+				RecLock("SH1", .F.)
+				SH1->H1_YNUMCOR := oModelZH7:GetValue('ZH7_NUMCOR')
+				SH1->(MsUnLock())
+			EndIf
+		EndIf
 
 		// If nOperation <> 5
 
@@ -2880,9 +3138,7 @@ Static Function GravaExe(oSay,oModel)
 	End Transaction
 
 	If oUtil <> NIL
-		//oUtil := NIL
 		oUtil:destroy()
-		//FreeObj(oUtil)
 	EndIf
 
 	If lCheckKey
@@ -3338,15 +3594,28 @@ Static Function VALIDLOTE(oModel)
 
 						EndIf
 					ElseIf(cProcesso $ 'E')
-						If cVerLotPA <> "L" .OR. cVerLotMA <>'L'
+						// Atenção:
+						// Não entendi essa regra, pois a extração é feito com a MP sendo a pedreira,
+						// que no caso não tem Lote
 
+						// If cVerLotPA <> "L" .OR. cVerLotMA <>'L'
+
+						// 	lRet   := .F.
+						// 	cMsg  := "MA ou PA com rastro diferente de lote - Materia prima: " + oModelZH8:GetValue("ZH8_CODMAT") + " com rastro: " + cVerLotMA +" e o Produto acabado: " + oModelZH9:GetValue("ZH9_CODPA") + " com rastro: " + cVerLotPA
+						// 	cSolu := "Verifique o rastro dos produtos "
+						// 	Help(NIL, NIL, "GROA038 - PreGrava", NIL, cMsg ,1, 0, NIL, NIL, NIL, NIL, NIL, {cSolu})
+						// 	Return .F.
+
+						// EndIF
+
+						If cVerLotPA <> "L"
 							lRet   := .F.
-							cMsg  := "MA ou PA com rastro diferente de lote - Materia prima: " + oModelZH8:GetValue("ZH8_CODMAT") + " com rastro: " + cVerLotMA +" e o Produto acabado: " + oModelZH9:GetValue("ZH9_CODPA") + " com rastro: " + cVerLotPA
-							cSolu := "Verifique o rastro dos produtos "
+							cMsg  := "No processo de extração o Prouto Acabado deve ser controlar por Lote."
+							cSolu := "Verifique o rastro do produto"
 							Help(NIL, NIL, "GROA038 - PreGrava", NIL, cMsg ,1, 0, NIL, NIL, NIL, NIL, NIL, {cSolu})
 							Return .F.
-
 						EndIF
+
 					ElseIf(cProcesso $ 'S')
 						If cVerLotPA <> "S" .OR. cVerLotMA <>'L'
 
@@ -3691,6 +3960,7 @@ Static Function ValidaCampos()
 	aAdd(aCampos, "D3_QUANT")
 	aAdd(aCampos, "D3_YTOTBRU")
 	aAdd(aCampos, "D3_YTOTLIQ")
+	aAdd(aCampos, "D3K_QTDE")
 	aAdd(aCampos, "D4_QSUSP")
 	aAdd(aCampos, "D4_QTDEORI")
 	aAdd(aCampos, "D4_QTSEGUM")
@@ -3811,8 +4081,10 @@ Static Function ValidaCampos()
 	aAdd(aCampos, "ZPA_TOTLIQ")
 	aAdd(aCampos, "ZPB_TOTBRU")
 	aAdd(aCampos, "ZPB_TOTLIQ")
+	aAdd(aCampos, "ZH9_QTDSEG")
+	aAdd(aCampos, "ZGM_QTDSEG")
 
-	cMsg = "Encontrado campo de Quantidade e/ou Total com tamanhos diferente!" + Chr(13) + Chr(10)
+	cMsg := "Encontrado campo de Quantidade e/ou Total com tamanhos diferente!" + Chr(13) + Chr(10)
 	cMsg += "Verifique tamanho dos seguintes campos no dicionário :" + Chr(13) + Chr(10) + Chr(13) + Chr(10)
 
 	For nI := 1 To Len(aCampos)
@@ -3989,7 +4261,7 @@ User Function validSD4(cNumOp)
 
 		if nHandle = -1
 			cMsErro := "Erro ao criar arquivo - TotvesEs" + Str(Ferror())
-			conout(cMsErro)
+			ConOut(cMsErro)
 		else
 
 			FWrite(nHandle, cMensage)
@@ -4036,3 +4308,51 @@ User Function GRROTE(cEngen,cProd)
 	qQueryGR->(DbCloseArea())
 
 Return {lRet,cCodAlt}
+
+/*/{Protheus.doc} nomeStaticFunction
+	(long_description)
+	Função para validar os dados da SB8 antes da op ser criada.
+	@type  Static Function
+	@author user
+	@since 19/09/2025
+	@version version
+	@param param_name, param_type, param_descr
+	@return return_var, return_type, return_description
+	@example
+	(examples)
+	@see (links_or_references)
+/*/
+Static Function GRLIDSB8(oModel)
+
+	Local aRet	     :={.T.,""}
+	Local oModelZH8  := oModel:GetModel('ZH8DETAIL')
+	Local oModelZH7  := oModel:GetModel("ZH7MASTER")
+	Local dEmissao 	 := oModelZH7:GetValue("ZH7_EMISSA")
+	Local nRegZH8    := oModelZH8:Length()
+	Local nX 	     := 0
+	Local cMensage   := ""
+
+	For nX := 1 To nRegZH8
+
+		oModelZH8:GoLine(nX)
+
+		If oModelZH8:IsDeleted()
+			Loop
+		EndIf
+
+		SB8->(DbSetOrder(3))
+
+		If SB8->(DbSeek(xFilial("SB8") + oModelZH8:GetValue('ZH8_CODMAT') + oModelZH8:GetValue('ZH8_LOCAL') + oModelZH8:GetValue('ZH8_LOTECT') + oModelZH8:GetValue('ZH8_NUMLOT')))
+
+			If SB8->B8_DATA > dEmissao
+
+				cMensage += "Materia prima: " + Alltrim(oModelZH8:GetValue('ZH8_CODMAT')) + " Armazem:" + alltrim(oModelZH8:GetValue('ZH8_LOCAL')) + " Lote:" + alltrim(oModelZH8:GetValue('ZH8_LOTECT')) + " SubLote:" + alltrim(oModelZH8:GetValue('ZH8_NUMLOT'))+ CHR(13)+ CHR(13)
+				cMensage += "A data da materia prima " + U_FORMTADT(SB8->B8_DATA)  +" é menor que a data da Ordem de produção  " + U_FORMTADT(dEmissao)  +" . A Ordem de produção não pode ser criada com data de emissão(ZH7_EMISSA) anterior a materia prima existir."+ CHR(13) + CHR(10)
+				cMensage += "Solução: Altere a data da Ordem de produção " + U_FORMTADT(dEmissao)  +" para uma data posterior a materia prima " + U_FORMTADT(SB8->B8_DATA)  + CHR(13) + CHR(10)
+				aRet := {.f.,cMensage}
+
+			EndIf
+		EndIf
+	NEXT
+
+Return aRet

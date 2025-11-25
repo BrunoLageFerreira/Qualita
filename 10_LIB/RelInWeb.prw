@@ -9,7 +9,7 @@ Criado por: Bruno
 Data......: 12/01/2018
 Uso.......: 
 
-http://administrador:xpacD99label@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0056&rs:Command=Render
+http://Administrator:xpacD95label@131.255.255.16:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRQ0056&rs:Command=Render
 */
 #define SW_SHOWNA           8 // Esconde a barra de tarefas
 #define SW_SHOWNORMAL       1 // Normal
@@ -307,16 +307,16 @@ Private aRethora   := {}
 	DBCLOSEAREA()
 
 	If SubString(CNUMEMP,1,2) == "01"
-		cLink		:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
-		cLinkInt	:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
-		cLinkIe   	:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLink		:= 'http://' + cSenhas + '@131.255.255.16:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkInt	:= 'http://' + cSenhas + '@131.255.255.16:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkIe   	:= 'http://' + cSenhas + '@131.255.255.16:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
 	else
-		cLink		:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
-		cLinkInt	:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
-		cLinkIe   	:= 'http://' + cSenhas + '@189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma	
+		cLink		:= 'http://' + cSenhas + '@131.255.255.16:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkInt	:= 'http://' + cSenhas + '@131.255.255.16:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma
+		cLinkIe   	:= 'http://' + cSenhas + '@131.255.255.16:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2f'+ cPrograma	
 	EndIf
 	
-	//cLink		:= "http://189.50.0.33:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRIM0019&rs:Command=Render"
+	//cLink		:= "http://131.255.255.16:10530/ReportServer/Pages/ReportViewer.aspx?%2fItinga_reports%2fRIM0019&rs:Command=Render"
 	//EndIf
 	//http://192.168.0.201/report_server?%2fsup_brasil%2fRSB0027&DTINI=2018/1/1&DTFIM=2018/12/31&NATINI=0&NATFIM=ZZZZZZ&TIPOPREV=2&rs:Format=MHTML" -O '+ @Filename +''
 

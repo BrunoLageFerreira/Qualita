@@ -240,13 +240,13 @@ Private aRethora   := {}
 	DBCLOSEAREA()
 
 	If SubString(CNUMEMP,1,2) == "01"
-		cLink		:= 'http://' + cSenhas + '@189.50.0.33:10530/Report/powerbi/BI/'+ cPrograma 
-		cLinkInt	:= 'http://' + cSenhas + '@189.50.0.33:10530/Report/powerbi/BI/'+ cPrograma
-		cLinkIe   	:= 'http://' + cSenhas + '@189.50.0.33:10530/Report/powerbi/BI/'+ cPrograma
+		cLink		:= 'http://' + cSenhas + '@131.255.255.16:10530/Report/powerbi/BI/'+ cPrograma 
+		cLinkInt	:= 'http://' + cSenhas + '@131.255.255.16:10530/Report/powerbi/BI/'+ cPrograma
+		cLinkIe   	:= 'http://' + cSenhas + '@131.255.255.16:10530/Report/powerbi/BI/'+ cPrograma
 	else
-		cLink		:= 'http://' + cSenhas + '@189.50.0.33:10530/Report/powerbi/BI/'+ cPrograma
-		cLinkInt	:= 'http://' + cSenhas + '@189.50.0.33:10530/Report/powerbi/BI/'+ cPrograma
-		cLinkIe   	:= 'http://' + cSenhas + '@189.50.0.33:10530/Report/powerbi/BI/'+ cPrograma	
+		cLink		:= 'http://' + cSenhas + '@131.255.255.16:10530/Report/powerbi/BI/'+ cPrograma
+		cLinkInt	:= 'http://' + cSenhas + '@131.255.255.16:10530/Report/powerbi/BI/'+ cPrograma
+		cLinkIe   	:= 'http://' + cSenhas + '@131.255.255.16:10530/Report/powerbi/BI/'+ cPrograma	
 	EndIf
 	
 	If "COMPI" $ upper(GetEnvServer())
